@@ -1,0 +1,4 @@
+<!--pages/detail/detail.wxml-->
+<template name="item">
+  <text bindtap="tapName">大豪爷</text>
+</template>

@@ -1,0 +1,29 @@
+<template name="section_video">
+    <div class="mod_video_player">
+        <div id="media_el"></div>
+        <div class="loading">
+            <div class="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
+        </div>
+        <div class="mod_video_mask">
+            <span class="video_mask_btn"></span>
+        </div>
+        <div class="buy_course_pop_videomask">
+            <div class="buy_course_pop_videomask_inner">
+                <div class="videomask_inner_tip">{{data.tip}}</div>
+                <div class="videomask_inner_price">
+                    <span class="videomask_inner_price_count">{{free?"免费": "￥"+price}}</span>
+                </div>
+                <div class="videomask_inner_btn">
+                    <!--<a class="videomask_inner_btn_a" href="{{data.joinUrl}}">{{data.btnWord}}</a>-->
+                    <a class="videomask_inner_btn_a" href="javascript:;">{{data.btnWord}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
