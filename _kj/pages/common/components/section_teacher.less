@@ -1,0 +1,119 @@
+.section_teacher{
+    .teacher_title{
+        word-wrap: break-word;
+        font-size: 17px;
+        .course_name_detail{
+            margin-top: 15px;
+            margin-left: 10px;
+            color: #333;
+        }
+        .video_duration{
+            margin-left: 10px;
+            margin-top: 6px;
+            font-size: 14px;
+            margin-bottom: 15px;
+            color: #999;
+            .video_duration_time{
+            }
+        }
+    }
+    .mod_teacher_info{
+        overflow: hidden;
+        position: relative;
+        &> navigator{
+            background-color: red;
+            overflow: hidden;
+            display: block;
+            float: left;
+            .teacher_avatar_box{
+                background-color: blue;
+                float: left;
+                width: 60px;
+                height: 60px;
+                text-align: center;
+                margin: 15px 0 15px 15px;
+                .teacher_avatar{
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 30px;
+                    vertical-align: middle;
+                }
+            }
+        }
+        .teacher_intro_box{
+            display: inline-block;
+            font-size: 8px;
+            margin-top: 21px;
+            margin-left: 10px;
+            .teacher_name{
+                font-size: 16px;
+                margin-bottom: 9px;
+            }
+            .notice_font_color{
+                color: #333;
+            }
+            .teacher_course{
+                font-size: 13px;
+                .sub_font_color{
+                    color: #999;
+                    .notice_font_color{
+                        margin-left: 6px;
+                    }
+                }
+                .teacher_course_student{
+                    margin-left: 24px;
+                }
+            }
+        }
+        .teacher_follow_btn{
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            position: absolute;
+            right: 10px;
+            top: 22px;
+            border: 1px solid #3ac9ab;
+            border-radius: 3px;
+            color: #3ac9ab;
+            width: 65px;
+            height: 25px;
+            line-height: 25px;
+            .teacher_follow{
+                display: block;
+                font-size: 14px;
+                position: relative;
+                padding-left: 25px;
+                color: #3ac9ab;
+                line-height: 24px;
+                &:before{
+                    display: block;
+                    position: absolute;
+                    left: 5px;
+                    top: 2px;
+                    content: "";
+                    width: 18px;
+                    height: 18px;
+                    background-color: red;
+                    // background: url(../image/video_teacher_follow_2.png) no-repeat 50%;
+                    background-size: 11px;
+                }
+            }
+            .follow_qrcode{
+                position: absolute;
+                left: -115px;
+                top: -70px;
+                width: 100px;
+                height: 100px;
+                display: none;
+                border: 1px solid #e5e5e5;
+            }
+        }
+    }
+    .teacher_detail_box{
+        word-wrap: break-word;
+        margin: 0 10px 15px 14px;
+        .teacher_detail_content{
+            font-size: 13px;
+            line-height: 1.5;
+        }
+    }
+}

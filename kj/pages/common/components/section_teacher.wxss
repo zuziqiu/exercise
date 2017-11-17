@@ -1,0 +1,114 @@
+.section_teacher .teacher_title {
+  word-wrap: break-word;
+  font-size: 17px;
+}
+.section_teacher .teacher_title .course_name_detail {
+  margin-top: 15px;
+  margin-left: 10px;
+  color: #333;
+}
+.section_teacher .teacher_title .video_duration {
+  margin-left: 10px;
+  margin-top: 6px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: #999;
+}
+.section_teacher .mod_teacher_info {
+  overflow: hidden;
+  position: relative;
+}
+.section_teacher .mod_teacher_info > navigator {
+  background-color: red;
+  overflow: hidden;
+  display: block;
+  float: left;
+}
+.section_teacher .mod_teacher_info > navigator .teacher_avatar_box {
+  background-color: blue;
+  float: left;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  margin: 15px 0 15px 15px;
+}
+.section_teacher .mod_teacher_info > navigator .teacher_avatar_box .teacher_avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  vertical-align: middle;
+}
+.section_teacher .mod_teacher_info .teacher_intro_box {
+  display: inline-block;
+  font-size: 8px;
+  margin-top: 21px;
+  margin-left: 10px;
+}
+.section_teacher .mod_teacher_info .teacher_intro_box .teacher_name {
+  font-size: 16px;
+  margin-bottom: 9px;
+}
+.section_teacher .mod_teacher_info .teacher_intro_box .notice_font_color {
+  color: #333;
+}
+.section_teacher .mod_teacher_info .teacher_intro_box .teacher_course {
+  font-size: 13px;
+}
+.section_teacher .mod_teacher_info .teacher_intro_box .teacher_course .sub_font_color {
+  color: #999;
+}
+.section_teacher .mod_teacher_info .teacher_intro_box .teacher_course .sub_font_color .notice_font_color {
+  margin-left: 6px;
+}
+.section_teacher .mod_teacher_info .teacher_intro_box .teacher_course .teacher_course_student {
+  margin-left: 24px;
+}
+.section_teacher .mod_teacher_info .teacher_follow_btn {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  right: 10px;
+  top: 22px;
+  border: 1px solid #3ac9ab;
+  border-radius: 3px;
+  color: #3ac9ab;
+  width: 65px;
+  height: 25px;
+  line-height: 25px;
+}
+.section_teacher .mod_teacher_info .teacher_follow_btn .teacher_follow {
+  display: block;
+  font-size: 14px;
+  position: relative;
+  padding-left: 25px;
+  color: #3ac9ab;
+  line-height: 24px;
+}
+.section_teacher .mod_teacher_info .teacher_follow_btn .teacher_follow:before {
+  display: block;
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  content: "";
+  width: 18px;
+  height: 18px;
+  background-color: red;
+  background-size: 11px;
+}
+.section_teacher .mod_teacher_info .teacher_follow_btn .follow_qrcode {
+  position: absolute;
+  left: -115px;
+  top: -70px;
+  width: 100px;
+  height: 100px;
+  display: none;
+  border: 1px solid #e5e5e5;
+}
+.section_teacher .teacher_detail_box {
+  word-wrap: break-word;
+  margin: 0 10px 15px 14px;
+}
+.section_teacher .teacher_detail_box .teacher_detail_content {
+  font-size: 13px;
+  line-height: 1.5;
+}

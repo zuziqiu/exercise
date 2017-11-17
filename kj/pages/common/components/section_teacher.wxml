@@ -1,20 +1,20 @@
 <template name="section_teacher">
-    <view id="section_teacher">
+    <view class="section_teacher">
         <view class="teacher_title">
-            <view>{{data.courseName}}</view>
+            <view class="course_name_detail">这里是课程名称</view>
             <view class="video_duration">
                 总时长：<span class="video_duration_time"></span>
             </view>
         </view>
         <view class="mod_teacher_info clearfix">
-            <a href="{{data.homeUrl}}">
+            <navigator href="{{data.homeUrl}}">
                 <view class="teacher_avatar_box">
                     <image class="teacher_avatar" src="{{data.avatar}}"></image>
                 </view>
-            </a>
+            </navigator>
             <view class="teacher_intro_box">
                 <view class="teacher_name notice_font_color">
-                    <a class="teacher_name_a" href="{{data.homeUrl}}">{{data.name}}</a>
+                    <navigator class="teacher_name_a" href="{{data.homeUrl}}">这里是老师名称</navigator>
                 </view>
                 <view class="teacher_course">
                     <span class="sub_font_color">课程:<em class="notice_font_color">{{data.saleTotal}}</em></span>
@@ -22,16 +22,16 @@
                 </view>
             </view>
             <view class="teacher_follow_btn">
-                <a href="javascript:;" class="teacher_follow" data-uid="{{data.uid}}" data-url="{{data.followUrl}}">
+                <navigator href="javascript:;" class="teacher_follow" data-uid="{{data.uid}}" data-url="{{data.followUrl}}">
                     关注
-                </a>
+                </navigator>
                 <view class="follow_qrcode">
                     <image src="{{data.qrcode}}"></image>
                 </view>
             </view>
         </view>
         <view class="teacher_detail_box">
-            <p>{{data.selfIntro}}</p>
+            <view class="teacher_detail_content">这里是老师的介绍</view>
         </view>
     </view>
 </template>

@@ -1,0 +1,12 @@
+<template name="section_course">
+    <view class="section_course">
+        <view class="course_tip mod_title">
+            课程介绍
+        </view>
+        <view class="course_detail">
+            <text class="course_detail_content">
+                这里是一大串课程介绍
+            </text>
+        </view>
+    </view>
+</template>
