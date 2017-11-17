@@ -1,0 +1,32 @@
+<template name="free_course_pop_outer">
+    <view class="free_course_pop_outer">
+        <view class="free_course_pop">
+            <view class="free_course_pop_icon"></view>
+            <view class="free_course_pop_tip">已参加该课程</view>
+        </view>
+    </view>
+</template>
+
+<template name="buy_course_pop_outer">
+    <view type="text/template" class="buy_course_pop_outer">
+        <view class="buy_course_pop">
+            <view class="buy_course_pop_tit">
+                订单信息
+                <i class="buy_course_pop_close"></i>
+            </view>
+            <view class="buy_course_pop_con buy_course_pop_course">
+                <view class="buy_course_pop_con_tit">课程</view>
+                <view class="buy_course_pop_con_con">{{data.courseName}}</view>
+            </view>
+            <view class="buy_course_pop_con buy_course_pop_price">
+                <view class="buy_course_pop_con_tit">总价</view>
+                <view class="buy_course_pop_con_con buy_course_pop_con_price"><view>￥</view>{{data.price}}</view>
+            </view>
+            <view class="buy_course_pop_buy">
+                <view class="buy_course_pop_buy_btn">
+                    <navigator class="buy_course_pop_buy_btn_a" href="javaview:;">确认购买</navigator>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

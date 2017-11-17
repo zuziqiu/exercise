@@ -3,6 +3,11 @@
   <template is="section_video" data="{{...render_data}}"/>
   <import src="./../common/components/section_teacher.wxml"/>
   <template is="section_teacher" data="{{...render_data}}"/>
-    <import src="./../common/components/section_course.wxml"/>
+  <import src="./../common/components/section_course.wxml"/>
   <template is="section_course" data="{{...render_data}}"/>
+  <import src="./../common/components/section_other_course.wxml"/>
+  <template is="section_other_course" data="{{...render_data}}"/>
+  <import src="./../common/components/section_pop.wxml"/>
+  <template is="buy_course_pop_outer" data="{{...render_data}}"/>
+  <template is="free_course_pop_outer" data="{{...render_data}}"/>
 </block>

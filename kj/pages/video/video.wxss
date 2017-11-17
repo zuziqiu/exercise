@@ -1,3 +1,5 @@
 @import "./../common/components/section_video.wxss";
 @import "./../common/components/section_teacher.wxss";
 @import "./../common/components/section_course.wxss";
+@import "./../common/components/section_other_course.wxss";
+@import "./../common/components/section_pop.wxss";

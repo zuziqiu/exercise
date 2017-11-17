@@ -1,0 +1,62 @@
+.section_other_course .mod_title {
+  margin: 20px 0 15px 15px;
+  font-size: 17px;
+  color: #333;
+}
+.section_other_course .other_tip {
+  margin: 20px 0 0 15px;
+}
+.section_other_course .mod_content {
+  padding-bottom: 10px;
+}
+.section_other_course .mod_content .other_course_one {
+  float: left;
+  width: 46%;
+}
+.section_other_course .mod_content .other_course_one:nth-of-type(odd) {
+  float: left;
+  margin-left: 3%;
+}
+.section_other_course .mod_content .other_course_one:nth-of-type(even) {
+  float: right;
+  margin-right: 3%;
+}
+.section_other_course .mod_content .other_course_one .other_course_one_a {
+  display: inline-block;
+}
+.section_other_course .mod_content .other_course_one .other_course_one_a .other_course_one_box_img {
+  position: relative;
+}
+.section_other_course .mod_content .other_course_one .other_course_one_a .other_course_one_box_img image {
+  background-color: red;
+  background-size: 100% 100%;
+  width: 172px;
+  height: 115px;
+  display: block;
+}
+.section_other_course .mod_content .other_course_one .other_course_one_a .other_course_one_box_img .other_course_one_stat {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  content: '';
+  width: 32px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  background-color: #ffa113;
+  font-size: 12px;
+  color: #fff;
+}
+.section_other_course .mod_content .other_course_one .other_course_one_a .other_course_one_word {
+  text-align: center;
+  font-size: 14px;
+  padding-top: 5px;
+  height: 20px;
+  line-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.section_other_course .mod_content .other_course_one_first {
+  padding-top: 15px;
+}

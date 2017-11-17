@@ -1,0 +1,64 @@
+.section_other_course{
+    .mod_title{
+        margin: 20px 0 15px 15px;
+        font-size: 17px;
+        color: #333;
+    }
+    .other_tip{
+        margin: 20px 0 0 15px;
+    }
+    .mod_content{
+        padding-bottom: 10px;
+        .other_course_one{
+            float: left;
+            width: 46%;
+            &:nth-of-type(odd) {
+                float: left;
+                margin-left: 3%;
+            }
+            &:nth-of-type(even) {
+                float: right;
+                margin-right: 3%;
+            }
+            .other_course_one_a{
+                display: inline-block;
+                .other_course_one_box_img{
+                    position: relative;
+                    image{
+                        background-color: red;
+                        background-size: 100% 100%;
+                        width: 172px;
+                        height: 115px;
+                        display: block;
+                    }
+                    .other_course_one_stat {
+                        position: absolute;
+                        right: 0;
+                        bottom: 0;
+                        content: '';
+                        width: 32px;
+                        height: 16px;
+                        line-height: 16px;
+                        text-align: center;
+                        background-color: #ffa113;
+                        font-size: 12px;
+                        color: #fff;
+                    }
+                }
+                .other_course_one_word{
+                    text-align: center;
+                    font-size: 14px;
+                    padding-top: 5px;
+                    height: 20px;
+                    line-height: 20px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+        }
+        .other_course_one_first{
+            padding-top: 15px;
+        }
+    }
+}
