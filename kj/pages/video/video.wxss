@@ -3,3 +3,14 @@
 @import "./../common/components/section_course.wxss";
 @import "./../common/components/section_other_course.wxss";
 @import "./../common/components/section_pop.wxss";
+
+.kj_service{
+    font-size: 14px;
+    color: #666;
+    background-color: #f2f2f2;
+    padding: 15px 0 15px;
+    display: block;
+    width: 100%;
+    letter-spacing: 1px;
+    text-align: center;
+}

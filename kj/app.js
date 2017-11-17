@@ -1,16 +1,19 @@
 //app.js
 App({
   data:{
-    global_data:{
-      free: false
-    }
   },
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
+    // 获取设备信息
+    wx.getSystemInfo({
+      success: res =>{
+        this.globalData._windowWidth = res.windowWidth;
+        this.globalData._windowHeight = res.windowHeight;
+      }
+    })
     // 登录
     wx.login({
       success: res => {
@@ -39,6 +42,9 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    free: false,
+    _windowWidth: 0,
+    _windowHeight: 0
   }
 })

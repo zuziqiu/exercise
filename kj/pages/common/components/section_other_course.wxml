@@ -9,7 +9,7 @@
                 <navigator class="other_course_one_a" href="{{$value.url}}">
                     <view class="other_course_one_box">
                         <view class="other_course_one_box_img">
-                            <image class="other_course_one_img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAYAAACddGYaAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAB90RVh0U29mdHdhcmUATWFjcm9tZWRpYSBGaXJld29ya3MgOLVo0ngAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDUvMTIvMTdc840eAAAAEklEQVQImWP8//8/AwwwMSABAEgGAwGJgUfPAAAAAElFTkSuQmCC" alt=""></image>
+                            <image style="width:{{_windowWidth*45/100+'px'}};height:{{_windowWidth*45/100*2/3+'px'}}" class="other_course_one_img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAYAAACddGYaAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAB90RVh0U29mdHdhcmUATWFjcm9tZWRpYSBGaXJld29ya3MgOLVo0ngAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDUvMTIvMTdc840eAAAAEklEQVQImWP8//8/AwwwMSABAEgGAwGJgUfPAAAAAElFTkSuQmCC" alt=""></image>
                             <view class="other_course_one_stat">直播</view>
                         </view>
                         <view class="other_course_one_word">
@@ -22,7 +22,7 @@
                 <navigator class="other_course_one_a" href="{{$value.url}}">
                     <view class="other_course_one_box">
                         <view class="other_course_one_box_img">
-                            <image class="other_course_one_img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAYAAACddGYaAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAB90RVh0U29mdHdhcmUATWFjcm9tZWRpYSBGaXJld29ya3MgOLVo0ngAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDUvMTIvMTdc840eAAAAEklEQVQImWP8//8/AwwwMSABAEgGAwGJgUfPAAAAAElFTkSuQmCC" alt=""></image>
+                            <image style="width:{{_windowWidth*45/100+'px'}};height:{{_windowWidth*45/100*2/3+'px'}}" class="other_course_one_img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAYAAACddGYaAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAB90RVh0U29mdHdhcmUATWFjcm9tZWRpYSBGaXJld29ya3MgOLVo0ngAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDUvMTIvMTdc840eAAAAEklEQVQImWP8//8/AwwwMSABAEgGAwGJgUfPAAAAAElFTkSuQmCC" alt=""></image>
                             <view class="other_course_one_stat">直播</view>
                         </view>
                         <view class="other_course_one_word">

@@ -1,5 +1,5 @@
 <template name="section_video">
-  <view class="section_video">
+  <view style="height:{{_windowWidth*9/16 + 'px'}}" class="section_video">
     <view class="mod_video_player">
         <view id="media_el"></view>
         <view class="loading">

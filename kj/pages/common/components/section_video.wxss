@@ -1,14 +1,12 @@
 .section_video {
   margin: 0 auto;
   width: 100%;
-  height: 234px;
 }
 .section_video .mod_video_player {
   width: 100%;
-  height: 234px;
+  height: 100%;
   position: relative;
   box-shadow: rgba(0, 0, 0, 0.2) 0 2px 8px;
-  position: fixed;
   top: 0;
   z-index: 99;
 }
@@ -22,7 +20,7 @@
   border-bottom: 1px solid #e5e5e5;
   z-index: 999;
   width: 100%;
-  height: 234px;
+  height: 100%;
 }
 .section_video .mod_video_player .loading .spinner {
   position: absolute;
