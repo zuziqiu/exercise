@@ -1,4 +1,4 @@
 <block wx:if="{{true}}">
-  <import src="./../common/components/section_video/section_video.wxml"/>
+  <import src="./../common/components/section_video.wxml"/>
   <template is="section_video" data="{{...render_data}}"/>
 </block>
