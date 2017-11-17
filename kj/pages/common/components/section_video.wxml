@@ -1,29 +1,31 @@
 <template name="section_video">
-    <div class="mod_video_player">
-        <div id="media_el"></div>
-        <div class="loading">
-            <div class="spinner">
-                <div class="rect1"></div>
-                <div class="rect2"></div>
-                <div class="rect3"></div>
-                <div class="rect4"></div>
-                <div class="rect5"></div>
-            </div>
-        </div>
-        <div class="mod_video_mask">
+  <view class="section_video">
+    <view class="mod_video_player">
+        <view id="media_el"></view>
+        <view class="loading">
+            <view class="spinner">
+                <view class="rect rect1"></view>
+                <view class="rect rect2"></view>
+                <view class="rect rect3"></view>
+                <view class="rect rect4"></view>
+                <view class="rect rect5"></view>
+            </view>
+        </view>
+        <view class="mod_video_mask">
             <span class="video_mask_btn"></span>
-        </div>
-        <div class="buy_course_pop_videomask">
-            <div class="buy_course_pop_videomask_inner">
-                <div class="videomask_inner_tip">{{data.tip}}</div>
-                <div class="videomask_inner_price">
+        </view>
+        <view class="buy_course_pop_videomask">
+            <view class="buy_course_pop_videomask_inner">
+                <view class="videomask_inner_tip">{{data.tip}}</view>
+                <view class="videomask_inner_price">
                     <span class="videomask_inner_price_count">{{free?"免费": "￥"+price}}</span>
-                </div>
-                <div class="videomask_inner_btn">
+                </view>
+                <view class="videomask_inner_btn">
                     <!--<a class="videomask_inner_btn_a" href="{{data.joinUrl}}">{{data.btnWord}}</a>-->
                     <a class="videomask_inner_btn_a" href="javascript:;">{{data.btnWord}}</a>
-                </div>
-            </div>
-        </div>
-    </div>
+                </view>
+            </view>
+        </view>
+    </view>
+  </view>
 </template>

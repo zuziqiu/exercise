@@ -1,0 +1,38 @@
+<template name="section_teacher">
+    <view id="section_teacher">
+        <view class="teacher_title">
+            <h1>{{data.courseName}}</h1>
+            <view class="video_duration">
+                总时长：<span class="video_duration_time"></span>
+            </view>
+        </view>
+        <view class="separate"></view>
+        <view class="mod_teacher_info clearfix">
+            <a href="{{data.homeUrl}}">
+                <view class="teacher_avatar_box">
+                    <image class="teacher_avatar" src="{{data.avatar}}"></image>
+                </view>
+            </a>
+            <view class="teacher_intro_box">
+                <view class="teacher_name notice_font_color">
+                    <a class="teacher_name_a" href="{{data.homeUrl}}">{{data.name}}</a>
+                </view>
+                <view class="teacher_course">
+                    <span class="sub_font_color">课程:<em class="notice_font_color">{{data.saleTotal}}</em></span>
+                    <span class="sub_font_color teacher_course_student">学员:<em class="notice_font_color">{{data.studentCount}}</em></span>
+                </view>
+            </view>
+            <view class="teacher_follow_btn">
+                <a href="javascript:;" class="teacher_follow" data-uid="{{data.uid}}" data-url="{{data.followUrl}}">
+                    关注
+                </a>
+                <view class="follow_qrcode">
+                    <image src="{{data.qrcode}}"></image>
+                </view>
+            </view>
+        </view>
+        <view class="teacher_detail_box">
+            <p>{{data.selfIntro}}</p>
+        </view>
+    </view>
+</template>

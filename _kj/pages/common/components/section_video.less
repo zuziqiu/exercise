@@ -1,13 +1,149 @@
 .section_video {
     margin: 0 auto;
+    width: 100%;
     .mod_video_player{
         width: 100%;
+        height: 234px;
         position: relative;
         box-shadow: rgba(0, 0, 0, .2) 0 2px 8px;
         position: fixed;
-        /*left: 50%;*/
-        /*left: 0;*/
         top: 0;
-        z-index: 99
+        z-index: 99;
+        .loading {
+            box-sizing: border-box;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+            background-color: #fff;
+            border-bottom: 1px solid #e5e5e5;
+            z-index: 999;
+            width: 100%;
+            height: 234px;
+            .spinner {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 50px;
+                height: 60px;
+                margin-left: -25px;
+                text-align: center;
+                font-size: 10px;
+                margin-top: -30px;
+            }
+
+            .spinner{
+                .rect{
+                    background-color: #3ac9ab;
+                    height: 100%;
+                    width: 6px;
+                    display: inline-block;
+                    margin-right:4px;
+                    -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+                    animation: stretchdelay 1.2s infinite ease-in-out;
+                }
+            }
+
+            .spinner .rect2 {
+                -webkit-animation-delay: -1.1s;
+                animation-delay: -1.1s;
+            }
+
+            .spinner .rect3 {
+                -webkit-animation-delay: -1.0s;
+                animation-delay: -1.0s;
+            }
+
+            .spinner .rect4 {
+                -webkit-animation-delay: -0.9s;
+                animation-delay: -0.9s;
+            }
+
+            .spinner .rect5 {
+                -webkit-animation-delay: -0.8s;
+                animation-delay: -0.8s;
+            }
+
+            @-webkit-keyframes stretchdelay {
+                0%, 40%, 100% { -webkit-transform: scaleY(0.4) } 
+                20% { -webkit-transform: scaleY(1.0) }
+            }
+
+            @keyframes stretchdelay {
+                0%, 40%, 100% {
+                transform: scaleY(0.4);
+                -webkit-transform: scaleY(0.4);
+                }  20% {
+                    transform: scaleY(1.0);
+                    -webkit-transform: scaleY(1.0);
+                }
+            }
+        }
+        .mod_video_mask {
+            position: absolute;
+            left: 50%;
+            display: none;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .3);
+            z-index: 999;
+            .video_mask_btn {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 65px;
+                height: 65px;
+                margin-left: -32.5px;
+                margin-top: -32.5px;
+                background: url(../image/video_play_btn.png) no-repeat;
+                background-size: 65px;
+            }
+        }
+        .buy_course_pop_videomask{
+            position: absolute;
+            left: 50%;
+            z-index: 9998;
+            display: none;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .8);
+            box-shadow: rgba(0, 0, 0, .2) 0 2px 8px;
+            .buy_course_pop_videomask_inner{
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 190px;
+                height:100px;
+                margin-left: -95px;
+                margin-top: -50px;
+                z-index: 9999;
+                text-align: center;
+                .videomask_inner_tip{
+                    font-size: 16px;
+                    color: #fff;
+                }
+                .videomask_inner_price{
+                    font-size: 22px;
+                    color: #fb7141;
+                    padding: 12.5px 0;
+                    .videomask_inner_price_count{
+
+                    }
+                }
+                .videomask_inner_btn{
+                    .videomask_inner_btn_a{
+                        display: block;
+                        width: 160px;
+                        height: 40px;
+                        line-height: 40px;
+                        border-radius: 20px;
+                        background-color: #3ac9ab;
+                        color: #fff;
+                        margin: 0 auto;
+                        font-size: 17px;
+                    }
+                }
+            }
+        }
     }
 }
