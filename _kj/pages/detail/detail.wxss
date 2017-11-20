@@ -1,1 +1,3 @@
 /* pages/detail/detail.wxss */
+@import "./../common/components/section_topbar.wxss";
+@import "./../common/components/section_catalog.wxss";

@@ -1,6 +1,6 @@
 <template name="section_catalog">
-    <view type="text/template" class="catalog-navigation">
-        <view class="flex">
+    <view class="catalog-navigation">
+        <view class="catalog_content flex">
             <view class="catalog_target selected" data-target_element="center_main" >介绍</view>
             <view class="catalog_target" data-target_element="details_catalog_content">目录</view>
         </view>
