@@ -1,18 +1,31 @@
 // pages/detail/detail.js
+var global_data = getApp().globalData;
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    size:{
+      _windowWidth: 0,
+      _windowHeight: 0
+    },
+    render_data:{
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    console.log(global_data._windowHeight)
+    this.setData({
+      size:{
+        _windowWidth: global_data._windowWidth,
+        _windowHeight: global_data._windowHeight
+      }
+    })
   },
 
   /**

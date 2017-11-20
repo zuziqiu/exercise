@@ -43,7 +43,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    free: false,
+    free: true,
     _windowWidth: 0,
     _windowHeight: 0
   }

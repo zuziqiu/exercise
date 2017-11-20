@@ -1,0 +1,20 @@
+.catalog_navigation{
+    ul{
+        height: 44px;
+        line-height: 44px;
+        width: 100%;
+        // border-top: 1px solid #f5f5f5;
+        border-bottom: 1px solid #f5f5f5;
+        justify-content: space-around;
+        .catalog_target{
+            width: 20%;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #333333;
+            &.selected{
+                color: #3ac9ab;
+                box-shadow: 0 -2px 0 0 #3ac9ab inset;
+            }
+        }
+    }
+}

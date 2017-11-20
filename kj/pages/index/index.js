@@ -12,11 +12,13 @@ Page({
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
-      url: './../video/video'
+      url: './../detail/detail'
     })
   },
-  tapName: function(){
-    click.abc()
+  video: function(){
+    wx.navigateTo({
+      url: './../video/video'
+    })
   },
   onLoad: function () {
     if (app.globalData.userInfo) {

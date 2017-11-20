@@ -8,8 +8,6 @@
     </block>
   </view>
   <view class="usermotto">
-    <text class="user-motto" bindtap="tapName">{{motto}}</text>
+    <text bindtap="video" class="user-motto">{{motto}}</text>
   </view>
 </view>
-<import src="./../detail/detail.wxml"/>
-<template is="item"/>

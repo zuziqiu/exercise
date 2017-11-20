@@ -1,0 +1,9 @@
+<template name="section_topbar">
+    <view style="height:{{_windowWidth*2/3 + 'px'}}" id="topBar" class="top_bar">
+        <view class="live_state">直播中</view>
+        <view class="audio_btn">
+            <view class="audio_ripple"></view>
+            <view class="audio_btn_content">音频介绍</view>
+        </view>
+    </view>
+</template>

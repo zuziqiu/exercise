@@ -1,0 +1,59 @@
+.top_bar {
+  width: 100%;
+  position: relative;
+}
+.top_bar audio {
+  width: 1px;
+  height: 1px;
+  top: 0;
+  left: 0;
+  position: absolute;
+  visibility: hidden;
+}
+.top_bar .live_state {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 2.5rem;
+  height: 1.15rem;
+  line-height: 1.25rem;
+  text-align: center;
+  background-color: #ffa113;
+  font-size: 0.7rem;
+  color: #fff;
+}
+.top_bar .audio_btn {
+  right: 0;
+  bottom: 0;
+  width: 100px;
+  height: 30px;
+  display: none;
+  overflow: hidden;
+  text-align: center;
+  position: absolute;
+  align-items: center;
+  border-radius: 30px;
+  margin: 0px 4% 4% 0px;
+  justify-content: center;
+  /*水平居中*/
+  -webkit-box-pack: center;
+  /*水平居中*/
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -webkit-justify-content: center;
+  /*水平居中*/
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.top_bar .audio_btn .audio_ripple {
+  width: 16px;
+  height: 16px;
+  float: left;
+  background-size: 16px;
+  background-position: 0px;
+  background-repeat: no-repeat;
+}
+.top_bar .audio_btn .audio_btn_content {
+  margin-left: 6px;
+  font-size: 14px;
+  color: #ffffff;
+}

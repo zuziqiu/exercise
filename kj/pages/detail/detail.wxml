@@ -1,4 +1,4 @@
-<!--pages/detail/detail.wxml-->
-<template name="item">
-  <text bindtap="tapName">大豪爷</text>
-</template>
+<import src="./../common/components/section_topbar.wxml"/>
+<template is="section_topbar" data="{{...render_data, ...size}}"/>
+<import src="./../common/components/section_catalog.wxml"/>
+<template is="section_catalog" data="{{...render_data, ...size}}"/>
