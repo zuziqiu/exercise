@@ -1,5 +1,5 @@
 <template name="section_other_course">
-    <view type="text/template" class="section_other_course">
+    <view class="section_other_course">
         <view class="separate"></view>
         <view class="mod_title other_tip">
             其他课程

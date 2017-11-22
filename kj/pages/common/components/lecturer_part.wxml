@@ -1,0 +1,24 @@
+<template name="lecturer_part">
+    <view id="lecturer-part" class="lecturer_part">
+        <view class="lecturer_information">
+            <navigator class="head_portrait" href="javascript: void(0)">
+                <image src="" alt="头像"></image>
+            </navigator>
+            
+            <view class="lecturer_class">
+                <view class="lecturer_name">{{teacherInfo.name}}</view>
+                <view class="course_state">
+                    <view class="sale_course">课程</view>
+                    <view class="sale_total">{{teacherInfo.saleTotal}}</view>
+                </view>
+                <view class="student_state">
+                    <view class="student_count">学员</view>
+                    <view class="student_num">{{teacherInfo.studentCount}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="lecturer_details">
+            <pre><view>暂无老师简介</view></pre>
+        </view>
+    </view>
+</template>

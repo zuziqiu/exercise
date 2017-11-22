@@ -1,0 +1,25 @@
+<template name="course_detail_catalog">
+    <view id="course-details-list" class="">
+        <view class="details_catalog_content-v2">
+            <view class="details_catalog_list">
+                <navigator href="{{d.playUrl}}" class="item">
+                    <view class="item_img_container">
+                        <image class="item_img" src="" alt="" style="width:{{_windowWidth/3 +'px'}};height:{{_windowWidth/3*82/123 +'px'}}"></image>
+                        <view class="icon_container">
+                            <!-- <span class="item_icon {{if d.lessonType ==1}}video{{else}}sound{{/if}}"></span> -->
+                            <span class="item_icon video"></span>
+                        </view>
+                    </view>
+                    <view class="auto_w">
+                        <view class="courseName">{{courseInfo.courseName}}</view>
+                        <view class="course_details">
+                            <view class="time">{{courseInfo.startTimeStr}}</view>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+</template>
+
+

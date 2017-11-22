@@ -1,0 +1,11 @@
+    <!-- 课程标题 -->
+<template name="section_title">
+    <view class="section_title">
+        <view class="teacher_title">
+            <view>{{data.courseName}}</view>
+            <view class="video_duration">
+                总时长：<span class="video_duration_time"></span>
+            </view>
+        </view>
+    </view>
+</template>

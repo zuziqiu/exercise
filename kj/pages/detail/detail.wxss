@@ -1,3 +1,20 @@
 /* pages/detail/detail.wxss */
 @import "./../common/components/section_topbar.wxss";
 @import "./../common/components/section_catalog.wxss";
+@import "./../common/components/introduct_part.wxss";
+@import "./../common/components/lecturer_part.wxss";
+@import "./../common/components/course_introduct.wxss";
+@import "./../common/components/section_other_course.wxss";
+@import "./../common/components/course_detail_catalog.wxss";
+
+.technology_service {
+    color: #666;
+    font-size: .6rem;
+    padding: 15px 0;
+    text-align: center;
+    background-color: #f5f5f5;
+}
+
+.details_catalog_content {
+    margin-bottom: 50px;
+}

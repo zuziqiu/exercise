@@ -1,0 +1,30 @@
+<!-- 简介部分 -->
+<template name="introduct_part">
+    <view id="introduce-part" class="introduce_part">
+        <view class="introduce_top">
+            <view class="course_tittle">{{courseInfo.courseName}}</view>
+            <view class="course_time">
+                {{courseInfo.startTimeStr}}
+            </view>
+            <!--TODO:hasCourse改为请求获取后js判断-->
+            <view class="course_price hidden">
+                <view class="present_price">￥</view>
+                <view class="original_price hidden">￥</view>
+                <view class="limited_indulgence hidden">限时特惠</view>
+            </view>
+
+            <!--已报名印章-->
+            <view class="course_sign_up hidden">
+                <view class="sign_up_icon"></view>
+            </view>
+        </view>
+        <view class="partake_in">
+            <image wx:if="{{join_num>0}}" class="student_portrait" src="" alt=""></image>
+
+            <view class="student_number">{{join_num}}人参加</view>
+
+            <!-- "我的邀请卡"收费的时候按钮内容改变，同时添加类名marketing_car -->
+            <view href="javascript:void(0)" bindtap="invitation" class="my_invitation_car invitation_image">邀请好友</view>
+        </view>
+    </view>
+</template>

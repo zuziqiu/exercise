@@ -1,4 +1,23 @@
+<!-- 顶部信息 -->
 <import src="./../common/components/section_topbar.wxml"/>
 <template is="section_topbar" data="{{...render_data, ...size}}"/>
+<!-- 导航 -->
 <import src="./../common/components/section_catalog.wxml"/>
-<template is="section_catalog" data="{{...render_data, ...size}}"/>
+<template is="section_catalog" data="{{default_tab, ...render_data, ...size}}"/>
+<!--讲师信息-->
+<view class="center_main {{default_tab?'':'hidden'}}">
+    <import src="./../common/components/introduct_part.wxml"/>
+    <template is="introduct_part" data="{{...render_data}}"/>
+    <import src="./../common/components/lecturer_part.wxml"/>
+    <template is="lecturer_part" data="{{...render_data}}"/>
+    <import src="./../common/components/course_introduct.wxml"/>
+    <template is="course_introduct" data="{{...render_data}}"/>
+    <import src="./../common/components/section_other_course.wxml"/>
+    <template is="section_other_course" data="{{...render_data}}"/>
+    <view class="technology_service">美橙提供技术支持</view>
+</view>
+
+<view id="details_catalog_content" class="details_catalog_content {{default_tab?'hidden':''}}">
+    <import src="./../common/components/course_detail_catalog.wxml"/>
+    <template is="course_detail_catalog" data="{{...render_data, ...size}}"/>
+</view>

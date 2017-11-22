@@ -1,0 +1,47 @@
+<template name="section_audio">
+    <view class="section_audio" style="height: {{_windowWidth*2/3 +'px'}}">
+        <view class="mod_audio_player">
+            <view id="media_el"></view>
+            <!-- <view class="loading">
+                <view class="spinner">
+                    <view class="rect1"></view>
+                    <view class="rect2"></view>
+                    <view class="rect3"></view>
+                    <view class="rect4"></view>
+                    <view class="rect5"></view>
+                </view>
+            </view> -->
+            <!-- <view class="audio_teacher"><img src='{{data.avatar}}' alt="教师头像" /></view> -->
+            <view class="mod_audio_mask">
+                <view class="mod_audio_control">
+                    <view class="audio_mask_btn audio_play"></view>
+                    <view id="time_line">
+                        <view id="slider-connect"></view>
+                    </view>
+                    <view class="audio_playing"></view>
+                    <view class="coure_time">
+                        <view class="course_current_time">00:00</view>
+                        <view class="course_duration_time">00:00</view>
+                    </view>
+                </view>
+            </view>
+            <view class="buy_course_pop_videomask">
+                <view class="buy_course_pop_videomask_inner">
+                    <view class="videomask_inner_tip">{{data.tip}}</view>
+                    <view class="videomask_inner_price">
+                        <!--<view>￥<view class="videomask_inner_price_count">{{data.price}}</view></view>-->
+                        <!-- {{if data.price == '免费'}} -->
+                        <view class="videomask_inner_price_count">{{data.price}}</view>
+                        <!-- {{else}} -->
+                        <view class="videomask_inner_price_count">{{ '￥' + data.price}}</view>
+                        <!-- {{/if}} -->
+                    </view>
+                    <view class="videomask_inner_btn">
+                        <!--<a class="videomask_inner_btn_a" href="{{data.joinUrl}}">{{data.btnWord}}</a>-->
+                        <view class="videomask_inner_btn_a" href="javascript:void(0);">{{data.btnWord}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

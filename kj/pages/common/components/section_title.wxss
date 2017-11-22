@@ -1,0 +1,13 @@
+.teacher_title {
+  word-wrap: break-word;
+  padding: 15px;
+  font-size: 17px;
+}
+.teacher_title h1 {
+  color: #333;
+}
+.teacher_title .video_duration {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #999;
+}

@@ -1,0 +1,6 @@
+<template name="section_read_content">
+    <!-- 课程配文 -->
+    <view class="section_read_content">
+        <div id="introduce_content">{{data}}</div>
+    </view>
+</template>

@@ -1,0 +1,118 @@
+<!--pages/invitation/invitation.wxml-->
+<view>
+    <!-- 邀请卡截图 -->
+    <view id="canvas">
+        <view class="canvas_car"></view>
+        <tal:block condition="php: money > 0">
+            <view class="invitation_profit" >每成功邀请一位好友赚<span class="profit_detials">￥${money}</span></view>
+        </tal:block>
+        <!-- <button class="choose_theme">选择其他主题</button> -->
+        <tal:block condition="php: money > 0">
+            <dl class="invitation_explain">
+                <dt>邀请卡说明</dt>
+                <dd>1、每次成功邀请好友购买收益<span class="profit_detials">￥${money}</span></dd>
+                <dd>2、长按图片保存或发送给好友</dd>
+                <dd>3、识别下面二维码关注开讲公众号后，提取你的分成</dd>
+                <dd class="img_box">
+                    <image class="course_detail_qrcode" src="css/images/kai_qr_code.png" alt="二维码"></image>
+                    <view class="press_tips" >
+                        <image src="" alt="长按识别"></image>
+                        <view>长按扫码提取分成</view>
+                    </view>
+                </dd>
+            </dl>
+        </tal:block>
+        <tal:block condition="php: money <= 0">
+            <dl class="invitation_share">
+                <dd>长按图片保存或发送给好友</dd>
+            </dl>
+        </tal:block>
+    </view>
+
+    <!-- <view class="background_box">
+        <section>
+            <view class="choose_background">
+                <ul data-img="css/images/choose_invitation_sprite.png">
+                    <li class="background_selceted">
+                        <image data-img="css/images/background1.png" alt=""></image>
+                    </li>
+                    <li>
+                        <image data-img="css/images/background2.png" alt=""></image>
+                    </li>
+                    <li>
+                        <image data-img="css/images/background3.png" alt=""></image>
+                    </li>
+                    <li>
+                        <image data-img="css/images/background4.png" alt=""></image>
+                    </li>
+                    <li>
+                        <image data-img="css/images/background5.png" alt=""></image>
+                    </li>
+                    <li >
+                        <image data-img="css/images/background6.png" alt=""/>
+                    </li>
+                    <li >
+                        <image data-img="css/images/background7.png" alt=""></image>
+                    </li>
+                    <li >
+                        <image data-img="css/images/background8.png" alt=""></image>
+                    </li>
+                    <li >
+                        <image data-img="css/images/background9.png" alt=""></image>
+                    </li>
+                    <li >
+                        <image data-img="css/images/background10.png" alt=""></image>
+                    </li>
+                    <li >
+                        <image data-img="css/images/background11.png" alt=""></image>
+                    </li>
+                    <li >
+                        <image data-img="css/images/background12.png" alt=""></image>
+                    </li>
+                </ul>
+            </view>
+            <button class="sure_choose">确定</button>
+        </section>
+    </view> -->
+    <!-- 阴影 & 关闭按钮 -->
+    <view class="background">
+    </view>
+    <!-- loading -->
+    <view class="loading">
+        <view class="spinner">
+            <view class="rect1"></view>
+            <view class="rect2"></view>
+            <view class="rect3"></view>
+            <view class="rect4"></view>
+            <view class="rect5"></view>
+        </view>
+    </view>
+    <!-- 邀请卡 -->
+    <view id="invitation_car" class="invitation_car hidden">
+        <view class="user_imf">
+            <image src="" alt="头像"></image>
+            <view class="talk_fun_assistant" tal:content="user/nickname">再给我一次机会</view>
+            <view class="invitation_describe">邀请您参加一个很棒的课程</view>
+            <view class="course_title" tal:content="courseInfo/title">我真是无语了</view>
+            <view class="name" tal:content="teacherInfo/name">我已成殇</view>
+        </view>
+        <view class="course_imf">
+            <view class="course_time" tal:condition="php: courseInfo['courseType'] != 3">
+                <span>时间：</span>
+                <view tal:content="courseInfo/formatStartTime">世界末日</view>
+            </view>
+            <tal:block condition="php: !empty(courseInfo['description'])">
+                <view class="inviter_ifm">
+                    <span>简介：</span>
+                    <view tal:content="courseInfo/description">又要超两行！又要超两行又两行又要超就是不给你省略就是不给你省略就是不给你省略就是不给你省略就是不给你省略</view>
+                    <!-- <view tal:condition="php: courseInfo['uid'] == 106477">夜听刘筱，首场语音直播<br/>数千万人都在听！<br/>她们的情感故事中<br/>一定有你！</view> -->
+                </view>
+            </tal:block>
+            <image class="course_detail_qrcode" src="" alt="二维码"></image>
+            <view class="press_tips" >
+                <image src="" alt="长按识别"></image>
+                <view>长按扫描参与课程</view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -5,7 +5,7 @@
         </view>
         <view class="course_detail">
             <view class="course_detail_content">
-                这里是一大串课程介绍
+                这里是一大串课程介绍{{audioIntro}}
             </view>
         </view>
     </view>

@@ -1,7 +1,6 @@
 //index.js
 //获取应用实例
 const app = getApp()
-var click = require('./../../utils/click.js');
 Page({
   data: {
     motto: 'Hello World',
@@ -18,6 +17,11 @@ Page({
   video: function(){
     wx.navigateTo({
       url: './../video/video'
+    })
+  },
+  voice: function(){
+    wx.navigateTo({
+      url: './../voice/voice'
     })
   },
   onLoad: function () {

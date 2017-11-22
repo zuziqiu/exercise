@@ -1,0 +1,10 @@
+<template name="course_introduct">
+    <view class="course_introduct">
+        <view class="course_introduct_content">
+            <view class="introduce_name">内容介绍</view>
+            <view class="introduce_title" >{{courseInfo.courseDesc}}</view>
+            <view class="introduce_content">{{courseInfo.detail}}</view>
+            <view wx-if="{{courseInfo.courseDesc == '' && courseInfo.detail== ''}}" class="introduce_title">暂无课程介绍</view>
+        </view>
+    </view>
+</template>

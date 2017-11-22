@@ -12,6 +12,14 @@ gulp.task('less:wxss', function(){
     .pipe(gulp.dest('./kj/pages/common/components/'))
 })
 
+// pages:wxss
+gulp.task('pages:wxss', function(){
+    gulp.src(['./_kj/pages/invitation/invitation.less'])
+    .pipe(less())
+    .pipe(rename({extname: ".wxss"}))
+    .pipe(gulp.dest('./kj/pages/invitation/'));
+})
+
 // wxml
 gulp.task('wxmlmin', function(){
     gulp.src(['./_kj/pages/common/components/*.wxml'])
@@ -22,4 +30,5 @@ gulp.task('wxmlmin', function(){
 gulp.task('default', function(){
     gulp.watch('./_kj/pages/common/components/*.wxml',['wxmlmin']);
     gulp.watch('./_kj/pages/common/components/*.less',['less:wxss']);
+    gulp.watch('./_kj/pages/invitation/invitation.less',['pages:wxss']);
 })

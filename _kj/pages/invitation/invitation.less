@@ -1,0 +1,326 @@
+
+@btn_width: 140;
+@btn_height: 1790;
+.main{
+    // padding-top: 15px;
+    text-align: center;
+    background-color: #ffffff;
+    #canvas{
+        width: 73%;
+        margin: 15px auto 20px;
+        // overflow: hidden;
+        .canvas_car{
+            width: 100%;
+            min-height: 560px*0.7;
+            margin: 0 auto 40px;
+            image{
+                width: 100%;
+                height: 100%;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            }
+        }
+        .invitation_profit{
+            color: #333333;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+            .profit_detials{
+                color: #ffa113;
+                font-size: 0.8rem;
+            }
+        }
+        .choose_theme{
+            outline: none;
+            border: 1px solid #3ac9ab;
+            border-radius: 4px;
+            width: 150px;
+            height: 36px;
+            color: #3ac9ab;
+            line-height: 31px;
+            font-size: 0.8rem;
+            text-align: center;
+            margin-bottom: 15px;
+            background-color: #ffffff;
+        }
+        .invitation_share{
+            dd{
+                text-align: center;
+                color: #999999;
+                font-size: 0.7rem;
+                line-height: 1.2rem;
+            }
+        }
+        .invitation_explain{
+            text-align: left;
+            dt{
+                color: #333333;
+                font-size: 0.8rem;
+                margin-bottom: 4px;
+            }
+            dd{
+                color: #999999;
+                font-size: 0.7rem;
+                line-height: 1.2rem;
+                span{
+                    color: #ffa113;
+                }
+                &.img_box{
+                    margin-top: 14px;
+                    text-align: center;
+                    .course_detail_qrcode{
+                        width: 100px;
+                        height: 100px;
+                        display: inline-block;
+                    }
+                    .press_tips{
+                        vertical-align: top;
+                        height: 90px;
+                        padding-top: 6px;
+                        margin-left: 11px;
+                        text-align: center;
+                        display: inline-block;
+                        image{
+                            width: 60px;
+                            height: 60px;
+                            margin-bottom: 8px;
+                        }
+                        p{
+                            font-size: 13px;
+                            line-height: 13px;
+                            color: #333333;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // .background_box{
+    //  width: 100%;
+    //  height: 0px;
+    //  position: fixed;
+    //  bottom: 0px;
+    //  z-index: 9;
+    //  overflow: hidden;
+    //  background-color: #ffffff;
+    //  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    //  section{
+    //      webkit,::-webkit-scrollbar{
+    //          width: 0;
+    //          height: 0;
+    //      }
+    //      .choose_background{
+    //          width: 100%;
+    //          margin: 15px 0px;
+    //          overflow-x: auto;
+    //          ul{
+    //              min-width: 85px*12;  // li数量*85px;
+    //              height: 70px;
+    //              padding: 0 7.5px;
+    //              text-align: center;
+    //              display: -webkit-flex;
+    //              display: flex;
+    //              -webkit-box-pack: center;           /*水平居中*/
+    //              -webkit-justify-content: center;    /*水平居中*/
+    //              justify-content: center;            /*水平居中*/
+    //              -webkit-box-align: center;          /*垂直居中*/
+    //              -webkit-align-items: center;        /*垂直居中*/
+    //              align-items: center;                /*垂直居中*/
+    //              li{
+    //                  float: left;
+    //                  width: 70px;
+    //                  height: 70px;
+    //                  margin: 0 7.5px;
+    //                  position: relative;
+    //                  display: -webkit-box;
+    //                  background-size: 1px*@btn_width/2 1px*@btn_height/2;
+    //                  background-repeat: no-repeat;
+    //                  image{
+    //                      width: 0px;
+    //                      height: 0px;
+    //                  }
+    //                  &:nth-of-type(1){
+    //                      background-position: 0px -150px/2;
+    //                  }
+    //                  &:nth-of-type(2){
+    //                      background-position: 0px -600px/2;
+    //                  }
+    //                  &:nth-of-type(3){
+    //                      background-position: 0px 0px;
+    //                  }
+    //                  &:nth-of-type(4){
+    //                      background-position: 0px -750px/2;
+    //                  }
+    //                  &:nth-of-type(5){
+    //                      background-position: 0px -1050px/2;
+    //                  }
+    //                  &:nth-of-type(6){
+    //                      background-position: 0px -1200px/2;
+    //                  }
+    //                  &:nth-of-type(7){
+    //                      background-position: 0px -1350px/2;
+    //                  }
+    //                  &:nth-of-type(8){
+    //                      background-position: 0px -1500px/2;
+    //                  }
+    //                  &:nth-of-type(9){
+    //                      background-position: 0px -1650px/2;
+    //                  }
+    //                  &:nth-of-type(10){
+    //                      background-position: 0px -900px/2;
+    //                  }
+    //                  &:nth-of-type(11){
+    //                      background-position: 0px -300px/2;
+    //                  }
+    //                  &:nth-of-type(12){
+    //                      background-position: 0px -450px/2;
+    //                  }
+    //                  &.background_selceted{
+    //                      &:after{
+    //                          content: "";
+    //                          position: absolute;
+    //                          z-index: 10;
+    //                          bottom: 5px;
+    //                          right: 5px;
+    //                          width: 14px;
+    //                          height: 14px;
+    //                          border-radius: 50%;
+    //                          background-color: #ffa113;
+    //                          background-image: url(images/hook.png);
+    //                          background-repeat: no-repeat;
+    //                          background-position: 0px 3px;
+    //                      }
+    //                  }
+    //              }
+    //          }
+    //      }
+    //      .sure_choose{
+    //          color: #3ac9ab;
+    //          font-size: 0.8rem;
+    //          width: 100px;
+    //          height: 36px;
+    //          outline: none;
+    //          line-height: 31px;
+    //          text-align: center;
+    //          border-radius: 4px;
+    //          margin-bottom: 15px;
+    //          background-color: #ffffff;
+    //          border: 1px solid #3ac9ab;
+    //      }
+    //  }
+    // }
+
+    .invitation_car{
+        // background-image: url(./../../static/image/invitation/background1.png);
+        background-size: 640px 1136px;
+        background-repeat: no-repeat;
+        width: 640px;
+        height: 1136px;
+        .user_imf{
+            width: 70%;
+            margin: 0 auto;
+            padding-top: 156px;
+            border-bottom: 1px solid #eeeeee;
+            image{
+                width: 122px;
+                height: 122px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin: 0 auto 22px;
+            }
+            .talk_fun_assistant{
+                font-size: 24px;
+                color: #333;
+                margin-bottom: 18px;
+            }
+            .invitation_describe{
+                font-size: 21px;
+                color: #999999;
+                margin-bottom: 40px;
+            }
+            .course_title{
+                font-size: 42px;
+                line-height: 54px;
+                color: #333;
+                margin-bottom: 10px;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                overflow: hidden;
+            }
+            .name{
+                font-size: 32px;
+                color: #666666;
+                padding-bottom: 38px;
+            }
+        }
+        .course_imf{
+            width: 70%;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 30px;
+            overflow: hidden;
+            .course_time,.inviter_ifm{
+                margin-bottom: 18px;
+                text-align: center;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: flex;
+                -webkit-box-pack: center;           /*水平居中*/
+                -webkit-justify-content: center;    /*水平居中*/
+                justify-content: center;            /*水平居中*/
+                // -webkit-box-align: center;          /*垂直居中*/
+                // -webkit-align-items: center;        /*垂直居中*/
+                // align-items: center;                /*垂直居中*/
+                .course_time_title,.inviter_ifm_title{
+                    font-size: 28px;
+                    color: #999999;
+                    float: left;
+                    min-width: 84px;
+                    display: inline-block;
+                }
+                .course_time_detail,.inviter_ifm_detail{
+                    font-size: 28px;
+                    color: #999999;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 4;
+                    overflow: hidden;
+                    text-align: left;
+                }
+            }               
+            .course_time{
+            }
+            .inviter_ifm{
+                .inviter_ifm_title{
+                    line-height: 40px;
+                }
+                .inviter_ifm_detail{
+                    line-height: 40px;
+                }
+            }
+            .course_detail_qrcode{
+                margin-top: 22px;
+                width: 164px;
+                height: 164px;
+                display: inline-block;
+            }
+            .press_tips{
+                margin-top: 22px;
+                vertical-align: top;
+                height: 164px;
+                margin-left: 22px;
+                padding-top: 6px;
+                text-align: center;
+                display: inline-block;
+                image{
+                    width: 120px;
+                    height: 120px;
+                    margin-bottom: 10px;
+                }
+                &> view{
+                    font-size: 20px;
+                    color: #333333;
+                }
+            }
+        }
+    }
+}

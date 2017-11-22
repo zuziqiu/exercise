@@ -1,13 +1,90 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text bindtap="video" class="user-motto">{{motto}}</text>
-  </view>
+<view>
+    <!--banner-->
+    <div class="section_banner">
+        <image src="" alt=""></image>
+    </div>
+    <!--course-->
+    <div class="section_course">
+        <div class="block_course_header">
+            <view class="course_header_title">课程</view>
+            <!-- <span class="course_header_whole"><a href="#">查看全部</a></span> -->
+        </div>
+        <div class="block_course_main">
+            <tal:block repeat="item courseList">
+                <div class="course_main_container">
+                    <a class="course_main_content" href="${item/course_detail_url}">
+                        <div class="course_cover">
+                            <img src="${item/image}" alt="" />
+                            <!--
+                                视频课程:video
+                                音频课程:audio
+                            -->
+                            <div class="cover_icon video" tal:attributes="class php: item['courseType'] == 1 ? 'cover_icon video' : (item['courseType'] == 2 ? 'cover_icon audio' : 'cover_icon')">
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="course_info">
+                            <span class="course_info_title" tal:content="item/title">改变人生的实用整理术</span>
+                            <span class="course_info_intr" tal:content="item/description">告别混乱迷茫，改变人生的实用整理术</span>
+                            <div class="course_info_bottom">
+                                <span class="course_info_num">${item/trades}&nbsp;人在学</span>
+                                <span class="course_info_free" tal:content="php: item['type'] == 0 ? '免费' : '¥'.item['price']">￥9999</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </tal:block>
+        </div>
+    </div>
+
+    <!--series-->
+    <div class="section_series" tal:condition="php: !empty(seriesCourseList)">
+      <div class="block_series_header">
+          <view class="series_header_title">系列课程</view>
+          <!-- <span class="series_header_whole"><a href="#">查看全部</a></span> -->
+      </div>
+      <div class="block_series_main">
+        <div class="series_main_container">
+            <a class="series_main_content" href="${item/course_detail_url}">
+                <div class="series_cover">
+                    <image src="" alt=""></image>
+                </div>
+                <div class="series_info">
+                    <span class="series_info_title" tal:content="item/title">改变人生的实用整理术</span>
+                    <span class="series_info_intr" tal:content="item/description">告别混乱迷茫，改变人生的实用整理术</span>
+                    <div class="series_info_bottom">
+                        <div class="series_info_num">
+                            <span class="series_info_periods">已更新${item/lessonCount}期</span>
+                            <span class="series_info_line">|</span>
+                            <span class="series_info_people">${item/trades}人开通</span>
+                        </div>
+                        <span class="series_info_free" tal:content="php: item['type'] == 0 ? '免费' : '¥'.item['price']">￥9999</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+      </div>
+    </div>
+    <!--technical support-->
+    <div class="section_support">
+        <span class="mod_block_support">美橙提供技术支持</span>
+    </div>
+    <!--nav-->
+    <div class="section_nav">
+        <div class="mod_blcok_nav">
+            <div class="nav_home">
+                <a class="nav_home_content" href="${index_url}">
+                    <span class="nav_home_chart"></span>
+                    <span class="nav_home_words">首页</span>
+                </a>
+            </div>
+            <div class="nav_center">
+                <a class="nav_center_content" href="${my_study_url}">
+                    <span class="nav_center_chart"></span>
+                    <span class="nav_center_words">我的课程</span>
+                </a>
+            </div>
+        </div>
+    </div>
 </view>

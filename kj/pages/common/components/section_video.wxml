@@ -1,31 +1,31 @@
 <template name="section_video">
-  <view style="height:{{_windowWidth*9/16 + 'px'}}" class="section_video">
-    <view class="mod_video_player">
-        <view id="media_el"></view>
-        <view class="loading">
-            <view class="spinner">
-                <view class="rect rect1"></view>
-                <view class="rect rect2"></view>
-                <view class="rect rect3"></view>
-                <view class="rect rect4"></view>
-                <view class="rect rect5"></view>
-            </view>
-        </view>
-        <view class="mod_video_mask">
-            <span class="video_mask_btn"></span>
-        </view>
-        <view class="buy_course_pop_videomask">
-            <view class="buy_course_pop_videomask_inner">
-                <view class="videomask_inner_tip">{{data.tip}}</view>
-                <view class="videomask_inner_price">
-                    <span class="videomask_inner_price_count">{{free?"免费": "￥"+price}}</span>
+    <view style="height:{{_windowWidth*9/16 + 'px'}}" class="section_video">
+        <view class="mod_video_player">
+            <view id="media_el"></view>
+            <!-- <view class="loading">
+                <view class="spinner">
+                    <view class="rect rect1"></view>
+                    <view class="rect rect2"></view>
+                    <view class="rect rect3"></view>
+                    <view class="rect rect4"></view>
+                    <view class="rect rect5"></view>
                 </view>
-                <view class="videomask_inner_btn">
-                    <!--<a class="videomask_inner_btn_a" href="{{data.joinUrl}}">{{data.btnWord}}</a>-->
-                    <a class="videomask_inner_btn_a" href="javascript:;">{{data.btnWord}}</a>
+            </view> -->
+            <view class="mod_video_mask">
+                <span class="video_mask_btn"></span>
+            </view>
+            <view class="buy_course_pop_videomask">
+                <view class="buy_course_pop_videomask_inner">
+                    <view class="videomask_inner_tip">{{data.tip}}</view>
+                    <view class="videomask_inner_price">
+                        <span class="videomask_inner_price_count">{{free?"免费": "￥"+price}}</span>
+                    </view>
+                    <view class="videomask_inner_btn">
+                        <!--<a class="videomask_inner_btn_a" href="{{data.joinUrl}}">{{data.btnWord}}</a>-->
+                        <a class="videomask_inner_btn_a" href="javascript:;">{{data.btnWord}}</a>
+                    </view>
                 </view>
             </view>
         </view>
     </view>
-  </view>
 </template>

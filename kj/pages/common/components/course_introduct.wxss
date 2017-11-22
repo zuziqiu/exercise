@@ -1,0 +1,29 @@
+.course_introduct {
+  padding: 15px;
+  border-bottom: 15px solid #f5f5f5;
+}
+.course_introduct > view .introduce_name {
+  font-size: 0.8rem;
+  color: #000000;
+  margin-bottom: 10px;
+}
+.course_introduct > view .introduce_title,
+.course_introduct > view .introduce_content {
+  line-height: 150%;
+  word-break: break-all;
+  font-size: 0.7rem;
+  color: #666666;
+}
+.course_introduct > view .introduce_content {
+  overflow: hidden;
+}
+.course_introduct > view .introduce_content image {
+  max-width: 100%;
+}
+.course_introduct > view .introduce_content view image {
+  max-width: 100%;
+  height: auto;
+  margin: 0px;
+  padding: 0px;
+  margin-bottom: -7px;
+}

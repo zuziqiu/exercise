@@ -1,0 +1,11 @@
+<template name="loading">
+    <view class="loading">
+        <view class="spinner">
+            <view class="rect rect1"></view>
+            <view class="rect rect2"></view>
+            <view class="rect rect3"></view>
+            <view class="rect rect4"></view>
+            <view class="rect rect5"></view>
+        </view>
+    </view>
+</template>
