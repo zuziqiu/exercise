@@ -1,11 +1,11 @@
 /* pages/detail/detail.wxss */
-@import "./../common/components/section_topbar.wxss";
-@import "./../common/components/section_catalog.wxss";
-@import "./../common/components/introduct_part.wxss";
-@import "./../common/components/lecturer_part.wxss";
-@import "./../common/components/course_introduct.wxss";
-@import "./../common/components/section_other_course.wxss";
-@import "./../common/components/course_detail_catalog.wxss";
+@import "./../../common/components/section_topbar.wxss";
+@import "./../../common/components/section_catalog.wxss";
+@import "./../../common/components/introduct_part.wxss";
+@import "./../../common/components/lecturer_part.wxss";
+@import "./../../common/components/course_introduct.wxss";
+@import "./../../common/components/section_other_course.wxss";
+@import "./../../common/components/course_detail_catalog.wxss";
 
 .technology_service {
     color: #666;

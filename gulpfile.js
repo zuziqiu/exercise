@@ -18,6 +18,11 @@ gulp.task('pages:wxss', function(){
     .pipe(less())
     .pipe(rename({extname: ".wxss"}))
     .pipe(gulp.dest('./kj/pages/invitation/'));
+
+    gulp.src(['./_kj/pages/index/index.less'])
+    .pipe(less())
+    .pipe(rename({extname: ".wxss"}))
+    .pipe(gulp.dest('./kj/pages/index/'));
 })
 
 // wxml

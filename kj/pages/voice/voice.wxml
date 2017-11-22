@@ -1,17 +1,17 @@
 <view class="vod_play">
-    <import src="./../common/components/section_audio.wxml"/>
+    <import src="./../../common/components/section_audio.wxml"/>
     <template is="section_audio" data="{{...render_data, ...size}}"/>
     <block wx:if="{{render_data.audioIntro != ''}}">
-        <import src="./../common/components/section_title.wxml"/>
+        <import src="./../../common/components/section_title.wxml"/>
         <template is="section_title" data="{{...render_data, ...size}}"/>
-        <import src="./../common/components/section_course.wxml"/>
+        <import src="./../../common/components/section_course.wxml"/>
         <template is="section_course" data="{{...render_data, ...size}}"/>
     </block>
     <block wx:else>
-        <import src="./../common/components/section_teacher.wxml"/>
+        <import src="./../../common/components/section_teacher.wxml"/>
         <template is="section_teacher" data="{{...render_data, ...size}}"/>
     </block>
-    <import src="./../common/components/section_other_course.wxml"/>
+    <import src="./../../common/components/section_other_course.wxml"/>
     <template is="section_other_course" data="{{...render_data, ...size}}"/>
 </view>
 <view class="kj_service">美橙提供技术支持</view>

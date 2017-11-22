@@ -1,8 +1,14 @@
 //index.js
 //获取应用实例
 const app = getApp()
+const global_data = app.globalData;
+
 Page({
   data: {
+    size:{
+      _windowWidth: 0,
+      _windowHeight: 0
+    },
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
@@ -25,6 +31,12 @@ Page({
     })
   },
   onLoad: function () {
+    this.setData({
+      size:{
+        _windowWidth: global_data._windowWidth,
+        _windowHeight: global_data._windowHeight
+      }
+    });
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
