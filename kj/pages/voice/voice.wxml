@@ -14,4 +14,4 @@
     <import src="./../../common/components/section_other_course.wxml"/>
     <template is="section_other_course" data="{{...render_data, ...size}}"/>
 </view>
-<view class="kj_service">美橙提供技术支持</view>
+<view class="_service">美橙提供技术支持</view>

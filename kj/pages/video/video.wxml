@@ -15,4 +15,4 @@
 <template is="buy_course_pop_outer" data="{{...render_data}}"/>
 <template is="free_course_pop_outer" data="{{...render_data}}"/>
 
-<view wx:if="{{render_data.free}}" class='kj_service'>欢拓开讲提供技术服务</view>
+<view class='_service'>美橙开讲提供技术服务</view>

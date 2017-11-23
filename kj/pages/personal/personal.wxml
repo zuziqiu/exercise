@@ -1,0 +1,50 @@
+<!--pages/personal/personal.wxml-->
+<view class="main">
+    <!--header-->
+    <view class="section_header">
+        <view class="mod_block_header">
+            <view class="header_portrait">
+                <image src=""></image>
+            </view>
+            <view class="header_right">
+                <view class="header_name" tal:content="user/nickname">刘校长</view>
+                <view class="header_date">${time_str}，今天是${timeStr}!</view>
+            </view>
+        </view>
+    </view>
+
+    <!--my_course-->
+    <view class="section_main">
+        <view class="block_main_course">
+            <view class="main_course_header">
+                <view class="course_header_title">我的课程</view>
+            </view>
+            <scroll-view repeat="item courseList">
+                <view class="main_course_container">
+                    <navigator class="main_course_content" href="${item/course_detail_url}">
+                         <view class="course_cover">
+                            <image src=""></image>
+                            <!--
+                                视频课程:video
+                                音频课程:audio
+                            -->
+                            <view class="cover_icon video" tal:attributes="class php: item['courseType'] == 1 ? 'cover_icon video' : (item['courseType'] == 2 ? 'cover_icon audio' : 'hidden')">
+                                <span></span>
+                            </view>
+                        </view>
+                        <view class="course_info">
+                            <view class="course_info_title" tal:content="item/title">改变人生的实用整理术</view>
+                            <view class="course_info_intr" tal:content="item/description">告别混乱迷茫，改变人生的实用整理术</view>
+                            <view class="course_info_bottom">
+                                <view class="course_info_icon hidden"></view>
+                                <view class="course_info_num">${item/trades}人在学</view>
+                                <view class="course_info_free" tal:content="php: item['type'] == 0 ? '免费' : '¥'.item['price']">￥9999</view>
+                            </view>
+                        </view>
+                    </navigator>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+    <view class='_service'>美橙开讲提供技术服务</view>
+</view>

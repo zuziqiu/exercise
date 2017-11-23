@@ -2,7 +2,7 @@
 <view class="main">
     <!--banner-->
     <view class="section_banner">
-        <image style="height: {{size._windowWidth*6/15 +'px'}}" src=""></image>
+        <image style="height: {{size._windowWidth*6/15 +'px'}}" src="./../../common/images/banner.png"></image>
     </view>
     <!--course-->
     <view class="section_course">
@@ -42,7 +42,7 @@
                                 视频课程:video
                                 音频课程:audio
                             -->
-                            <view class="cover_icon video" tal:attributes="class php: item['courseType'] == 1 ? 'cover_icon video' : (item['courseType'] == 2 ? 'cover_icon audio' : 'cover_icon')">
+                            <view class="cover_icon audio" tal:attributes="class php: item['courseType'] == 1 ? 'cover_icon video' : (item['courseType'] == 2 ? 'cover_icon audio' : 'cover_icon')">
                                 <span></span>
                             </view>
                         </view>
@@ -108,24 +108,22 @@
       </view>
     </view>
     <!--technical support-->
-    <view class="section_support">
-        <span class="mod_block_support">美橙提供技术支持</span>
-    </view>
+    <view class='_service'>美橙开讲提供技术服务</view>
     <!--nav-->
-    <view class="section_nav">
+   <!--  <view class="section_nav">
         <view class="mod_blcok_nav">
             <view class="nav_home">
-                <a class="nav_home_content" href="${index_url}">
+                <view class="nav_home_content">
                     <span class="nav_home_chart"></span>
                     <span class="nav_home_words">首页</span>
-                </a>
+                </view>
             </view>
             <view class="nav_center">
-                <a class="nav_center_content" href="${my_study_url}">
+                <navigator class="nav_center_content"  url="/pages/personal/personal">
                     <span class="nav_center_chart"></span>
                     <span class="nav_center_words">我的课程</span>
-                </a>
+                </navigator>
             </view>
         </view>
-    </view>
+    </view> -->
 </view>

@@ -1,5 +1,5 @@
 .main {
-  padding-bottom: 50px;
+  padding-bottom: 40px;
   /*series*/
   /*technical support*/
   /*nav*/
@@ -7,7 +7,6 @@
 .main .section_banner {
   width: 100%;
   /*height:14rem/2;*/
-  background: url(../images/banner.png);
   background-size: 100% 100%;
 }
 .main .section_banner image {
@@ -97,7 +96,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: url(../images/course_icon_02.png);
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAQCAYAAADnEwSWAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpBRTlCODc5M0JENDIxMUU3QjUzN0FEMzU4QzBBN0RENCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpBRTlCODc5NEJENDIxMUU3QjUzN0FEMzU4QzBBN0RENCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkFFOUI4NzkxQkQ0MjExRTdCNTM3QUQzNThDMEE3REQ0IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkFFOUI4NzkyQkQ0MjExRTdCNTM3QUQzNThDMEE3REQ0Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+b6hDjwAAAU1JREFUeNq81b9Lw0AUwPGXa2xRrI6OIujgKqgILurQxU0Uh6KL4KCT4Ook6l/grKOrgtjNwU3BqZsKRXBwUYqoNU3Pb/AFQqH+SGMefDJcwl3y7t2LWGuzWMMN3lH7owfsohfyneCyjqptL3xsw7RYaBBbDpc7ERnABQ7wIb8PB7OYxz2mcBu534ciVjEk+lYNFH9KQwvjmpkXTOhYD5ZxGf18lxUNfLxJvPDQ0Hm6UMAGphHMX0cmyILblJK4we5LFjsYRh41nKCMTeSMJBcdGEO37v8SFnEePuBKslHBHo7wpGOZ8KaRFCPpxfqxj2Ms6D76/5HGoCqvtUAmMYpTLRAto6+oYy7mORvBs56zGRRQgqdze3qOrYmckc42qjDcjleUtKOs4Eqz54RprGi7ClpKLma7ymu7etTxKg5x1tyuUmvEkuYv5lOAAQDz2GiJDDLEhQAAAABJRU5ErkJggg==);
   background-size: 100% 100%;
 }
 .main .section_course .block_course_main .course_main_container .course_main_content .course_cover .cover_icon.audio span {
@@ -108,7 +107,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: url(../images/course_icon_03.png);
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAQCAYAAAD52jQlAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpGMDg2REZGMUJENDIxMUU3Qjc4RUU4ODFENjc3ODFGMSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpGMDg2REZGMkJENDIxMUU3Qjc4RUU4ODFENjc3ODFGMSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkYwODZERkVGQkQ0MjExRTdCNzhFRTg4MUQ2Nzc4MUYxIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkYwODZERkYwQkQ0MjExRTdCNzhFRTg4MUQ2Nzc4MUYxIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+520iXwAAAZdJREFUeNqs1M0rRFEYx/E7L5S8DKMpk5cN8pKdhZpQFixkZ6VGSllLMxt/A2XLgpSXUsRKFoiNZiUvJSklRrEwNhM1xlzfJ89kus29pjj12dxz7jm/c59zrts0TcNBEBGUOowpwjw24ZNnbsO++TGLQWQcxklfGYaVYbd6FZbN73aIkjxjGjCCCnQhgRgC+SasxJL50+wmnUBGP4+hIVKykJewxehHN4rQpls+RSNclu36kMQJnjCKJewgjCFZYRpJTfWp9tCDOxzlJJUt72MKrpx0fdoXx60kjejKk4hrmnN4YC2kR3ciaRc07Rg6ENP3O2XSahxjBamcCerzVFq2e4MWPR0yiYkaffcV3mwS0yisFTROkibQqh/5UZ9f2JzNIJp1nLxXp4V81oJXIS1J51COReyqZTTlSZbGNdbxjhA+cIkAanEvSWe0MCHLkZLvVGmZ+EFvjRS2HQO4whl6dScb/3H4o9bD/9drGtafiFzTF6drmuXHGg5sJs3yYFUDjP/2l5LqRrVwTuOk7w3b2JIHXwIMAHRmHi9aA4ilAAAAAElFTkSuQmCC);
   background-size: 100% 100%;
 }
 .main .section_course .block_course_main .course_main_container .course_main_content .course_info {
@@ -308,60 +307,8 @@
   color: #999;
   font-size: 0.6rem;
 }
-.main .section_nav {
-  width: 100%;
+.main ._service {
+  left: 0px;
+  bottom: 0px;
   position: fixed;
-  bottom: 0;
-  background: #fff;
-  border-top: 1px solid #ddd;
-}
-.main .section_nav .mod_blcok_nav {
-  width: 60%;
-  margin: 0 auto;
-  overflow: hidden;
-  padding: 5px 0px;
-}
-.main .section_nav .mod_blcok_nav .nav_home {
-  float: left;
-}
-.main .section_nav .mod_blcok_nav .nav_home .nav_home_content {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-.main .section_nav .mod_blcok_nav .nav_home .nav_home_content .nav_home_chart {
-  width: 24px;
-  height: 24px;
-  display: block;
-  background: url(../images/nav_home.png);
-  background-size: 100% 100%;
-  margin: 0 auto;
-}
-.main .section_nav .mod_blcok_nav .nav_home .nav_home_content .nav_home_words {
-  font-size: 0.6rem;
-  color: #000;
-  display: block;
-  margin-top: 4px;
-}
-.main .section_nav .mod_blcok_nav .nav_center {
-  float: right;
-}
-.main .section_nav .mod_blcok_nav .nav_center .nav_center_content {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-.main .section_nav .mod_blcok_nav .nav_center .nav_center_content .nav_center_chart {
-  width: 19px;
-  height: 21px;
-  display: block;
-  background: url(../images/nav_center.png);
-  background-size: 100% 100%;
-  margin: 0 auto;
-}
-.main .section_nav .mod_blcok_nav .nav_center .nav_center_content .nav_center_words {
-  font-size: 0.6rem;
-  color: #666;
-  display: block;
-  margin-top: 7px;
 }

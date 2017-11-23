@@ -1,0 +1,190 @@
+<!--pages/personal/personal.wxml-->
+<view class="main">
+    <!--header-->
+    <div class="section_header">
+        <div class="mod_block_header">
+            <div class="header_portrait"><img src="${user/avatarUrl}" alt="" /></div>
+            <div class="header_right">
+                <span class="header_name" tal:content="user/nickname">刘校长</span>
+                <span class="header_date">${time_str}，今天是${timeStr}!</span>
+            </div>
+        </div>
+    </div>
+
+    <!--my_course-->
+    <div class="section_main">
+        <div class="block_main_course">
+            <div class="main_course_header">
+                <view class="course_header_title">我的课程</view>
+            </div>
+            <tal:block repeat="item courseList">
+                <div class="main_course_container">
+                    <a class="main_course_content" href="${item/course_detail_url}">
+                         <div class="course_cover">
+                            <image src=""></image>
+                            <!--
+                                视频课程:video
+                                音频课程:audio
+                            -->
+                            <div class="cover_icon video hidden" tal:attributes="class php: item['courseType'] == 1 ? 'cover_icon video' : (item['courseType'] == 2 ? 'cover_icon audio' : 'hidden')">
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="course_info">
+                            <span class="course_info_title" tal:content="item/title">改变人生的实用整理术</span>
+                            <span class="course_info_intr" tal:content="item/description">告别混乱迷茫，改变人生的实用整理术</span>
+                            <div class="course_info_bottom">
+                                <span class="course_info_icon hidden"></span>
+                                <span class="course_info_num">${item/trades}人在学</span>
+                                <span class="course_info_free" tal:content="php: item['type'] == 0 ? '免费' : '¥'.item['price']">￥9999</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!--<div class="main_course_container">
+                    <a class="main_course_content" href="{{course_detail_url}}">
+                         <div class="course_cover">
+                            <img src="{{image}}" alt="" />
+
+                            <div class="cover_icon {{courseType}}">
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="course_info">
+                            <span class="course_info_title">{{title}}</span>
+                            <span class="course_info_intr">{{description}}</span>
+                            <div class="course_info_bottom">
+                                <span class="course_info_icon hidden"></span>
+                                <span class="course_info_num">{{trades}}人在学</span>
+                                <span class="course_info_free">{{price}}</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>-->
+            </tal:block>
+
+            <tal:block replace="">
+                <div class="main_course_container">
+                    <a class="main_course_content" href="#">
+                         <div class="course_cover">
+                            <img src="" alt="" />
+                            <div class="cover_icon audio hidden">
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="course_info">
+                            <span class="course_info_title">改变人生的实用整理术</span>
+                            <span class="course_info_intr">告别混乱迷茫，改变人生的实用整理术</span>
+                            <div class="course_info_bottom">
+                                <span class="course_info_icon"></span>
+                                <span class="course_info_num">3小时后</span>
+                                <span class="course_info_free">￥9999</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="main_course_container">
+                    <a class="main_course_content" href="#">
+                         <div class="course_cover">
+                            <img src="" alt="" />
+                            <div class="cover_icon video">
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="course_info">
+                            <span class="course_info_title">改变人生的实用整理术</span>
+                            <span class="course_info_intr">告别混乱迷茫，改变人生的实用整理术</span>
+                            <div class="course_info_bottom">
+                                <span class="course_info_icon hidden"></span>
+                                <span class="course_info_num">26264人在学</span>
+                                <span class="course_info_free">￥9999</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="main_course_container">
+                    <a class="main_course_content" href="#">
+                         <div class="course_cover">
+                            <img src="" alt="" />
+                            <div class="cover_icon audio">
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="course_info">
+                            <span class="course_info_title">改变人生的实用整理术</span>
+                            <span class="course_info_intr">告别混乱迷茫，改变人生的实用整理术</span>
+                            <div class="course_info_bottom">
+                                <span class="course_info_icon hidden"></span>
+                                <span class="course_info_num">1000人在学</span>
+                                <span class="course_info_free">￥9999</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="main_course_container">
+                    <a class="main_course_content" href="#">
+                         <div class="course_cover">
+                            <img src="" alt="" />
+                            <div class="cover_icon audio">
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="course_info">
+                            <span class="course_info_title">改变人生的实用整理术</span>
+                            <span class="course_info_intr">告别混乱迷茫，改变人生的实用整理术</span>
+                            <div class="course_info_bottom">
+                                <span class="course_info_icon hidden"></span>
+                                <span class="course_info_num">1000人在学</span>
+                                <span class="course_info_free">￥9999</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="main_course_container">
+                    <a class="main_course_content" href="#">
+                         <div class="course_cover">
+                            <img src="" alt="" />
+                            <div class="cover_icon audio">
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="course_info">
+                            <span class="course_info_title">改变人生的实用整理术</span>
+                            <span class="course_info_intr">告别混乱迷茫，改变人生的实用整理术</span>
+                            <div class="course_info_bottom">
+                                <span class="course_info_icon hidden"></span>
+                                <span class="course_info_num">1000人在学</span>
+                                <span class="course_info_free">￥9999</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </tal:block>
+        </div>
+    </div>
+    
+    <view class='_service'>美橙开讲提供技术服务</view>
+
+    <!--nav-->
+    <div class="section_nav">
+        <div class="mod_blcok_nav">
+            <div class="nav_home">
+                <navigator class="nav_home_content" url="/pages/personal/personal">
+                    <span class="nav_home_chart"></span>
+                    <span class="nav_home_words">首页</span>
+                </navigator>
+            </div>
+            <div class="nav_center">
+                <navigator class="nav_center_content">
+                    <span class="nav_center_chart"></span>
+                    <span class="nav_center_words">我的课程</span>
+                </navigator>
+            </div>
+        </div>
+    </div>
+</view>

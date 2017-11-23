@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/personal/personal",
     "pages/detail/detail",
     "pages/video/video",
     "pages/voice/voice",
@@ -11,5 +12,24 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "开讲",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color":"#333333",
+    "line-height": "20px",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "common/images/nav_home.png",
+        "selectedIconPath": "common/images/select_nav_home.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "我的课程",
+        "iconPath": "common/images/nav_center.png",
+        "selectedIconPath": "common/images/select_nav_center.png"
+      }
+    ]
   }
 }

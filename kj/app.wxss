@@ -34,3 +34,14 @@
 .hidden{
   display: none;
 }
+
+._service{
+    font-size: 14px;
+    color: #666;
+    background-color: #f2f2f2;
+    padding: 15px 0 15px;
+    display: block;
+    width: 100%;
+    letter-spacing: 1px;
+    text-align: center;
+}
