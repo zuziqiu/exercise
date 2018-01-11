@@ -3,17 +3,7 @@ var gulp = require('gulp'),
     minifycss = require('gulp-minify-css'),
     htmlmin = require('gulp-htmlmin'),
     rename = require('gulp-rename');
-123
-bcd
-diyici
-dierci
-disici
-diwuci
-diliuci
-diqici
-dibaci
-dijiuci
-dishici
+
 // less=>min.wxss
 gulp.task('less:wxss', function(){
     gulp.src(['./_kj/common/components/*.less'])
