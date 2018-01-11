@@ -9,6 +9,7 @@ diyici
 dierci
 disici
 diwuci
+diliuci
 diqici
 // less=>min.wxss
 gulp.task('less:wxss', function(){
