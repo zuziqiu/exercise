@@ -7,6 +7,7 @@ var gulp = require('gulp'),
 bcd
 diyici
 dierci
+disanci
 // less=>min.wxss
 gulp.task('less:wxss', function(){
     gulp.src(['./_kj/common/components/*.less'])
