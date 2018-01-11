@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     rename = require('gulp-rename');
 123
 bcd
+0987
 // less=>min.wxss
 gulp.task('less:wxss', function(){
     gulp.src(['./_kj/common/components/*.less'])
