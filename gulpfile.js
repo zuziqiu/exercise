@@ -8,6 +8,7 @@ bcd
 diyici
 dierci
 disici
+diwuci
 // less=>min.wxss
 gulp.task('less:wxss', function(){
     gulp.src(['./_kj/common/components/*.less'])
