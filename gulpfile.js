@@ -6,6 +6,7 @@ var gulp = require('gulp'),
 123
 bcd
 diyici
+dierci
 // less=>min.wxss
 gulp.task('less:wxss', function(){
     gulp.src(['./_kj/common/components/*.less'])
