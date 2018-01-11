@@ -11,6 +11,7 @@ disici
 diwuci
 diliuci
 diqici
+dibaci
 // less=>min.wxss
 gulp.task('less:wxss', function(){
     gulp.src(['./_kj/common/components/*.less'])
