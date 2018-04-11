@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>fabric.js</title>
+    <script src="./../js/fabric.min.js"></script>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="800"></canvas>
+    <script type="text/javascript">
+        var canvas = new fabric.Canvas("canvas");
+        var line = new fabric.Line([10, 20, 20, 20],{
+            fill: '#5E2300',//填充颜色
+            stroke: '#5E2300',//笔触颜色
+            strokeWidth: 2,//笔触宽度
+        })
+        var line2 = new fabric.Line([20, 20, 40, 30],{
+            fill: '#5E2300',//填充颜色
+            stroke: '#5E2300',//笔触颜色
+            strokeWidth: 2,//笔触宽度
+        })
+        canvas.add(line);
+        canvas.add(line2);
+    </script>
+</body>
+</html>

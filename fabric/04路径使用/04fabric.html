@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04fabric.js</title>
+    <script src="./../js/fabric.min.js"></script>
+    <style type="text/css">
+        /* body{
+            background: #ccc;
+        } */
+        canvas{
+            border: 2px solid #dddddd;
+        }
+        #live_img{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="800"></canvas>
+    <img src="./../img/live.png" id="live_img" alt="">
+    <script type="text/javascript">
+        var canvas = new fabric.Canvas('canvas');
+
+        var path = new fabric.Path('M 0 0 L 200 100 L 170 200 Z');
+                                 //第一点   第二点    第三点     闭合
+        path.set({
+            left: 120,
+            top: 120,
+            fill: 'red'
+        })
+        canvas.add(path);
+    </script>
+</body>
+</html>
