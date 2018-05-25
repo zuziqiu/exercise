@@ -1,0 +1,1029 @@
+<!--
+## www.talk-fun.com
+## 管理员模版
+## Marko.
+-->
+<!-- 上传课件 -->
+<script id="tpl_upload_file" type="text/html">
+    <div class="cmod mod_user_vote">
+        <div class="mbox_hd">
+            <h3 class="vote">上传课件</h3>
+            <div class="op_btn">
+                <span class="cls r">X</span>
+            </div>
+        </div>
+        <div class="mbox_bd">
+            <div id="frame_box"></div>
+        </div>    
+    </div>
+</script>
+
+<!-- 管理员菜单 -->
+<script id="tpl_admin_pop_menu" type="text/html">
+    <ul class="pop_side_operation">
+     <!--    <li data-op="privateChat">私聊</li> -->
+        <li data-op="kick">踢出房间</li>
+        <li data-op="chatAccess">禁止发言</li>
+        <li data-op="detail">查看详情</li>
+    </ul>
+</script>
+
+<!-- 管理盒子 -->
+<script id="tpl_admin_box" type="text/html">
+<div id="ht_admin_box" class="mod_ht_admin_box">
+    <!-- layer -->
+    <div id="box_loading" class="cmod box_loading"></div>
+    <div id="box_pop_cover" class="cmod box_pop_cover"></div>
+
+    <!-- 应用列表 -->
+    <div class="cmod mod_apps" data-move="move_flag">
+        <div class="mbox_hd">
+            <h3>助教管理</h3>
+            <div class="op_btn">
+                <!-- <span class="back">返回</span> -->
+                <span class="cls r">X</span>
+            </div>
+        </div>
+        <div class="mbox_bd">
+            <div class="wp_list">
+                <ul>
+                    <li class="it1" data-pid="notice">
+                        <span class="box"></span>
+                        <p>公告</p>
+                    </li>
+                    <li class="it2" data-pid="pubroll">
+                        <span class="box"></span>
+                        <p>通知</p>
+                    </li>
+                    <li class="it3" data-pid="vote">
+                        <span class="box"></span>
+                        <p>{{voteTitle}}</p>
+                    </li>
+                    <li class="it4" data-pid="lottery">
+                        <span class="box"></span>
+                        <p>抽奖</p>
+                    </li>
+                    <li class="it5" data-pid="resfile">
+                        <span class="box"></span>
+                        <p>课件管理</p>
+                    </li>
+                    <li class="it6" data-pid="diy_broadcast">
+                        <span class="box"></span>
+                        <p>公共广播</p>
+                    </li>
+                     <li class="it7" data-pid="gag_manager">
+                        <span class="box"></span>
+                        <p>禁言管理</p>
+                    </li>
+                    <li class="it8"  data-pid="user_list">
+                        <span class="box"></span>
+                        <p>用户列表</p>
+                    </li>
+                    <li class="it9"  data-pid="sign">
+                        <span class="box"></span>
+                        <p>点名签到</p>
+                    </li>
+                    <li class="it10 third_page hidden" data-pid="third_page">
+                        <span class="box"></span>
+                        <p>奖励</p>
+                    </li>
+                    {{if isShowQuestionBox}}
+                    <li class="it11"  data-pid="question_management">
+                        <span class="box"></span>
+                        <p>问答管理</p>
+                    </li>
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 滚动公告 -->
+    <div class="cmod mod_roll_notice hidden" data-move="move_flag">
+        <div class="mbox_hd">
+            <h3>滚动通知</h3>
+            <div class="op_btn">
+                <span class="back">返回</span>
+                <span class="cls">X</span>
+            </div>
+        </div>
+        <div class="mbox_bd">
+            <!-- 滚动 -->
+            <div class="roll_notice">
+                <div id="roll_con" class="row_p1">
+                    <p class="expain">·可用于紧急、临时、重要通知<br/>·提交后将直接以滚动广播的形式出现在屏幕上方，所有观众可见。</p>
+                    <div class="row wrapfix">
+                        <span class="tis">滚动通知：</span>
+                        <span class="ipt"><textarea class="note_area" placeholder="请输入通知信息" maxlength="512"></textarea></span>
+                    </div>
+                    <div class="row wrapfix">
+                        <span class="tis">滚动链接：</span>
+                        <span class="ipt"><input type="text" class="note_link" placeholder="通知链接(http/ftp开头)"/></span>
+                    </div>
+                    <div class="row wrapfix">
+                        <span class="tis">结束时间：</span>
+                        <span class="ipt">
+                            <select class="end_time">
+                                <option value="0">不显示</option>
+                                <option value="600">10分钟</option>
+                                <option value="1800">30分钟</option>
+                                <option value="2400">40分钟</option>
+                                <option value="3600">60分钟</option>
+                                <option value="7200">120分钟</option>
+                            </select>
+                            <span class="exped"></span>
+                            <span class="tips">发布成功!</span>
+                            <a id="mody_roll_btn" class="modify" href="javascript:void(0);">发布</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 公告 -->
+    <div class="cmod mod_notice hidden" data-move="move_flag">
+        <div class="mbox_hd">
+            <h3>公告</h3>
+            <div class="op_btn">
+                <span class="back">返回</span>
+                <span class="cls">X</span>
+            </div>
+        </div>
+        <div id="notify_con" class="row wrapfix">
+            <p class="expain">·可用于常规性告示，如课堂规章、下次课程准备<br/>·提交后将直接在公告栏显示，所有观众可见</p>
+            <div class="full_row wrapfix">
+                <span class="tis">公告栏：</span>
+                <span class="ipt">
+                    <textarea maxlength="512" class="note_area" placeholder="请输入公告"></textarea>
+                </span>
+            </div>
+            <span class="ipt_full">
+                <span class="tips">发布成功!</span>
+                <a id="mody_note_btn" class="modify it2">发布</a>
+            </span>
+        </div>
+    </div>
+
+    <!-- 管理员投票选项 -->
+    <div class="cmod mod_lanuch_vote hidden" data-move="move_flag">
+        <div class="mbox_hd">
+            <h3>{{voteTitle}}</h3>
+            <div class="op_btn">
+                <span data-history="0" class="back">返回</span>
+                <span class="cls">X</span>
+            </div>
+        </div>
+        <div class="mbox_bd">
+            <div class="mod_scroll_box">
+                <!-- 发起 -->
+                <div class="lun_vote cmvt">
+                    <div class="vo_hd wrapfix">
+                        <p>用于出题作答、互动活动、选择决策，提交后以弹框形式出现在观众屏幕前</p>
+                        <span id="post_vote" class="vote_btn">发起{{voteTitle}}</span>
+                    </div>
+                    <div class="vo_list">
+                        <!-- <ul>
+                            <li>
+                                <p>莫言成为第dde2e4籍第dde2e4籍作家第dde2e4籍作家第dde2e4籍作家籍作家！你看过他的书吗？</p>
+                                <div class="t_u">
+                                    <img src="http://www.aipai.com/tools/createImg.php?wh=20x20" width="20" height="20" alt=""/>
+                                    <span>李老美(05/08)</span>
+                                    <a class="del" href="#del">删除</a>
+                                </div>
+                            </li>
+                        </ul> -->
+                    </div>
+                </div>
+
+                <!-- 投票中 -->
+                <div id="vote_detail" class="lun_voting cmvt hidden"></div>
+                <!-- 投票post -->
+                <div class="lun_post cmvt hidden">
+                    <div class="vo_bd">
+                        <div class="vote_form">
+                            <a class="vote_link" id="vote_link" data-type="image_vote">上传图片{{voteTitle}}</a>
+                            <div id="uploader" class="uploader hidden">
+                              <!--用来存放item-->
+                                <div id="file" class="uploader-file">
+                                     <img id="vote_img" data-action="zoom" alt=""/>
+                                </div>
+                                <div class="uploader_btn">
+                                    <div id="filePicker">上传图片</div>
+                                    <div class="uploader_text">支持JPG/PNG格式，2M以内</div>
+                                    <span id="msg_tips" class="msg_tips"></span>
+                                </div>
+                            </div>
+                            <div class="vo_theme">
+                                <h4>{{voteTitle}}主题：</h4>
+                                <textarea placeholder="请输入{{voteTitle}}主题" class="tare"></textarea>
+                            </div>
+                            <div class="selectMode">
+                                <h4>选择模式：</h4>
+                                <label><input name="aselt" value="0" type="radio" checked="checked"/>
+                                <span>单选</span></label>
+                                <label><input name="aselt" value="1" type="radio"/>
+                                <span>多选</span></label>
+                                <span class="limit hidden">
+                                    <em>最多选</em><input disabled="disabled" type="text" value="1" class="ipt"/><em>项</em>
+                                </span>
+                            </div>
+                            <div class="vo_ipt">
+                                <h4>{{voteTitle}}选项：</h4>
+                                <span class="item_tips">可勾选正确选项，为空则不显示正确选项</span>
+                                <ul id="vote_item_list">
+                                    <li>
+                                        <label>选项A:</label>
+                                        <div id="check_1" class="check_box"></div>
+                                        <div class="item_input">
+                                            <input id="voteid_1" type="text" class="ipt"/>
+                                        </div>   
+                                    </li> 
+
+                                    <li>
+                                      <label>选项B:</label>
+                                      <div id="check_2" class="check_box"></div>
+                                      <div class="item_input">
+                                            <input id="voteid_2"  type="text" class="ipt"/>
+                                      </div>
+                                    </li>
+                                    <li>
+                                        <label>选项C:</label>
+                                        <div id="check_3" class="check_box"></div>
+                                        <div class="item_input">
+                                            <input id="voteid_3" type="text" class="ipt"/>
+                                        </div>
+                                    </li>
+                                    <!-- <input id="voteid_1" placeholder="选项A" type="text" class="ipt"/>
+                                    <input id="voteid_2" placeholder="选项B" type="text" class="ipt"/>
+                                    <input id="voteid_3" placeholder="选项C" type="text" class="ipt"/> -->
+                                </ul>
+                            </div>
+                            <div class="vo_opto">
+                                <span class="add">+添加选项</span>
+                                <span class="reduce">-删除选项</span>
+                            </div>
+                            <div class="vo_model">
+                               <!--  <h4>选择模式：</h4>
+                                <label><input name="aselt" value="0" type="radio" checked="checked"/>单选</label>
+                                <label><input name="aselt" value="1" type="radio"/>多选</label>
+                                <span class="limit hidden">
+                                    <em>最多选</em><input disabled="disabled" type="text" value="1" class="ipt"/><em>项</em>
+                                </span> -->
+                                <div class="op_btns">
+                                    <span class="cls">取消</span>
+                                    <span class="confirm">确定</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 用户列表 -->
+    <div class="cmod mod_user_list hidden" data-move="move_flag">
+        <div class="mbox_hd">
+            <h3>用户列表</h3>
+            <div class="op_btn">
+                <span data-history="0" class="back">返回</span>
+                <span class="cls">X</span>
+            </div>
+        </div>
+        <!-- 搜索框 -->
+        <div class="user_search">
+            <span data-op="0" class="search_title">用户名</span>
+            <ul class="search_select">
+                <li data-op="0">用户名</li>
+                <li data-op="1">用户ID</li>
+            </ul>
+            <div class="search_input">
+                <input type="text" name=""/>
+                <i></i>
+            </div>
+        </div>
+        <div class="reload_list">
+            <span>刷新列表</span>
+        </div>
+        <div class="user_back">返回</div>
+        <div class="user_list_view" id="user_list_view">
+             <div class="thead">
+                 <span class="num">用户ID</span>
+                 <span class="name">用户名</span>
+                 <span class="operator">运营商</span>
+                 <span class="browser">浏览器</span>
+                 <span class="system">系统</span>
+                 <span class="operation">操作</span>
+             </div>
+             <ul id="user_list">
+
+             </ul>
+             <!--分页btn -->
+             <div class="pagination" id="user_page_btn" ></div>
+        </div>
+
+    </div>
+
+    <!-- 普通用户投票 -->
+    <div class="cmod mod_user_vote hidden" data-move="move_flag">
+        <div class="mbox_hd">
+            <h3>{{voteTitle}}</h3>
+            <div class="op_btn">
+                <span class="cls r">X</span>
+            </div>
+        </div>
+        <div class="mbox_bd">
+            <div class="mod_scroll_box">
+                <!-- 投票 -->
+                <div class="selt_vote_option hidden">
+                    <div class="vo_hd wrapfix">
+                        <div class="col_l">
+                            <span class="u_n"></span>
+                            <em></em>
+                        </div>
+                        <div class="col_r">
+                            <span class="voting">{{voteTitle}}中</span>
+                        </div>
+                    </div>
+                    <div class="vo_bd">
+                        <h4></h4>
+                        <div class="voteing_img"></div>
+                        <div class="chart_detail">
+                            <!-- 单选 -->
+                            <!-- 多选 -->
+                            <div class="multiple">
+                            </div>
+                            <!-- btns -->
+                            <div class="btn">
+                                <span class="vote_btn">{{voteTitle}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 投票结果 -->
+                <div class="show_vote_result hidden">
+                    <div class="vote_result">
+                        <div class="vo_hd wrapfix">
+                            <div class="col_l">
+                                <span class="u_n"></span>
+                                <em></em>
+                            </div>
+                            <div class="col_r">
+                                <span class="voting"></span>
+                            </div>
+                        </div>
+                        <div class="vo_bd">
+                            <div class="vote_chartview">
+                                <h4></h4>
+                                <div class="chart_detail">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 抽奖选项 -->
+    <div class="cmod mod_lottery hidden" data-move="move_flag">
+        <div class="mbox_hd">
+            <h3>抽奖</h3>
+            <div class="op_btn">
+                <span data-history="0" class="back">返回</span>
+                <span class="cls">X</span>
+            </div>
+        </div>
+        <div class="mbox_bd">
+            <div class="mod_scroll_box">
+                <!-- 发起 -->
+                <div class="lun_lottery">
+                    <div class="lo_hd">
+                        <p>用于抽奖活动，随机点名，开始摇奖后由老师从滚动奖池中抽出中奖人。</p>
+                        <div class="lottery_hm">
+                           <span>抽取</span>
+                           <input  class="lottery_num" value="1" />
+                           <span>位中奖人</span>
+                           <span class="lottery_tips">抽取人数不能为空！</span>
+                        </div>
+                        <span class="lo_btn active">发起抽奖</span>
+                        <em class="lotip">摇奖中...</em>
+                        <div id="repate_winners" class="repate_winners">
+                          <i class="check_box checked"></i>
+                          <span>排除已中奖人</span>
+                        </div>
+                    </div>
+                    <div id="lottery_list" class="lo_list">
+                        <!-- list... -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 自定义广播 -->
+    <div class="cmod mod_broadcast hidden" data-move="move_flag">
+        <div class="mbox_hd">
+            <h3>公共广播</h3>
+            <div class="op_btn">
+                <span class="back">返回</span>
+                <span class="cls">X</span>
+            </div>
+        </div>
+        <div id="notify_con" class="row wrapfix">
+            <p class="expain">·用于公共广播操作，提交后全部学员可见</p>
+            <div class="full_row wrapfix">
+                <span class="tis">发送信息给所有用户：</span>
+                <span class="ipt">
+                    <textarea class="pub_note_area" placeholder="请输入信息"></textarea>
+                </span>
+                <label class="kept"><input class="is_keep" type="checkbox" checked="checked" /> 自动广播给新来者</label>
+            </div>
+            <span class="ipt_full">
+                <span class="tips">发布成功!</span>
+                <a id="post_pub_note" class="modify_pub">发布</a>
+            </span>
+        </div>
+    </div>
+
+    <!--thridPage-->
+    <div class="cmod mod_third_page hidden" data-move="move_flag">
+        <div class="mbox_hd">
+            <h3>第三方</h3>
+            <div class="op_btn">
+                <span class="back">返回</span>
+                <span class="cls">X</span>
+            </div>
+        </div>
+        <div id="mbox_bd" class="row wrapfix">
+            <!--inject iframe-->
+        </div>
+    </div>
+
+    <div class="cmod question_management" data-move="move_flag">
+        <div class="mbox_hd">
+            <h3>问答管理</h3>
+            <div class="op_btn">
+                <span class="back">返回</span>
+                <span class="cls">X</span>
+            </div>
+        </div>
+        <div class="refresh">
+            <div class="comfrim_refresh">刷新列表</div>
+        </div>
+        <div class="question_management_content">
+            <!-- <ul>
+                {{each response as res}}
+                <li>
+                    <div class="questioner">
+                        <img class="questioner_avatar" src="{{res.avatar}}" alt="提问人头像"/>
+                        <span class="questioner_name">{{res.nickname}}</span>
+                        <span class="question_time">{{res.time}}</span>
+                        <div class="question_delete">删除</div>
+                        <div class="question_reply" data-rid={{res.qid}} data-nickname={{res.nickname}}>回复</div>
+                        {{if res.role == "user"}}
+                        <div class="question_pass">通过</div>
+                        {{/if}}
+                        <div class="replay_status">回复中</div>
+                    </div>
+                    <div class="question_detail">
+                        {{res.content}}
+                    </div>
+                    {{each res.answer as data}}
+                    <div class="replier">
+                        <img class="replier_avatar" src="{{data.avatar}}" alt="提问人头像"/>
+                        <span class="replier_name">{{data.nickname}}</span>
+                        <span class="reply_time">{{data.time}}</span>
+                    </div>
+                    <div class="replay_detail">
+                        {{data.content}}
+                    </div>
+                    {{/each}}
+                </li>
+                {{/each}}
+            </ul> -->
+        </div>
+        <div class="question_post">
+            <div>
+                <textarea placeholder="请输入文字..." name="question_post_detail" id="question_post_detail"></textarea>
+                <div class="comfirm_question_post">发送</div>
+            </div>
+        </div>
+        <div class="quest_page hidden">
+            <span>转到第</span>
+            <input type="text"/>
+            <span>页</span>
+            <div class="comfirm_skip">确定</div>
+            <div class="pagination quest_page_manage">
+               <!--  <div class="page_detail">1</div>
+                <div class="page_detail page_detail_selected">2</div>
+                <div class="page_detail">3</div>
+                <div class="page_detail">···</div>
+                <div class="page_detail">510</div>
+                <div class="page_detail">511</div> -->
+            </div>
+        </div>
+    </div>
+    <!-- ###END### -->
+</div>
+</script>
+
+<!-- 问答列表盒子=>提问 -->
+<script id="question_management_content" type="text/html">
+    <div id="queManage_{{qid}}" class="ask_wrap role_{{role}} ispass_{{status}} queManage_{{qid}} xid_{{xid}} {{isShow}}{{queManage_isShow}}" data-replies="{{replies}}">
+        <div class="u_say">
+            <div class="questioner">
+                <img class="questioner_avatar avatar_{{uid}}" src="{{avatar}}" alt="提问人头像" onerror="HTSDK.room.assistantImgError(this)"/>
+                <span class="questioner_name">{{nickname}}</span>
+                <span class="question_time">{{time}}</span>
+                <div class="question_delete" data-id="{{qid}}">删除</div>
+                <div class="question_reply" data-rid="{{qid}}" data-nickname="{{nickname}}">回复</div>
+                {{if role == "user" && status == "0"}}
+                <div class="question_pass" data-id="{{qid}}">通过</div>
+                {{/if}}
+                
+                <div class="replay_status {{if answer}}replied hidden{{/if}}" id="status_{{qid}}" >未回复</div>
+            </div>
+
+            <div class="question_detail">
+                {{content}}
+            </div>
+            {{if answer}}
+                {{each answer as data}}
+                    <div id="ans_{{data.qid}}" class="replier t_say queManage_{{data.qid}} role_{{data.role}}">
+                        <div class="t_ans">
+                            <i></i>
+                            <img class="avatar_{{data.uid}}" src="{{data.avatar}}" width="30" height="30" onerror="HTSDK.room.imgError(this)" alt="" />
+                            <span title="{{data.nickname}}" class="t_name">{{data.nickname}}</span>
+                            <span class="t_time">{{data.time}}</span>
+                        </div>
+                        <p>{{#data.content}}</p>
+                    </div>
+                {{/each}}
+            {{/if}}
+        </div>
+    </div>
+</script>
+<!-- 问答列表盒子=>回复 -->
+<script id="mod_ques_answer" type="text/html">
+    <div id="ans_{{d.qid}}" class="replier t_say queManage_{{d.qid}} role_{{d.role}}">
+        <div class="t_ans">
+            <i></i>
+            <img class="avatar_{{d.uid}}" src="{{avatar}}" width="30" height="30" onerror="HTSDK.room.imgError(this)" alt="" />
+            <span title="{{d.nickname}}" class="t_name">{{d.nickname}}</span>
+            <span class="t_time">{{time}}</span>
+        </div>
+        <p>{{#d.content}}</p>
+    </div>
+</script>
+
+<!-- 投票列表 -->
+<script id="tpl_get_votelist" type="text/html">
+<ul class="wrapfix">
+    {{each data as d}}
+    <li id="vote_vid_{{d.vid}}" data-xid="{{d.xid}}" data-owner="{{d.owner}}" data-vid="{{d.vid}}">
+        <p>{{d.title}}</p>
+        <div class="t_u">
+            <span>{{d.nickname}}({{d.startTime}})</span><a class="del" href="javascript:;">删除</a>
+        </div>
+    </li>
+    {{/each}}
+</ul>
+</script>
+
+<!-- 投票详细 -->
+<script id="tpl_vote_detail" type="text/html">
+    <div class="vo_hd wrapfix">
+        <div class="col_l">
+            <span class="u_n">{{info.nickname}}</span>
+            <em>{{info.startTime}} 发起了{{voteTitle}}</em>
+        </div>
+        <div class="col_r">
+            {{if info.endTime == 0}}
+            <span class="voting">{{voteTitle}}中</span>
+            {{else}}
+            <span class="voting end">已结束</span>
+            {{/if}}
+        </div>
+    </div>
+    {{if info.imageUrl.length == 0}}
+            <!-- 
+            不显示排行榜的情况：
+                1、投票人数小于3
+                2、没有设置正确答案
+                3、不公布结果  
+             -->
+            {{if isShow == 1 && rightUser.length >2 && info.answer.length>0}}
+                   <ul class="rank_list">
+                    {{each rightUser as u key}}  
+                       {{if key == 0}}  
+                        <li class="first">
+                            <img class="avatar_{{u.xid}}" src="{{u.avatar}}" onerror="HTSDK.room.imgError(this)" alt="" />
+                            <span title="{{u.nickname}}">{{u.nickname}}</span>
+                        </li>
+                        {{else if key == 1}}
+                        <li class="second">
+                            <img class="avatar_{{u.xid}}" src="{{u.avatar}}" onerror="HTSDK.room.imgError(this)" alt="" />
+                            <span title="{{u.nickname}}">{{u.nickname}}</span>
+                        </li>
+                        {{else}}
+                        <li class="third">
+                            <img class="avatar_{{u.xid}}" src="{{u.avatar}}" onerror="HTSDK.room.imgError(this)" alt="" />
+                            <span title="{{u.nickname}}">{{u.nickname}}</span>
+                        </li>
+                        {{/if}}
+                    {{/each}}
+                    </ul>
+            {{/if}}
+            
+    {{/if}}
+    <div class="vo_bd">
+        <div class="vote_chartview">
+            <h4>{{info.title}}</h4>
+            <div class="vote_content">
+
+                <!-- 投票中 -->
+                {{if info.endTime == 0}}
+                <div class="vote_img">
+                    <img src="{{info.imageUrl}}" alt=""/>
+                </div>
+                <div class="chart_detail voting">
+                    {{each statsList as st}}
+                    <dl>
+                        <dt>{{st.number}}、{{st.op}}</dt>
+                        <dd>
+                            <div class="crt_percent_line">
+                                <span style="width:{{st.percent}}%"></span>
+                            </div>
+                            <div class="pn">{{st.opNum}}<em>({{st.percent}}%)</em></div>
+                        </dd>
+                    </dl>
+                    {{/each}}
+                </div>
+
+               <!--  投票结束 -->
+                {{else}}
+
+                {{if info.imageUrl.length>0}}
+                <div class="vote_end_img">
+                    <img data-action="zoom" class="v_img" src="{{info.imageUrl}}" alt=""/>
+                </div>
+                <div class="vote_bottom">
+                   {{if info.answer.length>0}}
+                   <div class="vote_answer">
+                       <span>正确答案是:</span>
+                       <span class="answer">{{info.rightAnswer}}</span>
+                   </div> 
+                   {{/if}}
+                   <a data-vid ="{{info.vid}}">查看{{voteTitle}}结果</a> 
+                </div>
+                {{else}}
+                    <div class="chart_detail voting">
+                    {{each statsList as st}}
+                    <dl>
+                        <dt>{{st.number}}、{{st.op}}</dt>
+                        <dd>
+                            <div class="crt_percent_line">
+                                <span style="width:{{st.percent}}%"></span>
+                            </div>
+                            <div class="pn">{{st.opNum}}<em>({{st.percent}}%)</em></div>
+                        </dd>
+                    </dl>
+                    {{/each}}
+                </div>
+                {{/if}}
+                {{/if}}
+            </div>
+        </div>
+        {{if info.endTime == 0}}
+        <div class="post_tool">
+            <div class="ck_box">
+                <span class="pub_check"></span>
+                <div class="pub_input">
+                    <span id="pub_result" data-val="1">公布结果</span>
+                </div>
+                <!-- <ul  class="pub_list">
+                  <li data-val= "1">公布结果</li>
+                  {{if info.answer.length>0}}
+                  <li data-val="2">公布答案和结果</li>
+                  {{/if}}
+                </ul> -->
+                <!-- <input name="post_chart" checked="checked" type="checkbox" value="0"/>
+                <label for="post_chart">公布结果</label> -->
+            </div>
+            <span class="reload_text">每五秒钟自动更新{{voteTitle}}进度</span>
+            <span class="reload">刷新</span>
+        </div>
+        <div class="btn wrapfix">
+            <span class="vote_btn">结束{{voteTitle}}</span>
+        </div>
+        {{/if}}
+        {{if info.endTime == 0 || info.imageUrl.length == 0}}
+        <div class="vote_list">
+            <ul id="vote_list">
+            {{each user as u}}
+                <li>{{u.nickname}}<span>{{choiceTitle}}了{{u.option}}</span><em>({{u.time}})</em></li>
+            {{/each}}
+            </ul>
+        </div>
+        {{if info.endTime != 0 && info.answer.length>0}}
+            <div class="vote_end_answer">
+                <span>正确答案:</span>
+                <span class="answer">{{info.rightAnswer}}</span>
+            </div>
+        {{/if}}
+        {{/if}}
+        <div id="pagination" class="pagination">
+         
+        </div>
+    </div>
+</script>
+
+<!-- 抽奖列表 -->
+<script id="tpl_lottery_list" type="text/html">
+<ul>
+    {{each data as d}}
+    <li>
+        <p>中奖人：<strong>{{d.nickname}}</strong></p>
+        <div class="t_u">
+            <span>李老美({{d.time}})</span>
+        </div>
+    </li>
+    {{/each}}
+</ul>
+</script>
+
+<!-- 截图预览 -->
+<script id="tpl_clipboard_con" type="text/html">
+    <div id="mod_clip_con" class="htdialog_clip_con">
+        <div class="dialog_hd">
+        <h3 class="title">发送截图</h3>
+        <div class="clip_close">x</div>
+    </div>
+    <div class="dialog_bd">
+        <img class="img" src="{{_imgUrl}}" alt="" />
+        <span class="vm_box"></span>
+    </div>
+    <div id="clip_btns" class="dialog_ft">
+        <a class="btn btn_default" href="javascript:">取消</a>
+        <a class="btn btn_primary" href="javascript:">发送</a>
+    </div>
+    <div class="htdialog_close"></div>
+</div>
+</script>
+
+<script id="tpl_detail_con" type="text/html">
+    <div id="detail_cont" class="detail_cont">
+        <!--查看详情-->
+        <p class="detail_close">X</p>
+        <ul id="detail_li" class="deta_li">
+            <li>名字：{{name}}</li>
+            <li>运营商：{{operator}}</li>
+            <li>ip: {{ip}}</li>
+            <li>系统：{{os}}</li>
+            <li>浏览器：{{useragent}}</li>
+        </ul>
+    </div>
+</script>
+
+
+<!-- 禁言弹框 -->
+<script id="gag_mod_pop" type="text/html">
+    <div class="gag_pop" data-move="move_flag">
+        <div class="head">
+            <div class="head_left">
+                <i class="gag_icon"></i>
+                <p>禁言列表（<span id="gag_total">0</span>）</p>
+            </div>
+            <div class="op_btn">
+                <span data-history="0" class="back">返回</span>
+                <span class="cls">X</span>
+            </div>
+        </div>
+        <div class="gag_list">
+            <ul id="gag_list">
+                
+            </ul>
+        </div>
+    </div>
+</script>
+
+<!-- 禁言列表 -->
+<script id="tpl_gag_list" type="text/html">
+    <li id="li_{{d.xid}}">
+        <div class="list_left">
+            <i>
+               <img src="http://static-1.talk-fun.com/open/cooperation/default/live-pc/css/img/main/user.png" height="34" width="34" alt="用户头像"/>  
+            </i>
+            <span>{{d.nickname}}</span>
+        </div>
+        <div class="list_center">
+            <span class="gag_time">{{d.addtime}}</span>
+            <span class="line"></span>
+            <span class="gag_text">已禁言</span>
+        </div>
+        <div class="list_right">
+            <span class="btn_enable" data-xid="{{d.xid}}">解禁</span>
+        </div>
+    </li>   
+</script>
+
+<!-- 用户列表 -->
+<script id="tpl_user_list" type="text/html">
+    {{each data as d}}
+    {{if d.role == "user"}}
+    <li id="user_{{d.xid}}" data-enable="{{d.enable}}">
+        <span title="{{d.uid}}" class="num">{{d.uid}}</span>
+        <span title="{{d.name}}" class="name">{{d.name}}</span>
+        <span title="{{d.operator}}" class="operator">{{d.operator}}</span>
+        <span title="{{d.useragent}}" class="browser">{{d.useragent}}</span>
+        <span title="{{d.os}}" class="system">{{d.os}}</span>
+        <span id="member_{{d.xid}}" data-chat="{{d.enable}}" data-xid="{{d.xid}}" class="glmenu">管理</span>
+    </li>
+    {{/if}}
+   {{/each}}
+</script>
+
+
+
+
+<!-- 点名列表 -->
+<script type="text/html" id="tpl_call_name">
+    <div class="cmod tpl_call_pop" data-move="move_flag">
+        <div class="mbox_hd">
+            <h3>点名签到</h3>
+            <div class="op_btn">
+                <span data-history="0" class="back">返回</span>
+                <span class="cls">X</span>
+            </div>
+        </div>
+        <div class="call_msg msg">
+            <p>·用于课堂点名，会议签到。发布点名后以弹框的形式出现在观众屏幕中央。</p>
+        </div>
+        <div class="setTime wrapfix">
+            <span>设置点名时间 :</span>
+            <div class="call_time">
+                <span id="roll_time">1分钟</span> 
+                <ul id="call_time_select">
+                    <li data-time="60">1分钟</li>
+                    <li data-time="180">3分钟</li>
+                    <li data-time="300">5分钟</li>
+                    <li data-time="600">10分钟</li>
+                    <li data-time="1800">30分钟</li>
+                </ul>
+                <i></i>  
+            </div>       
+        </div>
+        <div class="call_btn">
+            <span>发起点名</span>
+        </div>
+        <span id="errmsg" class="errmsg"></span>
+        <div class="call_info">
+            <ul id="call_list">
+
+            </ul>
+        </div>
+
+    </div>
+</script>
+
+
+<!-- 点名签到记录列表 -->
+<script type="text/html" id="call_list_record">
+     {{if d.status == "start"}}
+         <li id="call_start" class="call_ing">
+              <div class="who_call">
+                  <span class="num">{{d.customId}}-</span>  
+                  <span class="caller">{{d.nickname}}</span>  
+                  <span class="time">({{d.addTime}})</span>
+                  <span class="call_status" data-id="{{d.id}}">点击结束</span> 
+              </div>
+              <div class="count_down">
+                  <span class="label">点名时间 :</span>
+                  <span id="countdown" class="cdtime">倒计时{{(d.restTime/60) | getCountDownTime: (d.restTime/60)}}s(进行中)</span>
+                  <span class="status_text">点名中...</span>
+              </div> 
+              <div class="call_num">
+                  <span class="label">点名人数 :</span>
+                  <span class="number">{{d.total}}人</span>
+              </div> 
+              <div class="signed_num">
+                  <span class="label">签到人数 :</span>
+                  <span class="number">{{d.signTotal}}人</span>
+                  <a data-id="{{d.id}}">查看详情</a>
+              </div> 
+          </li> 
+      {{else}}
+          <li class="call_end">
+            <div class="who_call">
+                <span class="num">{{d.customId}}-</span>  
+                <span class="caller">{{d.nickname}}</span>  
+                <span class="time">({{d.addTime}})</span>
+                <span class="call_status">已结束</span> 
+            </div>
+            <div class="count_down">
+                <span class="label">点名时间 :</span>
+                <span class="cdtime">{{d.duration}}分钟</span>
+            </div> 
+            <div class="call_num">
+                <span class="label">点名人数 :</span>
+                <span class="number">{{d.total}}人</span>
+            </div> 
+            <div class="signed_num">
+                <span class="label">签到人数 :</span>
+                <span class="number">{{d.signTotal}}人</span>
+                <a data-id="{{d.id}}">查看详情</a>
+            </div> 
+        </li>
+    {{/if}}
+</script>
+
+
+<!-- 点名详情列表 -->
+<script id="tpl_call_detail" type="text/html">
+    <div class="cmod tpl_detail_pop call_pop">
+        <div class="mbox_hd">
+            <h3>点名签到</h3>
+            <div class="op_btn">
+                <span class="goback">返回</span>
+                <span class="cls">X</span>
+            </div>
+        </div>
+
+        <div class="call_detail_top" id="call_detail_top">
+          
+
+        </div>
+        <div class="call_list">
+              <table id="ul_list">
+                    <tbody id="call_list">
+                        
+                        
+                    </tbody>
+                   
+              </table>
+              <div  id="usersign_pagination" class="pagination sign">
+            
+              </div>
+        </div>
+    </div> 
+</script>
+<script type="text/html" id="call_detail_top_temp">
+    <div class="call_detail_theme wrapfix">
+        <span class="call_teacher">{{data.signInfo.nickname}}</span>
+        <span class="launch_time">({{data.signInfo.addTime}}发起了点名)</span>
+        {{if data.signInfo.status == "start"}}
+            <span class="btn_status signing">点名中...</span>
+        {{else}}
+            <span class="btn_status">已结束</span>
+        {{/if}}
+    </div>
+    <div class="call_detail_info">
+        <div>
+           <span class=" field_name">签到情况 :</span>
+           <span class="file_val">{{data.signInfo.signTotal}}(签到人数) / {{data.signInfo.total}}(点名人数)</span> 
+        </div>
+    </div>
+</script>
+
+<script type="text/html" id="user_sign_list">
+    {{if data.signList.length>0}}
+    <tr class="thead">
+        <th>用户ID</th>
+        <th>用户名</th>
+        <th>点名情况</th>
+    </tr>
+    {{/if}}
+    {{each data.signList as d key}}
+        <tr>
+            <td class="uid">{{d.uid}}</td>
+            <td class="nickname">{{d.nickname}}</td>
+            <td>
+                {{if d.isSign == 1}}
+                <span>√</span>
+                {{/if}}
+            </td>
+        </tr>
+    {{/each}}
+</script>
+<!--结束点名提示框 begin -->
+<script type="text/html" id="call_tip_temple">
+  <div class="call_tip_pop">
+      <div class="con_msg">
+          <span class="con_text">确定结束点名吗？</span>
+          <div class="con_btn">
+              <span class="confirm_btn">确定</span>
+              <span class="cancel_btn">取消</span>
+          </div>   
+      </div>
+  </div>
+</script>
+<!-- 提示框 end-->
+
+
+
+
+
+

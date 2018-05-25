@@ -1,0 +1,245 @@
+#set_vote {
+  width: 36px;
+  height: 16px;
+  font-size: 12px;
+  cursor: pointer;
+  line-height: 14px;
+  text-align: right;
+  text-decoration: underline;
+  padding-left: 7px;
+  position: relative;
+  top: 2px;
+  background: url(img/plugins/pop/apply.png) no-repeat;
+}
+.box_close {
+  display: block;
+  width: 14px;
+  position: relative;
+  position: relative；;
+  top: 9px;
+  height: 30px;
+  font-size: 13px;
+  float: right;
+  padding-top: 2px;
+  background: url(img/plugins/pop/close_pop.png) no-repeat;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.user_pop_box {
+  border-radius: 5px;
+  width: 500px;
+  height: 362px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+  margin-left: -250px;
+  margin-top: -181px;
+  float: left;
+  overflow: hidden;
+  display: none;
+  border: 1px solid rgba(139, 139, 139, 0.6);
+  background: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 400;
+}
+.user_pop_box .header {
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  background: #00baff;
+  line-height: 30px;
+  color: #fff;
+}
+.user_pop_box .header span:nth-child(1) {
+  margin-left: 10px;
+}
+.user_pop_box .item_list {
+  position: absolute;
+  top: 30px;
+  bottom: 0px;
+  height: 100%;
+  width: 100%;
+}
+.user_pop_box .item_list ul {
+  margin: 20px 10px 0;
+}
+.user_pop_box .item_list ul li {
+  float: left;
+  width: 58px;
+  height: 60px;
+  text-align: center;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 0 8px;
+  padding-bottom: 12px;
+}
+.user_pop_box .item_list ul li .box {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  background: url(../../../common/css/img/apps_icon.png) no-repeat;
+  background-position: -80px 0;
+}
+.user_pop_box .item_list ul li p {
+  padding-top: 4px;
+  color: #636b6e;
+}
+.vote_record_block {
+  border-radius: 5px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+  width: 500px;
+  height: 362px;
+  margin-left: -250px;
+  margin-top: -181px;
+  float: left;
+  overflow: hidden;
+  display: none;
+  background: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 401;
+  border: 1px solid rgba(139, 139, 139, 0.6);
+}
+.vote_record_block .header {
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  background: #00baff;
+  line-height: 30px;
+  color: #fff;
+}
+.vote_record_block .header .header-left {
+  float: right;
+}
+.vote_record_block .header .header-left .close {
+  margin-left: 10px;
+  cursor: pointer;
+}
+.vote_record_block .header span:nth-child(1) {
+  margin-left: 10px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.vote_record_block .reload_btn {
+  width: 100%;
+  height: 46px;
+  position: absolute;
+  top: 30px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dddddd;
+}
+.vote_record_block .reload_btn span {
+  display: inline-block;
+  border-radius: 2px;
+  width: 72px;
+  height: 26px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  line-height: 26px;
+  margin: 10px 0 10px 10px;
+  border: 1px solid #dddddd;
+}
+.vote_record_block .reload_btn span:hover {
+  background-color: #f8f6f6;
+}
+.vote_record_block .reload_btn span:active {
+  background-color: #c9c7c7;
+}
+.vote_record_block ul {
+  width: 100%;
+  position: absolute;
+  top: 77px;
+  bottom: 0px;
+  overflow: auto;
+  font-size: 14px;
+}
+.vote_record_block ul li {
+  height: 44px;
+  background-color: #ededed;
+  border-bottom: 1px solid #dddddd;
+  padding: 10px 10px 10px 10px;
+}
+.vote_record_block ul li.vote_ing {
+  background-color: #dfffe8;
+}
+.vote_record_block ul li.vote_ing .vote_top .vote_top_btn {
+  background-color: #22ac38;
+}
+.vote_record_block ul li.vote_end .vote_top .vote_top_btn {
+  background-color: #dddddd;
+}
+.vote_record_block ul li.vote_end .vote_top .vote_top_btn span {
+  color: #aaaaaa;
+}
+.vote_record_block ul li.vote_end .vote_bottom .vote_bottom_state {
+  text-decoration: underline;
+}
+.vote_record_block ul li .vote_top {
+  width: 100%;
+  float: left;
+}
+.vote_record_block ul li .vote_top .vote_status {
+  width: 34px;
+  float: right;
+  margin-left: 10px;
+  height: 18px;
+  position: relative;
+  font-size: 12px;
+  bottom: 4px;
+  line-height: 18px;
+  padding: 4px 4px 4px 4px;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #f0a1bf;
+  text-align: center;
+}
+.vote_record_block ul li .vote_top .vote_top_left {
+  float: left;
+  color: #333333;
+  max-width: 74%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.vote_record_block ul li .vote_top .vote_top_btn {
+  float: right;
+  margin-left: 10px;
+  width: 46px;
+  height: 18px;
+  position: relative;
+  font-size: 12px;
+  bottom: 4px;
+  line-height: 18px;
+  padding: 4px 4px 4px 4px;
+  border-radius: 4px;
+  text-align: center;
+}
+.vote_record_block ul li .vote_top .vote_top_btn span {
+  color: #ffffff;
+}
+.vote_record_block ul li .vote_bottom {
+  width: 100%;
+  float: left;
+}
+.vote_record_block ul li .vote_bottom .vote_top_theme {
+  float: left;
+  color: #2e3744;
+  font-weight: bold;
+  width: 74%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.vote_record_block ul li .vote_bottom .vote_top_theme.blue {
+  color: #00baff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.vote_record_block ul li .vote_bottom .vote_bottom_state {
+  float: right;
+  cursor: pointer;
+  color: #888888;
+}

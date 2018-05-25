@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="cn-zh">
+<head>
+	<title tal:content="title|default">欢拓云直播 - v2.8.1</title>
+	<meta charset="utf-8" />
+	<meta name="renderer" content="webkit" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+	<link rel="shortcut icon" href="../../common/css/img/favicon.ico"/>
+	<style type="text/css">
+		.first_loader{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			top: 50%;
+			left: 50%;
+			margin: -50px 0 0 -50px;
+			border-radius: 1em;
+			font-family: "Hiragino Sans GB","\5FAE\8F6F\96C5\9ED1";
+			font-size: 12px;
+			color: #666;
+		}
+	</style>
+	
+	<!-- @全局变量 -->
+	<script type="text/javascript">
+		var __live__ = true;
+		// 秘钥
+		var	access_token = "QDN2YzN4AjNjVDZkBDM4IWYlFGZjdDZjNTZxQDM5IzN8xHf9JSN3gDOxEzXyEjM1QjNiojIl1WYuJnIsAjOiEmIsAjOiQWanJCLiUzN4gTMxIiOiQWafV2cyV3bjJCLiIiOiIXY0FmdhJCLwojIyVGZuV2ZiwCOxcDM5kDNyUTM6ISZylGc4VmIsgTM3YjMxQjM1EjOiUWbpR3ZlJnIs01W6Iic0RXYiwiIyV2c1JiOiUGbvJnIsgzM2gDM2ETM6ICZphnIsIydlF2dlJnI6ISZtFmbrNWauJCLwojIklmYiwiI4AzNwATMf5WZw9mI6ICZpVnIsITMyUDN2ojIklWbv9mciwCN0ITMxojIklGciwCN0ITMxojIkl2XyVmb0JXYwJye";
+		
+		// 帮助文档参数
+		var qaUrl = "http://open.talk-fun.com/maituo/faq/pc_qa_1.html?pid=11244";
+
+		var protocol = "http://",
+			// 根目录配置参数
+			base_path = "/xampp-project/exercise";
+
+		window.tpl_mod_admin_url = protocol+window.document.domain+base_path+'/live-pc-v2.1/tpl/tpl_mod_admin.html';
+
+		var	modules_config = {
+			"10": {
+				"name": "评分模块",
+				"enable": "1",
+				"config": {
+					"visible": {
+						"name": "开启评分",
+						"enable": 1
+					}
+				}
+			},
+			"11": {
+				"name": "界面模块",
+				"enable": 1,
+				"config": {
+					"portrait": {
+						"name": "头像与姓名",
+						"enable": 1
+					},
+					"medal": {
+						"name": "勋章与得分",
+						"enable": 1
+					},
+					"banner": {
+						"name": "顶部横栏",
+						"enable": 1
+					},
+					"theme": {
+						"name": "主题",
+						"enable": 1
+					}
+				}
+			},
+			"12": {
+				"name": "投票模块",
+				"enable": 1,
+				"config": {
+					"visible": {
+						"name": "开启投票",
+						"enable": 1
+					}
+				}
+			},
+			"14": {
+				"name": "鲜花模块",
+				"enable": 1,
+				"config": {
+					"sendFlower": {
+						"name": "送花功能",
+						"enable": 1
+					},
+					"flowerIndex": {
+						"name": "鲜花指数",
+						"enable": 1
+					}
+				}
+			},
+			"15": {
+				"name": "抽奖模块",
+				"enable": 1,
+				"config": []
+			},
+			"20": {
+				"name": "合作方LOGO",
+				"enable": "1",
+				"config": {
+					"logoLink": "http://www.talk-fun.com",
+					"logo": "http://static-1.talk-fun.com/upload/style/2016/11/055946cdb092dec5f541265da0e1a993.png"
+				}
+			},
+			"21": {
+				"name": "退出房间按钮",
+				"enable": "1",
+				"config": {
+					"logOutUrl": "http://www.talk-fun.com"
+				}
+			},
+			"22": {
+				"name": "主播信息",
+				"enable": "1",
+				"config": []
+			},
+			"23": {
+				"name": "直播信息",
+				"enable": "1",
+				"config": {
+					"theme": {
+						"name": "主题",
+						"enable": 1
+					},
+					"liveTime": {
+						"name": "直播时间",
+						"enable": 1
+					}
+				}
+			},
+			"24": {
+				"name": "访客信息",
+				"enable": "1",
+				"config": {
+					"visitorList": {
+						"name": "访客列表",
+						"enable": 1
+					},
+					"visitorCount": {
+						"name": "访客人数",
+						"enable": 1
+					}
+				}
+			},
+			"26": {
+				"name": "防盗录",
+				"enable": "0",
+				"config": []
+			},
+			"27": {
+				"name": "页面标题",
+				"enable": "1",
+				"config": {
+					"title": "欢拓开讲"
+				}
+			},
+			"28": {
+				"name": "修改身份名称",
+				"enable": "1",
+				"config": {
+					"type": "jiaoyu",
+					"list": {
+						"spadmin": {
+							"name": "教师",
+							"avatar": "1"
+						},
+						"admin": {
+							"name": "助教",
+							"avatar": "1"
+						},
+						"user": {
+							"name": "学生",
+							"avatar": "1"
+						}
+					}
+				}
+			},
+			"31": {
+				"name": "文字互动",
+				"enable": "1",
+				"config": {
+					"qa": {
+						"name": "问答",
+						"enable": 1
+					},
+					"chat": {
+						"name": "聊天",
+						"enable": 1
+					}
+				}
+			},
+			"32": {
+				"name": "课前互动",
+				"enable": "1",
+				"config": {
+					"chat": {
+						"name": "聊天",
+						"enable": 1
+					}
+				}
+			},
+			"33": {
+				"name": "课后互动",
+				"enable": "1",
+				"config": {
+					"chat": {
+						"name": "聊天",
+						"enable": 1
+					}
+				}
+			},
+			"34": {
+				"name": "打赏模块",
+				"enable": "0",
+				"config": []
+			},
+			"40": {
+				"name": "主播应用",
+				"enable": "1",
+				"config": {
+					"announcement": {
+						"name": "公告",
+						"enable": 1
+					},
+					"notice": {
+						"name": "通知",
+						"enable": 1
+					},
+					"vote": {
+						"name": "投票",
+						"enable": 1
+					},
+					"lottery": {
+						"name": "抽奖",
+						"enable": 1
+					},
+					"broadcast": {
+						"name": "广播",
+						"enable": 0
+					},
+					"privatechat": {
+						"name": "私聊",
+						"enable": 0
+					},
+					"rollcall": {
+						"name": "点名",
+						"enable": 0
+					}
+				}
+			},
+			"41": {
+				"name": "用户应用",
+				"enable": "1",
+				"config": {
+					"sendFlower": {
+						"name": "送花",
+						"enable": 1
+					},
+					"evaluate": {
+						"name": "评分",
+						"enable": 0
+					}
+				}
+			},
+			"42": {
+				"name": "摄像头大小",
+				"enable": "1",
+				"config": {
+					"mode": {
+						"name": "中",
+						"value": 1,
+						"type": "radio",
+						"options": [{
+							"name": "小",
+							"key": "small",
+							"value": 2
+						}, {
+							"name": "中",
+							"key": "middle",
+							"value": 1
+						}, {
+							"name": "大",
+							"key": "big",
+							"value": 0
+						}, {
+							"name": "单摄像头",
+							"key": "scamera",
+							"value": 3
+						}]
+					}
+				}
+			},
+			"43": {
+				"name": "摄像头位置",
+				"enable": "1",
+				"config": {
+					"position": {
+						"name": "下",
+						"value": 1,
+						"type": "radio",
+						"options": [{
+							"name": "上",
+							"key": "up",
+							"value": 0
+						}, {
+							"name": "下",
+							"key": "down",
+							"value": 1
+						}]
+					}
+				}
+			},
+			"44": {
+				"name": "摄像头",
+				"enable": "1",
+				"config": []
+			},
+			"45": {
+				"name": "PPT区域图片",
+				"enable": "1",
+				"config": {
+					"pptImage": ""
+				}
+			},
+			"46": {
+				"name": "微信鉴权登录",
+				"enable": "1",
+				"config": []
+			},
+			"47": {
+				"name": "模板颜色设置",
+				"enable": "1",
+				"config": {
+					"template": "10"
+				}
+			},
+			"48": {
+				"name": "模板颜色设置",
+				"enable": "1",
+				"config": {
+					"template": "2"
+				}
+			},
+			"49": {
+				"name": "网页跳转APP观看",
+				"enable": 0,
+				"config": []
+			},
+			"50": {
+				"name": "观看端摄像头区域图片",
+				"enable": 1,
+				"config": {
+					"cameraImage": ""
+				}
+			},
+			"51": {
+				"name": "登录页LOGO",
+				"enable": "0",
+				"config": {
+					"loginLogo": "http://static-1.talk-fun.com/upload/style/2017/12/ba6a58a9b77d543fb2e0521560b2d2d4.jpg"
+				}
+			},
+			"52": {
+				"name": "登录页主题",
+				"enable": "0",
+				"config": {
+					"loginTitle": "深度定制支持对应直播场景 为您提供专业稳定的互动直播服务"
+				}
+			},
+			"53": {
+				"name": "登录页简介",
+				"enable": "0",
+				"config": {
+					"loginDescription": "让直播更轻松便捷欢拓云直播为企业深度打造最专业、稳定、快速、流畅的直播互动解决方案。只需简单对接，即可快速拥有完全自有品牌标识的直播平台自有知识产权适应中国复杂网络环境高速传输协议，降低延迟抗丢包，PC端/移动原生直播延迟达到业内最低的1-2S（语音云模式200ms）。国内独创网络超级加速技术，支持在丢包30% 的网络进行流畅直播。PC、Html5、微信端、IOS原生、Android原生全终端可流畅观看，支持移动SDK嵌入APP。"
+				}
+			},
+			"mod_score": {
+				"name": "评分模块",
+				"enable": "1",
+				"config": {
+					"visible": {
+						"name": "开启评分",
+						"enable": 1
+					}
+				}
+			},
+			"mod_view": {
+				"name": "界面模块",
+				"enable": 1,
+				"config": {
+					"portrait": {
+						"name": "头像与姓名",
+						"enable": 1
+					},
+					"medal": {
+						"name": "勋章与得分",
+						"enable": 1
+					},
+					"banner": {
+						"name": "顶部横栏",
+						"enable": 1
+					},
+					"theme": {
+						"name": "主题",
+						"enable": 1
+					}
+				}
+			},
+			"mod_vote": {
+				"name": "投票模块",
+				"enable": 1,
+				"config": {
+					"visible": {
+						"name": "开启投票",
+						"enable": 1
+					}
+				}
+			},
+			"mod_flower": {
+				"name": "鲜花模块",
+				"enable": 1,
+				"config": {
+					"sendFlower": {
+						"name": "送花功能",
+						"enable": 1
+					},
+					"flowerIndex": {
+						"name": "鲜花指数",
+						"enable": 1
+					}
+				}
+			},
+			"mod_logo_live": {
+				"name": "合作方LOGO",
+				"enable": "1",
+				"config": {
+					"logoLink": "http://www.talk-fun.com",
+					"logo": "http://static-1.talk-fun.com/upload/style/2016/11/055946cdb092dec5f541265da0e1a993.png"
+				}
+			},
+			"mod_logout_live": {
+				"name": "退出房间按钮",
+				"enable": "1",
+				"config": {
+					"logOutUrl": "http://www.talk-fun.com"
+				}
+			},
+			"mod_zhuboinfo_live": {
+				"name": "主播信息",
+				"enable": "1",
+				"config": []
+			},
+			"mod_liveinfo_live": {
+				"name": "直播信息",
+				"enable": "1",
+				"config": {
+					"theme": {
+						"name": "主题",
+						"enable": 1
+					},
+					"liveTime": {
+						"name": "直播时间",
+						"enable": 1
+					}
+				}
+			},
+			"mod_visitorinfo_live": {
+				"name": "访客信息",
+				"enable": "1",
+				"config": {
+					"visitorList": {
+						"name": "访客列表",
+						"enable": 1
+					},
+					"visitorCount": {
+						"name": "访客人数",
+						"enable": 1
+					}
+				}
+			},
+			"mod_theftproof_live": {
+				"name": "防盗录",
+				"enable": "0",
+				"config": []
+			},
+			"mod_text_live": {
+				"name": "文字互动",
+				"enable": "1",
+				"config": {
+					"qa": {
+						"name": "问答",
+						"enable": 1
+					},
+					"chat": {
+						"name": "聊天",
+						"enable": 1
+					}
+				}
+			},
+			"mod_zhuboaction_live": {
+				"name": "主播应用",
+				"enable": "1",
+				"config": {
+					"announcement": {
+						"name": "公告",
+						"enable": 1
+					},
+					"notice": {
+						"name": "通知",
+						"enable": 1
+					},
+					"vote": {
+						"name": "投票",
+						"enable": 1
+					},
+					"lottery": {
+						"name": "抽奖",
+						"enable": 1
+					},
+					"broadcast": {
+						"name": "广播",
+						"enable": 0
+					},
+					"privatechat": {
+						"name": "私聊",
+						"enable": 0
+					},
+					"rollcall": {
+						"name": "点名",
+						"enable": 0
+					}
+				}
+			},
+			"mod_visitoraction_live": {
+				"name": "用户应用",
+				"enable": "1",
+				"config": {
+					"sendFlower": {
+						"name": "送花",
+						"enable": 1
+					},
+					"evaluate": {
+						"name": "评分",
+						"enable": 0
+					}
+				}
+			},
+			"mod_camera_enable_live": {
+				"name": "摄像头",
+				"enable": "1",
+				"config": []
+			},
+			"mod_title_live": {
+				"name": "页面标题",
+				"enable": "1",
+				"config": {
+					"title": "欢拓开讲"
+				}
+			},
+			"mod_role_live": {
+				"name": "修改身份名称",
+				"enable": "1",
+				"config": {
+					"type": "jiaoyu",
+					"list": {
+						"spadmin": {
+							"name": "教师",
+							"avatar": "1"
+						},
+						"admin": {
+							"name": "助教",
+							"avatar": "1"
+						},
+						"user": {
+							"name": "学生",
+							"avatar": "1"
+						}
+					}
+				}
+			},
+			"module_reward_live": {
+				"name": "打赏模块",
+				"enable": "0",
+				"config": []
+			},
+			"module_wechat_oauth_live": {
+				"name": "微信鉴权登录",
+				"enable": "1",
+				"config": []
+			},
+			"mod_style_live": {
+				"name": "模板颜色设置",
+				"enable": "1",
+				"config": {
+					"template": "10"
+				}
+			},
+			"mod_mobile_style_live": {
+				"name": "模板颜色设置",
+				"enable": "1",
+				"config": {
+					"template": "2"
+				}
+			},
+			"mod_beforeclass_live": {
+				"name": "课前互动",
+				"enable": "1",
+				"config": {
+					"chat": {
+						"name": "聊天",
+						"enable": 1
+					}
+				}
+			},
+			"mod_afterclass_live": {
+				"name": "课后互动",
+				"enable": "1",
+				"config": {
+					"chat": {
+						"name": "聊天",
+						"enable": 1
+					}
+				}
+			},
+			"mod_app_watch_live": {
+				"name": "网页跳转APP观看",
+				"enable": 0,
+				"config": []
+			}
+		};
+	</script>
+</head>
+<body>
+	<!-- @page-loader -->
+	<div id="first_loader" class="first_loader">数据加载中...</div>
+
+	<!-- @静态资源加载SDK -->
+	<!-- <tal:block metal:use-macro="../../macro/cdnloader_v2.html/cdn_loader"></tal:block> -->
+	<script src="./js/cdnloader.js"></script>
+	
+	<!-- @静态资源队列 -->
+	<script data-static-resource="true">
+		
+		// 读取版本
+        var sdkVersion = "${sdkVersion}",
+            isTest = (sdkVersion === "test") ? true : false,
+			coreTpl = "tpl/modules.html",
+			SDK_PATH = '${sdkUrl}',
+			SDK_URL = '${sdkUrl}',
+            sdkUrl = "";
+
+ 		// if(sdkVersion == "3.5"){
+            sdkUrl = "//static-1.talk-fun.com/open/maituo_v2/dist/live/pc/sdk-pc.3.5.min.js";
+        // }
+
+        // 读取服务器 SDK 版本
+        // sdkUrl = SDK_URL
+
+		// 读取 Styles.
+		var styles = ["css/main.css"];
+		try{
+			styles = styles.concat("${structure csspath}");
+		}catch(err){}
+
+		var talkfunQueue = null;
+
+		// source
+			talkfunQueue = [
+				// base
+				"js/libs/libs.min.js",
+
+				// SDK
+				sdkUrl,
+
+				// calls
+				"js/common/sdk.admin_v2.js",
+				"js/common/module_setting.js",
+				"js/sdk_live_modules.js",
+					
+				// modules
+				// "js/sdk.live.privatecall.js",
+				// "js/mod-live-camera.js",
+				// "js/mod-player.js",
+				// "js/mod-chat.js",
+				// "js/mod-question.js",
+				// "js/mod-voice-cloud.js",
+				"js/modules/mod-private-chat.js",
+				"js/modules/mod-chat.js",
+				"js/modules/mod-class-preview.js",
+				"js/modules/mod-live-camera.js",
+				"js/modules/mod-onlines.js",
+				"js/modules/mod-player.js",
+				"js/modules/mod-plugins.js",
+				"js/modules/mod-question.js",
+				"js/modules/mod-reward.js",
+				"js/modules/mod-room.js",
+				"js/modules/mod-score.js",
+				"js/modules/mod-tools.js",
+				"js/modules/mod-usersign.js",
+				"js/modules/mod-voice-cloud.js",
+				"js/modules/mod-video-privew.js",
+				"js/modules/mod-user-box.js",
+				
+
+				// calls
+				"js/sdk.live.cmd.js",
+				"js/sdk.live.call.js",
+
+				// other-libs
+				"js/zoom.js",
+				"js/alertPop.js",
+				"js/webuploader/webuploader.min.js",
+				"js/jquery.page.js",
+				"js/qrcode.min.js"
+			];
+		</script>
+
+	<!-- @加载开始 -->
+	<script type="text/javascript">
+	<!--
+		for(var i = 0; i < styles.length; i++){
+			talkfunQueue.unshift(styles[i]);
+		}
+		// init here.
+		window.talkfunLoader.series(talkfunQueue, function(error, response){
+			var fsloader = document.querySelector("#first_loader");
+			if(error){
+				fsloader.innerHTML = error.msg;
+			}else{
+				document.body.removeChild(fsloader);
+			}
+		});
+	-->
+	</script>
+	<!-- ##END-LOADER -->
+
+	<!-- ##Dependent on HTSDK -->
+	<!-- #logs -->
+	<div id="logs"></div>
+
+	<!-- section_wrap #房间容器-->
+	<div id="room" class="section_wrap">
+		<!-- section_header #头部 -->
+		<div id="header" class="section_header"></div>
+		<!-- section_main #主容器-->
+		<div class="section_main">
+			<!-- col_left_side #左侧-->
+			<div id="mod_col_left" class="col_left_side"></div>
+			<!-- col_main #主要部分-->
+			<div id="mod_col_main" class="col_main"></div>
+			<!-- col_right_side #右侧-->
+			<div id="mod_col_right" class="col_right_side"></div>
+		</div>
+		<!-- section_footer #底部 -->
+		<div id="footer" class="section_footer"></div>
+	</div>
+
+	<!-- @模版加载 -->
+	<div id="template_loader"></div>
+
+	<!-- @弹框 -->
+	<div id="pop_box" data-move="move_flag"></div>
+	<div id="studentVote_box" data-move="move_flag"></div>
+	<div id="pop_emotis" class="mod_emotions"><span class="cner"></span><ul id="eitem"></ul></div>
+	<div id="private_pop_emotis" class="mod_emotions"><span class="cner"></span><ul id="private_eitem"></ul></div>
+	<div id="pop_tips" class="mod_pub_tip"><p></p><span class="cner"></span></div>
+	<div id="pop_layer" class="pop_layer hidden"></div>	
+
+</body>
+</html>

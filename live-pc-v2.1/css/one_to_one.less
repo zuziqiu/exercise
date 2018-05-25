@@ -1,0 +1,394 @@
+/**
+ * 小班模式
+ * author: xin;
+ * version: 1.1.1.0;
+ */
+.one_connent{
+	top: 0;
+    right: 0;
+    width: 300px;
+    height: 255px;
+    overflow: hidden;
+    position: absolute;
+    display: none;
+    background: #ffffff;
+	//文字:ff9600 文字bg: fffcd0, 蓝色：00baff;
+	.top{
+		height: 30px;
+		padding: 0 16px;
+		span{
+			float: left;
+			display: block;
+			line-height: 30px;
+		}
+		.btn{
+			height: 22px;
+			line-height: 22px;
+			float: right;
+			color: #ffffff;
+			padding: 0 8px;
+			margin-top: 4px;
+			cursor: pointer;
+			border-radius: 2px;
+			display: none;
+			background: #00baff;
+			&:hover{
+				background: #0ca6df;
+			}
+		}
+	}
+	//一对一摄像头
+	.one_camera_cont{
+		width: 100%;
+		height: 225px;
+		background: #00baff;
+		position: absolute;
+		z-index: 100;
+		//display: none;
+		.one_text_btn{
+			padding: 76px 0 0 0;
+			.logo{
+				width: 50px;
+				height: 70px;
+				margin:  0 auto;
+				background: url(img/side/img_bg.png) no-repeat;
+			}
+			em{
+				width: 100px;
+				height: 36px;
+				color: #ff9600;
+				display: block;
+				font-size: 14px;
+				font-weight: 400px;
+				text-align: center;
+				border-radius: 4px;
+				line-height: 36px;
+				cursor: pointer;
+				margin: 12px auto 0;
+				background: #fffcd0;
+				box-shadow: 0 0 10px rgba(0,0,0, 0.2);
+				&:hover{
+					color: #ffffff;
+					background: #ffBB5B;
+				}
+				&.emin{
+					color: #ffffff;
+					background: #ffa92f;
+				}
+			}
+		}
+	}
+	//一对一摄像头容器
+	.mod_live_camera{
+		height: 225px;
+		position: absolute;
+		top: 30px;
+		// z-index: 200;
+		#ht_live_player{
+			width: 300px;
+			display: block;
+			height: 225px;
+		}
+		&.show{
+			z-index: 9999;
+		}
+	}
+	&.show_one_camera{
+		.one_camera_cont{
+			z-index: 6666;
+		}
+		.mod_live_camera{
+			z-index: 9999;
+		}
+	}
+}
+
+//pop弹出窗
+.pop_text{
+	width: 240px;
+	height: 108px;
+	position: absolute;
+	right: 30px;
+	top: 150px;
+	z-index: 9999;
+	display: none;
+    margin-left: -118px;
+    margin-top: -74px;
+	background: #ffffff;
+	box-shadow:  0 0 3px #929292;
+	border-radius: 3px;
+	&.pop_up{
+		height: 20px;
+		background: none;
+		box-shadow: none;
+		overflow: hidden;
+		top: 258px;
+		z-index: 1000;
+		.apply_text{
+			margin: 0 auto;
+			border: 0 none;
+			padding: 5px;
+			width: auto;
+			color: #cbf1ff;
+			height: 20px;
+			overflow: hidden;
+			line-height: 20px;
+			padding: 0;
+		}
+	}
+	.pop_top{
+		height: 30px;
+		line-height: 30px;
+		padding: 0 10px;
+		background: #00baff;
+		display: none;
+		span{
+			width: 30px;
+			height: 30px;
+			color: #ffffff;
+			display: block;
+			float: left;
+		}
+		em{
+			width: 20px;
+			height: 30px;
+			display: block;
+			float: right;
+			cursor: pointer;
+			background: url(img/main/one_to_one_icon.png) no-repeat 8px 8px;
+		}
+	}
+	//请求时发送
+	.down_text,
+	.apply_text{
+		width: 180px;
+		height: 30px;
+		text-align: center;
+		line-height: 30px;
+		color: #333333;
+		display: none;
+		margin: 20px auto 0;
+	}
+	.cancel,	
+	.go_confim,
+	.down_confim{
+		width: 48px;
+		height: 22px;
+		line-height: 22px;
+		text-align: center;
+		cursor: pointer;
+		border-radius: 2px;
+		border: 1px solid #d3d8df;
+		margin: 10px auto;
+		display: none;
+		&:hover{
+		    //color: #ffffff;
+		    background: #f4f4f4;
+	    }
+	}
+	//上讲台
+	&.go{
+		.down_confim,
+		.go_confim{
+			display: block;
+		}
+		.cancel{
+			display: none;
+		}
+		.apply_text{
+			display: block;
+		}
+
+	}
+
+	//下讲台
+	&.down{
+		.cancel{
+			float: left;
+			display: block;
+			margin-left: 10px;
+		}
+		.down_confim,
+		.go_confim{
+			float: left;
+			display: block;
+			margin-left: 65px;
+		}
+		.down_text{
+			display: block;
+		}
+	}
+}
+
+//pop摄像头检测失败
+.user_camera_fail{
+	width: 240px;
+	height: 140px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 9999;
+	display: none;
+    margin-left: -118px;
+    margin-top: -74px;
+	background: #ffffff;
+	box-shadow:  0 0 3px #929292;
+	.pop_top{
+		height: 30px;
+		line-height: 30px;
+		padding: 0 10px;
+		background: #00baff;
+		span{
+			width: 30px;
+			height: 30px;
+			color: #ffffff;
+			display: block;
+			float: left;
+		}
+		.fail_close{
+			width: 20px;
+			height: 30px;
+			display: block;
+			float: right;
+			cursor: pointer;
+			background: url(img/main/one_to_one_icon.png) no-repeat 8px 8px;
+		}
+	}
+	.fail_text{
+		width: 132px;
+		height: 40px;
+		text-align: center;
+		line-height: 20px;
+		color: #333333;
+		//display: none;
+		margin: 20px auto 0;
+	}
+	.fail_sure{
+		width: 48px;
+	    height: 22px;
+	    line-height: 22px;
+	    text-align: center;
+	    cursor: pointer;
+	    border-radius: 2px;
+	    border: 1px solid #d3d8df;
+	    margin: 15px auto;
+	    &:hover{
+		    //color: #ffffff;
+		    background: #f4f4f4;
+	    }
+	}
+}
+
+// 重置(小班情况下)直播页样式
+body{
+
+	&.mode_live_player{
+
+		@LC_W: 360px;
+		@LC_H: 270px;
+
+		.popup{
+			left: 367px;
+		}
+		
+		.left_mask_con{
+			display: none;
+		}
+
+		.mod_user_info{
+			width: @LC_W;
+			padding-top: 36px;
+		}
+
+		.camera_play{
+			width: @LC_W;
+			height: @LC_H;
+			background-size: 100% 100%;
+		}
+
+		.switch_preview{
+			width: 360px;
+			height: 270px;
+			i{
+				margin-top: -64px;
+			}
+		}
+
+		.carousel{
+			&.left{
+				left: @LC_W;
+			}
+		}
+		.left_mask_con{
+			z-index: 110;
+		}
+		.head{
+			z-index: 200;
+			.logo{
+				display: block;
+				overflow: hidden;
+				width: 100%;
+				height: 100%;
+				img{
+					margin: 0 auto;
+				}
+			}
+		}
+
+		// toggled.
+		// camera
+		.camera_warp{
+			&.toggle_video_ppt{
+				left: @LC_W + 10;
+			}
+		}
+		// ppt
+		.mod_main_player_wp{
+			&.toggle_video_ppt{
+				left: 0;
+				width: @LC_W;
+				height: @LC_H;
+			}
+		}
+
+		// main-block
+		.mod_head,
+		.mod_footer,
+		.mod_main_player_wp
+		{
+			left: 370px;
+		}
+
+		// left-block
+		.head{
+			width: @LC_W;
+		}
+
+		.mod_question_post{
+			.post_con{
+				width: 344px;
+				textarea{
+					width: 284px;
+				}
+			}
+		}
+
+		// ques-block
+		.mod_question_wrap{
+			.hd_ti{
+				width: 344px;
+				top: 330px;
+			}
+			.t_say{
+				width: 384px;
+			}
+			.mod_ques_hall{
+				width: @LC_W;
+				top: 364px;
+			}
+		}
+		.mod_question_post{
+			width: 359px;
+		}
+	}
+}

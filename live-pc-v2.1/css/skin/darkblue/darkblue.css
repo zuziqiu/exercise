@@ -1,0 +1,335 @@
+/**
+ * @name: [欢拓皮肤设置-蓝色渐变]
+ * @Version: {1.0.1}
+ * @Date: 2015-08-12
+ * @Author: Yj
+ */
+/*reset*/
+/* 滚动条的颜色*/
+html {
+  border: none;
+  overflow: hidden;
+  -webkit-text-size-adjust: none;
+  /**
+     * scroll bar reset
+    */
+  /* Track */
+  /* Handle */
+}
+html ::-webkit-scrollbar {
+  width: 7px;
+}
+html ::-moz-scrollbar {
+  width: 7px;
+}
+html ::-webkit-scrollbar-track {
+  background-color: #2e3235;
+  color: #28445C;
+}
+html ::-moz-scrollbar-track {
+  background-color: #28445C;
+  color: #28445C;
+}
+html ::-webkit-scrollbar-thumb {
+  background-color: #6cb8ff;
+}
+html ::-moz-scrollbar-thumb {
+  background-color: #4D7799;
+}
+body {
+  background: #43678b;
+}
+/* logo的背景色*/
+.head {
+  background: url("img/line.png") repeat-y;
+}
+.head .logo {
+  height: 46px;
+  width: 100%;
+  display: block;
+}
+/* 摄像头区 的背景色改变*/
+.camera_warp .camera_play {
+  background: url("img/bevio.jpg") no-repeat #487aab;
+}
+/*提问板块的背景色*/
+.mod_question_wrap {
+  border-top: 1px solid #465670;
+  border-bottom: 1px solid #465670;
+}
+.mod_question_wrap .mod_ques_hall {
+  background: url("img/line.png") repeat-y;
+  margin-top: -1px;
+}
+/*提问的背景色*/
+.hd_ti {
+  background-color: #45637f;
+  color: #ffffff;
+}
+/*老师回答的分割线*/
+.mod_question_wrap .t_say {
+  border-top: 1px dotted #25323e;
+}
+/* 问答区的发送板块的背景色*/
+.mod_question_post {
+  background: #1d2d3d;
+  border-top: none;
+  height: 81px;
+  margin-bottom: -1px;
+}
+/*学生说的样式*/
+.mod_question_wrap .u_say .s_ask .u_portrait .u_name {
+  color: #82a0bb;
+}
+.mod_question_wrap .u_say .s_ask .u_portrait .u_time {
+  color: #6f8191;
+}
+.mod_question_wrap .u_say p {
+  color: #b5dfef;
+}
+/*聊天区自己样式*/
+.chat_wrap .chat_list.admin .chat_name {
+  color: #82a0bb;
+}
+.chat_wrap .chat_list.admin .chat_time {
+  color: #6f8191;
+}
+.chat_wrap .chat_list {
+  border-bottom: 1px dotted #25323e;
+}
+.chat_wrap .chat_list.self_admin p {
+  color: #b5dfef;
+}
+.chat_wrap .chat_list .chat_info img {
+  border: none;
+  width: 28px;
+  height: 28px;
+}
+/*聊天区别人样式*/
+.chat_wrap .chat_list .chat_info .chat_name {
+  color: #82a0bb;
+}
+.chat_wrap .chat_list .chat_info .chat_time {
+  color: #6f8191;
+}
+.chat_wrap .chat_list p {
+  color: #b5dfef;
+}
+.chat_wrap .flower .flower_fn .send_to {
+  color: #b5dfef;
+}
+.mod_head .live_info #live_title {
+  color: #ffffff;
+}
+/*老师说的样式*/
+.mod_question_wrap .t_say .t_ans .t_name {
+  color: #82a0bb;
+}
+.mod_question_wrap .t_say .t_ans .u_time {
+  color: #6f8191;
+}
+.mod_question_wrap .t_say p {
+  color: #b5dfef;
+}
+/* 问答区只看老师回答*/
+.mod_question_post .show_me_ques.cur i {
+  background: url("img/sptist.png") no-repeat;
+}
+.mod_question_post .show_me_ques i {
+  background: url("img/sptist.png") -31px 0;
+}
+/*分割线颜色*/
+.mod_question_wrap .ask_wrap {
+  border-bottom: 1px solid #283b4f;
+}
+/*回复鼠标经过*/
+.mod_question_wrap .u_say .s_ask .answered:hover {
+  color: #ffffff;
+}
+/*发送的初始化 左侧*/
+.mod_question_post .post_con button {
+  background: url("img/seed_s.jpg") repeat-x;
+}
+/*发送的初始化 右侧*/
+.chat_wrap .mod_chat_post .post_con button {
+  background: url("img/seed_s.jpg") repeat-x;
+}
+/*发送的初始化 左侧*/
+.chat_wrap .mod_chat_post .post_con textarea {
+  height: 32px;
+}
+/*发送的初始化 右侧*/
+.chat_wrap .mod_chat_post .post_con button {
+  background: url("img/seed_s.jpg") repeat-x;
+}
+/* 发送改变颜色 右侧*/
+.chat_wrap .mod_chat_post .post_con button.active {
+  background: url("img/seed.jpg") repeat-x;
+}
+/* 发送改变颜色 左侧*/
+.mod_question_post .post_con button.active {
+  background: url("img/seed.jpg") repeat-x;
+}
+/*中间板块的背景*/
+.col_main {
+  background: #121e29;
+}
+/*播放器上的公告背景*/
+.mod_main_player_wp .con_notice {
+  background: #294057;
+}
+/* 中间播放区域的 背景色  */
+.mod_main_player_wp {
+  box-shadow: none;
+}
+.mod_main_player_wp .live_preview {
+  background: url("img/video.png") no-repeat center center #43678b;
+}
+/*中间部分功能按钮的背景*/
+.mod_footer {
+  background: url("img/center_bg.png") repeat-x;
+}
+/*摄像头的开关*/
+.mod_footer .opt_btns .tools_toggle_camera {
+  background: url("img/sptist.png") 0 -25px;
+}
+.mod_footer .opt_btns .tools_toggle_camera.disable {
+  background: url("img/sptist.png") 0 -57px;
+}
+/* 鼠标经过 轮播箭头 改变的背景色*/
+.carousel i:hover {
+  background-color: #88c6ff;
+}
+/*右侧的公告背景*/
+.notice_bg {
+  background: #d7e4ee;
+  border-top: 1px solid #cbd9e5;
+  border-bottom: 1px solid #cbd9e5;
+}
+.notice_bg span.more:hover {
+  color: #ffffff;
+}
+/*聊天的背景*/
+.chat_wrap {
+  background: url("img/right-bg.png") repeat-y;
+}
+/*切换li*/
+.tab_change li {
+  background: #1d2d3d;
+}
+.tab_change .current {
+  background: #1d2d3d;
+  color: #ffffff;
+  border: none;
+}
+.tab_change .tab_n1 {
+  color: #82a0bb;
+  border-top: 1px solid #283b4f;
+  border: none;
+  width: 150px;
+}
+.tab_change .tab_n1.current {
+  background: url("img/right-bg.png") repeat-y;
+  color: #ffffff;
+}
+.tab_change .tab_n2 {
+  color: #82a0bb;
+  border: none;
+}
+.tab_change .tab_n2.current {
+  background: url("img/right-bg.jpg") repeat-y;
+  color: #ffffff;
+}
+/*当前li*/
+.col_right_side {
+  background: url("img/right-bg.png") repeat-y;
+}
+/*右侧的公告背景*/
+.notice_bg {
+  background: #334158;
+  border-top: 1px solid #465670;
+  border-bottom: 1px solid #465670;
+  color: #fff36d;
+  /*关闭公告按钮*/
+}
+.notice_bg em {
+  background: url("img/sptist.png") -92px 0;
+}
+/*聊天区发送板块背景*/
+.chat_wrap .mod_chat_post {
+  background: #1d2d3d;
+  border: none;
+  box-shadow: none;
+}
+/*聊天区只看老师提问*/
+.chat_wrap .mod_chat_post .chat_op_btn .show_adchat i {
+  background: url("img/sptist.png") -31px 0;
+}
+.chat_wrap .mod_chat_post .chat_op_btn .show_adchat.cur i {
+  background: url("img/sptist.png") no-repeat;
+}
+/*笑脸鼠标经过时*/
+.chat_wrap .mod_chat_post .chat_op_btn .op_left .emotion_btn {
+  background: url("img/sptist.png") 0 -130px;
+}
+.chat_wrap .mod_chat_post .chat_op_btn .op_left .emotion_btn:hover {
+  background: url("img/sptist.png") 0 -96px;
+}
+/*授课信息*/
+.mod_user_info {
+  background: #29354b;
+  margin: -1px 0;
+  height: 210px;
+}
+.mod_user_info h4 {
+  color: #ffffff;
+}
+.mod_user_info p {
+  color: #b5dfef;
+}
+.mod_user_info .assist .user_flower span {
+  color: #b5dfef;
+}
+.mod_user_info .assist .user_meda span {
+  color: #b5dfef;
+}
+/*授课老师弹窗信息*/
+.popup {
+  background: #1d2d3d;
+  border: 1px solid #2b2b2b;
+}
+.popup .arrow {
+  background: url("img/sptist.png") 1px -169px;
+}
+.popup h2 {
+  color: #ffffff;
+}
+.popup p {
+  color: #b5dfef;
+}
+.popup .assist .user_flower span {
+  color: #b5dfef;
+}
+.popup .assist .user_meda span {
+  color: #b5dfef;
+}
+/*学生列表鼠标经过*/
+.mod_members li:hover {
+  background: #45637f;
+}
+.mod_members li img {
+  border: none;
+}
+.mod_members li span {
+  color: #b5dfef;
+}
+.chat_wrap .mod_notify {
+  background: #45637f;
+  color: #82A6C7;
+}
+.chat_wrap .mod_notify em {
+  color: #33adff;
+}
+.chat_wrap .mod_notify a {
+  color: #ff5b4f;
+}

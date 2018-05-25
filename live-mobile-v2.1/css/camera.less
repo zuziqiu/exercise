@@ -1,0 +1,211 @@
+/**
+ * #name :  摄像头
+ * author:  liangh;
+ */
+.ht_camera_container{
+   /* height: 100%;
+    width: 100%;*/
+    position: absolute;
+    z-index: 99;
+    //小屏模式
+    &.smallScreen{
+        right: 0;
+        /*width: 30%;*/
+        /*z-index: 99;*/
+        overflow: hidden;
+        display: block;
+    }
+   
+    /*竖屏切换状态下*/
+    &.cameravs{
+      top:0;
+    }
+
+    /*竖屏默认状态下*/
+    &.hvr{
+      bottom: 0;
+    }
+
+    &.move{
+          position: absolute;
+          left: 3000px;
+    }
+    &.setcw{
+        width: 1px;
+        height: 1px;
+        visibility: hidden;
+    }
+
+    #mtAuthorPlayer{
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      &.wechatIphone{
+        width: 1px;
+        height: 1px;
+        visibility: hidden;
+      } 
+      &.camerahide{
+        position: absolute;
+        left: 3000;
+      }
+  }  
+  .voice_bg{
+        height: 100%;
+        position: absolute;
+        display: none;
+        width: 100%;
+        z-index: 99;
+        background: #ffffff;
+        background-size: 100% auto;
+        text-align: center;
+        .voice_content{
+              width: 250px;
+              height: 124px;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              margin-top: -100px;
+              margin-left: -124px;
+           .left_voice{
+               display: block;
+                width: 100px;
+                height: 42px;
+                margin-top: 48px;
+               background: url("img/voice1.png") no-repeat;
+               background-size: 100% auto;
+               float: left;
+           } 
+           .right_voice{
+                display: block;
+                width: 94px;
+                float: right;
+                margin-top: 56px;
+                height: 24px;
+                background: url("img/voice2.png") no-repeat;
+                background-size: 100% auto;
+           }
+        }
+        .voice_title{
+             em{ 
+                display: inline-block;
+                width: 8px;
+                height: 8px;
+                background: #16d635;
+                border-radius: 50em;
+                border: 2px solid #ffffff;             
+                -webkit-animation: doot 1.5s infinite;
+             } 
+             @-webkit-keyframes doot {
+                  0% { box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+                  100% { box-shadow: 0 1px 5px rgba(0,0,0,0.2);}
+             }
+
+             @keyframes doot {
+                  0% { box-shadow: 0 1px 3px rgba(0,0,0,0.2); background: #16d635;}
+                  100% { box-shadow: 0 1px 5px rgba(0,0,0,0.2); background: #119b27;}
+             }
+             span{
+                color: #333333;
+                font-size: 1.4rem;
+                line-height: 30px;
+
+             }
+        }  
+        .bottom_bg{
+            width: 100%;
+            height: 40px;
+            position: absolute;
+            bottom: 0;
+            /* bottom: -31px; */
+            background: url("img/bottom_bg.png") no-repeat;
+            background-size: 100% 100%;
+        }
+        img{
+              width: 46px;
+              height: 46px;
+              border-radius: 50em;
+              border: 2.5px solid #ffffff;
+              box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+              margin-top: 40px;
+          }
+    }
+    video, audio{
+       width: 100%;
+       height: auto;
+       display: block
+    }
+}
+
+/*========================================*/
+/*横屏*/
+.horizontal{
+  .ht_camera_container{
+      min-height: 100px;
+      overflow: hidden;
+      position: absolute;
+      right: -1px;
+      top: 35px;
+      /*border-left: 1px solid #dddddd;*/
+      &.add_bg{
+          background: #000000;
+      }
+      &.moveout{
+         left: 2000px;  
+      }
+
+      &.camerahs{
+        left: 0;
+        top: 0;
+      }
+      &.vis{
+        width: 1px;
+        height: 1px;
+        visibility: hidden;
+      }
+     /* #mtAuthorPlayer{
+         position: fixed;
+         top: 34px;
+      }*/
+      .mask_bg{
+        position: absolute;
+        width: 100%;
+        display: none;
+        border-right: 1px solid #dddddd;
+        background: #f5f5f5;
+        background-size: 100% auto;
+        text-align: center;
+        i{
+          display: block;
+          width: 120px;
+          height: 86px;
+          margin: 30px auto 16px auto;
+        }
+      }
+      .voice_bg{
+          border-right: 1px solid #cccccc; 
+          right: 0px;
+          img{
+              margin-top: 35px;
+          }
+          .voice_content{
+              width: 168px;
+              margin-left: -84px;
+              .left_voice{
+                  width: 60px;
+                  height: 28px;
+                  margin-top: 48px;
+              }
+              .right_voice{
+                  width: 50px;
+              }
+          }
+      }
+  }
+
+
+
+}

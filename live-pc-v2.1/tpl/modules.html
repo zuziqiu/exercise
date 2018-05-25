@@ -1,0 +1,2001 @@
+<!-- ## 直播模版 命名规则: tpl_{name} ## -->
+<!-- 管理员菜单 -->
+<script id="tpl_admin_pop_menu" type="text/html">
+    <!-- 管理员菜单 -->
+    <div class="admin_list">
+        <ul class="pop_side_operation">
+            <li class="privateChat" data-op="privateChat">私聊</li>
+            <li data-op="kick">踢出房间</li>
+            <li id="chatAccess" data-op="chatAccess">禁止发言</li>
+            <li data-op="detail">查看详情</li>
+            <li class="voice" data-op="vdisable">禁止语音说话</li>
+            <li class="voice" data-op="venable">允许语音说话</li>
+        </ul>
+    </div>
+</script>
+<!--  用户列表管理菜单 -->
+<script id="tpl_user_pop_menu" type="text/html">
+    <div class="admin_list">
+        <ul class="pop_side_operation">
+            <!-- <li data-op="privateChat">私聊</li> -->
+            <li data-op="kick">踢出房间</li>
+            <li data-op="chatAccess" class="gagStatus">禁止发言</li>
+        </ul>
+    </div>
+</script>
+
+<!-- 查看详情-->
+<script id="tpl_detail_con" type="text/html">
+    <div id="detail_cont" class="detail_cont">
+        <!--查看详情-->
+        <p class="detail_close">X</p>
+        <ul id="detail_li" class="deta_li">
+            <li>名字：{{name}}</li>
+            <li>运营商：{{operator}}</li>
+            <li>ip: {{ip}}</li>
+            <li>系统：{{os}}</li>
+            <li>浏览器：{{useragent}}</li>
+        </ul>
+    </div>
+</script>
+
+<!--框提示-->
+<script id="tpl_prompt_con" type="text/html">
+    <!--关键字匹配-->
+    <div class="keyword_cont">
+        <span class="prompt">直播是否遇到问题？</span>
+        <p class="yes_btn">是</p>
+        <p class="no_btn">否</p>
+        <span class="kw_close">X</span>
+    </div>
+</script>
+
+<!--解决方法-->
+<script id="tpl_solve_con" type="text/html">
+    <!--FAQ-->
+    <div class="faq_pop">
+        <!--pop_QQ-->
+        <div class="pop_qq">
+            <span class="pop_top">
+                <a>提示</a>
+                <p class="pop_qq_close">X</p>
+            </span>
+            <ul class="pop_ulqq">
+                <li>技术支持QQ：</li>
+                <li>技术QQ:<a href="tencent://message/?uin=1183740066&Site=%E5%9C%A8%E7%BA%BF%E5%92%A8%E8%AF%A2&Menu=yes">1183740066</a></li>
+                <li>技术QQ:<a href="tencent://message/?uin=1183840066&Site=%E5%9C%A8%E7%BA%BF%E5%92%A8%E8%AF%A2&Menu=yes">1183840066</a></li>
+                <li>技术QQ:<a href="tencent://message/?uin=1183940066&Site=%E5%9C%A8%E7%BA%BF%E5%92%A8%E8%AF%A2&Menu=yes">1183940066</a></li>
+            </ul>
+        </div>
+        <!--pop_plan-->
+        <div class="pop_plan top_mr">
+            <span class="plan_top">
+                <a>提示</a>
+                <p class="pop_plan_close">X</p>
+            </span>
+            <ul class="pop_planul">
+                <li>解决方案：</li>
+                <li>1、<a id="clear_brower" href="{{url}}" target="_blank">清除浏览器缓存</a>或<a id="refresh" href="">刷新</a></li>
+                <li>2、手动<a id="plan_network">选择网络</a></li>
+                <li>3、联系<a id="plan_qq">技术支持QQ</a></li>
+            </ul>
+        </div>
+    </div>
+</script>
+
+<!-- #左侧结构 -->
+<script id="tpl_left_side" type="text/html">
+    <!-- mask -->
+    <div id="left_mask" class="left_mask_con">
+        <div class="mask_con">
+            <span class="mask_pic"></span>
+            <em>加载中...</em>
+        </div>
+    </div>
+    <!--S logo区#logo-->
+    <div class="head">
+        <div class="logo"></div>
+    </div>
+    <!--E logo区-->
+    <div class="mod_sider_top show_author">
+        <!--S摄像头区#camera_play-->
+        <div id="toggled_camera_center" class="camera_warp">
+            <div id="camera_play" class="camera_play">
+                <div id="mod_camera_player"></div>
+            </div>
+            <div id="mod_camera_text" class="camera_text">
+                <p>视频暂未开启，耐心等待哦...</p>
+            </div>
+        </div>
+        <!--E摄像头区#camera_play-->
+    </div>
+
+    <!-- left #问答区块-->
+    <div class="mod_question_ans_wrap">
+        <!--问答面板 #ASK-->
+        <div id="mod_questions" class="mod_question_wrap">
+            <h4 class="hd_ti">提问</h4>
+            <div id="mod_questions_con" class="mod_ques_hall">
+                <div id="ques_load_more" class="ques_load_more_btn">加载更多...</div>
+                <div id="mod_ques_scroller" class="mod_questions_scroller"></div>
+            </div>
+        </div>
+
+        <!--问答区 #mod_question_post-->
+        <div class="mod_question_post">
+            <div class="layer_pop"></div>
+            <div class="opera_hd">
+                <div class="show_me_ques">
+                    <i></i><span>只看我的提问</span>
+                </div>
+            </div>
+            <div class="post_con">
+                <textarea id="ques_post_txt" placeholder="请输入文字...."></textarea>
+                <button id="post_question_btn" data-type="ask">发送</button>
+            </div>
+        </div>
+    </div>
+</script>
+
+<!-- #右侧结构 -->
+<script id="tpl_right_side" type="text/html">
+    <!--学生与聊天的切换 #tab_change-->
+    <div class="tab_change">
+        <ul>
+            <li class="tab_n1 current">
+                <span class="chat">聊天</span>
+                <span class="numbers"></span>
+            </li>
+            <li class="tab_n2">
+                <span>{{tab_name}}<em id="members"></em></span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 聊天面板 #chat_wrap -->
+    <div class="chat_wrap chat_tab_box">
+        <!--S公告区#notice_bg-->
+        <div id="mod_notify_con" class="notice_bg">
+            <span>公告</span>
+            <em class="close_notice"></em>
+            <div class="notify_con">...</div>
+            <span class="more">显示全部</span>
+        </div>
+        <!--E公告区#notice_bg-->
+        <!-- 聊天滚动 #chat_wrap -->
+        <div id="mod_chat_scroller" class="mod_chat_scroller">
+            <span title="清屏" id="clear_chat" class="clear_chat"></span>
+            <div id="mod_chat_hall" class="mod_chat_hall has_notice"></div>
+        </div>
+        <!-- 右侧的聊天区发送内容 #mod_chat_post -->
+        <div id="mod_chat_post" class="mod_chat_post">
+            <div class="layer_pop"></div>
+            <div class="chat_op_btn">
+                <div class="op_left">
+                    <span class="flower_btn">
+                        <i class="num"></i>
+                    </span>
+                    <span class="emotion_btn"></span>
+                    <span class="reward_btn">
+                        <div class="reward_pop">
+                            <div class="top">
+                                <em>打赏红包</em>
+                                <span class="close"></span>
+                            </div>
+                            <div class="reward_container">
+                                <ul>
+                                    <li data-set="1">1元</li>
+                                    <li data-set="2">2元</li>
+                                    <li data-set="5">5元</li>
+                                    <li data-set="10">10元</li>
+                                    <li data-set="20">20元</li>
+                                    <li data-set="50">50元</li>
+                                </ul>
+                                <div class="other_money">
+                                    <em>其他金额</em>
+                                    <input id="reward_val" type="" name="" />
+                                </div>
+                            </div>
+                            <div class="tips">请填写金额！</div>
+                            <span id="reward_confim" class="confim">确 定</span>
+                        </div>
+                    </span>
+                    <div class="all_gag">
+                        <div id="pop_tip" class="pop_tip">点击开启全体禁言</div>
+                    </div>
+                    <span class="private_notice_icon">
+                        <i class="msg_num"></i>
+                    </span>
+                </div>
+                <div class="show_adchat">
+                    <i></i><span>只看{{spadmin_name}}的聊天</span>
+                </div>
+            </div>
+            <div class="post_con">
+                <textarea id="emit_chat_txt" class="text_are" placeholder="请输入文字...."></textarea>
+                <button id="post_chat_btn">发送</button>
+            </div>
+        </div>
+    </div>
+    <!--e聊天面板#chat_wrap-->
+    <!--S学生成员列表 #mod_members-->
+    <div class="mod_members chat_tab_box hidden membe_height">
+        <ul id="mod_member_list"></ul>
+    </div>
+    
+    <!--E 学生成员列表 #mod_members-->
+</script>
+
+<script type="text/html">
+    <li><img src="{{avatar}}" alt=""/></li>
+</script>
+
+
+
+<!-- #中间 -->
+<script id="tpl_col_main" type="text/html">
+    <div class="mod_head">
+        <div class="live_info">
+            <em id="lv_state" class="lv_state stop">...</em>
+            <h2 id="live_title">
+            <p class="live_title_name">Loading...</p>
+            </h2>
+        </div>
+        <div class="live_uinfo">
+            <div class="live_code hidden">
+                <span class="live_code_icon"></span>
+                <span class="live_code_info">手机观看</span>
+            </div>
+            <span id="live_time" class="times">...</span>
+            <span class="nickname">用户昵称</span><em>|</em>
+            <span class="roomname">...</span>
+            <i></i>
+        </div>
+
+        <div class="live_distance">
+            <span id="live_distance_title"></span>
+            <span id="distance_time" class="distance_time"></span>
+        </div>
+
+        <div id="live_progress" class="live_progress">
+            <div id="pro_percent" class="pro_percent"></div>
+        </div>
+    </div>
+   
+
+    <div class="mod_main_player_wp">
+            <!-- mask -->
+            <div id="mod_mask" class="mod_mask_con">
+                <div class="mask_con">
+                    <span class="mask_pic"></span>
+                    <em>加载中...</em>
+                </div>
+            </div>
+       <div class="con_notice">
+           <i class="notice"></i>
+           <marquee id="marquee">滚动文字</marquee>
+           <em class="cls_btn"></em>
+       </div>
+       <div id="mod_player_wp" class="mod_player_wrap">
+            <div id="mod_live_preview" class="live_preview"></div>
+            <div id="mod_main_player" class="mod_play"></div>
+       </div>
+    </div>
+    
+    <!-- 左右工具栏  #carousel_left-->
+    <div class="carousel left"><i></i></div>
+    <div class="carousel right"><i></i></div>
+    
+    <!-- footer -->
+    <div class="mod_footer">
+        <!-- 语音控制 -->
+        <div class="mod_voice_control hidden">
+            <!-- 语音云控制 --> 
+            <div class="vc_control wrapfix hidden">
+                <!-- 能量条 -->
+                <span id="voice_power" class="mod_voice_power">
+                    <em class="voice_precent" style="width:0%"></em>
+                </span>
+                <!--设置按钮-->
+                <div class="voice_funbtn">
+                    <span title="设置" class="button setting"></span>
+                </div>
+                <!--麦克风-->
+                <div class="voice_funbtn">
+                    <div class="button input">
+                        <div title="麦克风音量" class="voice_con">
+                            <div id="mic_click" class="mic_bg">
+                                <div id="input_slide" class="micSlide"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--音量-->
+                <div class="voice_funbtn">
+                        <div class="button output">
+                        <div title="扬声器音量" class="voice_con">
+                            <div id="volunm_click" class="mic_bg output">
+                                <div id="output_slide" class="micSlide"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mod_voice_access_allow hidden">
+                    <!--音乐-->
+                    <div class="voice_funbtn">
+                        <div title="音乐伴奏" class="button accomp">音乐伴奏</div>
+                    </div>
+                    <!--speak-->
+                    <div class="voice_funbtn">
+                        <div title="按住说话" class="button shift_say">按住说话</div>
+                    </div>
+                    <!--free_speak-->
+                    <div class="voice_funbtn">
+                        <div title="自由说话" class="button free_speak">自由说话</div>
+                    </div>
+                </div>
+                <div class="mod_voice_access_forbid">
+                    <p class="voice_forbid">当前模式不能说话</p>
+                </div>
+            </div>
+            <!-- 其他提示 -->
+            <div class="vc_tips hidden">
+                <div class="vc_tips_txt">如果需要语音互动，请<em>启动语音云</em></div>
+            </div>
+        </div>
+        <!-- 右侧工具 -->
+        <div id="live_tools" class="mod_live_tools">
+
+            <!--PPT预览操作-->
+            <div class='ppt_preview'>
+                <em class="preview_page"></em>
+                <em class="preview_num">0/0</em>
+                <em class="preview_btn">预览</em>
+            </div>
+
+            <!--弹幕开关-->
+            <div id="danmaku_opt" class="danmaku_operation">
+                <div class="switcher">
+                    <div class="dk_tit">弹幕</div>
+                    <div class="danmaku_button_wrap">
+                        <div class="button_bg">
+                            <div class="button_out"></div>
+                            <div class="button_in"></div>
+                            <div class="button_switch"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="vote_enlarge">投票</div>          
+            <span class="tools_toggle_ppt disable" title="摄像头切换"></span>
+            <span class="tools_toggle_camera" title="开启/关闭摄像头"></span>
+            <span class="tools_toggle_network" title="网络选择"></span>
+            <span class="tools_toggle_netprompt">
+                    <span class="focus_pro">
+                        <span class="pro_font">网络良好</span>
+                        <span class="net_speed"></span>
+                    </span>
+            </span>
+            <!--音量设置-->
+            <div class="one_voice_funbtn">
+                <div class="one_button one_input">
+                    <div title="音量" class="one_voice_con">
+                        <div id="one_volunm_click" class="one_mic_bg">
+                            <div id="one_input_slide" class="one_micSlide"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <span class="guestSpeak" title="嘉宾发言">嘉宾发言</span>
+            <span class="adminSpeak" title="助教发言">助教发言</span>
+            <span id="adminbox" class="admin_box" title="助教管理">助教管理</span>
+            <span title="应用" id="set_vote" class="set_vote">应用</span>
+            <span class="help">
+                <a target="_blank" href="{{url}}">帮助</a>
+            </span>
+
+        </div>
+    </div>
+
+    <!-- PPT助教-->
+    <div class="assistant_ppt">
+        <span class="ass_ppt_close"></span>
+        <div id="mod_ppt_preview"></div>
+    </div>
+</script>
+
+
+<script id="tpl_class_info" type="text/html">
+    <!-- 课前课后默认预告图片 -->
+    <div id="class_live_preview" class="class_live_preview hidden">
+        <div class="class_box">
+            <div class="start_button"></div>
+            <h1 class="class_title">《{{course_name}}》</h1>
+            <div class="class_teacher">
+                <div class="class_end hidden">感谢收看</div>
+                <div class="class_start">
+                    <span>主讲:</span>
+                    <span>{{nickname}}</span>
+                </div>
+            </div>
+            <div class="class_count_down">
+                <i></i>
+                <div class="time">
+                    距离直播还有
+                    <span id="timeToStart">00:00</span>
+                    分钟
+                </div>
+            </div>
+        </div>
+    </div>  
+</script>
+
+<!-- 特殊用户 -->
+<script id="tpl_robot_list" type="text/html">
+    {{each list as r}}
+    <li class="role_user robot_user">
+        <img src="{{r.avatar | getImage: r.avatar}}" />
+        <span class="">{{r.nickname}}</span>
+    </li>
+    {{/each}}
+</script>
+
+<!-- #聊天区模块(插入单条聊天) -->
+<script id="tpl_append_chat" type="text/html">
+    <div class="chat_list chat_{{d.xid}} {{status}} wrapfix {{d.role}} {{isShow}}" data-xid="{{d.xid}}">
+        <div class="chat_info">
+            {{if d.role == "user" || d.role == "guest"}}
+            <span  class="ban_icon ban_{{d.xid}}"></span>
+            {{/if}}
+            <img class="avatar_{{d.xid}}" src="{{avatar}}" onerror="HTSDK.room.imgError(this)" alt="" />
+            <span  class="chat_name nickname_{{d.xid}}">{{d.nickname}}</span>
+            {{if isShowTools}}
+                <span class="cp">(管理)</span>
+            {{else}}
+                {{if isShowPrivate == "show"}}
+                <em data-xid="{{d.xid}}" class="private">(私聊)</em>
+                {{/if}}
+            {{/if}}
+            <span class="chat_time">({{time}})</span>
+
+            <span class="chat_terminal {{terminal}}" title="">
+            </span>
+
+        </div>
+        <p>{{#chatMsg}}</p>
+        <span class="term_msg"></span>
+    </div>
+</script>
+
+<!-- #聊天区-插入鲜花 -->
+<script id="tpl_append_flower" type="text/html">
+    <div class="chat_list flower {{self}} {{isShow}} {{data.role}}" data-xid="{{data.xid}}">
+        <div class="chat_info">
+            {{if data.role == "user"}}
+            <span  class="ban_icon ban_{{data.xid}}"></span>
+            {{/if}}
+            <img class="avatar_{{data.xid}}"  src="{{avatar}}" onerror="HTSDK.room.imgError(this)" alt="" />
+            <span  class="chat_name nickname_{{data.xid}}">{{data.nickname}}</span>
+            {{if isShowTools}}
+                <span class="cp">(管理)</span>
+            {{else}}
+                {{if isShowPrivate == "show"}}
+                <em data-xid="{{data.xid}}" class="private">(私聊)</em>
+                {{/if}}
+            {{/if}}
+            <span class="chat_time">({{time}})</span>
+
+            <span class="chat_terminal sys_ {{terminal}}" title="">
+            </span>
+        </div>
+        <div class="flower_fn">
+            {{if self === "self"}}
+            <div class="fw_con">
+                {{each amount as fn}}
+                <span class="fn"></span>
+                {{/each}}
+            </div>
+            <span class="send_to">送给{{spadmin_name}}：</span>
+            {{/if}}
+
+            {{if self === ""}}
+            <span class="send_to">送给{{spadmin_name}}：</span>
+            <div class="fw_con">
+                {{each amount as fn}}
+                <span class="fn"></span>
+                {{/each}}
+            </div>
+            {{/if}}
+        </div>
+        <span class="term_msg"></span>
+    </div>
+</script>
+
+<!-- #问答列表 -->
+<script id="list_question" type="text/html">
+    <div id="que_{{d.qid}}" class="ask_wrap role_{{d.role}} ispass_{{d.status}} que_{{d.qid}} xid_{{d.xid}} {{isShow}}" data-qid="{{d.qid}}" data-replies="{{replies}}">
+        <div class="u_say">
+            <div class="s_ask">
+                <div class="u_portrait">
+                    <img class="avatar_{{d.uid}} avatar_{{d.xid}}" src="{{avatar}}" width="30" height="30" onerror="HTSDK.room.imgError(this)" alt=""/>
+                    <span title="{{d.nickname}}" class="u_name">{{d.nickname}}</span>
+                    {{if isAdmin}}
+                        <span id="man_{{d.qid}}" data-xid="{{d.xid}}"  data-role="{{d.role}}" class="manager">(管理)</span>
+                    {{/if}}
+                    <span class="u_time">({{time}})</span>
+                </div>
+                {{if isAdmin}}
+                    <span class="delect" data-id="{{d.qid}}">删除</span>
+                    <span title="回复该提问" data-rid="{{d.qid}}" data-nickname="{{d.nickname}}" class="answered">回复</span>
+                    {{if d.status != 1}}
+                    <span title="公开此提问" data-id="{{d.qid}}" class="pass">通过</span>
+                    {{/if}}
+                {{/if}}
+                 <span class="grant" data-enable="{{d.chat}}"></span>
+            </div>
+            <p>{{#d.content}}</p>
+        </div>
+        <div class="re_list">
+        {{if d.answer}}
+            {{each d.answer as a}}
+                <div id="ans_{{a.qid}}" class="t_say que_{{a.qid}}">
+                    <div class="t_ans">
+                        <i></i>
+                        <img data-role="{{a.role}}" class="avatar_{{d.uid}}" src="{{a.avatar}}" width="30" height="30" onerror="HTSDK.room.imgError(this)" alt=""/>
+                        <span class="t_name">{{a.nickname}}</span>
+                        <span class="t_time">({{a.time | converTime: a.time}})</span>
+                    </div>
+                    <p>{{#a.content}}</p>
+                </div>
+            {{/each}}
+        {{/if}}
+        </div>
+    </div>
+</script>
+
+<!-- #提问 -->
+<script id="mod_ques_ask" type="text/html">
+    <div id="que_{{d.qid}}" class="ask_wrap role_{{d.role}} ispass_{{d.status}} que_{{d.qid}} xid_{{d.xid}} {{isShow}}{{que_isShow}}" data-replies="{{d.replies}}">
+        <div class="u_say">
+            <div class="s_ask">
+                <div class="u_portrait">
+                    <img class="avatar_{{d.uid}}" src="{{avatar}}" width="30" height="30" onerror="HTSDK.room.imgError(this)" alt=""/>
+
+                    <span title="{{d.nickname}}" class="u_name">{{d.nickname}}</span>
+                    
+                    {{if isAdmin}}
+                        <span id="man_{{d.qid}}" data-xid ="{{d.xid}}" data-role="{{d.role}}" class="manager">(管理)</span>
+                    {{/if}}
+
+                    <span class="u_time">({{time}})</span>
+                </div>
+                {{if isAdmin}}
+                    <span class="delect" data-id="{{d.qid}}">删除</span>
+                    <span title="回复该提问" data-rid="{{d.qid}}" data-nickname="{{d.nickname}}" class="answered">回复</span>
+                    <span title="公开此提问" data-id="{{d.qid}}" class="pass">通过</span>
+                {{/if}}
+                <span class="grant" data-enable="{{d.chat}}" ></span>
+            </div>
+            <p>{{#d.content}}</p>
+        </div>
+        <div class="re_list"></div>
+    </div>
+</script>
+
+<!-- #回复 -->
+<script id="mod_ques_reply" type="text/html">
+    <div id="ans_{{d.qid}}" class="t_say que_{{d.qid}} role_{{d.role}}">
+        <div class="t_ans">
+            <i></i>
+            <img class="avatar_{{d.uid}}" src="{{avatar}}" width="30" height="30" onerror="HTSDK.room.imgError(this)" alt="" />
+            <span title="{{d.nickname}}" class="t_name">{{d.nickname}}</span>
+            <span class="t_time">{{time}}</span>
+        </div>
+        <p>{{#d.content}}</p>
+    </div>
+</script>
+
+<!-- #在线用户列表 -->
+<script id="tpl_append_userlist" type="text/html">
+    {{each list as li}}
+    <li id="user_{{li.xid}}" class="role_{{li.role}}" data-role="{{li.role}}" data-xid="{{li.xid}}">
+        <img class="avatar_{{li.avatar}}" src="{{li.avatar}}" onerror="HTSDK.room.imgError(this)"  alt="" />
+        <span class="nickname_{{li.xid}}">{{li.nickname}}</span>
+        <em class="role_tip"></em>
+    </li>
+    {{/each}}
+</script>
+
+<!-- #插入单个用户{{dtpl_append_oneuser.me}}  -->
+<script id="tpl_append_oneuser" type="text/html">
+    <li id="user_{{d.xid}}" class="role_{{d.role}}" data-role="{{d.role}}" data-xid="{{d.xid}}">
+        <img class="avatar_{{d.xid}}" src="{{avatar}}" onerror="HTSDK.room.imgError(this)"  alt="" />
+        <span class="{{d.me}}"><span id="nickname_{{d.xid}}" class="nickname_{{d.xid}}">{{d.nickname}}</span><i class="hidden">
+        ({{d.voice.enable}}:{{d.voice.grant}})</i></span>
+        {{if isShowPrivate == "show"}}
+            <em data-xid="{{d.xid}}" class="private">私聊</em>
+        {{/if}}
+
+        <em class="role_tip"></em>
+        {{if d.voice.enable == 1}}   
+            <p data-voice="{{d.voice.grant}}" id="voenable" class="voice_enable"></p>  
+        {{else}}     
+            <p data-voice="{{d.voice.grant}}" id="voenable"></p>
+        {{/if}}
+
+        {{if d.chat.enable == 0 && d.role == "user"}}
+            {{if me_role != "user" && me_role !="guest"}}
+                 <span class="grant ban" data-voice="{{d.voice.grant}}" data-chat="{{d.chat.enable}}"></span>
+            {{/if}}
+        {{else}}
+             <span class="grant" data-voice="{{d.voice.grant}}" data-chat="{{d.chat.enable}}"></span>
+        {{/if}}
+        
+    </li>
+</script>
+
+<!-- #抽奖信息 -->
+<script id="tpl_lottery_render" type="text/html">
+<!--S mod_lottery -->
+<div id="mode_lottery" class="mod_lottery hidden">
+
+    <div id="lotter_title" class="lotter_title"></div>
+    <div class="lotter_inner">
+        <div class="mod_lotter_loader">
+            <!-- 滚动抽奖 -->
+            <div id="roller_con" class="loader_effect">
+                <span class="it_1"></span><span class="it_2"></span><span class="it_3"></span>
+            </div>
+            <!-- 中奖信息 -->
+            <div class="award_user_info">
+                <div class="loter_info" id="loter_info"></div>
+                <div class="loter_tips" id="loter_tips">(请中奖的同事务必将此页截屏发至箭闻)</div>
+            </div>
+        </div>
+    </div>
+    <span class="operation"></span>
+</div>
+<!--E mod_lottery -->
+</script>
+
+
+<!-- #主播信息卡 -->
+<script id="author_card" type="text/html">
+<div class="mod_user_info">
+    <img src="{{p_150 | getImage: p_150}}" alt="" />
+    <h4>{{nickname}}</h4>
+    <p title="{{intro}}">{{intro}}</p>
+    <!-- S送花集赞#assist -->
+    <div class="assist">
+        <span class="user_flower">
+            <i></i><span>{{flower}}</span>
+        </span>
+         <em>|</em>
+        <span class="user_meda">
+            <i></i><span>{{power}}</span>
+        </span>
+    </div>
+</div>
+
+<!-- 主播信息弹窗 #popup -->
+<div class="popup hidden">
+    <span class="arrow"></span>
+    <img src="{{p_150 | getImage: p_150}}" alt="" />
+    <h2>{{nickname}}</h2>
+    <p title="{{intro}}">{{intro}}</p>
+    <div class="assist">
+        <span class="user_flower">
+            <i></i><span>{{flower}}</span>
+        </span>
+         <em>|</em>
+        <span class="user_meda">
+            <i></i><span>{{power}}</span>
+        </span>
+    </div>
+</div>
+</script>
+<!-- 设置弹框 -->
+<script id="user_pop_box_templ" type="text/html">
+    <div id="user_pop_box" class="user_pop_box">
+        <div class="header">
+            <span>应用</span>
+            <span class="box_close"></span>
+        </div>
+        <div id="item_list" class="item_list">
+            <ul>
+               <li data-op="vote">
+                    <span class="box"></span>
+                    <p>投票记录</p>
+               </li>
+            </ul>
+        </div>
+    </div>
+</script>
+<!-- 投票记录 -->
+<script id="mod_vote_record" type="text/html">
+    <section id="vote_record_block" class="vote_record_block">
+        <div class="header">
+            <span>应用 > 投票记录</span>
+            <div class="header-left">
+                <span class="goback">返回</span>
+                <span class="box_close"></span>
+            </div>
+        </div>
+        <div class="reload_btn">
+            <span>刷新列表</span>
+        </div>
+        <ul>
+            {{each votes as vote}}
+                {{if vote.info.status ==1 && vote.info.endTime  == 0}}
+                    <li class="vote_ing" data-vid="{{vote.vid}}">
+                        <div class="vote_top">
+                            <div class="vote_top_left">
+                                <span>{{vote.info.nickname}}</span>
+                                <em>{{vote.info.startTime}}发起投票</em>
+                            </div>
+                            <div class="vote_status">
+                                {{if vote.voted === 1}}
+                                    <span>已投</span>
+                                {{else}}
+                                    <span>未投</span>
+                                {{/if}}
+                            </div>
+                            <div class="vote_top_btn">
+                                <span>投票中...</span>
+                            </div>
+                        </div> 
+                        <div class="vote_bottom">
+                            {{if vote.voted === 1}}
+                                <div class="vote_top_theme">
+                                    {{if vote.info.imageUrl.length > 0}}
+                                        <span  data-vid="{{vote.vid}}">{{vote.info.label}}</span>
+                                    {{else}}
+                                        <span  data-vid="{{vote.vid}}">{{vote.info.title}}</span>
+                                    {{/if}}
+                                </div>
+                            {{else}}
+                                <div class="vote_top_theme blue">
+                                    {{if vote.info.imageUrl.length > 0}}
+                                        <span  class="again_vote" data-vid="{{vote.vid}}">{{vote.info.label}}</span>
+                                    {{else}}
+                                        <span  class="again_vote"  data-vid="{{vote.vid}}">{{vote.info.title}}</span>
+                                    {{/if}}
+                                </div>
+                            {{/if}}
+                        </div> 
+                    </li>
+                {{else if vote.info.status !=3}}
+                    <li class="vote_end" data-vid="{{vote.vid}}">
+                        <div class="vote_top">
+                            <div class="vote_top_left">
+                                <span>{{vote.info.nickname}}</span>
+                                <em>{{vote.info.startTime}}  发起投票</em>
+                            </div>
+                            <div class="vote_top_btn">
+                                <span>已结束</span>
+                            </div>
+                        </div> 
+                        <div class="vote_bottom">
+                                <div class="vote_top_theme">
+                                    {{if vote.info.imageUrl.length > 0}}
+                                        <span>{{vote.info.label}}</span>
+                                    {{else}}
+                                        <span>{{vote.info.title}}</span>
+                                    {{/if}}
+                                </div>
+                                <div class="vote_bottom_state">
+                                    {{if vote.info.status !=1 || vote.info.answer.length > 0}}
+                                      <span class="get_vote_result" data-vid="{{vote.vid}}">查看结果</span>
+                                    {{/if}}
+                                </div>
+                        </div> 
+                    </li>
+                {{/if}}
+            {{/each}}
+        </ul>
+    </section>
+</script>
+<!--==Start 投票相关 ==-->
+<!-- 渲染投票选项 -->
+<script id="show_vote_options" type="text/html">
+    <!--S 显示投票选项 -->
+    <div class="cmod mod_user_vote">
+        <div class="mbox_hd">
+            <h3 class="vote">{{voteTitle}}</h3>
+            <div class="op_btn">
+                <span class="vote_narrow">-</span>
+                <span class="cls r">X</span>
+            </div>
+        </div>
+        <div class="mbox_bd">
+            <div class="mod_scroll_box">
+                <!-- 投票 -->
+                <div class="selt_vote_option">
+                    <div class="vo_hd">
+                        <div class="col_l">
+                            <span class="u_n">{{info.nickname}}</span>
+                            <em>{{info.startTime}} 发起了{{voteTitle}}</em>
+                        </div>
+                        <div class="col_r">
+                            <span class="voting">{{voteTitle}}中</span>
+                        </div>
+                    </div>
+                    <div class="vo_bd">
+                        <h4>
+                        {{if info.imageUrl.length > 0 }}
+                            {{if info.role == "admin"}}
+                                {{info.title}}
+                            {{else}}
+                                {{info.label}}
+                            {{/if}}
+                        {{else}}
+                            {{info.title}}
+                        {{/if}}
+                            {{if optional > 1}}
+                            <em class="more">(最多选择{{optional}}项)</em>
+                            {{/if}}
+                        </h4>
+                        <div class="chart_detail vote_selector {{picVoteStyle1}}">
+                            <div class="left_img {{picVoteStyle2}}">
+                                <img src="{{info.imageUrl}}"/>
+                                <span class="view_fuil"></span>
+                            </div>
+                            {{if optional > 1}}
+                            <!-- 多选 -->
+                            <div class="multiple">
+                                <ul>
+                                {{each opList as value key}}
+                                    <li>
+                                        <label><input type="checkbox" value="{{key+1}}" name="mutiple"/></label>
+                                        <span>{{letter[key]}}、{{value}}</span>
+                                    </li>
+                                {{/each}}
+                                </ul>
+                            </div>
+                            {{else}}
+                            <!-- 单选 -->
+                            <div class="single">
+                                <ul>
+                                {{each opList as value key}}
+                                    <li>
+                                        <label><input type="radio" value="{{key+1}}" name="single"/></label>
+                                        <span>{{letter[key]}}、{{value}}</span>
+                                    </li>
+                                {{/each}}
+                                </ul>
+                            </div>
+                            {{/if}}
+                            <!-- btns -->
+                            <div class="btn">
+                                <span data-vid="{{vid}}" class="vote_btn">{{voteTitle}}</span>
+                                <em class="tips">至少选择一项</em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--E 显示投票选项 -->
+</script>
+
+<!-- 渲染投票结果 -->
+<script id="show_vote_result" type="text/html">
+    <!--S 投票结果 -->
+    <div class="cmod mod_user_vote">
+        <div class="mbox_hd">
+            <h3 class="vote">{{voteTitle}}</h3>
+            <div class="op_btn">
+                <!-- <span class="vote_narrow">-</span> -->
+                <span class="cls r">X</span>
+            </div>
+        </div>
+        <div class="mbox_bd">
+            <div class="mod_scroll_box">
+                <!-- 投票结果 -->
+                <div class="show_vote_result">
+                    <div class="vote_result small">
+                        <div class="vo_hd">
+                            <div class="col_l">
+                                <span class="u_n">{{info.nickname}}</span>
+                                <em>{{info.startTime}} 发起了{{voteTitle}}</em>
+                            </div>
+                            <div class="col_r">
+                                <span class="voting end">已结束</span>
+                            </div>
+                        </div>
+                        <!-- 
+                        不显示排行榜的情况：
+                            1、投票人数小于3
+                            2、没有设置正确答案
+                            3、不公布结果  
+                         -->
+                        {{if isShow == 1 && rightUser.length >2 && info.answer.length>0}}
+                               <ul class="rank_list">
+                                {{each rightUser as u key}}  
+                                   {{if key == 0}}  
+                                    <li class="first">
+                                        <img class="avatar_{{u.xid}}" src="{{u.avatar}}" onerror="HTSDK.room.imgError(this)" alt="" />
+                                        <span title="{{u.nickname}}">{{u.nickname}}</span>
+                                    </li>
+                                    {{else if key == 1}}
+                                    <li class="second">
+                                        <img class="avatar_{{u.xid}}" src="{{u.avatar}}" onerror="HTSDK.room.imgError(this)" alt="" />
+                                        <span title="{{u.nickname}}">{{u.nickname}}</span>
+                                    </li>
+                                    {{else}}
+                                    <li class="third">
+                                        <img class="avatar_{{u.xid}}" src="{{u.avatar}}" onerror="HTSDK.room.imgError(this)" alt="" />
+                                        <span title="{{u.nickname}}">{{u.nickname}}</span>
+                                    </li>
+                                    {{/if}}
+                                {{/each}}
+                                </ul>
+                        {{/if}}
+                        <div class="vo_bd">
+                            <div class="vote_chartview">
+                                <h4>{{info.title}}</h4>
+                                {{if info.status != 1}}
+                                    <div class="chart_detail ">
+                                        {{each statsList as value key}}
+                                        <dl>
+                                            <dt>{{letter[key]}}.{{value.op}}</dt>
+                                            <dd>
+                                                <div class="crt_percent_line">
+                                                    <span style="width:{{value.percent}}%"></span>
+                                                </div>
+                                                <div class="pn">{{value.opNum}}<em>({{value.percent}}%)</em></div>
+                                            </dd>
+                                        </dl>
+                                        {{/each}}
+                                    </div>
+                                {{/if}}
+                                {{if info.me_role == "user" || info.me_role == "guest"}}
+                                <p class="me_select {{isSelect}}">您的选项是：<span>{{picSelect}}</span></p>
+                                {{/if}}
+                                {{if info.answer.length>0}}
+                                    {{if picSelect === info.rightAnswer}}
+                                        <p class="right_ans {{isRightClass}} r_green">正确答案是：<span>{{info.rightAnswer}}</span></p>
+                                    {{else}}
+                                        <p class="right_ans {{isRightClass}}">正确答案是：<span>{{info.rightAnswer}}</span></p>
+                                    {{/if}}
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--E 投票结果 -->
+</script>
+
+<script id="show_vote_student" type="text/html">
+    <!--S 投票结果 -->
+    <div class="cmod mod_user_vote">
+        <div class="mbox_hd">
+            <h3 class="vote">{{voteTitle}}</h3>
+            <div class="op_btn">
+                <span class="cls r">X</span>
+            </div>
+        </div>
+        <div class="mbox_bd">
+            <div class="mod_scroll_box">
+                <!-- 投票结果 -->
+                <div class="show_vote_result">
+                    <div class="vote_result">
+                        <div class="vo_hd">
+                            <div class="col_l">
+                                <span class="u_n">{{info.nickname}}</span>
+                                <em>{{info.startTime}} 发起了{{voteTitle}}</em>
+                            </div>
+                            <div class="col_r">
+                                <span class="voting end">已结束</span>
+                            </div>
+                        </div>
+                        <div class="vo_bd">
+                            <div class="vote_chartview">
+                                <h4>{{info.label}}</h4>
+                                <!-- 图片投票 -->
+                                <div class="student_pic_vote">
+                                    <div class="left_img">
+                                        <img src="{{info.imageUrl}}"/>
+                                        <span class="view_fuil"></span>
+                                    </div>
+                                    <div class="right_fruit">
+                                        {{if info.me_role == "user" || info.me_role == "guest"}}       
+                                            <p class="me_select {{isSelect}}">您的选项是：<span>
+                                            {{picSelect}}</span></p>
+                                        {{/if}}
+                                        {{if info.answer.length>0}}
+                                            {{if picSelect === info.rightAnswer}}
+                                                <p class="right_ans {{isRightClass}} r_green">正确答案是：<span>{{info.rightAnswer}}</span></p>
+                                            {{else}}
+                                                <p class="right_ans {{isRightClass}}">正确答案是：<span>{{info.rightAnswer}}</span></p>
+                                            {{/if}}
+                                        {{/if}}
+                                    </div>
+                                    <!-- 不发布结果。。 -->
+                                    {{if info.status ==1 && info.endTime != 0}} 
+                                    {{else}}
+                                        <div class="vote_pic_default {{isPicAnswer}}" data-vid="{{info.vid}}" >查看{{voteTitle}}结果</div>
+                                    {{/if}}
+                                </div>
+                                
+                            </div>
+                            <!-- 图片投票 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--E 投票结果 -->
+</script>
+<!-- 渲染获取投票结果 -->
+<!-- <script id="show_vote_result" type="text/html">
+    S 获取投票
+    <div class="cmod mod_user_vote">
+        <div class="mbox_hd">
+            <h3 class="vote">投票</h3>
+            <div class="op_btn">
+                <span class="cls r">X</span>
+            </div>
+        </div>
+        <div class="mbox_bd">
+            <div class="mod_scroll_box">
+                投票结果
+                <div class="show_vote_result">
+                    <div class="vote_result">
+                        <div class="vo_hd">
+                            <div class="col_l">
+                                <span class="u_n">{{info.nickname}}</span>
+                                <em>{{info.startTime}} 发起了投票</em>
+                            </div>
+                            <div class="col_r">
+                                <span class="voting end">已结束</span>
+                            </div>
+                        </div>
+                        <div class="vo_bd">
+                            <div class="vote_chartview">
+                                <h4>{{info.title}}</h4>
+                                <div class="chart_detail">
+                                    {{each statsList as value key}}
+                                    <dl>
+                                        <dt>{{letter[key]}}.{{value.op}}</dt>
+                                        <dd>
+                                            <div class="crt_percent_line">
+                                                <span style="width:{{value.percent}}%"></span>
+                                            </div>
+                                            <div class="pn">{{value.opNum}}<em>({{value.percent}}%)</em></div>
+                                        </dd>
+                                    </dl>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    E 投票结果
+</script>
+ -->
+<!-- 渲染投票回调 -->
+<script id="show_vote_callback" type="text/html">
+    <!--S 投票回调 -->
+    <div class="cmod mod_user_vote">
+        <div class="mbox_hd">
+            <h3 class="vote">{{voteTitle}}</h3>
+            <div class="op_btn">
+                <span class="cls r">X</span>
+            </div>
+        </div>
+        <div class="mbox_bd">
+            <div class="mod_scroll_box">
+                <!-- 投票结果 -->
+                <div class="show_vote_callback {{if callback}}has_callback{{/if}}">
+                    <div class="box_vote_state">
+                        {{if code == 0}}
+                            <p class="suc_txt">{{voteTitle}}成功！</p>
+                            <span class="suc"><em class="ico"></em></span>
+                        {{else if code == -1}}
+                            <p class="suc_txt">{{voteTitle}}失败,{{msg}}</p>
+                            <span class="fail"><em class="ico"></em></span>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--E 投票回调 -->
+</script>
+
+<!-- 渲染获取投票 -->
+<script id="show_vote_getvote" type="text/html">
+    <!--S 获取投票 -->
+    <div class="cmod mod_user_vote">
+        <div class="mbox_hd">
+            <h3 class="vote">{{voteTitle}}</h3>
+            <div class="op_btn">
+                <span class="cls r">X</span>
+            </div>
+        </div>
+        <div class="mbox_bd">
+            <div class="mod_scroll_box">
+                <!-- 投票结果 -->
+                <div class="show_vote_result">
+                    <div class="vote_result">
+                        <div class="vo_hd">
+                            <div class="col_l">
+                                <span class="u_n">{{info.nickname}}</span>
+                                <em>{{info.startTime}} 发起了{{voteTitle}}</em>
+                            </div>
+                            <div class="col_r">
+                                <span class="voting end">已结束</span>
+                            </div>
+                        </div>
+                        <!-- 
+                        不显示排行榜的情况：
+                            1、投票人数小于3
+                            2、没有设置正确答案
+                            3、不公布结果  
+                         -->
+                        {{if isShow == 1 && rightUser.length >2 && info.answer.length>0}}
+                               <ul class="rank_list">
+                                {{each rightUser as u key}}  
+                                   {{if key == 0}}  
+                                    <li class="first">
+                                        <img class="avatar_{{u.xid}}" src="{{u.avatar}}" onerror="HTSDK.room.imgError(this)" alt="" />
+                                        <span title="{{u.nickname}}">{{u.nickname}}</span>
+                                    </li>
+                                    {{else if key == 1}}
+                                    <li class="second">
+                                        <img class="avatar_{{u.xid}}" src="{{u.avatar}}" onerror="HTSDK.room.imgError(this)" alt="" />
+                                        <span title="{{u.nickname}}">{{u.nickname}}</span>
+                                    </li>
+                                    {{else}}
+                                    <li class="third">
+                                        <img class="avatar_{{u.xid}}" src="{{u.avatar}}" onerror="HTSDK.room.imgError(this)" alt="" />
+                                        <span title="{{u.nickname}}">{{u.nickname}}</span>
+                                    </li>
+                                    {{/if}}
+                                {{/each}}
+                                </ul>
+                        {{/if}}
+                        <div class="vo_bd">
+                            <div class="vote_chartview">
+                                <h4>{{info.title}}</h4>
+                                {{if info.status!=1}}
+                                    <div class="chart_detail">
+                                        {{each statsList as value key}}
+                                        <dl>
+                                            <dt>{{letter[key]}}.{{value.op}}</dt>
+                                            <dd>
+                                                <div class="crt_percent_line">
+                                                    <span style="width:{{value.percent}}%"></span>
+                                                </div>
+                                                <div class="pn">{{value.opNum}}<em>({{value.percent}}%)</em></div>
+                                            </dd>
+                                        </dl>
+                                        {{/each}}
+                                    </div>
+                                {{/if}}
+                                {{if info.me_role == "user" || info.me_role == "guest"}}
+                                    {{if MyAnswer.length>0}}
+                                    <p class="me_select {{isMyAnswer}}">我的答案： <span>{{MyAnswer}}</span></p>
+                                    {{/if}}
+                                {{/if}}
+                                {{if info.answer.length>0}}
+                                    {{if MyAnswer === info.rightAnswer}}
+                                        <p class="right_ans {{isRightClass}} r_green">正确答案是：<span>{{info.rightAnswer}}</span></p>
+                                    {{else}}
+                                        <p class="right_ans {{isRightClass}}">正确答案是：<span>{{info.rightAnswer}}</span></p>
+                                    {{/if}}
+                                {{/if}}
+                            </div>
+                        </div>
+                        {{if info.me_role != "user"}}    
+                        <div class="vote_list">
+                            <ul id="vote_list">
+                            {{each user as u}}
+                                <li>{{u.nickname}}<span>投了{{letter[u.option-1]}}</span><em>({{u.time}})</em></li>
+                            {{/each}}
+                            </ul>
+                        </div>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--E 获取投票 -->
+</script>
+<!--==END 投票相关 ==-->
+
+<!-- #评分模块 -->
+<script id="tpl_pop_score" type="text/html">
+    <div class="pop_score_con" data-move="move_flag">
+        <div class="sc_hd">
+            <p class="text">评分</p>
+            <span class="cls_btn">关闭</span>
+        </div>
+        <div class="sc_bd">
+            <div id="mod_score_rule" class="score_rule">
+                <dl>
+                    <dt>教学方法：</dt>
+                    <dd>
+                        <div data-sid="1" class="start_cover">
+                            <div class="cur_start"></div>
+                            <span data-score="1" class="score_lv"></span>
+                            <span data-score="2" class="score_lv"></span>
+                            <span data-score="3" class="score_lv"></span>
+                            <span data-score="4" class="score_lv"></span>
+                            <span data-score="5" class="score_lv last"></span>
+                        </div>
+                    </dd>
+                    <dd class="tip"></dd>
+                </dl>
+                <dl>
+                    <dt>教学内容：</dt>
+                    <dd>
+                        <div data-sid="2" class="start_cover">
+                            <div class="cur_start"></div>
+                            <span data-score="1" class="score_lv"></span>
+                            <span data-score="2" class="score_lv"></span>
+                            <span data-score="3" class="score_lv"></span>
+                            <span data-score="4" class="score_lv"></span>
+                            <span data-score="5" class="score_lv last"></span>
+                        </div>
+                    </dd>
+                    <dd class="tip"></dd>
+                </dl>
+                <dl>
+                    <dt>教学效果：</dt>
+                    <dd>
+                        <div data-sid="3" class="start_cover">
+                            <span class="cur_start"></span>
+                            <span data-score="1" class="score_lv"></span>
+                            <span data-score="2" class="score_lv"></span>
+                            <span data-score="3" class="score_lv"></span>
+                            <span data-score="4" class="score_lv"></span>
+                            <span data-score="5" class="score_lv last"></span>
+                        </div>
+                    </dd>
+                    <dd class="tip"></dd>
+                </dl>
+            </div>
+            <h4 class="sp_pd">留言：</h4>
+            <div class="score_post">
+                <textarea class="speak_to_teacher" placeholder="想对老师说点什么......"></textarea>
+                <button class="post_from">提交</button>
+            </div>
+        </div>
+        <div class="pop_sc_tip">
+            <span class="ico_tip"></span>
+            <p>评分成功!</p>
+            <div class="resc">重评</div>
+        </div>
+    </div>
+<!--E 下课评分-->
+</script>
+
+<!-- #语音模块 -->
+<script id="tpl_mod_voice" type="text/html">
+    <div class="mod_voice_con">
+        <!-- 头部 -->
+        <div class="mod_voice_hd wrapfix">
+            <!-- 模式菜单 -->
+            <div class="voice_selector">
+                <span class="cur_mode">自由</span>
+                <ul class="select_mode hidden">
+                    <li data-mode="0" data-title="自由">自由</li>
+                    <li data-mode="1" data-title="主席">主席</li>
+                    <li data-mode="2" data-title="麦序">麦序</li>
+                    <li data-mode="3" data-title="举手">举手</li>
+                </ul>
+            </div>
+            <!-- 语音模式 -->
+            <div class="voice freedom hidden">所有用户可自由说话</div>
+            <div class="voice chairman hidden">只有管理员可说话</div>
+            <div class="voice queue hidden">
+                <span class="times_cont"><em class="times"></em></span>
+                    <ul class="select_mic hidden">
+                        <li class="mic mic_operation">控麦</li>
+                        <li class="mic mic_control">禁麦</li>
+                        <li class="mic mic_knock">抢麦</li>
+                    </ul>
+            </div>
+            <div class="voice hand wrapfix hidden">
+                <span class="rahand">我要举手</span>
+                <span class="cls_hands">清空举手</span>
+            </div>
+        </div>
+        <!-- 语音列表 -->
+        <div class="mod_voice_list">
+        <!-- 模式 -->
+        <div class="tab_voice_state">
+            <span class="vfree">所有人自由发言</span>
+            <span class="vchair">只有管理员可发言</span>
+            <span class="vqueue">暂无抢麦用户<em class="up">抢麦</em></span>
+            <span class="vhand">暂无举手用户<em class="up">举手</em></span>
+        </div>
+            <!-- #举手拥有打勾操作 -->
+            <ul id="voice_list">
+                <!--<li>
+                    <em class="default"></em>
+                    <span  class="admin">樱花</span>
+                    <i class="ht_unchecked"></i>
+                </li>
+                <li>
+                    <em class="refused"></em>
+                    <span class="">桃花，就是要这么长</span>
+                    <i class="ht_unchecked"></i>
+                </li>
+                <li>
+                    <em class="ban"></em>
+                    <span class="">百合</span>
+                    <i class="ht_unchecked"></i>
+                </li>
+                <li>
+                    <em class="pass"></em>
+                    <span class="">梅花，名字不要那么长好吗？</span>
+                    <i class="ht_unchecked"></i>
+                </li>
+                <li>
+                    <em class="minor"></em>
+                    <span class="">梨花，短一点容易看嘛</span>
+                    <i class="ht_unchecked"></i>
+                </li>
+                <li>
+                    <em class="main"></em>
+                    <span class="">茉莉花</span>
+                    <i class="ht_unchecked"></i>
+                </li>
+                <li>
+                    <em class="speaking"></em>
+                    <span class="">牵牛花</span>
+                    <i class="ht_unchecked"></i>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+</script>
+
+<!-- #一对一模式-->
+<script id="tpl_one_to_one" type="text/html">
+    <div class="one_connent">
+        <div class="top">
+            <span>学生摄像头</span>
+            <p id="back_desk" class="btn">下讲台</p>
+        </div>
+        <!--初始化摄像头-->
+        <div class="one_camera_cont">
+            <div class="one_text_btn">
+                <p class="logo"></p>
+                <em id="go_desk">我要上讲台</em>
+            </div>
+        </div>
+        <!--摄像头容器-->
+        <div class="mod_live_camera">
+            <div id="mod_live_camera"></div>
+        </div>
+    </div>
+    <!--pop提示-->
+    <div class="pop_text">
+        <div class="pop_top">
+            <span>提示</span><em class="close"></em>
+        </div>
+        <div class="apply_text">已请求上讲台，请等待老师确认。</div>
+        <div class="down_text">您确定要下讲台？</div>
+        <div class="btns">
+            <div class="go_confim">确定</div>
+            <div class="cancel">取消</div>
+        </div>
+    </div>
+
+    <!--摄像头检测失败-->
+    <div class="user_camera_fail">
+        <div class="pop_top">
+            <span>提示</span>
+            <em class="fail_close"></em>
+        </div>
+        <div class="fail_text">申请上讲台失败, 摄像头/音频检测不到或被占用</div>
+        <div class="fail_sure">确定</div>
+    </div>
+
+</script>
+<!-- ###Start 语音云模版 ### -->
+
+<!-- @语音管理菜单 -->
+<script id="tpl_voice_pop_menu" type="text/html">
+    <!-- 管理员菜单 -->
+    <div class="admin_list">
+        <ul class="pop_side_operation voice">
+            {{#html}}
+        </ul>
+    </div>
+</script>
+
+<!-- @谁在说话 -->
+<script id="tpl_voice_who_speaking" type="text/html">
+    {{each list as u}}
+    <li id="voice_user_{{u.xid}}" data-xid="{{u.xid}}" class="{{u.role}}">
+        <em class="default"></em>
+        <span>{{u.nickname}}</span>
+    </li>
+    {{/each}}
+</script>
+
+<!-- @主席模式列表 -->
+<script id="tpl_voice_chairman_list" type="text/html">
+    {{each list as u}}
+    <li id="voice_user_{{u.xid}}" data-xid="{{u.xid}}" class="{{u.role}}">
+        <em class="default"></em>
+        <span>{{u.nickname}}</span>
+    </li>
+    {{/each}}
+</script>
+
+<!-- @新增主席 -->
+<script id="tpl_voice_chairman_addone" type="text/html">
+    <li id="voice_user_{{d.xid}}" data-xid="{{d.xid}}" class="{{d.role}}">
+        <em class="default"></em>
+        <span>{{d.nickname}}</span>
+    </li>
+</script>
+
+<!-- @麦序 -->
+<script id="tpl_voice_queue_list" type="text/html">
+    {{each list as u}}
+    <li id="voice_user_{{u.xid}}" data-xid="{{u.xid}}" class="{{u.role}}">
+        <em class="default {{#u.voice | getVoicePower: u.voice}}"></em>
+        <span>{{u.nickname}}</span>
+    </li>
+    {{/each}}
+</script>
+
+<script id="tpl_voice_queue_join_one" type="text/html">
+    <li id="voice_user_{{data.xid}}" data-xid="{{data.xid}}" class="{{data.role}}">
+        <em class="default {{#data.voice | getVoicePower: data.voice}}"></em>
+        <span>{{data.nickname}}</span>
+    </li>
+</script>
+
+<!-- @举手 -->
+<script id="tpl_voice_hand_list" type="text/html">
+    {{each list as u}}
+    <li id="voice_user_{{u.xid}}" data-xid="{{u.xid}}" class="{{u.role}}">
+        <em class="default {{#u.voice | getVoicePower: u.voice}}"></em>
+        <span>{{u.nickname}}</span>
+        <i data-xid="{{u.xid}}" data-role="{{u.role}}" class="operation"></i>
+    </li>
+    {{/each}}
+</script>
+
+<script id="tpl_voice_hand_join_one" type="text/html">
+    <li id="voice_user_{{data.xid}}" data-xid="{{data.xid}}" class="{{data.role}}">
+        <em class="default {{#data.voice | getVoicePower: data.voice}}"></em>
+        <span>{{data.nickname}}</span>
+        <i data-xid="{{data.xid}}" data-role="{{data.role}}" class="operation"></i>
+    </li>
+</script>
+<!-- ###End 语音云模版 ### -->
+
+<!-- 截图预览 -->
+<script type="text/html" id="tpl_clip_preview">
+    <div id="mod_show_clip" class="mod_clip_preview">
+        <em id="cls_clip">X</em>
+        {{#clipurl}}
+    </div>
+</script>
+
+<!-- flash覆盖 -->
+<script id="mod_swf_cover" type="text/html">
+    <div id="mod_swf_holder" class="mod_swf_placehoder">
+        <object id="mod_flash_check_cover" name="tf_swf_checker" align="middle" width="100%" height="100%" type="application/x-shockwave-flash" data="//static-1.talk-fun.com/open/maituo/static/swf/BlankStage.swf">
+            <param name="quality" value="high"/>
+            <param name="allowscriptaccess" value="always"/>
+            <param name="allowfullscreen" value="true"/>
+            <param name="wmode" value="transparent"/>
+            <param name="flashvars" value=""/>
+        </object>
+    </div>
+</script>
+
+
+<!-- 语音云弹窗逻辑 -->
+<script id="tpl_voice_cloud_pop" type="text/html">
+    <div id="pop_voice_cloud" class="pop_voice_cloud hidden">
+        <span class="voice_cls_btn"></span>
+        <div class="top_hd">
+            <div class="default down"></div>
+        </div>
+        
+        <!-- 已启动且成功过一次 -->
+        <div class="step_v1 step">
+            <p>若需要语音互动，请启动语音云</p>
+
+            <div class="voice_tip">
+                <span>(若无需语音互动，可进入只听模式，效果更佳)</span>
+            </div>
+            <div class="voice_btns">
+                <span class="start_v1 voice_lanuch">启动语音云</span>
+                <span class="start_v1 only_listen">只听模式</span>
+            </div>
+        </div>
+
+        <!-- 只听模式 -->
+        <div class="step_v5 step">
+            <p>语音云启动失败，点击进入只听模式</p>
+            <span class="btns voice_lanuch_rtmp">只听模式</span>
+        </div>
+
+        <!-- 检查Loading... -->
+        <div class="step_v2 step">
+            <p>正在启动语音云，请稍后...</p>
+            <p>完成后页面将自动刷新<a href="javascript:window.location.reload();">手动刷新</a></p>
+        </div>
+
+        <!-- 检查下载Loading... -->
+        <div class="step_v4 step">
+            <p>正在下载语音云，请稍后...</p>
+            <p>完成后页面将自动刷新<a href="javascript:window.location.reload();">手动刷新</a></p>
+        </div>
+
+        <!-- 未启动过 -->
+        <div class="step_v3 step">
+            <p>高音质，低延迟，还能和老师说话！</p>
+            <div class="voice_down">
+                <span>(首次使用,请先</span>
+                <a href="http://file.talk-fun.com/install_files/maituoExe/maituo_setup.msi"  target="_blank">下载语音云</a>
+                )
+            </div>
+            <div class="voice_btns">
+                <span class="start_v1 voice_lanuch">启动语音云</span>
+                <span class="start_v1 only_listen">只听模式</span>
+            </div>
+        </div>
+    </div>
+    <div id="pop_cover" class="pop_cover"></div>
+</script>
+
+<!-- 投票修改 -->
+<script id="show_vote" type="text/html">
+    <div class="mod_lanuch_v">
+        <!-- 头部 -->
+        <div class="mlbox_hd">
+            <h3>投票</h3>
+            <div class="op_btn">
+                <span data-history="0" class="back"></span>
+                <span class="cls">X</span>
+            </div>
+        </div>
+        <!-- 左侧 -->
+        <div class="mlbox_left">
+            <div class="vod_hd">
+                <p>用于出题作答、互动活动、选择决策，发布后以弹框形式呈现。</p>
+                <span class="vote_btn">发起新投票</span>
+            </div>
+            <div class="vod_list">
+                <h3 class="hidden">暂无投票</h3>
+                <ul class="vtmsge_list">
+                    <li>
+                        <input class="hidden" />
+                        <div class="vtmsge_block">
+                            <span>投票标签</span>
+                            <em class="amend"></em>
+                            <em class="delt"></em>
+                        </div>
+                        <p class="underway">投票中</p>
+                    </li>
+                    <li>
+                        <input class="hidden"/>
+                        <div class="vtmsge_block">
+                            <span>投票标签</span>
+                            <em class="amend"></em>
+                            <em class="delt"></em>
+                        </div>
+                        <p class="unreleased">未发布</p>
+                    </li>
+                    <li>
+                        <input class="hidden"/>
+                        <div class="vtmsge_block">
+                            <span>投票标签</span>
+                            <em class="amend"></em>
+                            <em class="delt"></em>
+                        </div>
+                        <p class="over">已结束</p>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+        <!-- 右部 -->
+        <div class="mlbox_right">
+            <!-- 初始 -->
+            <div class='mlbox_right_1'>
+                <h3>暂无投票</h3>
+                <p>快来发布投票吧！</p>
+                <div class="mod_lanuch_pic"></div>
+            </div>
+            <!-- 发起新投票 -->
+            <div class="mlbox_right_2 hidden">
+                <h2>发起新投票</h2>
+                <div class="right_input">
+                    <span>投票标签 :</span>
+                    <input class="right_label" placeholder="10字符以内，标签将显示在投票列表中"/>
+                </div>
+                <div class="right_input">
+                    <span>投票主题 :</span>
+                    <textarea class="right_theme" placeholder="请填写投票内容说明"></textarea>
+                </div>
+                <div class="right_input">
+                    <span>投票选项 :</span>
+                    <ul class="inp_options">
+                        <li><input placeholder="选项A" /></li>
+                        <li><input placeholder="选项B" /></li>
+                        <li><input placeholder="选项C" /><em></em></li>
+                        <li><input placeholder="选项D" /><em></em></li>
+                    </ul>
+                    <p id="add_option"><em></em><span>添加选项</span></p>
+                </div>
+                <div class="right_input">
+                    <span>选择模式 :</span>
+                    <ul class="right_change">
+                        <li class="selected">单选</li>
+                        <li>多选</li>
+                    </ul>
+                    <p>最多
+                        <input class="inp_change" />
+                    项
+                    </p>
+                </div>
+                <div class="right_footer">
+                    <span class="issue selected">发布</span>
+                    <span class="save">保存</span>
+                </div>
+            </div>
+            <!-- 投票状态 -->
+            <div class="vote_style hidden">
+                <div class="vote_style_hd">
+                    <em></em>
+                    <span>某助教</span>
+                    <br/>
+                    <span class="vote_static_time">发布时间：2015-12-25 22:00</span>
+                </div>
+                <h2>投票主题投票主题</h2>
+                <p class="vote_message">
+                    <span >单选</span>
+                    <span class="vote_number">22人投票</span>
+                </p>
+                <ul>
+                    <li>这是选项A的内容<span></span><span></span></li>
+                    <li>这是选项B的内容<span></span><span></span></li>
+                    <li>这是选项C的内容<span></span><span></span></li>
+                    <li>这是选项D的内容<span></span><span></span></li>
+                </ul>
+                <span class="show_results">
+                公布结果
+                </span>
+                <span class="vote_btn vote_btn_end">结束投票</span>
+                <span class="vote_style_amend">修改</span>
+            </div>
+            <!-- 删除提示 -->
+            <div class="vtmsge_prompt hidden">
+                <div class="prompt_hd">
+                    <p>提示</p>
+                    <em></em>
+                </div>
+                <div class="prompt_ft">
+                    <p>确定删除该投票吗？</p>
+                    <div class="prompt_btn">
+                        <span id="prompt_confirm" class="cur">确定</span>
+                        <span>取消</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="pop_status_layer" type="text/html">
+    <!--半小时状态-->
+    <div id="show_status_layer">
+        <div class="pop_status"></div>
+        <div class="pop_status_content">
+            <div class="status_stop">该页面已过期，请重新进入</div>
+            <div class="status_sure">确认</div>
+        </div>
+    </div>
+</script>
+
+<script id="pop_confim_dialog" type="text/html">
+    <div class="dialog_cont">
+        <div class="dialog_top">
+            <span>提示</span>
+            <em class="close"></em>
+        </div>
+        <div class="text"></div>
+        <div class="confirm">确定</div>
+        <div class="cancel">取消</div>
+    </div>
+</script>
+
+
+<!-- 私聊模块 -->
+<script id="tpl_private_pop_box" type="text/html">
+    <!-- 私聊@弹框begin  -->
+        <div id="private_pop_box" class="private_pop_box">
+           <!--@弹框左边栏begin--> 
+            <div id="private_left_slide" class="private_pop_slide">
+                <div class="private_user_list">
+                  <ul id="chat_user_list" class="chat_user_list">
+                  
+                  </ul>
+                </div>
+            </div>
+           <!--@弹框左边栏begin--> 
+
+           <!--@弹框右侧区域begin-->  
+            <div id="private_right_slide" class="private_right_slide">
+                  <!-- @头部begin -->
+                  <div id="private_head" class="private_head">
+                      <div class="current_chat_user">
+                          <i class="chat_icon"></i> 
+                          <span class="user_name"></span>  
+                      </div>
+                      <div class="close_pop">
+                          <span class="colse_btn"></span>
+                      </div>  
+                  </div>
+                  <!-- @头部end -->
+                  <!-- @聊天区域-->
+                  <div id="private_chat_domain" class="private_chat_domain">
+                        <div id="private_chat_msg" class="private_chat_msg">   
+                        </div>
+                  </div>
+                  <!--@聊天区域end -->
+            </div>
+           <!--@弹框右侧区域begin--> 
+
+           <!--@弹框底部区域begin--> 
+            <div id="private_bottom" class="private_bottom">
+                <div class="private_post_con">
+                    <div class="private_emotions"></div>
+                    <div class="private_chat_info">
+                        <textarea id="private_send_info"></textarea>
+                    </div>
+                    <button class="private_send_btn" type="button">发送</button>
+                </div>
+            </div>
+           <!--@弹框底部区域end--> 
+        </div>
+        <!-- 私聊@弹框end  -->
+</script>
+
+<!-- 普通聊天信息模板 -->
+<script id="tpl_private_chat_msg" type="text/html">
+    {{if me_xid == d.xid}} 
+    <div class="me_style">
+        <div class="private_content">
+          <div class="cotent_msg">
+              <div class="send_info bg_{{d.role}}">
+                  <span>{{#privateChatMsg}}</span>
+                  <em></em>
+              </div>
+              <div class="avatar">
+                  <img src="{{avatar}}"/>
+              </div>  
+          </div>      
+        </div>
+    </div>
+    {{else}}
+    <div class="other_style">
+        <div class="private_content">
+           <div class="role_info">
+              <span class="username">{{d.nickname}}</span>
+           </div>
+           <div class="cotent_msg">
+              <div class="send_info bg_{{d.role}}">
+                  <span>{{#privateChatMsg}}</span>
+                  <em></em>
+              </div>
+              <div class="avatar">
+                  <img src="{{avatar}}"/>
+              </div>  
+          </div>      
+        </div>
+    </div>
+    {{/if}}
+</script>
+
+<!--私聊用户列表-->
+<script id="tpl_private_list" type="text/html">
+    <li id="u_{{d.xid}}" data-xid="{{d.xid}}">
+      <a>
+        <img src="{{d.avatar}}"/>
+        <span title="{{d.nickname}}">{{d.nickname}}</span>
+      </a>
+      <i id="del_{{d.xid}}"></i>
+      <em id="ts_{{d.xid}}"></em>
+    </li>               
+</script>
+
+
+<!-- 网络选择-->
+<script id="tpl_network_con" type="text/html">
+    <div id="net_cont" class="network_cont" data-move="move_flag">
+        <span class="new_txt">
+            <em>选择网络</em>
+            <p id="net_close"></p>
+        </span>
+        <div class="choice_net">
+            
+        </div>
+        <div id="buffer_mode" class="buffer_mode">
+            <em class="line_left"></em> 
+            <p class="buffer_explain" style="display: none;"></p>
+            <span id="buffer_0" data-buffer="0" data-explain="网速快可选择极速模式，优质体验" class="">极速模式</span>
+            <span id="buffer_1" data-buffer="1" data-explain="网速慢可选择兼容模式，流畅观看" class="cur">兼容模式</span>
+            <em class="line_right"></em>
+        </div>
+        <ul id="net_sel" class="network_select">   
+        </ul>
+        <div class="pop_foot">
+            <span class="tip">运营商选择不能为空!</span>
+            <span class="sure">确定</span>
+        </div>
+    </div>
+</script>
+
+
+<!-- 网络列表 -->
+<script id="tpl_network_list" type="text/html">
+    {{each operators as d}}
+        {{if d.key== "auto"}}
+            <li id="net{{route}}_{{d.key}}" class="unchecked checked" data-key="{{d.key}}">
+                <span class="{{d.key}}">{{d.name}}(推荐)</span>
+                <p class="well_txt">(95%的情况下该选择播放流畅度最佳，若依然不流畅可手动选择您对应的网络运营商！)</p>
+            </li>    
+        {{else}}
+            <li id="net{{route}}_{{d.key}}" class="unchecked" data-key="{{d.key}}">
+                <img src="{{basePath}}{{d.key}}.png" class="{{d.key}}"/>
+                <span class="{{d.key}}">{{d.name}}</span>
+            </li>
+        {{/if}}
+    {{/each}}
+</script>
+
+<!-- 线路列表 -->
+<script id="tpl_route_list" type="text/html">
+    {{each data as d i}}
+        {{if d.cur == 1}}
+            {{if data.length == 1}}
+                <span  id="route_{{i+1}}" class="route cur hidden" data-sourceName="{{d.sourceName}}">线路{{i+1}}</span>
+            {{else}}
+                <span  id="route_{{i+1}}" class="route cur" data-sourceName="{{d.sourceName}}">线路{{i+1}}</span>
+            {{/if}}
+        {{else}}
+            <span id="route_{{i+1}}" class="route" data-sourceName="{{d.sourceName}}">线路{{i+1}}</span>
+        {{/if}}
+    {{/each}}
+</script>
+
+<!--打赏-->
+<script id="tpl_reward_content" type="text/html">
+    <div class="pop_reward_container">
+        <div class="header">
+            <em class="title">打赏</em>
+            <span class="close"></span>
+        </div>
+        <!--付款--> 
+        <div class="pay_container">
+            <div class="txt">
+                <em>立即支付</em>
+                <em class="reward_money">50元</em>
+                <em>即可完成打赏。</em>
+            </div>
+            <div class="pay_way">
+                <ul>
+                    <li class="wechat_pay">
+                        <em></em>
+                        <img id="wechat_qr" src="" />
+                    </li>
+                    <li class="alipay">
+                        <em></em>
+                        <img id="alipay_qr" src="" />
+                    </li>
+                </ul>
+            </div>
+            <div class="selected_way_txt">请选择对应方式扫码支付。</div>
+            <div class="alt_phone">
+                <ul>
+                    <li>手机不在身边？</li>
+                    <li>
+                        <a class="login_alipay" target="_blank" >登录支付宝账号付款</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--结果-->  
+        <div class="pay_result">
+            <div class="success">支付成功</div>
+            <div class="tips"></div>
+            <div class="re_col">
+                <i class="sa"></i>
+                <i class="bo"></i>
+                <i class="diamond"></i>
+                <i class="diame"></i>
+                <i class="diate"></i>
+                <i class="dilast"></i>
+                <i class="sa ted"></i>
+                <i class="diame ted"></i>
+                <i class="diamond ted"></i>
+                <i class="diate ted"></i>
+                <i class="dilast ted"></i>
+                <i class="bo ted"></i>
+                <i class="sa bor"></i>
+            </div>
+        </div>      
+    </div>
+</script>
+
+<!--红包散落-->
+<script id="reward_fix" type="text/html">
+    <div class="rain"></div>
+</script>
+
+<!-- 签到弹框 -->
+<script type="text/html" id="sign_pop">
+    <div class="user_sign_pop">
+         <div class="header">
+              <div class="sign_left">
+                  <i></i>
+                  <span>点名开始</span>
+              </div>  
+              <div class="close_pop"></div>
+         </div>
+         <div class="sign_content">
+             <div class="count_down_time">
+                  <span>倒计时 :</span>  
+                  <span class="time">{{data.duration}}</span>
+                  <span>秒</span>
+             </div>
+             <div class="sign_btn" data-id="{{data.signId}}">
+                 <span>签到</span>
+             </div>
+         </div>   
+    </div>
+</script>
+
+
+<!-- 切换时预加载 -->
+<script id="switch_preview" type="text/html">
+      <div class="switch_preview">
+          <i></i>  
+          <span></span>
+      </div>  
+</script>
+    
+ <!--  暖场  -->  
+ <script id="nc_video" type="text/html">
+    <div id="video_contaner" class="video_contaner">
+        <video id="na_video" src="{{videoUrl}}" controls="controls" autoplay="autoplay">
+          你的浏览器不支持
+        </video>
+    </div>
+</script>
+
+<!-- 手机观看扫码弹框 -->
+<script id="qrcode_pop" type="text/html">
+    <div class="qrcode_pop hidden">
+        <div id="qrcode" class="qrcode_img"></div>
+        <span class="qrcode_pop_words">推荐使用欢拓</span>
+        <span class="qrcode_pop_words">云播APP扫码观看</span>
+        <!-- <a class="code_pop_link" href="#">点击下载</a> -->
+    </div>
+</script>

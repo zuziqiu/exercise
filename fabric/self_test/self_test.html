@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>self_test</title>
+    <style type="text/css">
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        #draw,#canvas{
+            width: 100%;
+            height: 100%;
+            float: left;
+            background-color: #eeeeee;
+            border-left: 1px solid #000;
+            box-sizing: border-box
+        }
+        #draw{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="draw"></div>
+    <div id="canvas">
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg"></svg>
+    </div>
+    <script type="text/javascript">
+        window.onload = function(){
+            
+            var position_array = [];
+            document.querySelector("#draw").addEventListener("mousedown", function(e){
+                var path = document.createElementNS("http://www.w3.org/2000/svg","path");
+                path.setAttribute("class", "svg_path");
+                path.style = "width: 100%; height: 100%; fill:none;stroke:red;stroke-width:4";
+                document.querySelector("svg").appendChild(path);
+                setTimeout(function(){
+                    capsulation(e);
+    
+                    position_array = [];
+                    
+                    document.querySelector("#draw").addEventListener("mousemove", capsulation);
+                },1)
+            });
+            document.querySelector("#draw").addEventListener("mouseup", function(){
+                document.querySelector("#draw").removeEventListener("mousemove", capsulation);
+            });
+            function capsulation(e){
+                var position = {};
+                position["x"] = e.clientX;
+                position["y"] = e.clientY;
+                position_array.push(position);
+                come_out(position_array);
+                
+            };
+            function come_out(data){
+                var m = {},
+                    c = {};
+                    if(data.length < 1){
+                        return;
+                    }
+                var _d = 'M'+data[0]["x"]+ ' ' +data[0]["y"];
+                for(var i = 1; i<data.length; i++){
+                    if( i%3 == 0){
+                        if(data[i+2]){
+                            _d += ' C' + data.slice(i-2,i+1)[0]["x"] + " " + data.slice(i-2,i+1)[0]["y"];
+                            _d += ' '  + data.slice(i-2,i+1)[1]["x"] + " " + data.slice(i-2,i+1)[1]["y"];
+                            _d += ' '  + data.slice(i-2,i+1)[2]["x"] + " " + data.slice(i-2,i+1)[2]["y"];
+                        }
+                    }
+                }
+                var svg_path = document.querySelectorAll(".svg_path");
+                svg_path[svg_path.length-1].setAttribute("d", _d);
+            };
+        }
+    </script>
+</body>
+</html>

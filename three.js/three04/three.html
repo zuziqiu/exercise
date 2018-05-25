@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>three.js</title>
+    <style type="text/css">
+        div#canvas-frame {
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            height: 600px;
+            background-color: #EEEEEE;
+        }
+    </style>
+
+    <script src="./../three.js-dev/build/three.js"></script>
+</head>
+<body>
+    <div id="canvas-frame"></div>
+    <div>
+        Fov:<input type="text" value="45" id="txtFov"/>(0到180的值)
+    </div>
+    <!-- 让物体动 -->
+    <script type="text/javascript" src="./js/Orthographic_projection.js"></script>
+    
+    <!-- 让camera动 -->
+    <!-- <script type="text/javascript" src="./js/Orthographic_projection.js"></script> -->
+</body>
+</html>

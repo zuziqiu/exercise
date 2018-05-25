@@ -1,0 +1,218 @@
+/**
+ * #name :  抽奖
+ * author:  liangh;
+ */
+ @scale: 2;
+/**
+ * @.mod_lottery 抽奖模块
+ */
+.scroll1 {
+  -webkit-animation: lottery 1.5s 0.1s infinite;
+  animation: lottery 1.5s  0.1s infinite;	
+}
+.scroll2 {
+  -webkit-animation: lottery 1.5s  0.3s infinite;
+  animation: lottery 1.5s  0.2s infinite;  
+}
+
+.scroll3 {
+  -webkit-animation: lottery 1.5s  0.5s infinite;
+  animation: lottery 1.5s  0.5s infinite;  
+}
+@keyframes lottery {
+	0%   {background-position:20px 42px;}
+    50%  {background-position:20px -580px;}
+    100% {background-position:20px 42px;}
+} 
+
+@-webkit-keyframes lottery {
+	0%   {background-position:20px 42px;}
+    50%  {background-position:20px -580px;}
+    100% {background-position:20px 42px;}
+}
+@lotteryPath: "img/lottery";
+.mod_lottery{
+    width: 550px /2;
+    height: -15px;
+    border-radius: 5px;
+    margin: 0 auto;
+    position: absolute;
+    display: none;
+    top: 50%;
+    bottom: 0;  
+    left: 50%;
+    margin: -52px 0 0 -275px/2;
+    z-index: 10001;
+    background: url("@{lotteryPath}/win_connent.png") no-repeat;
+    background-size: 550px/2 384px /2;
+    background-position: 0px 64px;
+    overflow: hidden;
+    .lotter_close{
+    	position: absolute; 
+        right: 0;
+        top: 17px;
+    	.close_icon{
+    		display: block;
+    		width: 36px;
+    		height: 36px;
+    		background: url("@{lotteryPath}/lottery_close.png") no-repeat;
+    		background-size: 36px 36px; 
+    		margin: 5px 0 0 -5px;
+    	}
+    	.line{
+    		display: block;
+    		width: 2px;
+    		height: 14px;
+    		background: #56acf5;
+    		position: absolute;
+   			top: 37px;
+    		left: 12px;
+    	}
+
+    }
+    //抽奖中--top
+    .lotter_inner{
+        //padding: 38px/2 0 0 36px/2;
+ 		width: 329px/2;
+        height: 115px/2;
+        background-size: 329px/2 115px/2;
+        background-position: 64px 37px;
+        padding: 37px 0 0 64px;
+        .lotter_title{
+            width: 187px;
+            position: absolute;
+            top: 58px;
+            right: 46px;
+            display: none;
+            height: 33.5px;
+            background: url(img/lottery/lottery_title.png) no-repeat;
+            background-size: 100% 100%;
+        }
+    }
+    //抽中奖-->top
+    .win_ret{
+	   /* padding: 10px 0 0 58px;*/
+    }
+    //抽奖内容层
+    .mod_lotter_loader{
+        width: 470px/2;
+        height: 220px/2;
+	    margin-top: 67px;
+	    margin-left: -44px;
+	    overflow: hidden;
+	    &.result{
+	    	background: #ffffff;
+	    }
+		//display: none;
+        .loader_effect{
+            /*padding: 0 0 0 5px;*/
+            span{
+                float: left;
+                width: 150px/2;
+                height: 220px/2;
+                background: url("@{lotteryPath}/envelope.png") #edfff8 repeat-y;
+                background-size: 70px/2 477px/2;
+                background-position: 20px -312px;
+                &.it_1{
+                	margin-right: 5px;
+                	border-top-left-radius: 3px;
+                	border-bottom-left-radius: 3px;
+                }
+
+                &.it_2{
+                	margin-right: 5px;
+                }
+
+                &.it_3{
+                	float: right;
+                	border-top-right-radius: 3px;
+                	border-bottom-right-radius: 3px;
+                }
+            }
+        }
+    }
+    .award_user_info{
+        width: 235px;
+	    height: 110px;
+	    background: #ffffff;
+	    position: absolute;
+	    top: 104px;
+	    left: 20px;
+	    overflow: hidden;
+	    border-radius: 5px;
+        span{
+        	display: block;
+            text-align: center;
+            color: #f2412d;
+            font-size: 20px;
+            position: relative;
+            bottom: 10px;
+            line-height: 35px;
+            &.cfont{
+                font-size: 12px;
+            }
+        }
+        .loter_info{
+            font-size: 16px;
+            line-height: 20px;
+            height: 54px;
+            text-overflow: ellipsis;
+            width: 215px;
+            margin: 10px auto;
+            height: 60px;
+            white-space: normal;
+            word-break: break-all;
+            overflow-y: auto;
+        }
+    }
+    .operation{
+        width: 60px/2;
+        height: 60px/2;
+        position: absolute;
+        right: 1px;
+        top: 52px;
+        cursor: pointer;
+        display: block;
+        background: url("@{lotteryPath}/lat_close.png");
+        background-size: 60px/2 60px/2;
+        &.cur{
+        	display: none;
+            //cursor: default;
+            //top: 73px;
+            //background: url("@{lotteryPath}/lottery_ball.png");
+        }
+        &.meClose{
+        	top: 163px;
+        	right: 115px;
+        	width: 80px/2;
+        	height: 88px/2;
+        	background: url("@{lotteryPath}/is_me_close.png") no-repeat;
+        	background-size: 80px/2 88px/2;
+        	background-position: 0px 0px;
+        }
+    }
+    .me_nickname{
+    	position: absolute;
+    	width: 190px;
+    	text-align: center;
+    	top: 66px;
+    	left: 46px;
+    	font-size: 16px;
+    	color: black;
+        display: none;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+    }
+}
+
+/*======================================*/
+/*模屏*/
+.landscape{
+    .mod_lottery{
+        margin: -132px 0 0 -275px/2;
+    }
+}
+
+
+

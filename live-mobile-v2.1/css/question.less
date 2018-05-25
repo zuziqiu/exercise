@@ -1,0 +1,384 @@
+/**
+ * #name :  提问
+ * author:  liangh;
+ */
+
+ @scale: 2;
+ .mod_menu_question{
+    top: 0;
+    // bottom: 40px;
+    position: absolute;
+    width: 100%;
+    display: none;
+    top: 0;
+    bottom: 40px;
+    .mod_ques_hall {
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        dl{
+            width:auto;
+            min-height:60px;
+            &.hide{
+                display: none;
+            }
+            &:last-child{
+                border-bottom: 0 none;
+            }
+            /*管理员标志*/
+            i{
+                /*display: inline-block;*/
+                position: relative;
+                font-size: 10px;
+                top: -1px;
+                padding: 2px;
+                margin-right: 5px;
+                border-radius: 5px;
+                color: #FFFFFF;
+                background: #CCCCCC;
+                font-style: normal;
+                /*颜色差异*/
+                &.admin{
+                    background-color: #f08336;
+                }
+                &.spadmin{
+                    background-color: #e71a2f;
+                }
+                &.user{
+                    display: none;
+                }
+            }
+            dt{
+                float:left;
+                width: 24px;
+                height: 34px;
+                line-height: 24px;
+                font-size: 12px;
+                color: #888888;
+                text-align: center;
+                overflow:hidden;
+                border-radius: 50em;
+            }
+            dd{
+                padding: 8px 16px 0px;
+                .q_t{
+                    margin-left: 36px;
+                    border-bottom: 1px solid #f6f6f6;
+                }
+
+                .avatar{
+                    width: 28px;
+                    float: left;
+                    display: block;
+                    height: 28px;
+                    padding: 2px;
+                    position: relative;
+                    bottom: 0px;
+                    margin: 0 5px 0 0;
+                    border-radius: 50em;
+                }
+             /*   span{
+                    &.user{
+                        i{
+                           background-position: 0 -75px;
+                           background-size: 100% auto;
+                        }
+                    }
+                    &.admin{
+                        i{
+                            background-position: 0 -35px;
+                            background-size: 100% auto;
+                            margin-top: 10px;
+                        }
+                    }
+                    &.spadmin{
+                        i{
+                            background-position: 0 0;
+                            background-size: 100% auto;
+                            margin-top: 7.5px;
+                        }
+                    } 
+                    i{
+                        width: 25px;
+                        float: left;
+                        display: block;
+                        height: 25px;
+                        background: url("img/b_avatars.png");
+                        padding: 2px;
+                        position: relative;
+                        bottom: 0px;
+                       margin: 0 5px 0 0;
+                    }
+                }*/
+                .re_btn{
+                    margin: 5px 0;
+                    display: block;
+                    width: 56px;
+                    height: 26px;
+                    line-height: 26px;
+                    border-radius: 3px;
+                    background: #FF1003;
+                    color:#FFFFFF;
+                    text-align:center;
+                    font-size: 14px;
+                    cursor: pointer;
+                    &.active{
+                        background: #42B7F7;
+                    }
+                }
+                /*问*/
+                .q_t{
+                    .uname{
+                       /* height:24px;*/
+                        line-height:24px;
+                        font-size: 12px;
+                        overflow: hidden;
+                        color: #8d9890;
+                        .que_right{
+                            position: relative;
+                            bottom: 1px;
+                            .comm{
+                                    width: 50px;
+                                    height: 22px;
+                                    position: relative;
+                                    top: 9px;
+                                    display: inline-block;
+                                &.is_admin{
+                                    em{
+                                        display: block;
+                                        color: #ffffff;
+                                        line-height: 19px;
+                                        text-align: center;
+                                        font-size: 12px;
+                                        position: absolute;
+                                        left: 6px;
+                                        padding: 0px 4px 0 4px;
+                                        font-style: normal;
+                                        border-radius: 2px;
+                                        height: 19px;
+                                        background: #ffac2d;
+                                    }
+                                    span{
+                                        width: 7px;
+                                        position: absolute;
+                                        left: -6px;
+                                        height: 0;
+                                        top: 5px;
+                                        border-top: 4px solid transparent;
+                                        border-right: 6px solid #ffac2d;
+                                        border-bottom: 4px solid transparent;
+                                    }
+                                }
+                                &.is_spadmin{
+                                    em{
+                                        display: block;
+                                        color: #ffffff;
+                                        line-height: 19px;
+                                        text-align: center;
+                                        font-size: 12px;
+                                        position: absolute;
+                                        left: 6px;
+                                        padding: 0px 4px 0 4px;
+                                        font-style: normal;
+                                        border-radius: 2px;
+                                        height: 19px;
+                                        background: #f54957;
+                                    }
+                                    span{
+                                        width: 7px;
+                                        position: absolute;
+                                        left: -6px;
+                                        height: 0;
+                                        top: 5px;
+                                        border-top: 4px solid transparent;
+                                        border-right: 6px solid #f54957;
+                                        border-bottom: 4px solid transparent;
+
+                                    }
+                                } 
+                            }
+                           
+                            .nickname{
+                                color: #75787c;
+                                font-size: 12px;
+                            }
+                            .chat_time{
+                                color: #b1b6bc;
+                                font-size: 12px;
+                                padding-left: 13px;
+                            }
+                            p{
+                                color: #556259;
+                                font-size: 14px;
+                                padding:3px 0 4px 0;
+                                word-break: break-word;
+                            }
+                        } 
+                    }
+                }
+                /*答*/
+                .q_re{
+                    padding: 0 0 5px 0;
+                    .rep_person{
+                        font-size: 14px;
+                        line-height:24px;
+                        color: #56acf5;
+                       /* margin-top: 5px;*/
+                        overflow: hidden;
+                        background:url(img/icons.png) 0 -212px no-repeat;
+                        .rep_msg{
+                            /*margin-left: 10px;*/
+                            color: #556259;
+                        }
+                        .user{
+                            i{
+                                background-position: 0 -82px;
+                            }
+                        }
+                        .admin{
+                            i{
+                                background-position: 0 -44px;
+                            }   
+                            em{
+                                background: url("img/role_icon.png") no-repeat;
+                                display: inline-block;
+                                width: 37px;
+                                height: 20px;
+                                background-size: 30px auto;
+                                position: relative;
+                                top: 9px;
+                                left: 4px;
+                            }
+                        }
+                        .spadmin{
+                            i{
+                                background-position: 0 0;
+                            }   
+                            em{
+                                background: url("img/role_icon.png") no-repeat;
+                                display: inline-block;
+                                width: 37px;
+                                height: 20px;
+                                background-size: 30px auto;
+                                position: relative;
+                                top: 9px;
+                                left: 4px;
+                                background-position: 0 -27px;
+                            }
+                        }
+                        i{
+                            /*display: inline-block;*/
+                            width: 24px;
+                            float: left;
+                            display: block;
+                            height: 28px;
+                            background: url("img/avatars.png");
+                            padding: 2px;
+                            margin: 15px/2 5px 0 0;
+                        }
+                    }
+                    p{
+                        word-break: break-all;
+                        color: #333333;
+                    }
+                }
+                /*公共配置*/
+                .q_t p,
+                .re_msg p{
+                    padding-bottom: 3px;
+                    padding-left: 32px;
+                    font-size: 14px;
+                    line-height: 20px;
+                }
+            }
+        }
+    }
+    .mod_ques_post {
+        height: 56px/@scale;
+        background: #f6f8f9;
+        padding: 4px 0 6px 0;
+        display:-webkit-box;
+        display: -moz-box;
+        display: box;
+        position: fixed;
+        z-index: 105;
+        bottom: 0px;
+        width: 100%;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        .post_con {
+            -webkit-box-flex: 1;
+            -moz-box-flex: 1;
+            box-flex: 1;
+            display:-webkit-box;
+            display: -moz-box;
+            display: box;
+            //position: relative;
+            width: 100%;           
+            textarea {
+                -webkit-box-flex: 1;
+                -moz-box-flex: 1;
+                height: 24px/@scale;
+                border: 1px solid #ddd;
+                width: 100%;
+                font-size: 14px;
+                display: block;
+                border-radius : 4px;
+                line-height: 24px/@scale;
+                background: #ffffff;
+                margin: 0 108px/@scale 0 20px/@scale;
+                padding:16px/@scale 70px/@scale 16px/@scale 16px/@scale;
+                resize:none;
+            }
+            .qsend {
+               	-webkit-box-flex: 0;
+                -moz-box-flex: 0;
+                box-flex: 0;
+                position: absolute;
+                right: 0px;
+                width: 54px;
+                text-align: center;
+                /* height: 27px; */
+                line-height: 30px;
+                font-size: 16px;
+                color: #56acf5;
+                font-weight: bold;
+                padding: 0;
+                &.default{
+                    color: #AAAAAA;
+                }
+            }
+        }
+    }
+}
+
+
+/*=================================================================================================*/
+/*@提问模屏*/
+.horizontal{
+    .mod_menu_question{
+        .mod_ques_hall{
+            height: auto;
+            top: 0;
+            bottom: 32px;
+            border-left: 1px solid #cccccc;
+        }
+        .mod_ques_post{
+            width: 30%;
+            border-left: 1px solid #cccccc;
+            &.touchsend{
+                left: 0;
+                right: 0;
+                width: 100%;
+            }
+            .post_con{
+                textarea{
+                    padding: 8px;
+                    margin: 0 54px 0 8px;
+                }
+            }
+        }
+    }
+}

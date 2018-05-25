@@ -1,0 +1,90 @@
+/**
+ * 模块设置(m-{type}-{enbale})
+ * @ 0 => 关闭 1 => 打开
+ * Author: Marko
+ * Version: 1.1.2
+ */
+ body{
+
+	// 无 logo 情况下
+	&.m-logo-0{
+
+		// 摄像头 & ppt
+		.mod_main_player_wp{
+			&.toggle_video_ppt{
+				top: 0;
+			}
+		}
+
+		// 左侧结构
+		.mod_user_info {
+			top: 0;
+		}
+		.mod_question_ans_wrap {
+			top: 0;
+			.hd_ti {
+				top: 210px;
+			}
+			.mod_ques_hall {
+				top: 244px;
+			}
+
+		}
+		.camera_play {
+			top: 0;
+		}
+
+		// 桌面分享覆盖图
+		.switch_preview{
+			top: 0;
+			overflow: hidden;
+		}
+
+	}
+
+	// 无 right-block
+	&.m-right-0{
+		.camera_warp{
+			&.toggle_video_ppt{
+				right: 10px;
+			}
+		}
+		.mod_main_player_wp{
+			right: 10px;
+		}
+	}
+
+	// 小班模式下差异化
+	&.mode_live_player{
+		.col_left_side{
+			&.logo_hide{
+				.mod_question_ans_wrap{
+					.hd_ti{
+						top: 270px;
+					}
+				}
+			}
+			&.logo_hide{
+				.mod_question_ans_wrap{
+					.mod_ques_hall{
+						top: 304px;
+					}
+				}
+			}
+		}
+	}
+ }
+
+// flash 覆盖区s
+.mod_swf_placehoder{
+	position: absolute;
+	z-index: 1005;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	#mod_flash_check_cover{
+		display: block;
+		position: relative;
+		z-index: 100;
+	}
+}

@@ -1,0 +1,155 @@
+<!-- ## 直播模版 命名规则: tpl_{name} ## -->
+
+<!-- #左侧 -->
+<!--@专辑列表-->
+<!-- <script id="albums_list" type="text/html">
+  <li>
+    <a>
+      <div class="video_left">
+          <i></i>
+      </div>
+      <dl>
+          <dt>专辑名称可以很长很长很长</dt>
+          <dd>
+              <span class="album_teacher">刘文智</span>
+              <span class="album_time">1:56:23</span>
+              <i id="play_icon"></i>
+          </dd>
+      </dl>  
+    </a>
+</li>
+</script> -->
+
+<!-- @章节列表 -->
+<script  type="text/html" id="chapters_list">
+      <li id="{{chapters.sn}}" data-time="{{chapters.starttime}}">
+          <a>
+            <div class="chapter">
+              <span class="circle">{{chapters.page}}</span>
+              
+              {{if chapters.index != 1}}
+              <i class="line"></i>
+              {{/if}}
+
+              {{if chapters.course == "null"}}
+              <span title="黑板" class="title">黑板</span> 
+              {{else}}
+              <span title="{{chapters.course}}" class="title">{{chapters.course}}</span> 
+              {{/if}}
+
+              {{if chapters.time.length < 6}}
+              <span class="chapter_time">{{chapters.time}}</span>
+              {{else if chapters.time.length > 5}}
+              <span class="chapter_time time">{{chapters.time}}</span> 
+              {{/if}}
+              <!-- <i class="p_state"></i> -->
+              <div class="hover_img">
+                  <img src="//open.talk-fun.com/open/cooperation/shangde/vod-mobile/css/img/s.png" data-osrc="{{chapters.thumb}}" onerror="notFind(this)" />
+              </div>
+            </div>  
+         </a>
+      </li>
+</script>
+
+<!-- Flash覆盖 -->
+<script id="mod_swf_cover" type="text/html">
+  <div id="mod_swf_holder" class="mod_swf_placehoder">
+      <object id="mod_flash_check_cover" name="tf_swf_checker" align="middle" width="100%" height="100%" type="application/x-shockwave-flash" data="//static-1.talk-fun.com/open/maituo/static/swf/BlankStage.swf">
+          <param name="quality" value="high"/>
+          <param name="allowscriptaccess" value="always"/>
+          <param name="allowfullscreen" value="true"/>
+          <param name="wmode" value="transparent"/>
+          <param name="flashvars" value=""/>
+      </object>
+  </div>
+</script>
+
+<!-- #右侧 -->
+<!--@聊天列表-->
+<script id="chat_msg_list" type="text/html">
+
+  <li class="chat_at_{{msg.chatpoint}} message_{{msg.content}} {{msg.isShow}}" >
+    <div class="chat_hd">
+    {{if msg.role == "spadmin"}}
+      <i class="cur_use user_icon"></i>    
+    {{else if msg.role == "admin"}}
+      <i class="cur_use admin_icon"></i>    
+    {{else if msg.role == "user"}}
+      <i class="cur_use user_icon"></i>    
+    {{/if}}
+      <span title="{{msg.nickname}}" class="use_names">{{msg.nickname}}</span>
+      <span class="time">{{msg.starttime}}</span>
+    </div>
+
+    <p>{{#msg.message}}</p>
+  </li>
+ </script>
+
+   <!--@提问列表 -->
+  <script id="chat_question_list" type="text/html">
+    <li class="dash_line">
+      <a>
+        <div class="chat_hd">
+          <i class="cur_use"></i>
+          <span class="use_names q_name">{{questions.nickname}}</span>
+          <span class="time">{{questions.startTime}}</span>
+        </div>
+        <p>{{questions.content}}</p>
+      </a>  
+    </li>
+
+   {{if answers!=""}} 
+   <li class="solid_line">
+      <a>
+        <div class="chat_hd">
+          <div class="enter_arrow"></div>
+          <i class="cur_use t_role"></i>
+          <span class="use_names a_name">{{answers.nickname}}</span>
+          <span class="time">{{answers.startTime}}</span>
+        </div>
+        <p>{{answers.content}}</p>
+      </a>
+    </li>
+    {{/if}}
+</script>
+
+
+<!-- h5 player 倍速功能 -->
+<script id="player_speed" type="text/template">
+    <div class="player_speed">
+        <span class="player_now_speed">
+          倍速
+        </span>
+        <ul class="player_speed_type">
+          <li class="player_speed_normal" data-speed="1">正常播放</li>
+          <li data-speed="1.2">1.2x</li>
+          <li data-speed="1.5">1.5x</li>
+          <li data-speed="2">2x</li>
+        </ul>
+    </div>
+</script>
+
+
+<!-- 切换时预加载 -->
+<!-- <script id="switch_preview" type="text/html">
+      <div class="switch_preview">
+          <i></i>  
+          <span></span>
+      </div>  
+</script> -->
+
+<script type="text/template" id="playback_mask">
+  <div class="playback_mask_outer">
+    <div class="playback_mask_inner">
+      <img class="playback_icon" src="./img/playback_btn.png" />
+      回放生成中，请稍后重试...
+    </div>
+  </div>
+</script>
+
+<script id="camera_fullScreen" type="text/template">
+  <div class="camera_fullScreen hidden" style="display: none;"></div>
+</script>
+
+
+

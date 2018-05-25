@@ -4,7 +4,8 @@ var gulp = require('gulp'),
     htmlmin = require('gulp-htmlmin'),
     es2015 = require('babel-preset-es2015'),
     babel = require('gulp-babel'),
-    rename = require('gulp-rename');
+    rename = require('gulp-rename'),
+    spritesmith = require("gulp.spritesmith");
 var browserify = require("browserify");
 var sourcemaps = require("gulp-sourcemaps");
 var source = require('vinyl-source-stream');
@@ -94,3 +95,49 @@ gulp.task('ejs', function() {
         .pipe(ejs())
     .pipe(gulp.dest('./browserify/dist'));
 });
+
+
+// const gulp = require("gulp")
+ 
+// // 本实例为完成精灵图的合并
+// const spritesmith = require("gulp.spritesmith")
+ 
+gulp.task('sprite',function(){
+    gulp.src("webpack/sprite/src/*.png")
+        .pipe(spritesmith({
+            imgName:'sprite/sprite_min.png', //合并后大图的名称
+            cssName:'sprite/sprite.less',
+            padding:30,// 每个图片之间的间距，默认为0px
+            algorithm: 'top-down',
+            cssTemplate:(data)=>{
+            // data为对象，保存合成前小图和合成打大图的信息包括小图在大图之中的信息
+               let arr = [],
+            //    sprite.px[i].replace(/\d+/,(sprite.px[i].match(/\d+/)[0])/2)
+                    // width = data.spritesheet.px.width
+                    width = data.spritesheet.px.width.replace(/\d+/,(data.spritesheet.px.width.match(/\d+/)[0])/2),
+                    // height = data.spritesheet.px.height,
+                    height = data.spritesheet.px.height.replace(/\d+/,(data.spritesheet.px.height.match(/\d+/)[0])/2),
+                    url =  data.spritesheet.image
+                // console.log(data)
+                data.sprites.forEach(function(sprite) {
+                    for(var i in sprite.px){
+                        sprite.px[i] = sprite.px[i].replace(/(-|\d)+/,(sprite.px[i].match(/(-|\d)+/)[0])/2+13)
+                    }
+                    arr.push(
+                        "."+sprite.name+
+                        "{"+
+                            "background: url('"+url+"') "+
+                            "no-repeat "+
+                            sprite.px.offset_x+" "+sprite.px.offset_y+";"+
+                            "background-size: "+ width+" "+height+";"+
+                            "width: "+sprite.px.width+";"+                       
+                            "height: "+sprite.px.height+";"+
+                        "}\n"
+                    ) 
+                })
+                // return "@fs:108rem;\n"+arr.join("")
+                return arr.join("")
+            }
+        }))
+        .pipe(gulp.dest("webpack/sprite/exports/"))
+})

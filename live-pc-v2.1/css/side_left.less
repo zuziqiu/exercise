@@ -1,0 +1,710 @@
+/**
+ * @side.less
+ * @author: Marko
+ * @desc: 主播页左侧
+ */
+/**
+ * img @_sidePath
+ */
+@_sidePath: "img/side";
+
+.col_left_side{
+    /*position: absolute;
+    width: 280px;
+    height: 100%;
+    left: 0;
+    top: 0;*/
+    &.closed{
+        width: 0;
+    }
+    .camera_text{
+        display: none;
+    }
+    /*&.col_left_hide{
+        .head,
+        .mod_question_ans_wrap{
+            visibility: hidden;
+            width: 1px;
+        }
+        .mod_sider_top{
+            .mod_user_info{
+                visibility: hidden;
+            }
+            .camera_warp{
+                left: 10px;
+                .camera_play{
+                    width: 1px;
+                }
+            }
+        }
+    }*/
+}
+
+.mod_sider_top{
+    /*width: 280px;
+    height: 210px;
+    overflow: hidden;*/
+    &.show_author{
+        &.camera_play{
+            height: 1px;
+            overflow: hidden;
+        }
+        .camera_warp{
+            padding: 0;
+            height: 1px;
+           /*  position: relative; */
+            top: -10px;
+            overflow: hidden;
+        }
+    }
+}
+
+
+/*logo区 #logo*/
+.head{
+    position: absolute;
+    top: 0;
+    height: 60px;
+    //background-image: url("@{_sidePath}/logo.png");
+    background-color: #00baff;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    img{
+        display: block;
+    }
+}
+/*摄像头区 #camera_play*/
+.camera_warp{
+    .camera_play{
+        position: absolute;
+        z-index: 100;
+        top: 60px;
+        left: 0;
+        width: 280px;
+        height: 210px;
+        left: 0;
+        #mtAuthorPlayer{
+            opacity: 0;
+            &.show{
+                opacity: 1;
+                width: 100%;
+                height: 100%;
+            }
+            &.toggled{
+                position: fixed;
+                width: auto;
+                height: auto;
+                z-index: 10001;
+            }
+        }
+        .camera_text{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: #000;
+            display: none;
+        }
+    }
+    //摄像头 --->PPT
+    &.toggle_video_ppt{
+        top:32px;
+        left: 290px;
+        right: 310px;
+        bottom: 48px;
+        width: auto;
+        height: auto;
+        position: absolute;
+        box-shadow: 0 0 8px #c5c5c5;
+        -moz-box-shadow: 0 0 8px #c5c5c5;
+        -webkit-box-shadow: 0 0 8px #c5c5c5;
+        .camera_play{
+            width: auto;
+            height: auto;
+            top:0;  //视频切换的时候所有问题都在这里的top上 囧_ 。
+            background: none;
+        }
+        #mtAuthorPlayer{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+    }
+}
+/*弹窗 #popup*/
+.popup{
+    width: 218px;
+    height: 148px;
+    position: absolute;
+    border: 1px solid #d3d8df;
+    padding: 5px 0;
+    top: 150px;
+    left: 285px;
+    z-index: 2;
+    background: #fff;
+    border-radius: 3px;
+    z-index: 9992;
+    .arrow{
+        width: 5px;
+        height: 11px;
+        background: url("img/side/s_prites.png") -34px -156px;
+        display: block;
+        position: absolute;
+        top: 15px;
+        left: -5px;
+    }
+    img{
+        width: 60px;
+        height: 60px;
+        /*padding: 5px 0;*/
+        margin: 6px auto;
+        display: block;
+        border-radius: 50em;
+    }
+    h2{
+        font-weight: 700px;
+        text-align: center;
+        font-size: 16px;
+        color: #000000;
+    }
+    p{
+        font-size: 12px;
+        line-height: 20px;
+        height: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding:0 10px;
+        color: #88888c;
+        text-align: center;
+    }
+    .assist{
+        width: 160px;
+        margin: 0 auto;
+        height: 22px;
+        margin-top: 5px;
+        .user_flower{
+            float: left;
+            width: 75px;
+            height: 22px;
+            cursor: pointer;
+            i{
+                width: 20px;
+                height: 22px;
+                background: url("@{_sidePath}/s_prites.png") -11px -64px;
+                display: block;
+                text-align: center;
+                float: left;
+            }
+           span{
+                line-height: 22px;
+                padding-left: 3px;
+                color: #888888;
+           }
+    }
+     em{
+            padding-left: 5px;
+            color: #d3d8df;
+       }
+        .user_meda{
+          float: right;
+          width: 55px;
+          cursor: pointer;
+            i{
+                width: 14px;
+                height: 21px;
+                background: url("@{_sidePath}/s_prites.png") -38px -65px;
+                display: block;
+                float: left;
+                margin-top: 1px;
+            }
+          span{
+                line-height: 22px;
+                padding-left: 3px;
+                color: #888888;
+            }
+        }
+    }
+}
+
+/*弹窗结束 */
+
+
+/*讲课老师信息*/
+.mod_user_info{
+    position:absolute;
+    top: 60px;
+    left: 0;
+    width: 280px;
+    height: 209px;
+    overflow: hidden;
+    img{
+        width: 100px;
+        height: 100px;
+        display: block;
+        margin: 8px auto;
+        border-radius: 50em;
+    }
+    h4{
+        font-weight: 700px;
+        text-align: center;
+        font-size: 16px;
+        color: #000000;
+    }
+    p{
+        padding: 5px 20px;
+        font-size: 12px;
+        line-height: 20px;
+        height: 20px;
+        overflow: hidden;
+        text-align: center;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: #88888c;
+    }
+    .assist{
+        width: 160px;
+        margin:0 auto;
+        height: 22px;
+        margin-top: 5px;
+        .user_flower{
+            float: left;
+            width: 75px;
+            height: 22px;
+            cursor: pointer;
+            i{
+                width: 20px;
+                height: 22px;
+                background: url("@{_sidePath}/s_prites.png") -11px -64px;
+                display: block;
+                text-align: center;
+                float: left;
+            }
+            span{
+                line-height: 22px;
+                padding-left: 3px;
+                color: #888888;
+            }
+        }
+    em{
+        padding-left: 5px;
+        color: #d3d8df;
+    }
+        .user_meda{
+          float: right;
+          width: 55px;
+          cursor: pointer;
+            i{
+            width: 14px;
+            height: 21px;
+            background: url("@{_sidePath}/s_prites.png") -38px -65px;
+            display: block;
+            float: left;
+            margin-top: 1px;
+            }
+            span{
+                line-height: 22px;
+                padding-left: 3px;
+                color: #888888;
+            }
+        }
+    } 
+}
+/*问答面板 #ask*/
+.mod_question_ans_wrap{
+    &.qwrap{
+        .mod_question_wrap{
+            .hd_ti{
+                top: 0;
+            }
+            .mod_ques_hall{
+                top: 40px;
+            }
+        }
+    }
+    .ques_load_more_btn{
+        width: 100%;
+        height: 26px;
+        line-height: 26px;
+        text-align: center;
+        background: #e0e0e0;
+        color: #333333;
+        box-shadow: 0px 3px 6px #f1f1f1;
+        border-bottom: 1px solid #cecece;
+        //display: block;
+        display: none;
+        cursor: pointer;
+        &:hover{
+            background: #f3f3f3;
+        }
+    }
+    /*提问框*/
+    .mod_question_wrap{
+        /*width: 280px;
+        position: absolute;
+        top: 269px;
+        background: #FFFFFF;
+        overflow: auto;*/
+        /*提问 #problem*/ 
+        .hd_ti{
+            position: absolute;
+            width: 264px;
+            top: 270px;
+            height: 32px;
+            line-height: 32px;
+            padding-left: 16px;
+            background-color: #f7f7f8;
+            border-top: 1px solid #DDDDDD;
+            border-bottom: 1px solid #DDDDDD;
+            color: #000000;
+            /*font-weight: 700;*/
+            font-size: 16px;
+        }
+        .mod_ques_hall{
+            position: absolute;
+            left: 0;
+            width: 280px;
+            top: 304px;
+            bottom: 81px;
+            overflow: auto;
+            &.mod_questions_scroller{
+                padding: 10px 0;
+            }
+        }
+        /*关闭公告*/
+        &.without_notify{
+            top: 439px;
+        }
+        /*&.close_notify{
+            .mod_ques_hall{
+                top: 328px;
+            }
+        }*/
+        .ask_wrap{
+            padding: 5px;
+            border-bottom: 1px solid #EAEAEA;
+            overflow: hidden;
+            position: relative;
+            &:nth-last-child(1){
+                border-bottom: 0 none;
+            }
+        }
+       /*用户问 #u_say*/
+        .u_say{
+            padding: 2px;
+            width: auto;
+            .s_ask{
+                width: auto;
+                height: 30px;
+                line-height: 28px;
+                margin-top: 5px;
+                .u_portrait{
+                    width: auto;
+                    height: 28px;
+                    float: left;
+                    img{
+                        float: left;
+                        width: 28px;
+                        height: 28px;
+                        margin-left: 5px;
+                        border-radius: 50em;
+                    }
+                    .u_name{
+                        color: #888888;
+                        font-size: 12px;
+                        line-height: 28px;
+                        float: left;
+                        margin-left: 5px;
+                        white-space: nowrap;
+                        max-width: 45px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+
+                    }
+                    .manager{
+                        float: left;
+                        color: #00baff;
+                        line-height: 28px;
+                        cursor: pointer;
+                        text-decoration: underline;
+                    }
+                    .u_time{
+                        color: #c6c6c6;
+                        font-size: 12px;
+                        line-height: 28px;
+                        float: left;
+                        margin-left: 5px;
+                        white-space: nowrap;
+                    }
+                }
+                .answered,
+                .pass,
+                .delect{
+                    float: right;
+                    color: #00baff;
+                    line-height: 28px;
+                    cursor: pointer;
+                }
+                .all_passed{
+                    float: right;
+                    color: #c6c6c6;
+                    font-size: 12px;
+                    line-height: 28px;
+                    white-space: nowrap;
+                }
+                .answered{
+                    margin: 0 8px;
+                }  
+            }
+            p{
+                color: #000000;
+                line-height: 22px;
+                word-wrap: break-word;
+                padding: 0 0 5px 37px;
+                a{
+                    text-decoration: underline;
+                    color: #00baff;
+                }
+            }
+            .ban{
+                width: 26px;
+            /*  float: right;
+                border: 1px solid #FF3C3C;
+                padding-left: 0;
+                text-align: center;*/
+                background: url(img/side/g_icon.png) no-repeat;
+                height: 18px;
+                position: absolute;
+                top: 29px;
+                left: 27px;
+               /* line-height: 18px;
+                border-radius: 2px;
+                margin-top: 10px;*/
+            }
+        }
+
+        /*老师答#t_say*/
+        .t_say{
+            width: 282px;
+            border-top: 1px dotted #e8e8e8;
+            margin: 0 auto;
+            .t_ans{
+                width: auto;
+                height: 30px;
+                margin-left: 5px;
+                margin-top: 8px;
+               i{
+                    width: 17px;
+                    height: 12px;
+                    background:url("@{_sidePath}/s_prites.png") -10px -43px;
+                    float: left;
+                    margin-right: 5px;
+                    margin-top: 8px;
+               }
+                img{
+                    float: left;
+                    margin-right: 5px;
+                    border-radius: 50em;
+                }
+                .t_name{
+                    color: #888888;
+                    font-size: 12px;
+                    line-height: 28px;
+                    margin-right: 5px;
+                    float: left;
+                }
+              .t_time{
+                    color: #c6c6c6;
+                    font-size: 12px;
+                    float: left;
+                    line-height: 28px;
+
+                }
+            }
+            p{
+                color: #000000;
+                line-height: 18px;
+                padding: 0 0 7px 62px;
+                margin-right: 18px;
+                a{
+                    text-decoration: underline;
+                    color: #00baff;
+                }
+            }
+        }
+    }
+    /*发送内容区 #mod_questions*/
+    .mod_question_post{
+        position:absolute;
+        left: 0;
+        bottom: 0;
+        height: 78px;
+        width: 280px;
+        z-index: 100;
+        border: 1px solid #F6F6F6;
+        border-left: none;
+        border-right: none;
+        background: #FFFFFF;
+        /*box-shadow: 0px 1px 6px #474747;*/
+        box-shadow: -2px 1px 4px 0px #474747;
+        .opera_hd{
+            /*height: 26px;*/
+            overflow: hidden;
+        }
+        .show_me_ques{
+            width: 94px;
+            height: auto;
+            padding: 6px 8px;
+            cursor: pointer;
+            overflow: hidden;
+            &.cur{
+                i{
+                    background-position: -61px -98px;
+                }
+            }
+            i{
+                width: 14px;
+                height: 14px;
+                background: url("img/side/s_prites.png") no-repeat;
+                background-position: -38px -42px;
+                float: left;
+                line-height: 33px;
+                cursor: pointer;
+            }
+            span{
+                float: left;
+                font-size: 12px;
+                height: 14px;
+                line-height: 14px;
+                padding-left: 5px;
+                color: #77888F;
+            }
+        }
+        .post_con{
+            width: 270px;
+            height: 100px;
+            overflow: hidden;
+            margin: 0 auto;
+            textarea{
+                width: 210px;
+                height: 30px;
+                border: 1px solid #d3d8df;
+                border-right: 0 none;
+                font-size: 12px;
+                resize: none;
+                float: left;
+                border-radius: 3px 0 0 3px;
+                padding: 6px;
+                outline: none;
+            }
+            button{
+                background: #dddddd;
+                width: 46px;
+                height: 44px;
+                border-radius: 0 5px 5px 0;;
+                border: 0 none;
+                color: #ffffff;
+                cursor: pointer;
+                font-size: 14px;
+                outline: none;
+                &.active{
+                    background-color: #00baff;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+.left_mask_con{
+    //position: fixed;
+    //width: 100%;
+    //height: 100%;
+    position: absolute;
+    width: 280px;
+    height: 270px;
+    top:0;
+    left:0;
+    z-index: 10000;
+    background: #ffffff;
+    overflow: hidden;
+    /*display: none;*/
+    em{
+        display: block;
+        text-align: center;
+        font-size: 12px;
+        color: #666666;
+        width: 100%;
+        position: absolute;
+        width: 60px;
+        height: 20px;
+        left: 50%;
+        top: 50%;
+        margin-left: -30px;
+        margin-top: -10px;
+        display: block;
+
+    }
+}
+//pop弹出窗
+.dialog_cont{
+    width: 180px;
+    height: 125px;
+    position: fixed;
+    left: 50px;
+    top: 50%;
+    z-index: 9999;
+    display: none;
+    //margin-left: -118px;
+    margin-top: -40px;
+    background: #ffffff;
+    box-shadow:  0 0 3px #929292;
+    .dialog_top{
+        height: 30px;
+        line-height: 30px;
+        padding: 0 10px;
+        background: #00baff;
+        span{
+            width: 30px;
+            height: 30px;
+            color: #ffffff;
+            display: block;
+            float: left;
+        }
+        em{
+            width: 20px;
+            height: 30px;
+            display: block;
+            float: right;
+            cursor: pointer;
+            background: url(img/main/one_to_one_icon.png) no-repeat 8px 8px;
+        }
+    }
+    .text{
+        text-align: center;
+        line-height: 30px;
+        height: 30px;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+    .cancel, 
+    .confirm{
+        width: 48px;
+        height: 22px;
+        line-height: 22px;
+        text-align: center;
+        cursor: pointer;
+        float: left;
+        border-radius: 2px;
+        border: 1px solid #d3d8df;
+        margin: 14px  auto 0 ; 
+        &:hover{
+            //color: #ffffff;
+            background: #f4f4f4;
+        }
+    }
+    .confirm{
+        margin-left: 30px;
+        margin-right: 12px;
+    }
+}

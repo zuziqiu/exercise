@@ -1,0 +1,767 @@
+<!-- @聊天 -->
+<script id="chat_msg" type="text/html">
+    <div class="pub_msg chat_{{xid}}">
+        <!-- <span class="{{role}}">{{if role === "spadmin"}}<i></i>{{else if role === "user"}}<i></i>{{else if role === "admin"}}<i></i>{{/if}}</span> -->
+        <img src="{{avatar}}" alt="" class="avatar"/>
+        <div class="chat_right">
+        	 <span class="nickname">{{nickname}}</span>
+        	 {{if role != "user" && role != "guest"}}
+        	 <div class="is_{{role}} comm">
+                 {{if role == "admin"}}
+        	 	    <em>{{roleAlias.admin}}</em>
+                 {{else}}
+                    <em>{{roleAlias.spadmin}}</em>
+                 {{/if}}
+        	 	 <span></span>
+        	 </div>
+        	 {{/if}}
+        	 <span class="chat_time">{{time}}</span>
+        	 <p>{{#msg}}</p>
+        </div>
+    </div>
+</script>
+
+<!-- @问答列表 -->
+<script id="tpl_qulist" type="text/html">
+    {{each data as qus}}
+    {{if qus.gid == self_gid || qus.gid == 0 || data.and}}
+    <dl id="que_{{qus.qid}}" class="que_{{qus.qid}} xid_{{qus.xid}}">
+        <dd>
+            <img src="{{qus | getAvatar: qus}}"  alt="" class="avatar"/>
+            <div class="q_t">
+                <div class="uname">
+                    <div class="que_right">
+                         <span class="nickname">{{qus.nickname}}</span>
+                         {{if qus.role != "user" && role != "guest"}}
+                         <div class="is_{{qus.role}} comm">
+                             {{if qus.role === "admin"}}
+                                <em>{{roleAlias.admin}}</em>
+                             {{else}}
+                                <em>{{roleAlias.spadmin}}</em>
+                             {{/if}}
+                             <span></span>
+                         </div>
+                         {{/if}}
+                         <span class="chat_time">{{qus.time | converTime: qus.time}}</span>
+                         <p>{{qus.content}}</p>
+                    </div>
+                   <!-- 回答 --> 
+                   <div class="q_re">
+                        {{each qus.answer as rep}}
+                        {{if rep.gid == self_gid || rep.gid == 0}}
+                        <div class="que_{{rep.qid}}">
+                            <div class="rep_person"> 
+                                <span class="{{rep.role}}">{{if rep.role === "spadmin"}}[{{roleAlias.spadmin}}回答]:{{else if rep.role === "admin"}}[{{roleAlias.admin}}回答]:{{else rep.role === "user"}}[{{roleAlias.user}}]:{{/if}}</span> 
+                                <span class="rep_msg">{{rep.content}}</span>
+                            </div>
+                        </div>
+                        {{/if}}
+                        {{/each}}
+                   </div>
+                </div>
+            </div>
+        </dd>
+    </dl>
+    {{/if}}
+    {{/each}}
+</script>
+
+<!-- @添加问题 -->
+<script id="tpl_add_ques" type="text/html">
+    <dl id="que_{{qid}}" class="que_{{qid}} xid_{{xid}} {{isShow}}">
+        <dd>
+            <img src="{{avatar}}" alt="" class="avatar"/>
+            <div class="q_t">
+                <div class="uname">
+                    <div class="que_right">
+                         <span class="nickname">{{nickname}}</span>
+                         {{if role != "user" && role != "guest"}}
+                         <div class="is_{{role}} comm">
+                             {{if role === "spadmin"}}
+                                <em>{{roleAlias.spadmin}}</em>
+                             {{else if role === "admin"}}
+                                <em>{{roleAlias.admin}}</em>
+                             {{/if}}
+                             <span></span>
+                         </div>
+                         {{/if}}
+                         <span class="chat_time">{{time | converTime: time}}</span>
+                         <p>{{content}}</p>
+                    </div>
+                </div>
+                <div class="re_list"></div>
+            </div>
+        </dd>
+    </dl>
+</script>
+
+<!-- @回复问题 -->
+<script id="tpl_res_ques" type="text/html">
+    <div class="q_re que_{{qid}}">
+        <div class="que_{{qid}}">
+            <div class="rep_person"> 
+                <span class="{{role}}">{{if role === "spadmin"}}[{{roleAlias.spadmin}}回答]:{{else if role === "admin"}}[{{roleAlias.admin}}回答]:{{else role === "user"}}[roleAlias.user]:{{/if}}</span> 
+                <span class="rep_msg">{{content}}</span>
+            </div>
+        </div>
+        <!-- <div class="uname">
+             <span class="{{role}}">{{if role === "spadmin"}}<i></i>{{nickname}}<em></em>{{else if role === "user"}}<i></i>{{nickname}}{{else if role === "admin"}}<i></i>{{nickname}}<em></em>{{/if}}:</span>
+             <p>{{#msg}}</p>
+        </div>
+        <p>{{content}}</p> -->
+    </div>
+</script>
+
+
+<!-- @公共标签 -->
+<script id="public_tips" type="text/html">
+    <!-- public_tips -->
+    <div id="pop_emotis" class="mod_emotions"><!-- <span class="cner"></span> --><ul id="eitem"></ul></div>
+    <div id="pop_tips" class="mod_pub_tip"><p></p><span class="cner"></span></div>
+</script>
+
+<!-- @设置 -->
+<script id="set_mod_tmp" type="text/html">
+    <ul  class="set_menu">
+        <div class="toggle" id="toggle">收起</div>
+        <div class="menu_list">
+            <li data-op="video" class="video_status">
+                <i></i>
+                <span>开启音频</span>
+            </li>
+           <!--<li data-op="voice" class="voice_change">
+                <i></i>
+                <span>语音切换</span>  
+            </li> -->
+            <li data-op="screen" class="screen_change">
+                <i id="icon_change"></i>
+                <span>屏幕切换</span>
+            </li>
+            <li data-op="net" class="net_choice">
+                <i></i>
+                <span>网络选择</span>
+            </li>
+            <li data-op="notice" class="notice">
+                <i></i>
+                <span>公告</span>
+                <span class="new_nt"></span>
+            </li>
+            <li data-op="barrage" class="view_barrage">
+                <i></i>
+                <span>弹幕</span>
+            </li> 
+        </div>
+    </ul>        
+</script>
+
+<!-- @返回-->
+<script id="notice_mod_temp" type="text/html">
+        <div id="mod_notice" class="mod_notice">
+            <div id="back_btn" class="back_btn">
+                <em class="title">课程公告</em>
+                <span>返回</span>
+            </div>
+            <div id="notice_content" class="notice_content">
+                <h3>公告</h3>
+                <!-- <p></p> -->
+            </div>      
+        </div>     
+</script>
+
+<!-- @网络选择 -->
+<script id="net_mod_temp" type="text/html">
+    <div id="network" class="mod_network">
+        <div class="network_cont">
+           <div class="back_btn">
+                <em class="title">选择网络</em>
+                <span>返回</span>
+           </div>  
+            <div class="choice_net">
+            
+            </div>  
+            <div class="net_text">95%情况下自动选择最佳线路的流畅度最好</div>   
+            <div id="network_chooese" class="net_select">
+               <ul id="select_network">
+                   
+               </ul>
+            </div> 
+        </div>
+    </div>
+</script>
+
+<!-- 网络列表 -->
+<script id="tpl_network_list" type="text/html">
+    {{each operators as d}}
+        {{if d.key== "auto"}}
+            <li id="net{{route}}_{{d.key}}" class="select_hover" data-key="{{d.key}}">
+                <span class="{{d.key}}">{{d.name}}</span>
+            </li>    
+        {{else}}
+            <li id="net{{route}}_{{d.key}}" data-key="{{d.key}}">
+                <img src="{{basePath}}{{d.key}}.png" class="{{d.key}}"/>
+                <span class="{{d.key}}">{{d.name}}</span>
+            </li>
+        {{/if}}
+    {{/each}}
+</script>
+
+<!-- 线路列表 -->
+<script id="tpl_route_list" type="text/html">
+    {{each data as d i}}
+        {{if d.cur == 1}}
+            {{if data.length == 1}}
+                <span style="display: none;"  id="route_{{i+1}}" class="route cur" data-sourceName="{{d.sourceName}}">线路{{i+1}}</span>
+            {{else}}
+                <span  id="route_{{i+1}}" class="route cur" data-sourceName="{{d.sourceName}}">线路{{i+1}}</span>
+            {{/if}}
+        {{else}}
+            <span id="route_{{i+1}}" class="route" data-sourceName="{{d.sourceName}}">线路{{i+1}}</span>
+        {{/if}}
+    {{/each}}
+</script>
+
+
+<!-- 渲染投票选项 -->
+<script id="show_vote_options" type="text/html">
+    <!--S 显示投票选项 -->
+    <div class="cmod mod_user_vote">
+        <div class="mbox_hd">
+            <h3 class="vote">{{voteTitle}}中</h3>
+            <span class="cls r"></span>
+           <!--  <div class="op_btn">
+                <span class="cls r"></span>
+                <span class="line"></span>
+            </div> -->
+        </div>
+        <div class="mbox_bd">
+            <div class="mod_scroll_box">
+                <!-- 投票 -->
+                <div class="selt_vote_option">
+                    <div class="vo_hd">
+                        <div class="col_l">
+                            <span class="u_n">{{info.nickname}}</span>
+                            <em>{{info.startTime}} 发起了{{voteTitle}}</em>
+                        </div>
+                        <!--<div class="col_r">
+                            <span class="voting">投票中</span>
+                        </div>-->
+                    </div>
+                    {{if info.imageUrl.length>0}}
+                    <div class="vo_image">
+                        <div class="close_vote"></div> 
+                        <img class="dcw" alt="" src="{{info.imageUrl}}" />
+                    </div>
+                    {{/if}}
+                    <div class="vo_bd">
+                        {{if info.imageUrl.length>0}}
+                            {{if optional > 1}}
+
+                            <h4>
+                            【多选】
+                            {{if info.role == "admin"}}
+                                {{info.title}}
+                            {{else}}
+                                {{info.label}}  
+                            {{/if}}
+                            <em class="more">(最多选择{{optional}}项)</em></h4>
+                            {{else}}
+                            <h4>
+                           【单选】
+                            {{if info.role == "admin"}}
+                                {{info.title}}
+                            {{else}}
+                                {{info.label}}  
+                            {{/if}}
+                            </h4>
+                            {{/if}}  
+                        {{else}}
+                            {{if optional > 1}}
+                            <h4>【多选】{{info.title}}<em class="more">(最多选择{{optional}}项)</em></h4>
+                            {{else}}
+                            <h4>【单选】{{info.title}}</h4>
+                            {{/if}}
+                        {{/if}}
+                        <div class="chart_detail vote_selector">
+                            {{if optional > 1}}
+                            <!-- 多选 -->
+                            <div class="opt_value multiple" data-value="{{optional}}">
+                                <ul>
+                                {{each opList as value key}}
+                                    <li data-value="{{key+1}}">
+                                        <span>{{letter[key]}}、{{value}}</span>
+                                    </li>
+                                {{/each}}
+                                </ul>
+                            </div>
+                            {{else}}
+                            <!-- 单选 -->
+                            <div class="opt_value single" data-value="{{optional}}">
+                                <ul>
+                                {{each opList as value key}}
+                                    <li data-value="{{key+1}}">
+                                        <span>{{letter[key]}}、{{value}}</span>
+                                    </li>
+                                {{/each}}
+                                </ul>
+                            </div>
+                            {{/if}}
+                            <!-- btns -->
+                            <div class="btn" data-vid="{{vid}}">
+                                <span class="vote_btn">{{voteTitle}}</span>
+                                <!--<em class="tips">至少选择一项</em>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--E 显示投票选项 -->
+</script>
+
+<!-- 渲染投票结果 -->
+<script id="show_vote_result" type="text/html">
+    <!--S 投票结果 -->
+    <div class="cmod mod_user_vote">
+        <div class="mbox_hd">
+            <h3 class="vote">{{voteTitle}}结果</h3>
+            <span class="cls r"></span>
+        </div>
+        <div class="mbox_bd">
+            <div class="mod_scroll_box">
+                <!-- 投票结果 -->
+                <div class="show_vote_result">
+                    <div class="vote_result">
+                        <div class="vo_hd">
+                            <div class="col_l">
+                                <span class="u_n">{{info.nickname}}</span>
+                                <em>{{info.startTime}} 发起了{{voteTitle}}</em>
+                            </div>
+                            <div class="col_r">
+                                <span class="voting end">已结束</span>
+                            </div>
+                        </div>
+                         <!-- 
+                        不显示排行榜的情况：
+                            1、投票人数小于3
+                            2、没有设置正确答案
+                            3、不公布结果  
+                         -->
+                       {{if isShow == 1 && rightUser.length >2 && info.answer.length>0}}
+                       <div class="rank_content">
+                            <ul class="rank_list">
+                                {{each rightUser as u key}}  
+                                   {{if key == 0}}  
+                                    <li class="first">
+                                        <img class="avatar_{{u.xid}}" src="{{u.avatar}}"  alt="" />
+                                        <span title="{{u.nickname}}">{{u.nickname}}</span>
+                                    </li>
+                                    {{else if key == 1}}
+                                    <li class="second">
+                                        <img class="avatar_{{u.xid}}" src="{{u.avatar}}"  alt="" />
+                                        <span title="{{u.nickname}}">{{u.nickname}}</span>
+                                    </li>
+                                    {{else}}
+                                    <li class="third">
+                                        <img class="avatar_{{u.xid}}" src="{{u.avatar}}"  alt="" />
+                                        <span title="{{u.nickname}}">{{u.nickname}}</span>
+                                    </li>
+                                    {{/if}}
+                                {{/each}}
+                            </ul>  
+                        </div> 
+                       {{/if}}
+                        {{if info.imageUrl.length>0}}
+                        <div class="vo_image">
+                            <div class="close_vote"></div>
+                            <img class="dcw" alt="" src="{{info.imageUrl}}" />
+                        </div>
+                        {{/if}} 
+                        <div class="vo_bd">
+                            <div class="vote_chartview">
+                                {{if info.imageUrl.length>0}}
+                                    {{if  info.optional > 1}}
+                                    <h4>
+                                    【多选】
+                                    {{if info.role == "admin"}}
+                                        {{info.title}}
+                                    {{else}}
+                                        {{info.label}}  
+                                    {{/if}}
+                                    <em class="more">(最多选择{{info.optional}}项)</em></h4>
+                                    {{else}}
+                                    <h4>
+                                   【单选】
+                                    {{if info.role == "admin"}}
+                                        {{info.title}}
+                                    {{else}}
+                                         {{info.label}}  
+                                    {{/if}} 
+                                    </h4>
+                                    {{/if}}  
+                                {{else}}
+                                    {{if info.optional > 1}}
+                                    <h4>【多选】{{info.title}}<em class="more">(最多选择{{info.optional}}项)</em></h4>
+                                    {{else}}
+                                    <h4>【单选】{{info.title}}</h4>
+                                    {{/if}}
+                                {{/if}}
+                                {{if isShow > 0}}
+                                <div class="chart_detail">
+                                    {{each statsList as value key}}
+                                    <dl>
+                                        <dt>{{letter[key]}}.{{value.op}}</dt>
+                                        <dd>
+                                            <div class="crt_percent_line">
+                                                <span style="width:{{value.percent}}%"></span>
+                                            </div>
+                                            <div class="pn">{{value.opNum}}<em>({{value.percent}}%)</em></div>
+                                        </dd>
+                                    </dl>
+                                    {{/each}}
+                                </div>
+                                {{/if}}
+                            </div>
+                        </div>
+                       
+                        <div class="vod_pub">
+                            {{if info.myAnswer.length>0}}
+                            <p class="my_select">
+                                <span>你的选项是:{{info.myAnswer}}</span>
+                            </p>
+                            {{/if}}
+                            {{if info.answer.length>0}}
+                            <p class="corrent_select">
+                                <span>正确答案是:{{info.rightAnswer}}</span>
+                            </p>
+                            {{/if}}
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--E 投票结果 -->
+</script>
+
+<!-- 渲染投票回调 -->
+<script id="show_vote_callback" type="text/html">
+    <!--S 投票回调 -->
+    <div class="cmod mod_user_vote">
+        <div class="mbox_hd">
+            <h3 class="vote">{{voteTitle}}成功</h3>
+            <span class="cls r"></span>
+           <!--  <div class="op_btn">
+                <span class="cls r"></span>
+                <span class="line"></span>
+            </div> -->
+        </div>
+        <div class="mbox_bd">
+            <div class="mod_scroll_box">
+                <!-- 投票结果 -->
+                <div class="show_vote_callback {{if callback}}has_callback{{/if}}">
+                    <div class="box_vote_state">
+                        {{if code == 0}}
+                            <span class="suc"><em class="ico"></em></span>
+                            <p class="suc_txt">{{voteTitle}}成功...3秒后自动关闭</p>
+                        {{else if code == -1}}
+                            <span class="fail"><em class="ico"></em></span>
+                            <p class="suc_txt">{{voteTitle}}失败,{{msg}}</p>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--E 投票回调 -->
+</script>
+
+<!-- 渲染获取投票 -->
+<script id="show_vote_getvote" type="text/html">
+    <!--S 获取投票 -->
+    <div class="cmod mod_user_vote">
+        <div class="mbox_hd">
+            <h3 class="vote">{{voteTitle}}结果</h3>
+            <span class="cls r"></span>
+        </div>
+        <div class="mbox_bd">
+            <div class="mod_scroll_box">
+                <!-- 投票结果 -->
+                <div class="show_vote_result">
+                    <div class="vote_result">
+                        <div class="vo_hd">
+                            <div class="col_l">
+                                <span class="u_n">{{info.nickname}}</span>
+                                <em>{{info.startTime}}发起了{{voteTitle}}</em>
+                            </div>
+                            <div class="col_r">
+                                <span class="voting end">已结束</span>
+                            </div>
+                        </div>
+                          <!-- 
+                        不显示排行榜的情况：
+                            1、投票人数小于3
+                            2、没有设置正确答案
+                            3、不公布结果  
+                         -->
+                       {{if isShow == 1 && rightUser.length >2 && info.answer.length>0}}
+                       <div class="rank_content">
+                            <ul class="rank_list">
+                                {{each rightUser as u key}}  
+                                   {{if key == 0}}  
+                                    <li class="first">
+                                        <img class="avatar_{{u.xid}}" src="{{u.avatar}}"  alt="" />
+                                        <span title="{{u.nickname}}">{{u.nickname}}</span>
+                                    </li>
+                                    {{else if key == 1}}
+                                    <li class="second">
+                                        <img class="avatar_{{u.xid}}" src="{{u.avatar}}"  alt="" />
+                                        <span title="{{u.nickname}}">{{u.nickname}}</span>
+                                    </li>
+                                    {{else}}
+                                    <li class="third">
+                                        <img class="avatar_{{u.xid}}" src="{{u.avatar}}"  alt="" />
+                                        <span title="{{u.nickname}}">{{u.nickname}}</span>
+                                    </li>
+                                    {{/if}}
+                                {{/each}}
+                            </ul> 
+                        </div> 
+                        {{/if}}
+                        {{if info.imageUrl.length>0}}
+                        <div class="vo_image">
+                            <div class="close_vote"></div>
+                            <img class="dcw" alt="" src="{{info.imageUrl}}" />
+                        </div>
+                        {{/if}}
+                        <div class="vo_bd">
+                            <div class="vote_chartview">
+                                {{if info.imageUrl.length>0}}
+                                <h4>
+                                {{if info.role == "admin"}}
+                                    {{info.title}}
+                                {{else}}
+                                    {{info.label}}  
+                                {{/if}}
+                                </h4>    
+                                {{else}}
+                                <h4>{{info.title}}</h4>
+                                {{/if}}
+                                <div class="chart_detail">
+                                    {{each statsList as value key}}
+                                    <dl>
+                                        <dt>{{letter[key]}}.{{value.op}}</dt>
+                                        <dd>
+                                            <div class="crt_percent_line">
+                                                <span style="width:{{value.percent}}%"></span>
+                                            </div>
+                                            <div class="pn">{{value.opNum}}<em>({{value.percent}}%)</em></div>
+                                        </dd>
+                                    </dl>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>
+                        {{if info.answer.length>0}}
+                        <div class="vod_pub">
+                             {{if info.myAnswer.length>0}}
+                            <p class="my_select">
+                                <span>你的选项是:{{info.myAnswer}}</span>
+                            </p>
+                            {{/if}}
+                             <p class="corrent_select">
+                                <span>正确答案是:{{info.rightAnswer}}</span>
+                            </p>
+                        </div>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div> 
+    <!--E 获取投票 -->
+    </div>
+</script>
+
+<!--抽奖-->
+<script id="mod_lottery_con" type="text/html">
+    <div class="pop_cloud_background"></div>
+    <!--S mod_lottery -->
+    <div id="mode_lottery" class="mod_lottery">
+        <div class="lotter_close">
+            <span class="close_icon"></span>
+            <span class="line"></span>
+        </div>
+        <div class="lotter_inner">
+            <div class="lotter_title"></div>
+            <div class="mod_lotter_loader">
+                <!-- 滚动抽奖 -->
+                <div id="roller_con" class="loader_effect">
+                    <span class="it_1"></span>
+                    <span class="it_2"></span>
+                    <span class="it_3"></span>
+                </div>
+                <!-- 中奖信息 -->
+                <div class="award_user_info">
+                    <div class="loter_info" id="loter_info"></div>
+                    <span>中奖人</span>
+                </div>
+            </div>
+        </div>
+    <!--     <span class="me_nickname"></span> -->
+        <!-- <span class="operation"></span> -->
+    </div>
+    <!--E mod_lottery -->
+</script>
+
+<!-- @踢出/离线 -->
+<script id="mod_room_kick" type="text/html">
+    <div id="mod_kick" class="mod_kick_one">
+        <div class="kick_info">
+            <span class="ico"></span>
+            <p>该账号已在其他地方登录了，你被迫下线！</p>
+            <button class="op_back">返回</button>
+        </div>
+    </div>
+</script>
+
+<!-- @兼容模式提示窗口 -->
+<script id="mod_room_compatiable_mode" type="text/html">
+    <article class="mod_room_compatiable">
+        <span class="close_comptipop"></span>
+        <h4>提示</h4>
+        <div class="show_ios">
+            <p>点击播放后，若出现系统全屏问题，请点击右下角的缩放按钮正常观看</p>
+            <div class="the_case">
+                <span>缩放</span>
+            </div>
+        </div>
+        <div class="show_android">
+            <p>出现系统全屏播放的问题，请使用兼容模式正常观看</p>
+            <div class="launch_compatiable">兼容模式</div>
+        </div>
+    </article>
+</script>
+
+<!--打赏-->
+<script id="reward_pop" type="text/html">
+    <div class="reward_pop">
+        <div class="top">
+            <em>打赏红包</em>
+            <span class="close"></span>
+        </div>
+        <div class="reward_container">
+            <ul>
+                <li data-set="1">1元</li>
+                <li data-set="2">2元</li>
+                <li data-set="5">5元</li>
+                <li data-set="10">10元</li>
+                <li data-set="20">20元</li>
+                <li data-set="50">50元</li>
+            </ul>
+            <div class="other_money">
+                <em>其他金额</em>
+                <input id="reward_val" type="" name="" />
+            </div>
+        </div>
+        <div class="tips">请填写金额！</div>
+        <span id="reward_confim" class="confim">确 定</span>
+<!--         <div class="close">
+
+            <span></span>
+        </div>
+        <div class="title">
+            <em>喜欢就打赏个</em>
+            <em class="red">小红包</em>
+            <em>吧</em>
+        </div>
+        <div class="post_btn">
+            <em class="icon"></em>
+            <em class="add"></em>
+            <input id="money_val" class="money" placeholder="越多越开心" pattern="[0-9]" type="" name="" />
+            <span id="reward_confim" class="confim">打赏</span>
+        </div> -->
+    </div>
+</script>
+
+
+<!-- app 观看 -->
+<script id="app_start_pop" type="text/html">
+    <div class="mask_app_bg hidden">
+        <div class="app_tips"></div>
+    </div>
+    <div class="app_start_pop">
+        <div class="content_left">
+            <a class="app_start">启动</a>
+            <a class="app_install">安装</a>
+        </div>
+        <div class="content_right">
+            <div class="part1">
+                <h3>启动不成功？</h3>
+                <p>请点击“安装”</p>
+                <p>成功安装后，返回本页面启动</p>
+            </div>
+            <div class="part2">
+                <p>在第三方软件中若不能安装</p>
+                <p>可尝试在浏览器中打开哦</p>
+                <p>官网上也可以下载APP安装包</p>
+            </div>
+        </div>
+    </div>
+</script>
+
+<!-- 课程预告 -->
+<script id="tpl_class_preview" type="text/template">
+    <div class="preview_mask_outer hidden">
+        <div class="preview_mask hidden">
+            <div class="preview_tip">
+            </div>
+            <div class="preview_main">
+                <h1 class="preview_title">{{data.info.course_name}}</h1>
+                <div class="preview_con">
+                    <span class="preview_host">
+                        主讲：<span class="preview_host_name">{{data.info.nickname}}</span>
+                    </span>
+                </div>
+                <div class="preview_downcount hidden">
+                    <span class="preview_downcount_tip">距离直播还有</span>
+                    <span class="preview_time_start">00</span>
+                    分钟
+               </div>
+           </div>
+        </div>
+        <div class="preview_mask_over hidden">
+            <div class="preview_over_top">
+            </div>
+            <div class="preview_over_mid">
+                《{{data.info.course_name}}》已经结束
+            </div>
+            <div class="preview_over_bottom">
+                感谢收看
+            </div>
+        </div>
+     </div>
+</script>
+
+<!-- 签到弹框 -->
+<script type="text/html" id="sign_pop">
+    <div class="user_sign_pop">
+         <div class="header">
+              <div class="sign_left">
+                  <i></i>
+                  <span>点名开始</span>
+              </div>  
+              <div class="close_pop"></div>
+         </div>
+         <div class="sign_content">
+             <div class="count_down_time">
+                  <span>倒计时 :</span>  
+                  <span class="time">{{data.duration}}</span>
+                  <span>秒</span>
+             </div>
+             <div class="sign_btn" data-id="{{data.signId}}">
+                 <span>签到</span>
+             </div>
+         </div>   
+    </div>
+</script>

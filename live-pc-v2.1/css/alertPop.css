@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.maskLayer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  /* older safari/Chrome browsers */
+  -webkit-opacity: 0.4;
+  /* Netscape and Older than Firefox 0.9 */
+  -moz-opacity: 0.4;
+  /* Safari 1.x (pre WebKit!) 老式khtml内核的Safari浏览器*/
+  -khtml-opacity: 0.4;
+  /* IE9 + etc...modern browsers */
+  opacity: .4;
+  /* IE 4-9 */
+  filter: alpha(opacity=40);
+  /*This works in IE 8 & 9 too*/
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+  /*IE4-IE9*/
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+  overflow: hidden;
+}
+.comm_pop {
+  color: #333333;
+  width: 374px;
+  min-height: 164px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 14px;
+  margin-left: -187px;
+  margin-top: -84px;
+  z-index: 9999;
+  background: #ffffff;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+.comm_pop .con_hd {
+  width: 100%;
+  height: 30px;
+  color: #333333;
+  /*background: #56acf5;*/
+  border-radius: 2px 2px 0 0;
+}
+.comm_pop .con_hd .close {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  display: block;
+  top: 0px;
+  right: 4px;
+  cursor: pointer;
+}
+.comm_pop .con_hd .close::before {
+  content: "\2716";
+  color: #333333;
+  padding: 0px 0 0 10px;
+  font-size: 18px;
+  position: relative;
+  top: 0px;
+}
+.comm_pop .con_hd span {
+  /*color: #ffffff;*/
+  line-height: 32px;
+  margin-left: 10px;
+}
+.comm_pop .con_msg {
+  margin-top: 30px;
+}
+.comm_pop .con_msg .con_text {
+  display: block;
+  text-align: center;
+  word-wrap: break-word;
+  margin: 0 10px 0 10px;
+  white-space: normal;
+}
+.comm_pop .con_msg .con_btn {
+  margin-top: 40px;
+}
+.comm_pop .con_msg .con_btn span {
+  width: 80px;
+  height: 22px;
+  display: block;
+  text-align: center;
+  line-height: 22px;
+  cursor: pointer;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+}
+.comm_pop .con_msg .con_btn span.confirm_btn {
+  background: #63D5FF;
+  border: 1px solid #63D5FF;
+  color: #ffffff;
+  margin: 0 20px 20px 100px;
+}

@@ -1,0 +1,532 @@
+/**
+ * @name: [私聊.Reset Stylesheet]
+ * @Version: {1.0.1}
+ * @Date: 2016-10-24
+ * @Author: lianghua
+ */
+
+.private_pop_box{
+    /*height: 400px;*/
+    display: block;
+    background: #ffffff;   
+    position: absolute; 
+    display: none;
+    border-radius: 5px;
+    box-shadow:0px 0px 10px rgba(0,0,0,.5);
+    z-index: 1002;
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    ::-moz-scrollbar {
+        width: 8px;
+    }
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background-color: #00baff;
+        color: #00baff;
+    }
+    ::-moz-scrollbar-track {
+        background-color: #00baff;
+        color: #00baff;
+    }
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background-color: #eeeeee;
+        border-radius: 10px;
+    }
+    ::-moz-scrollbar-thumb {
+        background-color: #eeeeee;
+        border-radius: 10px;
+    }
+ /*   margin-top: -200px;
+    top: 50%;*/
+
+    //当前角色是普通用户时所弹出的私聊框
+    &.user_pop{
+    	height: 360px;
+    	width: 480px;
+    	left: 50%;
+    	top: 50%;
+    	margin-left: -240px;
+    	margin-top: -180px; 
+
+    	//聊天区域
+		.private_chat_domain{
+		   position: absolute;
+		   left: 0;
+		   bottom: 0;
+		   right: 0;
+		   overflow: auto;
+		   top: 30px;
+		   width: 100%;
+		   .private_chat_msg{
+		      position: absolute;
+		      left: 10px;
+		      right: 10px;
+		      margin-top: 10px;
+		   }
+		}	
+    }
+
+
+    //当前直播页的角色是管理员所弹出的私聊框
+    &.admin_pop{
+        width: 640px;
+        height: 442px; 
+        left: 50%;
+        top: 50%;
+        margin-left: -320px;
+        margin-top: -221px; 
+    	//聊天区域
+		.private_chat_domain{
+		   position: absolute;
+		   left: 0;
+		   bottom: 8px;
+		   right: 0;
+		   overflow: auto;
+		   top: 30px;
+		   width: 100%;
+		   .private_chat_msg{
+		      position: absolute;
+		      left: 10px;
+		      right: 10px;
+		      margin-top: 10px;
+		   }
+		}
+    }
+
+    //弹框左边栏
+    .private_pop_slide{
+        width: 20%;
+        top: 0;
+        bottom: 0px;
+        position: absolute;
+        left: 0;
+        background: #00baff;
+
+        .private_user_list{
+            position: absolute;
+            left: 3px;
+            right: 3px;
+            top: 3px; 
+            overflow: auto;
+            bottom: 0;
+            ul{
+                /*position: absolute;
+                left: 3px;
+                right: 3px;
+                top: 3px;*/
+                li{
+                    min-width: 42px;
+                    height: 40px;
+                    white-space:nowrap; 
+                    line-height: 40px;
+                    overflow:hidden; 
+                    color: #ffffff;
+                    position: relative;
+                    text-align: left;
+                    padding:0 6px 0 6px;
+                    cursor: pointer;
+                    text-overflow:ellipsis; 
+                    margin-bottom: 4px;
+                    border-radius: 2px;
+
+                    i{
+                        display: block;
+                        background:  url("img/private/privte_icon.png") no-repeat;
+                        position: absolute;
+                        right: 0px;
+                        top: 12px;
+                        width: 16px;
+                        display: none;
+                        height: 16px;
+                        cursor: pointer;
+                        background-position: 0 -100px;
+                        &:hover{
+                        	background-position: 0 -116px; 
+                        }
+
+                    }
+                    a{
+                        text-decoration: none;
+                        color: #ffffff;
+                        img{
+                        	width: 30px;
+                        	height: 30px;
+                        	margin-top: 5px;
+                        	float: left;
+                        	border-radius: 50em;
+                        }
+                        span{
+                            padding-left: 10px;
+                        }
+                    }
+                    em{
+                    	width: 10px;
+                        height: 10px;
+                        background: red;
+                        border-radius: 50em;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        display: none;
+                    }
+                    &:hover{
+                        background: #33c8ff;
+                    }
+                    &.cur{
+                        background: #66d6ff;
+                    }
+                }
+            }
+        }
+        
+    }
+    //弹框右侧区域
+    .private_right_slide{
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-moz-scrollbar {
+            width: 8px;
+        }
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background-color: #eeeeee;
+            color: #eeeeee;
+        }
+        ::-moz-scrollbar-track {
+            background-color: #eeeeee;
+            color: #eeeeee;
+        }
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background-color: #00baff;
+            border-radius: 10px;
+        }
+        ::-moz-scrollbar-thumb {
+            border-radius: 10px;
+            background-color: #00baff;
+        } 
+        ::-webkit-scrollbar {
+                width: 8px;
+        }
+        ::-moz-scrollbar {
+            width: 8px;
+        }
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background-color: #eeeeee;
+            color: #eeeeee;
+        }
+        ::-moz-scrollbar-track {
+            background-color: #eeeeee;
+            color: #eeeeee;
+        }
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background-color: #00baff;
+        }
+        ::-moz-scrollbar-thumb {
+            background-color: #00baff;
+        } 
+        width: 80%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 51px; 
+        .private_head{
+            width: 100%;
+            height: 30px;
+            cursor: move;
+            background: #e6f8ff;
+            .current_chat_user{
+                position: absolute;
+                .chat_icon{
+                    width: 25px;
+                    display: block;
+                    position: absolute;
+                    left: 7px;
+                    top: 6px;
+                    height: 22px;
+                    background: url("img/private/privte_icon.png") no-repeat;
+                    background-position: 0 -42px;
+                }
+                .user_name{
+                    line-height: 30px;
+                    color: #333333;
+                    font-size: 12px;
+                    margin-left: 30px;
+                }
+            }
+            .close_pop{
+                width: 50px;
+                height: 30px;
+                position: absolute;
+                cursor: pointer;
+                right: 0;
+                .colse_btn{
+                    width: 12px;
+                    display: block;
+                    position: absolute;
+                    right: 12px;
+                    top: 14px;
+                    height: 2px;
+                    background: #8f9a9e;
+
+                }
+            }
+        }
+    }
+
+    //弹框底部区域
+    .private_bottom{
+        width: 80%;
+        height: 60px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: #0095cc;
+        .private_post_con{
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            .private_emotions{
+            	width: 20px;
+            	height: 20px;
+            	cursor: pointer;
+            	position: absolute;
+            	background: url("img/private/privte_icon.png") no-repeat;
+            	top: 20px;
+            }
+            .private_chat_info{
+                position: absolute;
+                right: 60px;
+                left: 30px;
+                textarea{
+                    resize: none;
+                    margin-top: 12px;
+                    width: 100%;
+                    height: 26px;
+                    border: none;
+                    outline: none;
+                    padding: 5px;
+                    border-radius: 2px;
+                } 
+
+            }
+            
+            .private_send_btn{
+                position: absolute;
+                right: 0;
+                width: 40px;
+                height: 36px;
+                border-radius: 2px;
+                line-height: 36px;
+                border: 0;
+                cursor: pointer;
+                outline: none;
+                text-align: center;
+                color: #ffffff;
+                font-size: 12px;
+                margin-top: 12px;
+                background: #ff4646;
+                &:hover{
+                    background: #ff6363;
+                }
+
+                &:active{
+                    background: #f62727;
+                }
+            }
+        }
+    }
+
+}
+
+
+//普通用户端信息通知图标样式
+.mod_chat_post{
+	.private_notice_icon{
+		width: 20px;
+	    height: 20px;
+	    float: left;
+	    display: none;
+	    // position: absolute;
+	    left: 65px;
+	    background: url("img/private/privte_icon.png") 0 -41px no-repeat;
+	    cursor: pointer;
+	    margin: 6px 0 0 10px;
+	     /* 消息提示图标闪烁效果 */
+        &.playicon{
+                -webkit-animation: twinkling 1s infinite ease-in-out;  
+        }
+         @-webkit-keyframes twinkling{/*透明度由0到1*/
+            0%{
+               opacity:0; /*透明度为0*/
+             }
+            100%{
+               opacity:1; /*透明度为1*/
+            }
+          }
+	    .msg_num{
+	    	display: none;
+		    position: absolute;
+		    /*right: -5px;
+		    top: -4px;*/
+            margin-left: 15px;
+		    width: 10px;
+		    height: 10px;
+		    font-size: 10px;
+		    line-height: 16px;
+		    font-style: normal;
+		    font-family: "Verdana";
+		    border-radius: 50em;
+		    background: red;
+		    color: #FFFFFF;
+		    text-align: center;
+		    overflow: hidden;
+	    }
+	}
+}
+
+.private{
+    float: left;
+    text-decoration: underline;
+    color: #00BEFF;
+    cursor: pointer;
+    line-height: 28px;
+    padding-left: 5px;
+}
+
+
+
+
+  //我自己的聊天样式
+  .me_style{  
+        width: 100%;
+        float: right;
+        margin-bottom: 20px;
+        .private_content{
+            float: right;
+            word-break: break-all;
+            .role_info{
+                color: #888888; 
+                text-align: right;   
+            }
+            .cotent_msg{
+            	position: relative;
+                .send_info{
+                    padding: 10px;
+                    margin-top: 4px;
+                    margin-right: 48px;
+                    color: #333333;
+                    position: relative;
+                    border-radius: 4px;
+                    &.bg_user{
+                    	background: #e8e8e8;
+                    	em{
+                    		border-top: 12px solid #e8e8e8;
+                    	}
+                    }
+
+                    &.bg_admin,
+                    &.bg_spadmin{
+                    	background: #ffe2b6;
+                    	em{
+                    		border-top: 12px solid #ffe2b6;
+                    	}	
+                    }
+                    em{
+                    	width: 0;
+					    height: 0;
+					    position: absolute;
+					    right: -12px;
+					    top: 8px;
+					    display: block;
+					    border-right: 12px solid transparent;
+                    }
+                }
+                .avatar{
+                	width: 30px;
+                	height: 30px;
+                	top: 0px;
+                	position: absolute;
+                	right: 0;
+                	img{
+                		width: 30px;
+                		height: 30px;
+                	}
+                }
+        	}
+        }
+        
+  }
+
+   //对方的聊天信息样式
+  	.other_style{
+        width: 100%;
+        float: left;
+        margin-bottom: 20px;
+        .private_content{
+            float: left;
+            word-break: break-all;
+            .role_info{
+                color: #888888; 
+                text-align: left;
+                margin-left: 48px;
+            }
+
+            .cotent_msg{
+            	position: relative;
+            	.send_info{
+                    padding: 10px;
+                    margin-top: 4px;
+                    margin-left: 48px;
+                    color: #333333;
+                    border-radius: 4px;
+                    position: relative;
+                    &.bg_user{
+                    	background: #e8e8e8;
+                    	em{
+                    		border-top: 12px solid #e8e8e8;
+                    	}	
+                    }
+
+                    &.bg_admin,
+                    &.bg_spadmin{
+                    	background: #ffe2b6;
+                    	em{
+                    		border-top: 12px solid #ffe2b6;
+                    	}	
+                    }
+                    
+                    em{
+                    	width: 0;
+					    height: 0;
+					    position: absolute;
+					    left: -12px;
+					    bottom: 17px;
+					    display: block;
+					    width: 0;
+					    border-left: 12px solid transparent;
+                    }
+            	}
+                .avatar{
+                	width: 30px;
+                	height: 30px;
+                	position: absolute;
+                	top: -20px;
+                	img{
+                		width: 30px;
+                		height: 30px;
+                		border-radius: 50em;
+                	}
+                }
+            }
+            
+        }
+        
+  }
+
+

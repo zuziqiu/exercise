@@ -1,0 +1,231 @@
+/**
+ * @name: [点播皮肤设置-橙色]
+ * @Date: 2015-11-3
+ * @Author:liangh
+ */
+
+/*reset*/
+
+@color1: #28445C;//滚动条背景色
+@color2: #f7b594;//左右工具栏鼠标经过时的背景色
+@color4: #ff9059;//进度条背景色
+@color5: #ffe9de;//专辑列表、章节列表单击后的效果
+@color6: #fff4ee;//专辑列表、章节列表鼠标经过后的效果
+@color7: #fba276;//滚动条拖动块背景色
+@gather_url: url("img/gather_icon.png") no-repeat;
+
+
+/* 滚动条的颜色*/
+html{
+    border: none;
+    overflow: hidden;
+    -webkit-text-size-adjust: none;
+    /**
+     * scroll bar reset
+    */
+    ::-webkit-scrollbar {
+        width: 7px;
+    }
+    ::-moz-scrollbar {
+        width: 7px;
+    }
+    /* Track */
+   ::-webkit-scrollbar-track {
+        background-color: #e0e0e0;
+        color:@color1;
+    }
+    ::-moz-scrollbar-track {
+        background-color: @color1;
+        color: @color1;
+    }
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background-color: @color7;
+    }
+    ::-moz-scrollbar-thumb {
+        background-color: @color7;
+    }
+}
+
+
+/* logo的背景色*/
+.headbg{
+    background-color: @color4;
+}
+
+/*摄像头区域预加载图片*/
+.camerabg{
+    background: url("img/pic_video_orange.png") no-repeat;
+}
+
+/* 左右工具栏鼠标经过时的背景色 */
+.carousel{
+    &.left{
+        .ln_arrow{
+            &:hover{
+                background-color: @color2;
+                background-position: -283px 38px;    
+            }
+        }
+        .lnx_arrow{
+           &:hover {
+                background-position: -289px 38px;
+                background-color: @color2;
+            }  
+        }
+       
+    }
+    &.right{
+        .rn_arrow{
+          &:hover {
+                background-position: -291px 38px;
+                background-color: @color2;
+            }  
+        }
+        
+        .rnx_arrow{
+            &:hover {
+                background-color:@color2;
+                background-position: -283px 38px;
+            }
+        }        
+    }
+}
+
+/* 专辑列表、章节列表鼠标经过和单击后的效果 */
+.chapter_list {
+    ul{
+        li {
+            &:hover{
+                background: @color6;
+            }
+            .aclick_bg{
+                background: @color5;
+            }
+            .chapter {
+                .circle {
+                    color: @color4;
+                } 
+                .p_state {
+                    background:url("img/qd3ODGuq.gif") no-repeat;
+                }      
+           }  
+        }
+    }
+}
+
+.album_list {
+    ul{
+        li {
+            &:hover{
+                background: @color6;
+            }
+            .aclick_bg{
+                background: @color5;
+            }
+
+            dd {
+                .circle {
+                    color: @color4;
+                } 
+                 i{
+                    background:url("img/qd3ODGuq.gif") no-repeat;
+                }      
+           }  
+           
+        }
+    }
+}
+
+/* 中间区或背景 */
+ .mask_background{
+    background: @color5;
+ }
+
+
+/* 中间区域头部标识播放结束和开始的图标 */
+.live_info{
+    .lv_state{
+        background: @gather_url;
+    }
+} 
+
+/* 中间区域底部左边图标 */
+.footer_left{
+    i{
+        background: @gather_url;
+    }
+}
+
+/* 中间区域底部右边图标 */
+.footer_right{
+    i{
+        background:@gather_url;
+    }
+}
+
+/* 拖动视频进度小图标 */
+.noUi-handle{
+    background: url("img/silder_icon.png") no-repeat;
+}
+
+.noUi-horizontal{
+     .noUi-handle{
+        width: 18px;
+        height: 18px;
+        bottom:5px;
+      }
+    } 
+
+
+/* 退出 */
+.live_uinfo{
+     .quit{
+         background:@gather_url;
+     }
+} 
+
+/* 视频进度条的背景色 */
+.noUi-background{
+    background: @color4;
+}
+
+/* 拖动音量的小图标 */
+#void_range{
+     .ui-slider-handle {
+         border:0;
+         background: url("img/voice_icon.png") no-repeat;
+    }   
+}
+
+/* 拖动音量进度条的背景色 */
+.ui-slider-range{
+    background:@color4;
+}
+
+.ui-widget-header{
+    background:@color4;
+}
+
+/* 提问区域箭头 */
+.enter_arrow{
+   background:@gather_url;
+}
+
+
+/* 预加载的背景色 */
+
+.la-line-scale-party>div{
+    color: @color5;
+    background: @color5;
+    border-color: @color5;
+}
+
+
+/* 预加载字体颜色 */
+
+.load_state{
+    span{
+        color: @color4;
+    }
+} 

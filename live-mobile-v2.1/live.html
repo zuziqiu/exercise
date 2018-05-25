@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="cn-zh">
+<head>
+	<title>欢拓云直播 - v2.9 www.talk-fun.com</title>
+	<meta charset="utf-8" />
+	<meta name="renderer" content="webkit" />
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+	<meta content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width" name="viewport" />
+	<meta content="telephone=no" name="format-detection" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+
+	<!-- css -->
+	<link rel="stylesheet" href="css/main.css"/>
+
+	<!-- @全局变量 -->
+	<script type="text/javascript">
+
+		// 直播标识
+		var __live__ = true;
+
+		// access_token 秘钥
+		// var access_token = "{access_token}"; 
+		var access_token = "1IjMidDN5EmN3MmYzM2YjVzM2ETZhRjM3U2MmNmMhdDf8xXfiQzM3YjMx8FNwIDOxcjI6ISZtFmbyJCLwojIhJCLwojIkl2ZiwiI0MzN2ITMiojIkl2XlNnc192YiwiIiojIyFGdhZXYiwCM6IiclRmbldmIsADO5UTNxcjM1EjOiUmcpBHelJCLwgTOxkjM2ITNxojIl1Wa0dWZyJCLdtlOiIHd0FmIsIiclNXdiojIlx2byJCLwkjN2MzM1MjOiQWa4JCLiMHZmF2ckZmI6ISZtFmbrNWauJCLwojIklmYiwiI2MjMwATMf5WZw9mI6ICZpVnIsQDMygTM3ojIklWbv9mciwCN0ITMxojIklGciwCN0ITMxojIkl2XyVmb0JXYwJye"; 
+		
+		// JS-SDK版本号(更新版本直接指定该版本号即可)
+		var sdkVersion = "3.6";
+		
+		// view基础配置
+		var modetype = "0"; // 模式 0/1/2 大班 小班 桌面分享
+		var screenMode = "0"; // 摄像头大小 => 0大，1中, 2小
+		var screenLocation = "1"; // 摄像头 位置 => 0上，1下
+
+		// 表情包(ubb编码) [aba] ==> 😊
+		var basePath = "//static-2.talk-fun.com/open/cooperation/common/emotions/default/";
+		
+		// 表情包[key-value]
+		var BASE_EMOTIONS_PACKAGE = {"[aha]":"http:\/\/static-2.talk-fun.com\/open\/cooperation\/common\/emotions\/default-mobile\/001.gif","[hard]":"http:\/\/static-2.talk-fun.com\/open\/cooperation\/common\/emotions\/default-mobile\/002.gif","[good]":"http:\/\/static-2.talk-fun.com\/open\/cooperation\/common\/emotions\/default-mobile\/003.gif","[love]":"http:\/\/static-2.talk-fun.com\/open\/cooperation\/common\/emotions\/default-mobile\/004.gif","[flower]":"http:\/\/static-2.talk-fun.com\/open\/cooperation\/common\/emotions\/default-mobile\/005.gif","[cool]":"http:\/\/static-2.talk-fun.com\/open\/cooperation\/common\/emotions\/default-mobile\/006.gif","[why]":"http:\/\/static-2.talk-fun.com\/open\/cooperation\/common\/emotions\/default-mobile\/007.gif","[pitiful]":"http:\/\/static-2.talk-fun.com\/open\/cooperation\/common\/emotions\/default-mobile\/008.gif","[amaz]":"http:\/\/static-2.talk-fun.com\/open\/cooperation\/common\/emotions\/default-mobile\/009.gif","[bye]":"http:\/\/static-2.talk-fun.com\/open\/cooperation\/common\/emotions\/default-mobile\/010.gif"};
+
+	</script>
+</head>
+<body>
+    <!-- @page-loader -->
+	<div id="first_loader" class="first_loader">数据加载中...</div>
+
+	<!-- ##Dependent on HTSDK -->
+	<!-- #logs -->
+	<div id="logs"></div>
+	<!-- section_wrap #房间容器-->
+	<section id="room" class="section_wrap hidden">
+
+	   <!-- 投票遮罩层	 -->
+	   <div class="vote_mask_bg"></div>
+
+	   <!--  ppt -->
+	   <div class="mod_ppt_wrap">
+	   		<div id="mod_main_player" class="mod_main_player"></div>
+	   </div>
+		<!-- ppt 区域 -->
+		<section id="mod_ppt" class="mod_ppt">
+		     <!-- #滚动消息 -->
+		    <article id="mod_scroll_info" class="scroll_info">
+		        <div class="main_scoller">
+		            <marquee class="sc_info">滚动信息怎么处理呢...</marquee>
+		            <span class="btn_close">CLOSE</span>
+		        </div>
+		    </article> 
+			
+			<!--PPT显示 -->
+			<div id="priview_mask" class="priview_mask">
+				
+			</div>
+
+			<!-- 初始化遮罩层 -->
+			<section id="mod_mask" class="mod_mask_con">
+		        <div class="state">
+	            	<em></em>   
+	            	<span class="line"></span>        
+	            	<p id="live_text">正在加载中，请稍等
+	            		<span class="ani_dot">...</span>
+	            	</p>            
+	            </div>
+			</section>	
+			<div class="ppt_main">
+				<!--4:3-->
+				<img class="ftimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADAQMAAACOOjyFAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMITj1QVAAAAAFiS0dEAf8CLd4AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAALSURBVAjXY2AAAQAABgABZvTJbAAAAABJRU5ErkJggg==" alt=""/>
+				<!--16:9-->
+				<img class="osimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJAQMAAAAB5D5xAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMITj1QVAAAAAFiS0dEAf8CLd4AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAALSURBVAjXY2DACQAAGwABUkTkqQAAAABJRU5ErkJggg==" alt=""/>
+				<!--播放区-->
+				<div class="mod_player_content">
+					<span id="click_play" class="mod_click_play"></span>
+				</div>
+			</div>
+		</section> 
+
+		<!-- menu -->
+		<section  id="mod_menu" class="mod_menu">
+			<!--导航-->
+			<nav id="mod_menu_head" class="mod_menu_head">
+				<div class="ht_nav">
+					<!--导航-->
+					<div class="ht_nav_box">
+						<ul class="ht_nav_list">
+			                <li data-type="video" id="tab_video" class="swiper-slide selected">视频</li>
+			                <li data-type="chat"  id="tab_chat"  class="swiper-slide">聊天
+			                    <span class="c_num"></span>
+			                </li>
+			                <li data-type="ask"  id="q_ask" class="swiper-slide">提问
+			                     <span class="c_num"></span>   
+			                </li>
+			                <li data-type= "set"  id="tab_set" class="swiper-slide hset">
+			                	<span class="c_num"></span>
+			                设置</li>
+			            </ul>
+					</div>
+					<!--刷新-->
+					<div class="reload hload">
+						<span>刷新</span>
+					</div>
+
+					<!-- app 观看入口 -->
+					<div id="app_btn" class="app_btn">
+						<a>APP观看</a>
+					</div>
+			</div>
+			</nav>
+		</section> 
+		
+		<!--main modules -->
+		<section class="mod_modules">
+
+            <div class="mask_bg">
+				<i></i>
+				<span id="prepare">老师正在疯狂备课中...</span>
+			</div>
+
+			<div class="h_opration">
+			    <span class="set_icon">设置</span> 
+			    <span class="reload">刷新</span>		
+			</div>
+			<div id="left_toggle" class="left_toggle">
+				<span></span>
+			</div>
+
+		   <!-- 摄象头 -->
+		   <!--  聊天 -->
+		 	<div id="chat" class="mod_chat_hall">
+		 	     <!-- 统计在线人数 -->
+				<div class="online_total">在线<span id="total">0</span>人</div>
+				<div class="mod_chat_list">
+					<div id="chat_hall" class="chat_inner">
+					</div>
+				</div>
+				<!-- chat Post -->
+				<div id="mode_chat_post" class="mod_chat_post">
+				    <div class="post_con hide">
+				        <textarea id="chat_post_txt" placeholder="请输入文字"></textarea>
+				        <span data-type="chat" class="csend">发送</span>
+				        <span class="reward_btn"></span>
+				        <span class="emoticon"></span>
+				        <span class="flower">
+				        	<i class="num">3</i>
+				        </span>
+				    </div>
+				</div>
+			</div>
+			<!-- 提问 -->
+			<div id="ask" class="mod_menu_question">
+				<div id="question_hall" class="mod_ques_hall">
+					<div id="question_inner_hall">
+
+					</div>
+				</div>
+
+				<!-- 提问Post -->
+				<div id="mod_ques_post" class="mod_ques_post">
+				    <div class="post_con">
+				        <textarea id="ques_post_txt" placeholder="请输入文字"></textarea>
+				        <span data-rid="0" data-type="ask" class="qsend default">发送</span>
+				    </div>
+				</div>
+			</div>
+			<!-- 设置 -->
+			<div id="set" class="mod_set">
+				<!-- 切换网络成功提示框 -->
+				<div class="net_sucess">
+					 <span>切换成功</span>
+				</div>
+			</div>
+		</section>
+
+		<div id="vote" class="mod_vote">
+			<div id="pop_box"></div>
+		</div>
+
+		<!-- 摄像头区域-->
+		<div id="ht_camera_container" class="ht_camera_container hvr">
+			<div id="voice_bg" class="voice_bg">
+			    <div class="bottom_bg"></div>
+			    <div class="voice_content">
+			    	<img src="css/img/s.png"/>
+			    	<span class="left_voice"></span>
+			    	<span class="right_voice"></span>
+					<div class="voice_title">
+						<em></em>
+						<span>纯音频模式</span>
+					</div>
+			    </div>
+			</div>
+		</div>
+
+	</section>
+
+	<!-- @模版结构加载 -->
+	<div id="template_loader"></div>
+
+	<!-- load  -->
+	<script type="text/javascript">
+		// 根目录配置参数
+		var base_path = "/xampp-project/exercise";
+	</script>
+   	<script type="text/javascript" src="common/js/live-core.js"/></script>
+	<script>
+		// Seajs init here.
+		seajs.use("main");
+	</script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+/**
+ * @name: [公共初始化.Reset Stylesheet]
+ * @Version: {1.0.1}
+ * @Date: 2014-12-04
+ * @Author: Marko
+ */
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+button,
+textarea,
+p,
+blockquote,
+th,
+td {
+  padding: 0;
+  margin: 0;
+  font-family: "Hiragino Sans GB", "\5FAE\8F6F\96C5\9ED1";
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+fieldset,
+img {
+  border: 0;
+}
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+th,
+var {
+  font-weight: 400;
+  font-style: normal;
+}
+ol,
+ul {
+  list-style: none;
+}
+caption,
+th {
+  text-align: left;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+  font-size: 100%;
+}
+q:before,
+q:after {
+  content: '';
+}
+abbr,
+acronym {
+  border: 0;
+}
+body {
+  font-family: "Hiragino Sans GB", "\5FAE\8F6F\96C5\9ED1";
+  font-size: 12px;
+  color: #666666;
+  background-color: #FFFFFF;
+}
+a {
+  text-decoration: none;
+  color: #333333;
+}
+a:hover {
+  text-decoration: underline;
+}
+.hidden {
+  display: none;
+}
+.show {
+  display: block;
+}
+.clear {
+  clear: both;
+  float: none;
+  height: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+/*clear float*/
+.wrapfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.wrapfix {
+  display: inline-table;
+}
+/* Hides from IE-mac \*/
+* html .wrapfix {
+  height: 1%;
+}
+.wrapfix {
+  display: block;
+}
+/* End hide from IE-mac */
+* + html .wrapfix {
+  min-height: 1px;
+}
+/*ie7*/
+/* @:opacity */
+/* @:box-shadow */

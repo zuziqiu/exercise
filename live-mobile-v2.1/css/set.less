@@ -1,0 +1,553 @@
+/**
+ * #name :  设置
+ * author:  liangh;
+ */
+ @scale: 2;
+
+.h_opration{
+	display: none;
+}
+.mod_set{
+	top: 0;
+    bottom: 0px;
+    position: absolute;
+    z-index: 10001;
+    width: 100%;
+	display: none; 
+	.net_sucess{
+	    background: #000000;
+	    position: absolute;
+	    z-index: 10000;
+	    width: 80px;
+	    height: 34px;
+	    line-height: 34px;
+	    top: 50%;
+	    left: 50%;
+	    display: none;
+	    margin-left: -35px;
+	    margin-top: -104px;
+	    border-radius: 50em;
+	    -webkit-opacity: 0.8;
+	    opacity: 0.8;
+	    text-align: center;
+		span{
+			font-size: 14px;
+			color: #ffffff;
+		}
+
+	}
+	.set_menu{
+		    /*margin: 0px 0 0 32px;*/
+		    position: Absolute;
+		    width: 100%;
+		    /*right: 32px;*/
+		    .toggle{
+		    	display: none;
+		    }
+			.menu_list{
+				li{
+					width: 25%;
+					height: 65px;
+					float: left;
+					font-size: 12px;
+					text-align: center;
+					margin-top: 26px;
+					position: relative;
+					i{
+						display: block;
+						width: 40px;
+						height: 40px; 
+						background: url(img/set_icons.png) no-repeat;
+						margin: 0  auto;
+					}
+					span{
+						display: block;
+						color: #32383d;
+						position: relative;
+		   				top: 6px;
+					}
+					&.video_status{
+						i{
+							background-position: 0px -90px;
+						    background-size: 100% auto;
+						    &.c_camera{
+						    	background-position: 0px -45px;
+						    	background-size: 100% auto;	
+						    }
+		                    &.cvideo{
+		                    	background-position: 0px 0;
+						   	    background-size: 100% auto;	
+		                    }
+						}
+
+						
+					}
+					&.voice_change{
+						i{
+							background-position: 0px -90px;
+						    background-size: 100% auto;	
+						    &.vchange{
+						    	background-position: 0px -272px;
+						    }
+						}
+					}
+					&.screen_change{
+						i{
+							background-position: 0px -135px;
+						    background-size: 100% auto;
+						    &.schange{
+						    	background-position: 0px -318px;
+						    }
+						}
+					}
+					&.net_choice{
+						i{
+							background-position: 0px -180px;
+						    background-size: 100% auto;
+						}
+					}
+					&.notice{
+						i{
+							background-position: 0px -225px;
+						    background-size: 100% auto;
+						}
+						.new_nt{
+							width: 6px;
+						    display: none;
+						    height: 6px;
+						    line-height: 18px;
+						    text-align: center;
+						    border-radius: 50em;
+						    position: absolute;
+						    background: #f00;
+						    color: #fff;
+						    top: 43px;
+						    left: 62%;
+						}
+					}
+
+					&.view_barrage{
+						i{
+							background: #4285f4 url(img/barrage.png) no-repeat;
+						    background-position: 9px 9px;
+    						background-size: 22px auto;
+						    border-radius: 6px;
+
+						    &.open{
+						    	background-position: 9px -32px;
+						    }
+						}
+					}
+					
+				}
+
+			}    
+		
+
+		li:last-child{
+			margin-right: 0;
+		}
+
+	}
+}
+
+/*返回按钮公共样式*/
+.back_btn{
+	height: 30px;
+	border-bottom: 1px solid #dddddd;
+	.title{
+		display: block;
+		float: left;
+		line-height: 30px;
+		color: #333333;
+		margin-left: 10px;
+		font-size: 13px;
+	}
+	span{
+		color: #46494c;
+		display: block;
+		float: right;
+		border-radius: 4px;
+		font-size: 12px;
+		text-align: center;
+		line-height: 22px;
+		margin-top: 3px;
+		width: 40px;
+		margin-right: 10px;
+		background: #f6f8f9;
+	}
+}
+
+/*公告*/
+.mod_notice{
+	width: 100%;
+    position: absolute;
+    top: -33px;
+    bottom: 0;
+    background: #ffffff;
+    z-index: 110;
+	.notice_content{
+		pre{
+			white-space: pre-wrap;
+			font-size: 13px;
+			font-family: "Microsoft YaHei", "STHeiti";
+		}
+		margin: 36px 35px 0 36px;
+		color: #555555;
+		/*position: absolute;
+		top: 0;*/
+		h3{
+			font-size: 16px;
+			text-align: center;
+			margin-bottom: 15px;
+		}
+		p{
+			line-height: 20px;
+		    font-size: 14px;
+		    position: absolute;
+		    overflow: auto;
+		    bottom: 0px;
+		    left: 20px;
+		    right: 20px;
+		    top: 100px;
+		    word-break: break-word;
+		}	
+
+	}
+}
+
+/*网络选择*/
+.mod_network{
+	width: 100%;
+    bottom: 0;
+    top: -33px;
+    background: #ffffff;
+    z-index: 9999;
+    border-left: 1px solid #dddddd;
+    position: absolute;
+	.network_cont{
+	    /* top: 50%; */
+	    /* left: 50%; */
+	    width: 100%;
+	    height: 100%;
+	    overflow-y: auto;
+	    display: block;
+	    /* position: absolute; */
+	    /* border-radius: 8px; */
+	    /* display: none;*/
+	    /* background: #ffffff; */
+	    /* margin: -120px 0 0 -142px; */
+	    /* box-shadow: -3px 3px 54px 0px rgba(0, 0, 0, 0.3); */
+	    .choice_net{
+	        position: relative;
+		    min-width: 160px;
+		    max-width: 240px;
+		    width: 160px;
+		    margin: 0 auto;
+		    top: 15px;
+		    &.lgtwo{
+		    	margin-bottom: 45px;
+		    }
+	        span{
+	            width: 80px;
+	            height: 28px;
+	            line-height: 28px;
+	            text-align: center;
+	            display: block;
+	            float: left;
+	            color: #333333;
+	            cursor: pointer;
+	            background: #dddddd;
+	            &.cur{
+	                background: #22ac38;
+	                color: #ffffff;
+	            }
+	            &.route:first-child{
+	                border-top-left-radius: 4px;
+	                border-bottom-left-radius: 4px;
+	            }
+	            &.route:last-child{
+	                border-top-right-radius: 4px;
+	                border-bottom-right-radius: 4px;
+	            }
+	        }
+    	}
+		.net_top{
+			height: 54px/2;
+			height: 37px;
+		    line-height: 37px;
+		    padding-left: 10px;
+		    border-bottom: 1px solid #dddddd;
+			/*padding: 10px 16px 0 16px;*/
+			// .back_btn{
+			// 	float: right;
+			// 	text-align: center;
+			// 	line-height: 22px;
+			// 	margin: 7px 10px 0 0px;
+			// }
+			span{
+				font-size: 14px;
+				float: left;
+				color: #333333;
+			}
+			.lotter_close{
+		    	position: absolute; 
+		        right: 0;
+		        top: -65px;
+		    	.close_icon{
+		    		display: block;
+		    		width: 48px/2;
+		    		height: 48px/2;
+		    		background: url("img/lottery_close.png") no-repeat;
+		    		background-size: 48px/2 48px/2; 
+		    		margin: 15px 0 0 1px;
+		    	}
+		    	.line{
+		    		display: block;
+		    		width: 2px;
+		    		height: 28px;
+		    		background: #ffffff;
+		    		position: absolute;
+		   			top: 37px;
+		    		left: 12px;
+		    	}
+
+	        }
+		}
+		.net_text{
+		    height: 30px;
+		    line-height: 30px;
+		    font-size: 12px;
+		    text-align: center;
+		    color: #eb6877;
+		}
+		.net_select{
+			width: 100%;
+			top: 65px;
+		    bottom: 0;
+		    padding-bottom: 10px;
+		    // position: absolute;
+		    overflow-y: auto;
+			ul{
+				margin: auto 10% auto;
+				// li:nth-child(even){
+				// 	float: right;
+				// }
+				// li:nth-child(odd){
+				// 	float: left;
+				// }
+				clear: both;
+				background: brown;
+			}
+			li{
+				height: 64px/2;
+				list-style-type: none;
+				border-radius: 50em;
+	            color: #566159;
+	            border: 1px solid #e8e8e8;
+				text-align: center;
+				line-height: 64px/2;
+				float: left;
+				overflow: hidden;
+				width: 40%;
+				margin: 1.2rem 2% 0;
+				padding: 0 2%;
+				img{
+					width: 40px/2;
+					height: 40px/2;
+					float: left;
+					padding: 0 4px;
+					margin-top: 6px;
+					margin-left: 1.5rem;
+				}
+				span{
+					float: left;
+					font-size: 12px;
+					&.auto{
+						display: block;
+						float: none;;
+						text-align: center;
+					}
+				}
+				&.select_hover{
+				    border: 1px solid #2bb53e;
+					border-radius: 50em;
+				}
+				// &.auto{
+				// 	span{
+				// 		display: block;
+				// 		width: 100%;
+				// 		text-align: center;
+				// 	}
+				// }
+				//中国电信
+				// &.telecom{
+				// 	margin-top: 0;	
+				// }
+				//中国联通
+				// &.netcom{
+				// 	padding: 0 38px/2;
+				// 	img{
+				// 		width: 48px/2;
+				// 		height: 36px/2;
+				// 		margin-top: 6px;
+				// 	}
+
+				// }
+				// //中国移动
+				// &.mobile{
+
+				// }
+				// //电信通
+				// &.teletron{
+				// 	padding: 0 56px/2;
+				// 	img{
+				// 		padding:0 6px 0 0;
+				// 	}
+				// }
+				// //长城宽带
+				// &.greatwall{
+
+				// }
+				// //教育网
+				// &.education{
+				// 	padding: 0 56px/2;
+				// 	img{
+				// 		padding:0 6px 0 0;
+				// 	}
+				// }
+				// //中国铁通
+				// &.cttnet{
+
+				// }
+				// &.auto{
+				// 	padding: 0 22px/2;
+				// 	margin-top: 0;
+				// }
+			}
+		}
+}
+
+}
+
+/*======================================================*/
+//设置横屏
+.horizontal{
+	.mod_network{
+		width: 100%;
+	    height: auto;
+	    z-index: 9999;
+	    position: absolute;
+	    top: -33px;
+	    background: #ffffff;
+	    bottom: 0;
+		.network_cont{
+			.net_select{
+				ul{
+					margin: auto 12px 	
+				}
+			}
+		}
+	}
+	.h_opration{
+		position: fixed;
+		bottom: 52px;
+		display: block; 
+		right: 10px;
+		z-index: 104;
+		&.hidden{
+			display: none;
+		}
+		span{
+			display: block;
+		    width: 36px;
+		    height: 36px;
+		    line-height: 36px;
+		    text-align: center;
+		    color: #ffffff;
+		    position: relative;
+		    box-shadow: 0 0px 5px rgba(106,182,246,0.6);
+		    font-size: 1.2rem;
+		    background: #6ab6f6;
+		    border-radius: 50em;
+			&.reload{
+				margin-top: 12px;
+			}
+		}
+	}
+	.left_toggle{
+	    position: fixed;
+		bottom: 77px;
+		z-index: 999;
+		span{
+			display: block;
+			background: url(img/left_toggle.png) no-repeat;
+			width: 20px;
+		    height: 50px;
+		    background-size: 100% auto;
+
+		}
+		&.recover{
+			right: 0;
+			span{
+				background: url(img/right_toggle.png) no-repeat;
+				background-size: 100% auto;
+			}
+		}
+	}
+	.mod_set{
+		width: 100%;
+		position: absolute;
+		top: 0;
+		.set_menu{
+			.menu_list{
+				width: 80%;
+				height: 100%;
+				margin: 0 10% 0 10%;
+			}
+			/*height: 100%;*/
+			width: 100%;
+			bottom: 0;
+			box-shadow: 0 2px 6px #cccccc;
+			z-index: 110;
+			background: #ffffff;
+			top: -33px;
+		    .toggle{
+		    	width: 40px;
+			    height: 22px;
+			    border: 1px solid #cccccc;
+			    border-radius: 4px;
+			    font-size: 12px;
+			    display: block;
+			    position: relative;
+			    top: 12px;
+			    left: 12px;
+			    text-align: center;
+			    line-height: 22px;
+			    background: #f6f8f9;
+			} 
+			li{
+				width: 50%;
+				padding-top: 20px;
+				&.notice{
+					.new_nt{
+						top: 63px;
+					}
+				}
+			}
+		}
+	}
+	.mod_notice{
+		.notice_content{
+			margin: 12px 12px 0 12px;
+		}
+	}
+
+	.back_btn{
+		float: none;
+		margin: 12px 0px 0 12px;
+	}
+}
+
+
+

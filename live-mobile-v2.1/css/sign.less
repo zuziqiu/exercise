@@ -1,0 +1,72 @@
+/*
+* name : 点名签到
+* author:  liangh;
+*/
+.user_sign_pop{
+    width: 280px;
+    height: 170px;
+    background: #ffffff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    margin-left: -280px/2;
+    margin-top: -170px/2;
+    z-index: 999999;
+    border-radius: 4px;
+    font-size: 14px;
+    .header{
+        width: 100%;
+        height: 34px;
+        background: #ffffff;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        line-height: 34px;
+        border-bottom: 1px solid #cccccc;
+        .sign_left{
+            float: left;
+            i{
+                background:url("img/sign.png");
+                width: 20px;
+                background-size: 100% 100%;
+                float: left;
+                height: 20px;
+                margin: 6px 10px;
+            }
+            span{
+                float: left;
+                display: block;
+                color: #333333;
+                line-height: 34px;
+            }
+           
+        }
+
+        .close_pop{
+            background:url("img/netClose.png");
+            float: right;
+            width: 20px;
+            height: 20px;
+            margin: 7px 10px 0 0;
+            background-size: 100% 100%;
+            cursor: pointer;
+        }
+    }
+    .count_down_time{
+        margin-top: 40px;
+        text-align: center;
+        .time{
+            color: #e60012;
+        }
+    }
+    .sign_btn{
+        height: 34px;
+        margin: 25px 10px 0 10px;
+        text-align: center;
+        background: #ec6941;
+        border-radius: 4px;
+        line-height: 34px;
+        color: #fff;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,518 @@
+<!--
+## www.talk-fun.com
+## 尚德通用模块
+## 采用Tmod模版加载
+-->
+
+<!-- 渲染投票选项 -->
+<script id="show_vote_options" type="text/html">
+    <!--S 显示投票选项 -->
+    <div class="cmod mod_user_vote">
+        <div class="mbox_hd">
+            <h3 class="vote">投票</h3>
+            <div class="op_btn">
+                <span class="cls r">X</span>
+            </div>
+        </div>
+        <div class="mbox_bd">
+            <div class="mod_scroll_box">
+                <!-- 投票 -->
+                <div class="selt_vote_option">
+                    <div class="vo_hd">
+                        <div class="col_l">
+                            <span class="u_n">{{info.nickname}}</span>
+                            <em>{{info.startTime}} 发起了投票</em>
+                        </div>
+                        <div class="col_r">
+                            <span class="voting">投票中</span>
+                        </div>
+                    </div>
+                    <div class="vo_bd">
+                        <h4>{{info.title}}{{if optional > 1}}<em class="more">(最多选择{{optional}}项)</em>{{/if}}</h4>
+                        <div class="chart_detail vote_selector">
+                        	{{if optional > 1}}
+                            <!-- 多选 -->
+                            <div class="multiple">
+                                <ul>
+                                {{each opList as value key}}
+                                    <li>
+                                    	<label><input type="checkbox" value="{{key+1}}" name="mutiple"/></label>
+                                    	<span>{{letter[key]}}、{{value}}</span>
+                                    </li>
+                                {{/each}}
+                                </ul>
+                            </div>
+                            {{else}}
+                            <!-- 单选 -->
+                            <div class="single">
+                                <ul>
+                                {{each opList as value key}}
+                                    <li>
+                                    	<label><input type="radio" value="{{key+1}}" name="single"/></label>
+                                    	<span>{{letter[key]}}、{{value}}</span>
+                                    </li>
+                                {{/each}}
+                                </ul>
+                            </div>
+                            {{/if}}
+                            <!-- btns -->
+                            <div class="btn">
+                                <span class="vote_btn">投票</span>
+                                <em class="tips">至少选择一项</em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--E 显示投票选项 -->
+</script>
+
+<!-- 渲染投票结果 -->
+<script id="show_vote_result" type="text/html">
+    <!--S 投票结果 -->
+    <div class="cmod mod_user_vote">
+        <div class="mbox_hd">
+            <h3 class="vote">投票</h3>
+            <div class="op_btn">
+                <span class="cls r">X</span>
+            </div>
+        </div>
+        <div class="mbox_bd">
+            <div class="mod_scroll_box">
+                <!-- 投票结果 -->
+                <div class="show_vote_result">
+                    <div class="vote_result">
+                        <div class="vo_hd">
+	                        <div class="col_l">
+	                            <span class="u_n">{{info.nickname}}</span>
+	                            <em>{{info.startTime}} 发起了投票</em>
+	                        </div>
+	                        <div class="col_r">
+	                            <span class="voting end">已结束</span>
+	                        </div>
+	                    </div>
+                        <div class="vo_bd">
+                            <div class="vote_chartview">
+                                <h4>{{info.title}}</h4>
+                                <div class="chart_detail">
+                                    {{each statsList as value key}}
+                                    <dl>
+                                        <dt>{{letter[key]}}.{{value.op}}</dt>
+                                        <dd>
+                                            <div class="crt_percent_line">
+                                                <span style="width:{{value.percent}}%"></span>
+                                            </div>
+                                            <div class="pn">{{value.opNum}}<em>({{value.percent}}%)</em></div>
+                                        </dd>
+                                    </dl>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--E 投票结果 -->
+</script>
+
+<!-- 渲染获取投票结果 -->
+<script id="show_vote_result" type="text/html">
+    <!--S 获取投票 -->
+    <div class="cmod mod_user_vote">
+        <div class="mbox_hd">
+            <h3 class="vote">投票</h3>
+            <div class="op_btn">
+                <span class="cls r">X</span>
+            </div>
+        </div>
+        <div class="mbox_bd">
+            <div class="mod_scroll_box">
+                <!-- 投票结果 -->
+                <div class="show_vote_result">
+                    <div class="vote_result">
+                        <div class="vo_hd">
+                            <div class="col_l">
+                                <span class="u_n">{{info.nickname}}</span>
+                                <em>{{info.startTime}} 发起了投票</em>
+                            </div>
+                            <div class="col_r">
+                                <span class="voting end">已结束</span>
+                            </div>
+                        </div>
+                        <div class="vo_bd">
+                            <div class="vote_chartview">
+                                <h4>{{info.title}}</h4>
+                                <div class="chart_detail">
+                                    {{each statsList as value key}}
+                                    <dl>
+                                        <dt>{{letter[key]}}.{{value.op}}</dt>
+                                        <dd>
+                                            <div class="crt_percent_line">
+                                                <span style="width:{{value.percent}}%"></span>
+                                            </div>
+                                            <div class="pn">{{value.opNum}}<em>({{value.percent}}%)</em></div>
+                                        </dd>
+                                    </dl>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--E 投票结果 -->
+</script>
+
+<!-- 渲染投票回调 -->
+<script id="show_vote_callback" type="text/html">
+    <!--S 投票回调 -->
+    <div class="cmod mod_user_vote">
+        <div class="mbox_hd">
+            <h3 class="vote">投票</h3>
+            <div class="op_btn">
+                <span class="cls r">X</span>
+            </div>
+        </div>
+        <div class="mbox_bd">
+            <div class="mod_scroll_box">
+                <!-- 投票结果 -->
+                <div class="show_vote_callback {{if callback}}has_callback{{/if}}">
+                    <div class="box_vote_state">
+                        {{if code == 0}}
+                            <p class="suc_txt">投票成功！</p>
+                            <span class="suc"><em class="ico"></em></span>
+                        {{else if code == -1}}
+                            <p class="suc_txt">投票失败,{{msg}}</p>
+                            <span class="fail"><em class="ico"></em></span>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--E 投票回调 -->
+</script>
+
+<!-- 渲染获取投票 -->
+<script id="show_vote_getvote" type="text/html">
+    <!--S 获取投票 -->
+    <div class="cmod mod_user_vote">
+        <div class="mbox_hd">
+            <h3 class="vote">投票</h3>
+            <div class="op_btn">
+                <span class="cls r">X</span>
+            </div>
+        </div>
+        <div class="mbox_bd">
+            <div class="mod_scroll_box">
+                <!-- 投票结果 -->
+                <div class="show_vote_result">
+                    <div class="vote_result">
+                        <div class="vo_hd">
+                            <div class="col_l">
+                                <span class="u_n">{{info.nickname}}</span>
+                                <em>{{info.startTime}} 发起了投票</em>
+                            </div>
+                            <div class="col_r">
+                                <span class="voting end">已结束</span>
+                            </div>
+                        </div>
+                        <div class="vo_bd">
+                            <div class="vote_chartview">
+                                <h4>{{info.title}}</h4>
+                                <div class="chart_detail">
+                                    {{each statsList as value key}}
+                                    <dl>
+                                        <dt>{{letter[key]}}.{{value.op}}</dt>
+                                        <dd>
+                                            <div class="crt_percent_line">
+                                                <span style="width:{{value.percent}}%"></span>
+                                            </div>
+                                            <div class="pn">{{value.opNum}}<em>({{value.percent}}%)</em></div>
+                                        </dd>
+                                    </dl>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--E 获取投票 -->
+</script>
+
+<!-- 管理员 -->
+<script id="show_vote_admin" type="text/html">
+	<!--S 管理员操作 -->
+    <div class="cmod mod_lanuch_vote">
+        <div class="mbox_hd">
+            <h3>投票</h3>
+            <div class="op_btn">
+                <span data-history="0" class="back">返回</span>
+                <span class="cls">X</span>
+            </div>
+        </div>
+        <div class="mbox_bd">
+            <div class="mod_scroll_box">
+                <!-- 发起 -->
+                <div class="lun_vote cmvt">
+                    <div class="vo_hd">
+                        <p>用于出题作答、互动活动、选择决策，提交后以弹框形式出现在观众屏幕前</p>
+                        <span class="vote_btn">发起投票</span>
+                    </div>
+                    <div class="vo_list">
+                        <!-- <ul>
+                            <li>
+                                <p>莫言成为第dde2e4籍第dde2e4籍作家第dde2e4籍作家第dde2e4籍作家籍作家！你看过他的书吗？</p>
+                                <div class="t_u">
+                                    <img src="http://www.aipai.com/tools/createImg.php?wh=20x20" width="20" height="20" alt=""/>
+                                    <span>李老美(05/08)</span>
+                                    <a class="del" href="#del">删除</a>
+                                </div>
+                            </li>
+                        </ul> -->
+                    </div>
+                </div>
+
+                <!-- 投票中 -->
+                <div class="lun_voting cmvt hidden">
+                    <div class="vo_hd">
+                        <div class="col_l">
+                            <span class="u_n"></span>
+                            <em></em>
+                        </div>
+                        <div class="col_r">
+                            <span class="voting">投票中</span>
+                        </div>
+                    </div>
+                    <div class="vo_bd">
+                        <div class="vote_chartview">
+                            <h4></h4>
+                            <div class="chart_detail">
+                            </div>
+                        </div>
+                        <div class="post_tool">
+                            <span class="ck_box">
+                                <input name="post_chart" type="checkbox" value="0"/><label for="post_chart">公布结果</label>
+                            </span>
+                            <span class="reload">刷新</span>
+                        </div>
+                        <div class="btn">
+                            <span class="vote_btn">结束投票</span>
+                        </div>
+                        <div class="vote_list">
+                            <!-- <ul>
+                                <li>飞侠改革此爱过<span>投了A</span><em>(10:28)</em></li>
+                                <li>Ecilii..<span>投了B</span><em>(10:28)</em></li>
+                                <li>cloei屌丝的风景<span>投了C</span><em>(10:28)</em></li>
+                            </ul> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 投票post -->
+                <div class="lun_post cmvt hidden">
+                    <div class="vo_bd">
+                        <div class="vote_form">
+                            <div class="vo_theme">
+                                <h4>投票主题：</h4>
+                                <textarea placeholder="请输入投票主题" class="tare"></textarea>
+                            </div>
+                            <div class="vo_ipt">
+                                <h4>投票选项：</h4>
+                                <div id="vote_item_list">
+                                    <input id="voteid_1" placeholder="选项A" type="text" class="ipt"/>
+                                    <input id="voteid_2" placeholder="选项B" type="text" class="ipt"/>
+                                    <input id="voteid_3" placeholder="选项C" type="text" class="ipt"/>
+                                </div>
+                            </div>
+                            <div class="vo_opto">
+                                <span class="add">+添加选项</span>
+                                <span class="reduce">-删除选项</span>
+                            </div>
+                            <div class="vo_model">
+                                <h4>选择模式：</h4>
+                                <label><input name="aselt" value="0" type="radio" checked="checked"/>单选</label>
+                                <label><input name="aselt" value="1" type="radio"/>多选</label>
+                                <span class="limit hidden">
+                                    <em>最多选</em><input disabled="disabled" type="text" value="1" class="ipt"/><em>项</em>
+                                </span>
+                                <div class="op_btns">
+                                    <span class="cls">取消</span>
+                                    <span class="confirm">确定</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 投票弹框 -->
+                <div class="pop_alert cmvt hidden"></div>
+                <!-- 投票选项 -->
+            </div>
+        </div>
+    </div>
+    <!--E 管理员操作 -->
+</script>
+
+<!-- 鲜花 -->
+<script id="show_flowers" type="text/html">
+    <div class="notice_flower chat_detail wrapfix {{self}} {{isShow}}" data-xid="{{data.xid}}">
+        <span class="uinfo">
+            <img class="avatar avatar_{{data.uid}}" data-uid="{{data.uid}}" data-xid="{{data.xid}}" src="{{avatar}}" width="30" height="30" onerror="MTSDK.imgError(this);" alt=""/>
+            <div class="uname">
+                <span>{{data.nickname}}</span>
+            </div>
+        </span>
+        <span class="flower_send">
+            {{if self}}
+            <em class="cner r"></em>
+            {{else}}
+            <em class="cner l"></em>
+            {{/if}}
+            <span>送给老师：</span>
+            <span class="roses">{{each amount as key}}<i>{{key}}</i>{{/each}}</span>
+        </span>
+    </div>
+</script>
+
+<!-- 添加用户列表 -->
+<script id="add_member" type="text/html">
+    <li id="user_{{d.xid}}" class="{{d.role}}" data-role="{{d.role}}" data-xid="{{d.xid}}" data-uid="{{d.uid}}">
+        <img id="avatar_{{d.uid}}" class="avatar_{{d.uid}}" src="{{defaults}}" data-avatar="{{d.avatar}}" onerror="MTSDK.imgError(this);" alt=""/>
+        <div class="uname">
+            <span>{{d.nickname}}</span>
+            <em class="{{d.role}}"></em>
+        </div>
+    </li>
+</script>
+
+<!-- 聊天 -->
+<script id="add_chat" type="text/html">
+    <div style="display:{{isShow}}" data-cid="chat_{{d.xid}}" class="user_{{d.xid}} chat_detail {{status}} wrapfix">
+        <div class="uinfo">
+            <img class="avatar avaimg_{{d.uid}}" src="{{avatar}}" width="30" height="30" onerror="MTSDK.imgError(this)" alt=""/>
+            <div class="uname">
+                <span>{{d.nickname}}</span>
+                <em class="male"></em>
+            </div>
+        </div>
+        <div class="chat_con wrapfix">
+            <p><em></em>{{#chatMsg}}</p>
+        </div>
+    </div>
+</script>
+
+<!-- 问答列表 -->
+<script id="list_question" type="text/html">
+    <dl data-replies="{{replies}}" id="que_{{d.qid}}" class="que_{{d.qid}} xid_{{d.xid}} {{isShow}}">
+        <dt>
+            <img class="avatar_{{d.uid}}" src="{{avatar}}" width="30" height="30" onerror="MTSDK.imgError(this)" alt=""/>
+        </dt>
+        <dd>
+            <div class="q_t">
+                <div class="uname">
+                    <span>{{d.nickname}}</span>
+                    <em class="female"></em>
+                </div>
+                <p>{{d.content}}</p>
+            </div>
+
+            <div class="re_list">
+            {{if d.answer}}
+            {{each d.answer as a}}
+                <div class="q_re que_{{a.qid}}">
+                    <div class="uname">{{a.nickname}}</div>
+                    <p>{{a.content}}</p>
+                </div>
+            {{/each}}
+            {{/if}}
+            </div>
+
+            {{if isAdmin}}
+            <span data-rid="{{d.qid}}" data-nickname="{{d.nickname}}" class="re_btn">回复</span>
+            {{/if}}
+        </dd>
+    </dl>
+</script>
+
+<!-- 插入问题 -->
+<script id="add_question" type="text/html">
+    <dl data-replies="0" id="que_{{d.qid}}" class="que_{{d.qid}} xid_{{d.xid}} {{isShow}}">
+        <dt><img class="avatar_{{d.uid}}" src="{{avatar}}" width="30" height="30" onerror="MTSDK.imgError(this)" alt=""/>
+        </dt>
+        <dd>
+            <div class="q_t">
+                <div class="uname">
+                    <span>{{d.nickname}}</span>
+                </div>
+                <p>{{d.content}}</p>
+            </div>
+            <div class="re_list"></div>
+            {{if isAdmin}}
+            <span data-rid="{{d.qid}}" data-nickname="{{d.nickname}}" class="re_btn">回复</span>
+            {{/if}}
+        </dd>
+    </dl>
+</script>
+
+<!-- 回答 -->
+<script id="reply_question" type="text/html">
+    <div class="q_re que_{{qid}}">
+    <div class="uname">{{nickname}}</div>
+        <p>{{content}}</p>
+    </div>
+</script>
+
+<!-- 上传课件 -->
+<script id="tpl_upload_file" type="text/html">
+    <div class="cmod mod_user_vote">
+        <div class="mbox_hd">
+            <h3 class="vote">上传课件</h3>
+            <div class="op_btn">
+                <span class="cls r">X</span>
+            </div>
+        </div>
+        <div class="mbox_bd">
+            <div id="frame_box"></div>
+        </div>    
+    </div>
+</script>
+
+<!--
+## {管理员/助教} 菜单 ##
+-->
+<script id="admin_pop_menu" type="text/html">
+    <ul class="pop_side_operation">
+        <li data-op="kick">踢出房间</li>
+        <li data-op="chatoff">禁止发言</li>
+    </ul>
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+/**
+ * 模块设置(m-{type}-{enbale})
+ * @ 0 => 关闭 1 => 打开
+ * Author: Marko
+ * Version: 1.1.2
+ */
+body.m-logo-0 .mod_main_player_wp.toggle_video_ppt {
+  top: 0;
+}
+body.m-logo-0 .mod_user_info {
+  top: 0;
+}
+body.m-logo-0 .mod_question_ans_wrap {
+  top: 0;
+}
+body.m-logo-0 .mod_question_ans_wrap .hd_ti {
+  top: 210px;
+}
+body.m-logo-0 .mod_question_ans_wrap .mod_ques_hall {
+  top: 244px;
+}
+body.m-logo-0 .camera_play {
+  top: 0;
+}
+body.m-logo-0 .switch_preview {
+  top: 0;
+  overflow: hidden;
+}
+body.m-right-0 .camera_warp.toggle_video_ppt {
+  right: 10px;
+}
+body.m-right-0 .mod_main_player_wp {
+  right: 10px;
+}
+body.mode_live_player .col_left_side.logo_hide .mod_question_ans_wrap .hd_ti {
+  top: 270px;
+}
+body.mode_live_player .col_left_side.logo_hide .mod_question_ans_wrap .mod_ques_hall {
+  top: 304px;
+}
+.mod_swf_placehoder {
+  position: absolute;
+  z-index: 1005;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.mod_swf_placehoder #mod_flash_check_cover {
+  display: block;
+  position: relative;
+  z-index: 100;
+}

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="cn-zh">
+	<head>
+		<title tal:content="title|default">欢拓云点播</title>
+		<meta charset="utf-8" />
+		<meta name="renderer" content="webkit" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+		<link rel="shortcut icon" href="../../common/css/img/favicon.ico"/>
+		<style type="text/css">
+			body{
+				height: 100%;
+				width: 100%;
+				background-color: #000;	
+			}
+			.first_loader{
+				position: absolute;
+				width: 200px;
+				height: 100px;
+				top: 50%;
+				left: 50%;
+				margin: -50px 0 0 -100px;
+				border-radius: 1em;
+				font-family: "Hiragino Sans GB","\5FAE\8F6F\96C5\9ED1";
+				font-size: 12px;
+				color: #fff;
+				text-align: center;
+
+			}
+			.hidden{
+				display: none;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			// 通过麦拓API接口，获得一个access_token
+			var access_token = "UDZiNjN0UTZlNjMiFmMjlzY2IGZzQ2YxcTOzQDOihDZ8xHf9JiI6IichRXY2FmIsISdVlWYndmMJtWUppENzREUiojIzVGZvNmIsICMiojIkl2ZiwiIwIiOiUWbpRlblRGZpJmcvZmIsICMiojIzVHdhR3ciwiIwIiOiIXZk5WZnJCLiYTO5ETN0YjM1EjI6ISZtlGdnVmciwiI1ETMxYjNiojIklWbv9mciwiIyV2c1JiOiUGbvJnIsIiMhJWN1xFOzUmN1xlI6ISZtFmbrNWauJCLicjM0ETMiojIkl2XyVmb0JXYwJCLigTOwADMxMVTDJEMxMDNCFkI6ICZpVnIsIiM3AjM3UTNzIiOiQWa4Jye";
+						// var album = '<tal:block content="php:count(albumList) > 0 || count(courseList) > 0 ? 1 : 0"></tal:block>';  //1表示有专辑，0表示无
+			// var modules_config = ${structure modulesConfig};
+			window.__vod__ = true;
+		</script>
+		<!-- @静态资源加载SDK -->
+		<script src="./js/cdnloader.js"></script>
+	</head>
+	<body>
+		<!-- @page-loader -->
+		<div id="first_loader" class="first_loader">数据加载中 - v3.1...</div>
+
+		<!-- @静态资源加载SDK -->
+		<!-- <tal:block metal:use-macro="../../macro/cdnloader_v2.html/cdn_loader"></tal:block> -->
+		
+		<!-- @静态资源队列 -->
+		<script data-static-resource="true">
+			
+			// 读取版本
+			var sdkVersion = "test",
+				coreTpl = "tpl/modules.html",
+				isTest = (sdkVersion === "test") ? true : false,
+				SDK_URL = '${sdkUrl}',
+				sdkUrl = "//static-1.talk-fun.com/open/maituo_v2/dist/vod/sdk-vod.3.1.min.js";
+			// 文件队列
+			var talkfunQueue = null,
+				styles = [],
+				baseStyle = "css/base.css";
+			
+			talkfunQueue = [
+				"js/libs.min.js",
+				"js/drag.js",
+				sdkUrl,
+
+				// 模块
+				"js/module_setting.js",
+				"js/modules.js",
+				"js/modules/mod-camera.js",
+				"js/nouislider.min.js",
+				"js/vod.pc.call_v2.js",
+				"js/jquery.scrollTo.min.js",
+			];
+			styles = [
+				"css/nouislider.css",
+				"css/main_v2.css",
+				"css/jquery-ui.css",
+				"css/skin/default/default.css"
+			];
+		</script>
+
+		<!-- @加载开始 -->
+		<script type="text/javascript">
+		<!--
+			// CSS前置
+			styles.push(baseStyle);
+			for(var i = 0; i < styles.length; i++){
+				talkfunQueue.unshift(styles[i]);
+			}
+			// init here.
+
+			window.talkfunLoader.series(talkfunQueue, function(error, response){
+				var fsloader = document.querySelector("#first_loader");
+				if (fsloader) {
+					if(error){
+						fsloader.innerHTML = error.msg;
+					}else{
+						document.body.removeChild(fsloader);
+						$("#room").removeClass("hidden");
+					}
+				}
+			});
+		-->
+		</script>
+
+
+		<!-- ##Dependent on HTSDK -->
+		<!-- #logs -->
+		<div id="seekAmount"></div
+		>
+		<!-- section_wrap #房间容器-->
+		<div id="room" class="section_wrap hidden close_right close_left">
+			<!-- section_main #主容器-->
+			<div class="section_main">
+				<!-- col_left_side #左侧-->
+				<div id="mod_col_left" class="col_left_side has_position">
+					
+					<!-- section_header #头部 -->
+					<div id="header" class="section_header"  style="display: none;">
+						<div class="head headbg"></div>
+					</div>
+
+					<!-- 摄像头区 #视频区域-->
+					<div id="camera_play" class="camera_play camerabg" style="opacity: 0;">
+						<div class="video_state hidden">
+							<span>加载中</span>
+							<span class="ani_dot"><i></i></span>
+						</div>
+						<div id="mod_camera_player"></div>
+					</div>
+					
+					<!-- 教师信息 -->
+					<div class="mod_sider_top show_author"  style="display: none;">
+						<!--S摄像头区#camera_play-->
+						<div class="camera_warp">
+							<!-- S 播放结束显示老师的信息-->
+							<div class="teacherinfor" style="display: none">
+								<dl>
+									<i class="portrait"><img src="css/img/faceicon.png" alt="" tal:attributes="src zhuboInfo/p_150"/></i>
+									<dt class="mation_name" tal:content="zhuboInfo/nickname | zhuboInfo/thirdAccount">李成功</dt>
+									<dd class="intro_text" tal:content="zhuboInfo/intro">用幽默和风趣打动你的心,让你随时duang~du
+										ang~</dd>
+								</dl>
+								<ul class="teacher_get">
+									<li class="first">
+										<i></i>
+										<span tal:content="zhuboInfo/flower"></span>
+									</li>
+									<li class="line_to">|</li>
+									<li class="last">
+										<i></i>
+										<span tal:content="zhuboInfo/scoreTotal"></span>
+									</li>
+								</ul>
+							</div>
+							<!-- E 播放结束显示老师的信息-->
+							<div class="face">
+								<i class="teacher_face"></i>
+								<span class="teacher_name" tal:content="zhuboInfo/nickname | zhuboInfo/thirdAccount">李老师</span>
+							</div>
+						</div>
+					</div>
+
+					<!-- 老师信息(弹窗) -->
+					<!-- <div class="teach_infor" id="teach_infor"  style="display: none;">
+						<dl>
+							<i class="portrait"><img src="css/img/teacher_face_icon.png" alt="" tal:attributes="src zhuboInfo/p_150"/></i>
+							<dt class="mation_name" tal:content="zhuboInfo/nickname | zhuboInfo/thirdAccount">李成功</dt>
+							<dd class="intro_text"  tal:content="zhuboInfo/intro">他会用幽默和知识征服你</dd>
+						</dl>
+						<ul class="teacher_get">
+							<li class="first">
+								<i></i>
+								<span tal:content="zhuboInfo/flower"></span>
+							</li>
+							<li class="line_to">|</li>
+							<li class="last">
+								<i></i>
+								<span tal:content="zhuboInfo/scoreTotal"></span>
+							</li>
+						</ul>
+					</div> -->
+					<!-- 章节&专辑 -->
+					<div class="mod_section_album_list" id="album_and_chapter" style="display: none;">
+						<tal:block condition="albumList">
+							<span id="tab_album" class="tab_album nav">专辑<em id="album_num"></em></span>
+						</tal:block>
+						<!--专辑列表-->
+						<tal:block condition="albumList">
+						<div id="album_list" class="mod_album_list tab">
+							<div class="album_list">
+								<ul id="album_listli">
+									<tal:block repeat="item albumList">
+									<li>
+										<a class="cur" tal:attributes="href item/url;class php:item['id'] == asset['id'] ? 'cur' : ''">
+										<div class="video_left">
+											<span>第<tal:block content="repeat/item/number">一</tal:block>节</span>
+										</div>
+										<dl>
+											<dt title="${item/title}" tal:content="item/title">专辑名称可以很长很长很长</dt>
+											<dd>
+												<!-- <span class="album_teacher" tal:content="item/zhubo/nickname">刘文智</span> -->
+												<span class="album_time" tal:content="item/durationTime">1:56:23</span>
+												<tal:block condition="php:item['id'] == asset['id']">
+												<i id="play_icon"></i>
+												</tal:block>
+											</dd>
+										</dl>
+										</a>
+									</li>
+									</tal:block>
+									<tal:block replace="">
+									<li>
+										<a>
+										<div class="video_left">
+											<span>第二节</span>
+										</div>
+										<dl>
+											<dt>专辑名称可以很长很长很长</dt>
+											<dd>
+												<!-- <span class="album_teacher">刘文智</span> -->
+												<span class="album_time">1:56:23</span>
+												<i id="play_icon"></i>
+											</dd>
+										</dl>  
+										</a>
+									</li>
+									</tal:block>
+												</ul>
+											</div>
+						</div>
+						</tal:block>
+
+						<tal:block condition="courseList">
+						<span id="tab_album" class="tab_album nav">课程<em id="album_num"></em></span>
+						<div id="album_list" class="mod_album_list tab">
+							<div class="album_list">
+								<ul id="album_listli">
+									<tal:block repeat="item courseList">
+									<li>
+										<a class="aclick_bg" tal:attributes="href item/url;class php:item['id'] == asset['id'] ? 'aclick_bg' : ''">
+										<div class="video_left">
+											<span>第<tal:block content="repeat/item/number">一</tal:block>节</span>
+										</div>
+										<dl>
+											<dt title="${item/title}" tal:content="item/title">专辑名称可以很长很长很长</dt>
+											<dd>
+												<span class="album_teacher" tal:content="item/zhubo/nickname">刘文智</span>
+												<span class="album_time" tal:content="item/durationTime">1:56:23</span>
+												<tal:block condition="php:item['id'] == asset['id']">
+												<i id="play_icon"></i>
+												</tal:block>
+											</dd>
+										</dl>
+										</a>
+									</li>
+									</tal:block>
+								</ul>
+							</div>
+						</div>
+						</tal:block>
+
+						<span id="tab_chapter" class="tab_chapter nav">章节</span>
+						<!-- 章节列表-->
+						<div id="chapter_list" class="mod_chapter_list tab">
+							<div class="chapter_list">
+								<ul id="chapter_listli">
+							
+								</ul>	
+							</div>	
+						</div>
+					</div>
+
+				</div>
+
+				<!-- col_main #主要部分-->
+				<div id="mod_col_main" class="col_main">
+
+					<!-- 主信息(房间title) -->
+					<!-- <div class="mod_main_header">
+						<div class="live_info">
+							<i id="lv_state" class="lv_state palayend_state"></i>
+							<h2 id="live_title">加载中...</h2>
+						</div>
+						<div class="live_uinfo">
+							<span class="nickname">用户名称</span>
+							<span class="line">|</span>           
+							<i id="quit" class="quit quit_icon"></i>
+						</div>
+					</div> -->
+
+					<!-- 主播放器(PPT) -->
+					<div class="mod_main_player_wp" id="mod_player_wrap">
+					<div class="mask_background">
+							<span id="loader" class="loader">
+
+							</span>
+							<div class="load_state">
+								<p>正在加载，请稍候...</p>
+								<p id="load_speed" class="load_speed">(已下载<span id="precent"></span>，速度<span id="speed"></span>)</p>
+							</div>
+					</div>
+					<!-- 继续播放  -->
+					<div class="continue_play"></div>
+
+					<!--  快进，后退 -->
+					<div class="keydown_play"></div>
+					
+					<!-- 重播 -->
+					<div class="repeat">
+						<span class="repeat_play"></span>
+						<!-- <span class="next"></span> -->
+					</div>							
+					<div id="loading" class="loading_mask"></div>
+						<!--主播放器显示区域(PPT)-->
+						<div id="mod_ppt_player" class="mod_ppt_main_player">
+							<div class="mod_main_player"  id="mod_main_player"></div>	
+						</div>
+					</div>
+					
+					<!-- 左右工具栏  #carousel_left-->
+					<!-- <div class="carousel left">
+						<i id="left_arrow" class="arrow ln_arrow"></i>
+					</div>
+					<div class="carousel right">
+						<i id="right_arrow" class="arrow rn_arrow"></i>
+					</div> -->
+
+				</div>
+			</div>
+
+			<!-- col_right_side #右侧-->
+			<div id="mod_col_right" class="col_right_side hidden">
+				<!-- 提问与聊天的切换 #tab_change -->
+				<div class="tab_change">
+					<ul id="chat_nav">
+						<li class="tab_n1 current two">
+							<span class="chat">聊天</span>
+						</li>
+						<li class="tab_n2 two">
+							<span>提问</span>
+						</li>
+					</ul>
+				</div>
+				<!--聊天列表-->
+				<div id="chat_list" class="mod_chat_list tab">
+					<div class="list_chat tab_chat">
+						<ul id="chat_listli"></ul>
+					    <div id="chat_operation" class="chat_operation">
+					    	<div class="hide_flower comm">
+			                    <i></i>
+			                    <span>不看鲜花和表情</span>
+			                </div>
+			                <div class="stop_chat_scroll comm">
+			                    <i></i>
+			                    <span>停止滚动</span>
+			                </div>
+					    </div>
+					</div>							
+				</div>
+				<!-- 提问列表-->
+				<div id="question_list" class="mod_question_list tab">
+					<div class="question_chat tab_chat list_question">
+						<ul id="qustions_listli"></ul>
+					</div>						
+				</div>
+			</div>
+
+			<!-- footer #底部 -->
+			<div id="footer" class="section_footer">
+				<!-- 切换源选项 -->
+				<div class="switch_warp">
+					<ul id="switch_list">
+
+					</ul>
+				</div>
+				<!-- 移动某个点显示时间点 -->
+				<div class="current_time">
+					<span class="point_time"></span>
+					<div class="triangle-down">
+						
+					</div>
+				</div>
+				<!-- 主区域底部 #mod_footer -->
+				<div class="mod_footer pabsolute">
+					<div class="mod_ctrs">
+						<!-- == seek == -->
+						<div id="mod_seek" class="seek_con">
+							<div id="seek_range"></div>
+						</div>
+					</div>
+					<!-- 按钮区域 -->
+					<div class="footer_btn">
+						<div class="footer_left">
+							<i class="paly_state pause" id="btn_pp"></i>
+							<i class="close_play" id="close_play"></i>
+							<div class="video_time">
+								<span id="cur_time" class="ctr_cur_time">00:00:00</span>
+								<span class="ctr_cur_time">/</span>
+								<span id="totle_time" class="ctr_cur_time">00:00:00</span>
+							</div>
+							<span class="suona"></span>
+							<span  class="player">
+								<span class="pla_icon"></span>
+							</span>
+							<span class="shift">
+								<i class="pla_icon"></i>
+							</span>
+						</div>
+						<div class="footer_right">
+							<!--  切换源 -->
+							<i title="网络源选择" class="switch_source" id="switch_source"></i>
+							<!-- 视频切换 -->
+							<!-- <i class="video_location" id="lca_change"></i> -->
+							<!-- 声音图标 -->
+							<i id="vioce_contorl" class="voice enable"></i>
+							<!-- 音频滑块 -->
+							<div id="void_range" >
+							</div>
+							<!-- 全屏图标 -->
+							<i class="full_screen s_screen" id="full_screen"></i>
+						</div>
+					</div>  
+				</div>
+			</div>
+		<!-- ### Room End ### -->
+		</div>
+		<!-- @模版加载 -->
+		<div id="template_loader"></div>
+	</body>
+</html>

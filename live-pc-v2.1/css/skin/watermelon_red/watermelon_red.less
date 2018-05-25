@@ -1,0 +1,237 @@
+/**
+ * @name: [欢拓皮肤设置-蓝色]
+ * @Version: {1.0.1}
+ * @Date: 2015-08-12
+ * @Author: Yj
+ */
+
+/*reset*/
+/* 滚动条的颜色*/
+html{
+    border: none;
+    overflow: hidden;
+    -webkit-text-size-adjust: none;
+    /**
+     * scroll bar reset
+    */
+     ::-webkit-scrollbar {
+        width: 7px;
+    }
+    ::-moz-scrollbar {
+        width: 7px;
+    }
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background-color: #e0e0e0;
+        color: #28445C;
+    }
+    ::-moz-scrollbar-track {
+        background-color: #2d2d2d;
+        color: #28445C;
+    }
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background-color: #f78784;
+        /*滚动条色*/ 
+    }
+    ::-moz-scrollbar-thumb {
+        background-color: #4D7799;
+    }
+}
+
+
+/* logo的背景色*/
+.head{
+    background-color: #fd716d;
+}
+/* 摄像头区 的背景色改变*/
+.camera_warp{
+    .camera_play{
+            background: url("img/pic_video_red.png") no-repeat #fc716c;
+        }
+}
+/* 老师回答问题的 小图标*/
+.mod_question_wrap{
+    .t_say{
+        .t_ans{
+            i{
+                width: 17px;
+                height: 12px;
+                background:url("img/sprite.png") -5px -6px;
+                display: block;
+                float: left;
+                margin-right:5px;
+            }
+        }
+
+    }
+}
+
+/*播放器上的公告背景*/
+.mod_main_player_wp .con_notice{
+    background: #075D9C;
+}
+/*用户名称颜色*/
+.mod_head .live_uinfo .nickname{
+    color: #fd716d;
+}
+
+/*右侧的公告背景*/
+.notice_bg{
+    background: #ffedec;
+    border-top: 1px solid #fee4e2;
+    border-bottom: 1px solid #fee4e2; 
+}
+/*查看更多鼠标经过*/
+.notice_bg span.more:hover {
+    color: #fd716d;
+}
+
+/*切换聊天与学生的字体颜色*/
+.tab_change .current{
+    color: #fd716d;
+}
+
+/*笑脸鼠标经过时*/
+.chat_wrap .mod_chat_post .chat_op_btn .op_left .emotion_btn:hover{
+    background: url("img/sprite.png") -38px -44px;
+}
+
+
+/* 回复的颜色改变*/
+.mod_question_wrap{
+    .u_say{
+        .s_ask{
+            .answered{
+                color: #fd716d;
+            }
+        }
+    }    
+} 
+
+
+
+/*中间的播放 图标*/
+.mod_center{
+    .mod_play{
+        i{
+            background: url("img/w_play.png") no-repeat;
+            width: 290px;
+            height: 188px;
+            display: block;
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -122px;
+            margin-top: -90px;
+        }
+        .play_end{
+            background: url("img/W_playend.png") no-repeat;
+            width: 434px;
+            padding: 168px;
+            display: block;
+        }
+    }
+}
+
+
+
+
+/* 鼠标经过 轮播箭头 改变的背景色*/
+.carousel{
+    i:hover{
+        background-color: #f7a3a1;
+    }
+}
+/*聊天板块的 背景色及某个文字的颜色改变*/
+.chat_wrap{
+    .mod_notify{
+        background-color: #fff1f0;
+        .ask_color{
+            color: #fd716d;
+        }
+    }
+}
+/* 中间播放区域的 背景色  */
+.mod_main_player_wp .live_preview{
+    background-color: #fff1f0;
+}
+
+/* 发送改变颜色 右侧*/
+.chat_wrap .mod_chat_post .post_con button.active{
+    background: #fd716d;
+}
+/* 发送改变颜色 左侧*/
+.mod_question_ans_wrap .mod_question_post .post_con button.active{
+    background: #fd716d;
+}
+
+/*底部帮助 小图标*/
+.mod_footer{
+    .guan_video{
+        em{
+            background: url("img/sprite.png") -33px -3px;
+            width: 18px;
+            height: 18px;
+            display: block;
+            float: left;
+            line-height: 40px;
+            padding-left: 10px;
+            margin-top: 12px;
+            cursor:pointer;
+        }
+    }
+
+
+}
+  /*自由 #free*/
+  .mod_voice .free i{
+    background: url("img/sprite.png") -61px -5px;
+    width: 19px;
+    height: 18px;
+    display: block;
+  }
+/* 主席 #chairman*/
+.mod_voice .chairman i{
+    background: url("img/sprite.png") -34px -30px;
+    width: 23px;
+    height: 22px;
+    display: block;
+}
+/*举手 #hands*/
+.mod_voice .hands i{
+    background: url("img/sprite.png") -61px -26px;
+    width: 21px;
+    height: 24px;
+    display: block;
+}
+
+
+
+/*麦克风 #volume*/
+.mod_footer .footer_left .volume{
+        background: url("img/sprite.png") -7px -24px;
+        width: 15px;
+        height: 16px;
+        display: block;
+        float: left;
+}
+
+
+
+/*禁麦抢麦的背景色 .seq_right li*/
+.mod_voice .sequence_top .seq_right li{
+    &:hover{
+        background-color: #fff6d2;
+    }
+}
+/*麦序的背景 .drop_down li*/
+.mod_voice .sequence_top .seq_left .drop_down li{
+    &:hover{
+        background-color: #fff6d2;
+    }
+}
+/*踢出房间颜色  .list_pop li*/
+.mod_voice .list_voice li .list_pop li:hover{
+    background-color: #fff6d2;
+}
