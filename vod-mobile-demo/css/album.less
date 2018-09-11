@@ -1,0 +1,179 @@
+/**
+ * #name :  专辑
+ * author:  liangh;
+ */
+.mod_albums_hall{
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    bottom: 0;
+    overflow: hidden;
+    background: none;
+    width: 100%;
+    overflow-y: auto;
+    .albums_inner{
+        padding: 0px 0 10px;
+        li{
+            display: -webkit-box;
+            display: box;
+            background: #fff;
+            border-bottom: 1px solid #ccc;
+            &.cur{
+                p{
+                    .page{
+                        color: #56acf5;
+                    }
+                }
+                .ending {
+                    em{
+                        &.playing{
+                            display: block;
+                        }
+                    }
+                    
+                }
+            }
+            .link{
+                display: block;
+                width: 100%;
+                position: relative;
+                display: -webkit-box;
+                display: box;
+                text-decoration: none;
+            }
+            .img{
+                -webkit-box-flex: 0;
+                -moz-box-flex: 0;
+                box-flex: 0;
+                display: block;
+                width: 100px;
+                height: 75px;
+                img{
+                    width: 80px;
+                    height: 60px;
+                    margin-top: 7.5px;
+                    margin-left: 12px;
+                    display: block;
+                    border: 1px solid #eeeeee;
+                }
+            }
+
+            p{
+                -webkit-box-flex: 1;
+                -moz-box-flex: 1;
+                box-flex: 1;
+                font-size: 12px;
+
+                span{
+                    padding: 0 5px 10px 10px;
+                    display: block;
+                    line-height: 16px;
+                }
+                .page{
+                    padding-top: 14px;
+                    color: #333;
+                }
+            }
+            .ending{
+                -webkit-box-flex: 0;
+                -moz-box-flex: 0;
+                box-flex: 0;
+                display: block;
+                top: 0;
+                float: right;
+                position: absolute;
+                right: 0px;
+                em{
+                    &.playing{
+                        padding: 0;
+                        width: 50px;
+                        height: 20px;
+                        line-height: 20px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        margin: 38px 10px 0 0;
+                        color: #fff;
+                        background: #ffb949;
+                        border-radius: 3px;
+                        text-align: center;
+                        font-size: 12px;
+                        float: left;
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/*=======================================*/
+/*横屏*/
+.horizontal{
+    .mod_albums_hall{
+        // border-left: 1px solid #dddddd;
+        display: none;
+        .albums_inner{
+            li{
+                position: relative;    
+                margin-left: 12px;
+
+                &.cur{
+                    .ending {
+                        em{
+                            &.playing{
+                               display: inline;
+                            }
+                        }
+                        
+                    }
+                }
+                .album_text{
+                    position: relative;
+                    margin: 0 auto;
+                }
+                .link{
+                    display: block;
+                }
+                .ending{
+                    float: right;
+                    position: absolute;
+                    bottom: 14px;
+                    right: 0;
+                    top: 7px;
+                    padding-top: 8px;
+                    em{
+                        &.playing{
+                            padding: 4px;
+                            float: none;
+                        }
+                    }
+                }
+
+                p{
+                    display: inline-block;
+                    span{
+                        padding: 0 0 0 0;
+                        &.page{
+                            padding-bottom: 6px;
+                        }
+                        &.title{
+                            padding-bottom: 6px;
+                        }
+                    }
+                }
+                display: block;
+                .img{
+                    margin: 0 auto;
+                    height: 70px;
+                    img{
+                        width: 90px;
+                        margin-left: 0;
+                    }
+
+                }
+            }
+        }
+    }
+}

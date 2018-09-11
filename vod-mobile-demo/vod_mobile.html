@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="cn-zh">
+<head>
+	<title>欢拓云点播 - v3.0</title>
+	<meta charset="utf-8" />
+	<meta name="renderer" content="webkit" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+	<meta content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width" name="viewport" />
+	
+	<!--忽略数字为号码-->
+	<meta content="telephone=no" name="format-detection" />
+	
+	<!--去除safair 顶端状态条样式-->
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+
+	<!--Base loader-->
+    <style type="text/css">
+		.first_loader{
+			position: absolute;
+			width: 200px;
+			height: 100px;
+			top: 50%;
+			left: 50%;
+			margin: -50px 0 0 -100px;
+			border-radius: 1em;
+			font-family: "Hiragino Sans GB","\5FAE\8F6F\96C5\9ED1";
+			font-size: 12px;
+			color: #666;
+			text-align: center;
+		}
+		.hidden{
+			display: none;
+		}
+	</style>
+
+	<!-- @全局变量 -->
+	<script type="text/javascript">
+		
+		var __vode__ = true;
+
+		// #### 通过欢拓API接口，获得一个access_token ==> (自定义必需配置此变量) ####
+		var	access_token = "QGZhRTMllzYkV2MhRmNzkTY5MjYjFWZhVDZwgDOmFjM8xHf9JiI6IichRXY2FmIsIybBlWYnd2VJ12Y5p0NrREUiojIzVGZvNmIsICMiojIkl2ZiwiIwIiOiUWbpRlblRGZpJmcvZmIsICMiojIzVHdhR3ciwiIwIiOiIXZk5WZnJCLiUzM2kDNwYzM1EjI6ISZtlGdnVmciwiI4MzMwUzNiojIklWbv9mciwiIyV2c1JiOiUGbvJnIsIiMhJWN1xFOzUmN1xlI6ISZtFmbrNWauJCLicDO5ETMiojIkl2XyVmb0JXYwJCLiUjN2EDMxMVTDZkRBVkRDZjI6ICZpVnIsISOzETO1gDN0IiOiQWa4Jye";
+
+		//摄像头大小 0 ==> 大窗口，1 ==> 中窗口, 2 ==> 小窗口
+		var screenMode = "0"; 
+
+		//默认摄像头位置 0 ==> 上，1 ==> 下
+		var screenLocation = "1"; 
+
+		// 点播版本
+		var sdkVersion = "3.0";
+
+		// 模块配置
+		var modules_config = {};
+		
+		// 安装配置参数
+		var mainConfig = {
+			
+			// 静态资源路径
+			resHost: "192.168.10.168:8082/xampp-project/exercise/vod-mobile-demo/",
+
+			// 确认{access_token}存在
+			access_token: access_token
+		};
+	</script>
+
+	<script type="text/javascript">
+		// 表情包(可自行配制)
+		var basePath = '//static-1.talk-fun.com/open/cooperation/common/emotions/default/';
+		var HT_EMOTIONS_PACKAGE = {
+            '[aha]': basePath+'/001.gif',
+            '[hard]': basePath+'/002.gif',
+            '[good]': basePath+'/003.gif',
+            '[love]': basePath+'/004.gif',
+            '[flower]': basePath+'/005.gif',
+            '[cool]': basePath+'/006.gif',
+            '[why]': basePath+'/007.gif',
+            '[pitiful]': basePath+'/008.gif',
+            '[amaz]': basePath+'/009.gif',
+            '[bye]': basePath+'/010.gif'
+        };
+	</script>
+</head>
+<body>
+	<!-- @page-loader -->
+	<div id="first_loader" class="first_loader">数据加载中...</div>
+
+	<!-- #logs -->
+	<div id="logs"></div>
+
+	<!-- ##Dependent on HTSDK -->
+	<!-- section_wrap #房间容器-->
+	<section id="room" class="section_wrap hidden">
+	   <!--  ppt -->
+	    <div id="mod_ppt_wrap" class="mod_ppt_wrap">
+	        <!-- loading -->
+	    	<div id="load_mask" class="load_mask">
+		    	<span id="loading" class="loading"></span> 
+		    </div>
+	        <!--== mod_contorls 控制 -->
+            <div id="controls" class="mod_controls">
+                <div class="mod_ctrs">
+                    <!-- == play||pause == -->
+                    <span id="btn_pp" class="ctr_pp_btn"></span>
+                    <!-- == seek == -->
+                    <div id="mod_seek" class="seek_con">
+                        <div id="seek_range"></div>
+                    </div>
+                    <div class="mod_time">
+                    	<span id="cur_time" class="ctr_cur_time">00:00</span>
+                    	<span>/</span>
+                    	<span id="total_time" class="total_time">00:00</span>
+                    </div>
+                    
+                </div>
+            </div>
+	   		<div id="mod_main_player" class="mod_main_player">	
+	   		</div> 		
+	    </div>
+	   
+		<!-- ppt 区域 -->
+		<section id="mod_ppt" class="mod_ppt">
+		     <!-- #滚动消息 -->
+		    <article id="mod_scroll_info" class="scroll_info">
+		        <div class="main_scoller">
+		            <marquee class="sc_info">滚动信息怎么处理呢...</marquee>
+		            <span class="btn_close">CLOSE</span>
+		        </div>
+		    </article> 
+			<!-- 初始化遮罩层 -->
+			<section id="mod_mask" class="mod_mask_con">
+		        <div class="state">
+	            	<em></em>   
+	            	<span class="line"></span>        
+	            	<p id="live_text">正在加载中，请稍等
+	            		<span class="ani_dot">...</span>
+	            	</p>            
+	            </div>
+			</section>	
+			<div class="ppt_main">
+				<!--4:3-->
+				<img class="ftimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADAQMAAACOOjyFAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMITj1QVAAAAAFiS0dEAf8CLd4AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAALSURBVAjXY2AAAQAABgABZvTJbAAAAABJRU5ErkJggg==" alt=""/>
+				<!--16:9-->
+				<img class="osimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJAQMAAAAB5D5xAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMITj1QVAAAAAFiS0dEAf8CLd4AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAALSURBVAjXY2DACQAAGwABUkTkqQAAAABJRU5ErkJggg==" alt=""/>
+				<!--住播放区-->
+				<div class="mod_player_content">
+					<!-- <div id="mod_main_player" class="mod_main_player"></div> -->
+					<span id="click_play" class="mod_click_play"></span>
+				</div>
+			</div><!--  -->
+		</section> 
+
+		<!-- menu -->
+		<section  id="mod_menu" class="mod_menu">
+			<!--导航-->
+			<nav id="mod_menu_head" class="mod_menu_head">
+				<div class="ht_nav">
+					<!--导航-->
+					<div class="ht_nav_box">
+					    <div class="find_nav_list">
+							<ul class="ht_nav_list">  
+				                <li data-type="video" id="tab_video" class="selected">视频</li>
+				                <li data-type="chapter" id="tab_chapter">章节</li>
+				                <li data-type="chat" id="tab_chat">聊天<span class="c_num"></span></li>
+				               	<li data-type="ask" id="tab_ask">提问<span class="c_num"></span></li>
+				                <li data-type= "set" id="tab_set" class="hset"><span class="c_num"></span>设置</li>
+				            </ul>
+				        </div>        
+					</div>	
+					<!--刷新-->
+					<div class="reload hload">
+						<span>刷新</span>
+					</div> 
+					 <!--app 观看入口 
+					<div id="app_btn" class="app_btn">
+						<a>APP观看</a>
+					</div>-->
+				</div>
+			</nav>
+		</section> 
+		
+		<!--main modules -->
+		<section id="mod_modules" class="mod_modules">
+
+            <div class="mask_bg">
+				<i></i><span id="prepare">老师正在疯狂备课中...</span>
+			</div>
+
+			<div class="h_opration">
+			    <span class="set_icon">设置</span> 
+			    <span class="reload">刷新</span>		
+			</div>
+
+			<div id="left_toggle" class="left_toggle">
+				<span></span>
+			</div>
+
+		   <!-- 章节 --> 	
+		   <div id="chapter" class="mod_chapter_hall comm_oper">
+		   		<div id="chapter_section_hall" class="chapter_inner">
+		   			<ul class="mod_chapter_list" id="chapter_ul"></ul>
+		   		</div>	
+		   </div>
+
+		   <!--  聊天 -->
+		 	<div id="chat" class="mod_chat_hall comm_oper">
+				<div class="mod_chat_list">
+					<div id="chat_hall" class="chat_inner"></div>
+				</div>
+			</div>
+
+			<!-- 提问 -->
+			<div id="ask" class="mod_menu_question comm_oper">
+				<div id="question_hall" class="mod_ques_hall">
+					<div id="question_inner_hall"></div>
+				</div>
+			</div>
+
+			<!-- 设置 -->
+			<div id="set" class="mod_set comm_oper">
+				<!-- 切换网络成功提示框 -->
+				<div class="net_sucess">
+					 <span>切换成功</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- 摄像头区域-->
+		<div id="ht_camera_container" class="ht_camera_container hvr">
+			<div id="voice_bg" class="voice_bg">
+			    <div class="bottom_bg"></div>
+			    <div class="voice_content">
+			    	<img src=""/>
+			    	<span class="left_voice"></span>
+			    	<span class="right_voice"></span>
+					<div class="voice_title">
+						<em></em><span>纯音频模式</span>
+					</div>
+			    </div>
+			</div>
+		</div>
+
+	</section>
+
+	<!-- @模版加载 -->
+	<div id="template_loader"></div>
+
+	<!-- @静态资源加载器 -->
+	<script type="text/javascript">
+	/* TalkFun-CDN-Loader v2.7  www.talk-fun.com */
+	!function(e){var t=null;t=window.TALKFUN_CDN_HOSTS&&"object"==typeof window.TALKFUN_CDN_HOSTS&&window.TALKFUN_CDN_HOSTS.length>0?window.TALKFUN_CDN_HOSTS:["static-1.talk-fun.com","static-2.talk-fun.com","static-3.talk-fun.com","static.talk-fun.com"];var n=(e.TALKFUN_SCRIPT_DEPENS||[],e.document.body),o=t[0],r=/(static\-[\d]|static)\.talk-fun\.com/g,a=window.location.href.indexOf("cdnlog=list")>-1,c=e.document.location.protocol,i=c+"//"+t[0]+"/t.js",u=15e3,l=null;Array.prototype.forEach||(Array.prototype.forEach=function(e){var t=this.length;if("function"!=typeof e)throw new TypeError;for(var n=arguments[1],o=0;t>o;o++)o in this&&e.call(n,this[o],o,this)});var s=function(e,t,n){var o=e.length;if("function"!=typeof n)throw new TypeError;for(var r=0;o>r;r++)e[r]===t&&n.call(e,e[r],r)},f=function(e){return Array.prototype.slice.call(e,0)};e.TF_getStaticHost=function(e){var t=r,n=e.match(t);return n?e.replace(t,o):e};var d=function(){if(!a)return!1;e.console&&console.log.apply(console,arguments)},p=function(e,t){d("Post Log ===> "+t),v({url:c+"//log.talk-fun.com/stats.html",method:"GET",data:{__type:"static",state:e||"",errorfile:t||""}})},m=function(){var e={xhr:null,name:null},t=navigator.userAgent.match(/MSIE\s(\d.*?);/i)||null;if(t&&t.length>0&&(t=parseInt(t[1],10)),window.XDomainRequest&&10>t)e.xhr=new XDomainRequest,e.name="XDomainRequest";else if(window.XMLHttpRequest)e.xhr=new XMLHttpRequest,e.name="XMLHttpRequest";else if(window.ActiveXObject)try{e.xhr=new ActiveXObject("MSXML2.XMLHTTP.3.0"),e.name="ActiveXObject"}catch(n){return null}return e},h=function(e){if(!e)return e={},!1;var t=["url","method","timeout","dataType","data","success","error"];return t.forEach(function(t){var n=e[t];switch(t){case"url":n="string"==typeof n?n:"",e[t]=n;break;case"method":n="string"==typeof n?n:"GET",e[t]=n;break;case"dataType":n="string"==typeof n?n:null,e[t]=n;break;case"timeout":n=parseInt(n,10)||0,e[t]=n;break;case"data":n="object"==typeof n?n:null;var o="";if(n){var r=[],a="";for(var c in n)a=c+"="+n[c],r.push(a);o=encodeURI(r.join("&"))}if(e.url&&"get"===e.method.toLowerCase()){var i="?";e.url.indexOf("?")>-1&&(i="&"),e.url=e.url+i+o}e[t]=o;break;case"success":n="function"==typeof n?n:function(){},e[t]=n;break;case"error":n="function"==typeof n?n:function(){},e[t]=n}}),e},v=function(e){e=h(e);var t=m(),n=t.xhr,o=t.name;e.dataType&&(n.responeType=e.dataType),n.open(e.method,e.url,!0),n.timeout=e.timeout,"post"===e.method.toLowerCase()?(n.setRequestHeader&&n.setRequestHeader("Content-Type","application/x-www-form-urlencoded"),n.send(e.data)):n.send(null),"XMLHttpRequest"===o?n.onreadystatechange=function(){4===n.readyState&&(n.status>=200&&n.status<400?e.success.call(null,n):e.error.call(null,n))}:(n.onload=function(){e.success.call(null,n)},n.onerror=function(){e.error.call(null,n)})},y=[],l={},w=0;a&&(window.loadFileTimer=l,window.tryTimes=w,window.fileQueues=y);var T=function(e){return e.match(r)[0]},g=function(e,t){d("Do timeout job ==> "+e),l[e]||(l[e]=setTimeout(function(){d("load file timeout..."),t()},u))},L=function(e){l[e]&&(d("clear Timeout job ==> ",e),clearTimeout(l[e]),l[e]=null)},S=function(e,n,o,a,c,i,u){d("Error-Source ==> "+e+" => ("+c+")"),L(e),o.parentNode&&(o.removeEventListener("load",i),o.parentNode.removeChild(o));var l=T(e);if(l&&s(t,l,function(e,n){d("Delete CDN-HOST item ==> "+e),t.splice(n,1)}),0===t.length)return b(a,c),!1;var f="";f=e.replace(r,t[0]),setTimeout(function(){n.callee(f,a,u),d("try next one ==> "+f)},100),p(c,e)},b=function(e,t){if("function"==typeof e){var n={type:t,msg:"èµ„æºåŠ è½½"+("error"===t?"é”™è¯¯":"è¶…æ—¶")};e(null,n)}d("=====> ##### Resources Load "+t+"! ##### <======")},A=function(e){return d("Attributes ==> ",e),e?e:!1},E=function(e,t,o){var r=arguments,a=document.createElement("script"),c=function(){t(e)},i=A(o);if(i){var u=i;for(var l in u)a.setAttribute(l,u[l])}a.src=e,a.addEventListener("load",c,!1),a.addEventListener("error",function(){L(e),S(e,r,a,t,"error",c,o)},!1),n.appendChild(a),g(e,function(){S(e,r,a,t,"timeout",c,o)})},k=function(e,t){var n=document.createElement("link");n.rel="stylesheet",n.type="text/css",n.href=e,document.head.appendChild(n),t(e)},C=function(e,t){t(e)},_=function(){d("loader on success...");var e=document.querySelectorAll("img");e=f(e),e.length>0&&e.forEach(function(e){if(r.test(e.src)){var t=e.src;t=t.replace(r,o),e.src=t,d("[#IMG]"+e.src)}})},H=function(e,t){if(d("\n===========> ProcessFile... <============="),d(e,"\n\n"),"object"==typeof e&&"string"==typeof e.src&&"object"==typeof e.attrs)E(e.src,t,e.attrs);else if("string"==typeof e){var n=e.match(/\.js|\.css/i)||null;n||C(e,t),n&&n[0].indexOf(".js")>-1?E(e,t):n&&n[0].indexOf(".css")>-1&&k(e,t)}},N=function(t,n){var a=t;!function(){var t=arguments;H(a[0],function(c,i){return i?(n(i,null),!1):(L(c),a.splice(0,1),w=0,d("[###SUCCESS] ==> "+c),d("File-Queue ==> ",a),r.test(c)&&(e.TALKFUN_STATIC_HOST=T(c),o=T(c)),0===a.length?(d("ALL Resource Loaded."),"function"==typeof n&&n(null,"success"),_(),!1):void setTimeout(function(){r.test(a[0])&&o&&(a[0]=a[0].replace(r,o)),t.callee(a[0])},10))})}(a[0])},j=null,O=function(e,t){j||(clearTimeout(j),j=null),e&&e.length>0&&(y=y.concat(e)),j||(j=setTimeout(function(){N(y,t)},100))};e.talkfunLoader={},e.talkfunLoader.parallel=function(){},e.talkfunLoader.series=function(e,t){var n=e||[];n.unshift(i),n&&n.length>0&&O(n,t)}}(window);
+	</script>
+
+	<!-- @加载入口 -->
+	<script type="text/javascript" data-static-resource="true">
+		// 主文件配置列表
+	    var list = null;
+		list = [
+			"css/main.css",
+			"common/js/vod-core.js",
+			"css/swiper.min.css"
+		];
+		// init here.
+		window.talkfunLoader.series(list, function(error, response){
+			var fsloader = document.querySelector("#first_loader");
+			if(error){
+				fsloader.innerHTML = error.msg;
+			}else{
+				document.body.removeChild(fsloader);
+				document.querySelector("#room").className = "section_wrap";
+				seajs.use("main");	
+			}
+		});
+	</script>
+</body>
+</html>

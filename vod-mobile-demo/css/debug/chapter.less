@@ -1,0 +1,203 @@
+/**
+ * #name :  章节
+ * author:  liangh;
+ */
+.mod_chapter_hall{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0px;
+    overflow-y: auto;
+    .chapter_inner{
+        width: 100%;
+        height: 100%;
+            li{
+                &.cur{
+                    .page, .title{
+                        color: #56acf5;
+                    }
+                    p{
+                        span{
+                            &.title{
+                                color: #56acf5;
+                            }
+                        }
+                    }
+                }
+            }
+            .section_ctx_wp{
+                display: -webkit-box;
+                display: box;
+                background: #fff;
+                border-bottom: 1px solid #e5e5e5;
+                height: 50px;
+                overflow: hidden;
+                .chapter_text{
+                    // padding-left: 15px;
+                }
+                .section_num{
+                    // line-height: 50px;
+                    padding: 0 15px;
+                    font-size: 12px;
+                    span{
+                        display: block;
+                        padding-top: 10px;
+
+                    }
+                }
+                .time_ctx{
+                    padding: 0;
+                    height: 20px;
+                    overflow: hidden;
+                    em{
+                        // display: inline-block;
+                        float: left;
+                        &:nth-of-type(1){
+                            height: 20px;
+                            line-height: 20px;
+                            padding-right: 12px;
+                        }
+                        &.playing{
+                            padding: 1px 3px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            color: #fff;
+                            background: #ffb949;
+                            border-radius: 2px;
+                            text-align: center;
+                            font-size: 12px;
+                            margin-top: 1px;
+                        }
+                    }
+                }
+                // .ending{
+                //     float: right;
+                //     position: absolute;
+                //     right: 0px;
+                //     em{
+                //         &.playing{
+                //             padding: 0;
+                //             width: 50px;
+                //             height: 20px;
+                //             line-height: 20px;
+                //             white-space: nowrap;
+                //             overflow: hidden;
+                //             margin: 26px 10px 0 0;
+                //             color: #fff;
+                //             background: #ffb949;
+                //             border-radius: 3px;
+                //             text-align: center;
+                //             font-size: 12px;
+                //             float: left;
+                //             display: none;
+                //         }
+                //     }
+                // }
+                .img{
+                    -webkit-box-flex: 0;
+                    -moz-box-flex: 0;
+                    box-flex: 0;
+                    display: block;
+                    width: 100px;
+                    height: 75px;
+                    img{
+                        width: 80px;
+                        height: 60px;
+                        margin-top: 7.5px;
+                        margin-left: 12px;
+                        display: block;
+                        border: 1px solid #eeeeee;
+                    }
+                }
+                p{
+                    -webkit-box-flex: 1;
+                    float: left;
+                    -moz-box-flex: 1;
+                    box-flex: 1;
+                    font-size: 12px;
+                    span{
+                        padding: 0 5px 10px 0;
+                        display: block;
+                        line-height: 16px;
+                        &.page{
+                            padding-top: 14px;
+                            color: #333;
+                        }
+                        &.title{
+                            padding: 10px 5px 0px 0;
+                            color: #333;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+                    }
+                }
+
+
+            }
+
+
+    }
+   
+}
+
+
+/*=======================================*/
+/*横屏*/
+.horizontal{
+    /*.mod_chapter_hall{
+        // border-left: 1px solid #dddddd;
+        .chapter_inner{
+            ul{
+                margin-bottom: 34px;
+            }
+            li{
+                position: relative;    
+                margin-left: 12px;
+                .chapter_text{
+                    position: relative;
+                    width: 100px;
+                    margin: 0 auto;
+                }
+                .ending{
+                    float: right;
+                    position: absolute;
+                    bottom: 14px;
+                    right: 0;
+                    padding-top: 8px;
+                    em{
+                        &.playing{
+                            padding: 4px;
+                            float: none;
+                        }
+                    }
+                }
+
+                p{
+                    display: inline-block;
+                    float: none;
+                    width: 100px;
+                    span{
+                        padding: 0 0 0 0;
+                        &.page{
+                            padding-bottom: 6px;
+                        }
+                        &.title{
+                            padding-bottom: 6px;
+                        }
+                    }
+                }
+                display: block;
+                .img{
+                    margin: 0 auto;
+                    height: 70px;
+                    img{
+                        width: 90px;
+                        margin-left: 0;
+                    }
+
+                }
+            }
+        }
+    }*/
+}

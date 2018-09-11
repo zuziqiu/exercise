@@ -1,0 +1,230 @@
+<!-- @章节列表 -->
+<script id="tpl_section_list" type="text/html">
+    <li id="{{chapters.sn}}" data-time="{{chapters.starttime}}" class="{{if chapters.sn === 0}}cur{{/if}}">
+        <!--<span class="img"><img src="{{chapters.thumb}}"/></span>-->
+        <div class="section_ctx_wp">
+            <div class="section_num">
+                {{if chapters.page>10000}}
+                <span class="page">黑板{{chapters.page-10000}}</span>
+                {{else}}
+                <span class="page">{{chapters.page}}</span>
+                {{/if}}
+            </div>
+            <div class="chapter_text">
+                <p>
+                    <span class="title">{{chapters.title}}</span>
+                    <span class="time_ctx">
+                        <em>时间：{{chapters.starttime | chapterTime: chapters.starttime}}</em>
+                        <em class="playing">播放中</em>
+                    </span>
+                </p>
+            </div>
+        </div>
+    </li>
+</script>
+
+<!-- @聊天 -->
+<script id="chat_msg" type="text/html">
+    {{each data as d}}
+    <div id="chat_pos_{{d.starttime}}" data-stime="{{d.starttime}}" class="pub_msg">
+        <img src="{{d.role | getAvatar: d.role}}" alt="" class="avatar"/>
+        <div class="chat_right">
+        	 <span class="nickname">{{d.nickname}}</span>
+        	 {{if d.role != "user"}}
+        	 <div class="is_{{role}} comm">
+                 {{if d.role == "admin"}}
+        	 	    <em>助教</em>
+                 {{else}}
+                    <em>老师</em>
+                 {{/if}}
+        	 	 <span></span>
+        	 </div>
+        	 {{/if}}
+        	 <span class="chat_time">{{d.starttime | converTime: d.starttime}}</span>
+        	 <p>{{#d.message}}</p>
+        </div>
+    </div>
+    {{/each}}
+</script>
+
+<!-- @聊天广播 -->
+<script id="chat_msg_v2" type="text/html">
+    {{each data as d}}
+    <!-- @聊天 -->
+    {{if d.cmd == "1" || !d.cmd}}
+    <div id="chat_pos_{{d.starttime}}" data-stime="{{d.starttime}}" class="pub_msg">
+        <img src="{{d.role | getAvatar: d.role}}" alt="" class="avatar"/>
+        <div class="chat_right">
+             <span class="nickname">{{d.nickname}}</span>
+             {{if d.role != "user"}}
+             <div class="is_{{role}} comm">
+                 {{if d.role == "admin"}}
+                    <em>助教</em>
+                 {{else}}
+                    <em>老师</em>
+                 {{/if}}
+                 <span></span>
+             </div>
+             {{/if}}
+             <span class="chat_time">{{d.starttime | converTime: d.starttime}}</span>
+             <p>{{#d.message | getResContent: d.message}}</p>
+        </div>
+    </div>
+    {{/if}}
+    <!-- @广播 -->
+    {{if d.cmd == "3"}}
+        <span class="notify">公共广播：{{d.msg}}</span>
+    {{/if}}
+    {{/each}}
+</script>
+
+<!-- @问答列表 -->
+<script id="tpl_qulist" type="text/html">
+    {{each data as qus}}
+    <dl id="que_{{qus.qid}}" class="que_{{qus.qid}}">
+        <dd>
+            <img src="{{qus.role | getAvatar: qus.role}}"  alt="" class="avatar"/>
+            <div class="q_t">
+                <div class="uname">
+                    <div class="que_right">
+                         <span class="nickname">{{qus.nickname}}</span>
+                         {{if qus.role != "user"}}
+                         <div class="is_{{qus.role}} comm">
+                             {{if role == "admin"}}
+                                <em>助教</em>
+                             {{else}}
+                                <em>老师</em>
+                             {{/if}}
+                             <span></span>
+                         </div>
+                         {{/if}}
+                         <span class="chat_time">{{qus.time | converTime: qus.time}}</span>
+                         <p>{{qus.content}}</p>
+                    </div>
+                   <!-- 回答 --> 
+                   <div class="q_re">
+                        {{each qus.answer as rep}}
+                        <div class="que_{{rep.qid}}">
+                            <div class="rep_person"> 
+                                <span class="{{rep.role}}">{{if rep.role === "spadmin"}}[老师回答]:{{else if rep.role === "admin"}}[助教回答]:{{else rep.role === "user"}}[学生]:{{/if}}</span> 
+                                <span class="rep_msg">{{rep.content}}</span>
+                            </div>
+                        </div>
+                        {{/each}}
+                   </div>
+                </div>
+            </div>
+        </dd>
+    </dl>
+    {{/each}}
+</script>
+
+<!-- @添加问题 -->
+<script id="tpl_add_ques" type="text/html">
+    <dl id="que_{{qid}}" class="que_{{qid}} {{isShow}}">
+        <dd>
+            <img src="{{avatar}}" alt="" class="avatar"/>
+            <div class="q_t">
+                <div class="uname">
+                    <div class="que_right">
+                         <span class="nickname">{{nickname}}</span>
+                         {{if role != "user"}}
+                         <div class="is_{{role}} comm">
+                             <em>老师</em>
+                             <span></span>
+                         </div>
+                         {{/if}}
+                         <span class="chat_time">{{time | converTime: time}}</span>
+                         <p>{{content}}</p>
+                    </div>
+                </div>
+                <div class="re_list"></div>
+            </div>
+        </dd>
+    </dl>
+</script>
+
+<!-- @回复问题 -->
+<script id="tpl_res_ques" type="text/html">
+    <div class="q_re que_{{qid}}">
+        <div class="que_{{qid}}">
+            <div class="rep_person"> 
+                <span class="{{role}}">{{if role === "spadmin"}}[老师回答]:{{else if role === "admin"}}[助教回答]:{{else role === "user"}}[学生]:{{/if}}</span> 
+                <span class="rep_msg">{{content}}</span>
+            </div>
+        </div>
+        <!-- <div class="uname">
+             <span class="{{role}}">{{if role === "spadmin"}}<i></i>{{nickname}}<em></em>{{else if role === "user"}}<i></i>{{nickname}}{{else if role === "admin"}}<i></i>{{nickname}}<em></em>{{/if}}:</span>
+             <p>{{#msg}}</p>
+        </div>
+        <p>{{content}}</p> -->
+    </div>
+</script>
+
+<!-- @设置 -->
+<script id="set_mod_tmp" type="text/html">
+    <ul  class="set_menu">
+        <div class="toggle" id="toggle">收起</div>
+        <div class="menu_list">
+            <li data-op="video" class="video_status">
+                <i></i>
+                <span>开启音频</span>
+            </li>
+            <li data-op="screen" class="screen_change">
+                <i id="icon_change"></i>
+                <span>屏幕切换</span>
+            </li>
+            <li data-op="net" class="net_choice">
+                <i></i>
+                <span>网络选择</span>
+            </li>
+        </div>
+    </ul>        
+</script>
+
+<!-- @返回-->
+<script id="notice_mod_temp" type="text/html">
+        <div id="mod_notice" class="mod_notice">
+            <div id="back_btn" class="back_btn">
+                 <span>返回</span>
+            </div>
+            <div id="notice_content" class="notice_content">
+                <h3>公告</h3>
+                <!-- <p></p> -->
+            </div>      
+        </div>     
+</script>
+
+<!-- @网络选择 -->
+<script id="net_mod_temp" type="text/html">
+    <div id="network" class="mod_network">
+        <div class="network_cont">
+           <div class="back_btn">
+               <!--  <em class="title">选择网络</em> -->
+                <span>返回</span>
+           </div>
+            <div class="net_text">95%情况下自动选择最佳线路的流畅度最好</div>
+           <div id="network_chooese" class="net_select">
+               <ul id="select_network"></ul>
+           </div> 
+        </div>
+    </div>
+</script>
+
+<!-- @兼容模式提示窗口 -->
+<script id="mod_room_compatiable_mode" type="text/html">
+    <article class="mod_room_compatiable">
+        <span class="close_comptipop"></span>
+        <h4>提示</h4>
+        <div class="show_ios">
+            <p>点击播放后，若出现系统全屏问题，请点击右下角的缩放按钮正常观看</p>
+            <div class="the_case">
+                <span>缩放</span>
+            </div>
+        </div>
+        <div class="show_android">
+            <p>出现系统全屏播放的问题，请使用兼容模式正常观看</p>
+            <div class="launch_compatiable">兼容模式</div>
+        </div>
+    </article>
+</script>
