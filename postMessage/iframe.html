@@ -10,9 +10,8 @@
     iframe
     <script>
         window.addEventListener('message',function(event) {
-            // if(event.origin !== 'http://davidwalsh.name') return;
             console.log('来自父级窗口message received:  ' + event.data,event);
-            event.source.postMessage('holla back youngin!',event.origin);
+            event.source.postMessage('holla back youngin!',"*");
         },false);
     </script>
 </body>

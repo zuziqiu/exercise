@@ -10,15 +10,11 @@
     <iframe id='myIFrame' src="iframe.html" frameborder="0"></iframe>
     <script>
         window.onclick = function() {
-            //捕获iframe
-            // var domain = 'http://scriptandstyle.com';
-            var domain = 'http://127.0.0.1:8082';
+            var domain = '*';
             var iframe = document.getElementById('myIFrame').contentWindow;
             
             //发送消息
             var message = 'Hello!  The time is: ' + (new Date().getTime());
-            // console.log('blog.local:  sending message:  ' + message);
-            //send the message and target URI
             iframe.postMessage(message,domain); 
         }
     </script>
