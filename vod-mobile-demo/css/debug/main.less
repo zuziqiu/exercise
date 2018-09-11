@@ -1,0 +1,622 @@
+/**
+ * #css 主文件包
+ */
+@import "../../common/css/reset.less"; //重置CSS标签 
+@import "ppt.less"; // 导航条
+@import "menu_slide.less"; // 导航条
+@import "chat.less";//聊天样式引用
+@import "question.less";//问答样式引用
+@import "set.less";//设置样式引用
+@import "camera.less";//抽奖样式引用
+@import "message.less";//滚动通知、T人样式
+@import "widgets.less";//引入小部件样式
+@import "chapter.less";//章节样式引用
+@import "album.less";//专辑样式引用
+
+
+/* portrait */
+@media screen and (orientation:portrait) {
+    body{
+        width: 100%;
+    }
+
+}
+/* landscape */
+@media screen and (orientation:landscape) {
+    body{
+        width: 100%;
+    }
+}
+
+//比列
+@scale: 2;
+.section_wrap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+
+    // 兼容模式
+    &.room_compatible{
+        .mod_menu{
+            position: relative;
+            z-index: 10002;
+        }
+        .mod_modules{
+            position: relative;
+            z-index: 100002;
+        }
+        .mod_ppt_wrap{
+            z-index: 10003;
+        }
+        .ht_camera_container{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            #mtAuthorPlayer{
+                width: 100%;
+                height: 100%;
+            }
+            video{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+            }
+        }
+    }
+
+    //fix WX UC
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    -webkit-flex-direction: column;
+    -webkit-box-direction: column;
+    -moz-flex-direction: column;
+    -moz-box-direction: column;
+
+    // fix UC
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+
+    // origent
+    flex-direction: column;
+    display: flex;
+
+
+   /* ppt*/
+   .mod_ppt_wrap{
+        width: 100%;
+        position: absolute;
+        &.smallppt{
+            right: 0;
+            width: 30%;
+            z-index: 99;
+            overflow: hidden;
+            display: block;
+        }
+        /*top: 0;*/
+       /* left: 0;
+        right: 0;*/
+        z-index: 99;
+        &.mode_2_toggled{
+            right: 0;
+        }
+        &.pptvs{
+            bottom: 0px; 
+        }
+        #mod_main_player {
+            overflow: hidden;
+            z-index: 990;
+            position: absolute;
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+            background-position: 0 bottom;
+        }
+   }
+    
+    
+    //PPT模块
+    .mod_ppt {
+        flex: none;
+        -webkit-flex: none;
+        -webkit-box-flex: none;
+        -moz-box-flex: none;
+        position: relative;
+        overflow: hidden;
+        background: #FFFFFF;
+        img {
+            width:100%;
+            height: 100%;
+            display: block;
+            &.osimg{
+                display: none;
+            }
+        }
+        .mod_player_content{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            .mod_click_play{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                display: block;
+                z-index: 9999;
+                background-color: rgba(100, 100, 100, 0.1);
+                background-image: url(img/ico_clickplay.png);
+                // background-position: right bottom;
+                background-repeat: no-repeat;
+                background-size: 70px 70px;
+                background-position: 50% 50%;
+                opacity: 1;
+            }
+        }
+    }
+
+    //导航
+    .mod_menu {
+        width: 100%;
+        height: 34px;
+        -webkit-box-flex: none;
+        -webkit-flex: none;
+        -moz-box-flex: none;
+        -moz-flex: none;
+        flex: none; //不列入flex计算范围
+        border-top: 1px solid #ced0d1;
+        background: #ffffff;
+        overflow: hidden;
+        .mod_menu_head {
+            width: 100%;
+            height: 33px;
+            display: flex;
+            display: -webkit-flex;
+            border-bottom: 1px solid #dddddd;
+            height: 66px/@scale;
+        }
+    }
+
+
+    //模块
+    .mod_modules{
+        -webkit-flex: 1;
+        -webkit-box-flex: 1;
+        -moz-flex: 1;
+        -moz-box-flex: 1;
+        flex: 1;
+    /*    z-index: 90;*/
+        background: #ffffff;
+        position: relative;
+        .mask_bg{
+           position: absolute; 
+           top: 0;
+           bottom: 0px; 
+           left: 0;
+           z-index: 99; 
+           right: 0; 
+           width: 100%;
+           background: #f5f5f5;  
+          /* background-size: 100% auto; */
+           text-align: center;
+          i{
+            display: block;
+            width: 150px;
+            height: 108px;
+            left: 50%;
+            top: 50%;
+            margin-top: -54px;
+            margin-left: -75px;
+            position: absolute;
+            background: url("img/t.png");
+            background-size: 100% auto;
+          }
+          span{
+            font-size: 1.4rem;
+            display: none;
+          }
+        }
+        // border: 1px solid blue;
+    }
+
+    // 横屏样式
+    &.horizontal{
+        display: -webkit-flex;
+        display: -webkit-box;
+        display: -moz-flex;
+        display: -moz-box;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+
+        // fix UC
+        -webkit-box-orient: horizontal;
+        -moz-box-orient: horizontal;
+        box-orient: horizontal;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        
+        // normal
+        -webkit-align-content: center;
+        -moz-align-content: center;
+        align-content: center;
+
+        overflow: hidden;
+        .mod_ppt_wrap{
+            width: 70%;
+            height: 100%;
+            // z-index: 110;
+            // border-right: 1px solid #dddddd; 
+            &.ppths{
+                width: 30%;
+                top: 35px;
+                right: 0px;
+                z-index: 120;
+                // border-left: 1px solid #dddddd;
+            }
+
+            &.setcw{
+                width: 100%;
+            }
+            #mod_main_player {
+                z-index: 990;
+                position: absolute;
+              /*  overflow: hidden;
+                top: 0;
+                position: absolute;
+                z-index: 99;
+                background-repeat: no-repeat;
+                background-size: 100% auto;
+                background-position: 0 bottom;*/
+            }
+        }
+    
+        .mod_ppt{
+            width: 70%;
+            height: 100%;
+            flex: 1;
+            position: relative;
+            -webkit-box-flex: 1;
+            -moz-box-flex: 1;
+            box-flex: 1;
+            background: #ffffff;
+            .ppt_main{
+                height: 100%;
+                width: 100%;
+                img {
+                    &.ftimg{
+                        display: none;
+                    }
+                    &.osimg{
+                        display: block;
+                    }
+                }
+                .mod_player_content{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+
+        // menu
+        .mod_menu{
+            width: 30%;
+            height: 34px;
+            -webkit-box-flex: none;
+            -webkit-flex: none;
+            -moz-box-flex: none;
+            -moz-flex: none;
+            flex: none; //不列入flex计算范围
+            position: absolute;
+            right: 0;
+            border-top: 1px solid #ffffff;
+            border-left:1px solid #dddddd;
+            // border-right: 1px solid #dddddd;
+            // border-bottom: 1px solid #dddddd;
+            z-index: 100;
+            &.close{
+                width: 0px;
+                overflow: hidden;
+                -webkit-box-flex: 0;
+                -moz-flex: 0;
+                -moz-box-flex: 0;
+                -webkit-flex: 0;
+                flex: 0;
+                border: 0 none;
+                /*-webkit-box-flex: 1;
+                -webkit-flex: 1;
+                flex: 1;*/
+               /* transition:width 0.5s;
+                -webkit-transition:width 0.5s; 
+                -o-transition:width 0.5s;*/
+            }
+            &.open{
+                /*-webkit-box-flex: 1;
+                -webkit-flex: 1;
+                flex: 1;*/
+                width: 30%;
+                -webkit-box-flex: none;
+                -webkit-flex: none;
+                -moz-box-flex: none;
+                -moz-flex: none;       
+                flex: none;
+                
+               /* transition:width 0.5s;
+                -webkit-transition:width 0.5s;  Safari and Chrome 
+                -o-transition:width 0.5s; /* Opera */
+            }
+            .mod_menu_head{
+                // border-left:1px solid #dddddd; 
+                .ht_nav{
+                    width: 100%;
+                    .ht_nav_box{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        //main modules
+        .mod_modules{
+            width: 30%;
+            position: relative;
+            flex: none;    
+            box-flex: none;
+            border-left: 1px solid #dddddd;
+            -webkit-box-flex: none;
+            -moz-box-flex: none;
+            height: 100%;
+            margin-top: 35px;
+            &.close{
+                width: 0;
+                position: absolute;
+                overflow: hidden;
+                -webkit-box-flex: 0;
+                -moz-flex: 0;
+                -moz-box-flex: 0;
+                -webkit-flex: 0;
+                flex: 0;
+                /*transition:width 0.5s;
+                -webkit-transition:width 0.5s;
+                -o-transition:width 0.5s; */
+            }
+            &.open{
+                width: 30%;
+                position: relative;
+                -webkit-box-flex: none;
+                -webkit-flex: none;
+                -moz-box-flex: none;
+                -moz-flex: none;
+                flex: none;
+                z-index: 100;
+              /*  transition:width 0.5s;
+                -webkit-transition:width 0.5s;
+                -o-transition:width 0.5s;*/
+            }
+            &.st{
+                width: 60%;
+                flex: 0.9;
+                -webkit-box-flex: 0.9;
+               /* -moz-box-flex: 0.9;*/
+              /*  box-flex: 0.9;*/
+            }
+            //聊天
+            .mod_chat_hall{
+                width: 100%;
+                
+            }
+            //发送聊天
+            .mod_chat_post{
+               /* width: 100%;*/
+                //flex: 1;
+                /*bottom: 0;*/
+               /* position: absolute;*/
+            }
+            //提问
+            .mod_menu_question{
+                width: 100%;
+                flex: 1;
+                -webkit-box-flex: 1;
+                -moz-box-flex: 1;
+                box-flex: 1;
+            }
+            //摄像头
+            /*.ht_camera_container{
+                position: fixed;
+                display: none;
+                top: 36px;
+                width: 80px;
+                height: 80px;
+                z-index: 9999;
+            }*/
+        }
+    }
+}
+
+//fixed ->初始化遮罩层
+/*.mod_mask_con{
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    text-align: center;
+    display: none;
+}*/
+
+#pop_tips{
+    position: absolute;
+    background: #FFFFFF;
+    border: 1px solid #d8d8d8;
+    border-radius:3px;
+    z-index: 999990;
+    width: auto;
+    height: 23px;
+    display: none;
+    &.show{
+        display: block;
+    }
+    p{
+        min-width: 100px;
+        line-height: 23px;
+        text-align: center;
+        padding: 0 6px;
+        color: #333333;
+        white-space: nowrap;
+    }
+    .cner{
+        position:absolute;
+        width:9px;
+        height:5px;
+        bottom:-5px;
+        right:11px;
+        background:url(img/corner_emo.png) no-repeat;
+    }
+}
+
+//loading
+.load_mask{
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 8px;
+    margin-left: -30px;
+    margin-top: -30px;
+    background-color: #ffffff;
+    display: none;
+    z-index: 999999;
+    background-repeat: no-repeat; 
+    background-size: 60px 60px;
+    background-position: 50% 50%;
+    opacity: 1  ;  
+    box-shadow: 0 0 6px rgba(0,0,0,0.3);
+    .loading{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: block;
+        z-index: 999;
+        border-radius: 8px;
+        background: #ffffff url(img/loading.gif);
+        background-repeat: no-repeat;
+        background-size: 60px 60px;
+        background-position: 50% 50%;
+    /* -webkit-animation:change 2s linear infinite; 
+        animation:change 1s linear infinite;  */    
+    }
+}
+
+// @compatible => (兼容模式)
+.mod_room_compatiable{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(255, 255, 255, 0.9);
+    z-index: 10003;
+
+    // FadeIn 动画效果.
+    @fadeInTimes: 0.3s;
+    -webkit-animation: fadein @fadeInTimes;
+    animation: fadein @fadeInTimes;
+
+    // normal
+    @keyframes fadein {
+        from{top: 100%;}
+        to{top: 0;}
+    }
+    /* Safari, Chrome and Opera > 12.1 */
+    @-webkit-keyframes fadein {
+        from{top: 100%;}
+        to{top: 0;}
+    }
+
+    .show_ios,
+    .show_android{
+        display: none;
+    }
+
+    .close_comptipop{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 10px;
+        height: 10px;
+        margin: 5px;
+        background: url(img/pop_close_2x.png) 50% 50% no-repeat;
+        background-size: 100% auto;
+    }
+
+    h4{
+        padding: 15px 5px 8px;
+        text-align: center;
+        font-size: 24px;
+        color: #333333;
+    }
+    p{
+        font-size: 16px;
+        line-height: 26px;
+        padding: 0 20px;
+        color: #333333;
+        // text-align: center;
+    }
+    .the_case{
+        //padding: 5px 0;
+        width: 284px/2;
+        height: 154px/2;
+        overflow: hidden;
+        margin: 15px auto 0;
+        span, em{
+            float: left;
+            width: 40px;
+            height: 40px;
+            overflow: hidden;
+            line-height: 40px;
+            text-align: center;
+            margin: 0 0 0 0;
+        }
+        span{
+            font-size: 16px;
+            color: #FFFFFF;
+            //background-color: #56ACF5;
+            &:nth-of-type(1){
+                width: 284px/2;
+                height: 154px/2;
+                background-image: url("img/ios_tips.png");
+                background-repeat: no-repeat;
+                background-size: 284px/2 154px/2;
+                background-position: center center;
+                text-indent: -99999em;
+            }
+        }
+        em{
+            font-size: 16px;
+            // color: #606060;
+        }
+    }
+    .launch_compatiable{
+        width: 140px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        margin: 20px auto;
+        font-size: 16px;
+        color: #FFFFFF;
+        border-radius: 5px;
+        background-color: #56acf5;
+    }
+}    
+
+// @import '../../../common/css/h5-skin/live-darkBlue.less'; // 深色皮肤

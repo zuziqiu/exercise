@@ -1,0 +1,355 @@
+/**
+ * #name :  提问
+ * author:  liangh;
+ */
+.mod_menu_question {
+  position: absolute;
+  width: 100%;
+  display: none;
+  top: 0;
+  bottom: 0px;
+}
+.mod_menu_question .mod_ques_hall {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.mod_menu_question .mod_ques_hall dl {
+  width: auto;
+  min-height: 60px;
+  /*管理员标志*/
+}
+.mod_menu_question .mod_ques_hall dl.hide {
+  display: none;
+}
+.mod_menu_question .mod_ques_hall dl:last-child {
+  border-bottom: 0 none;
+}
+.mod_menu_question .mod_ques_hall dl i {
+  /*display: inline-block;*/
+  position: relative;
+  font-size: 10px;
+  top: -1px;
+  padding: 2px;
+  margin-right: 5px;
+  border-radius: 5px;
+  color: #FFFFFF;
+  background: #CCCCCC;
+  font-style: normal;
+  /*颜色差异*/
+}
+.mod_menu_question .mod_ques_hall dl i.admin {
+  background-color: #f08336;
+}
+.mod_menu_question .mod_ques_hall dl i.spadmin {
+  background-color: #e71a2f;
+}
+.mod_menu_question .mod_ques_hall dl i.user {
+  display: none;
+}
+.mod_menu_question .mod_ques_hall dl dt {
+  float: left;
+  width: 24px;
+  height: 34px;
+  line-height: 24px;
+  font-size: 12px;
+  color: #888888;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 50em;
+}
+.mod_menu_question .mod_ques_hall dl dd {
+  padding: 8px 16px 0px;
+  /*   span{
+                    &.user{
+                        i{
+                           background-position: 0 -75px;
+                           background-size: 100% auto;
+                        }
+                    }
+                    &.admin{
+                        i{
+                            background-position: 0 -35px;
+                            background-size: 100% auto;
+                            margin-top: 10px;
+                        }
+                    }
+                    &.spadmin{
+                        i{
+                            background-position: 0 0;
+                            background-size: 100% auto;
+                            margin-top: 7.5px;
+                        }
+                    } 
+                    i{
+                        width: 25px;
+                        float: left;
+                        display: block;
+                        height: 25px;
+                        background: url("img/b_avatars.png");
+                        padding: 2px;
+                        position: relative;
+                        bottom: 0px;
+                       margin: 0 5px 0 0;
+                    }
+                }*/
+  /*问*/
+  /*答*/
+  /*公共配置*/
+}
+.mod_menu_question .mod_ques_hall dl dd .q_t {
+  margin-left: 36px;
+  border-bottom: 1px solid #f6f6f6;
+}
+.mod_menu_question .mod_ques_hall dl dd .avatar {
+  width: 28px;
+  float: left;
+  display: block;
+  height: 28px;
+  padding: 2px;
+  position: relative;
+  bottom: 0px;
+  margin: 0 5px 0 0;
+  border-radius: 50em;
+}
+.mod_menu_question .mod_ques_hall dl dd .re_btn {
+  margin: 5px 0;
+  display: block;
+  width: 56px;
+  height: 26px;
+  line-height: 26px;
+  border-radius: 3px;
+  background: #FF1003;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+.mod_menu_question .mod_ques_hall dl dd .re_btn.active {
+  background: #42B7F7;
+}
+.mod_menu_question .mod_ques_hall dl dd .q_t .uname {
+  /* height:24px;*/
+  line-height: 24px;
+  font-size: 12px;
+  overflow: hidden;
+  color: #8d9890;
+}
+.mod_menu_question .mod_ques_hall dl dd .q_t .uname .que_right {
+  position: relative;
+  bottom: 1px;
+}
+.mod_menu_question .mod_ques_hall dl dd .q_t .uname .que_right .comm {
+  width: 36px;
+  height: 22px;
+  position: relative;
+  top: 9px;
+  display: inline-block;
+}
+.mod_menu_question .mod_ques_hall dl dd .q_t .uname .que_right .comm.is_admin em {
+  width: 30px;
+  display: inline-block;
+  color: #ffffff;
+  line-height: 19px;
+  text-align: center;
+  font-size: 12px;
+  position: absolute;
+  right: 0px;
+  font-style: normal;
+  border-radius: 2px;
+  height: 19px;
+  background: #ffac2d;
+}
+.mod_menu_question .mod_ques_hall dl dd .q_t .uname .que_right .comm.is_admin span {
+  width: 0;
+  position: absolute;
+  left: 0;
+  height: 0;
+  top: 5px;
+  border-top: 4px solid transparent;
+  border-right: 6px solid #ffac2d;
+  border-bottom: 4px solid transparent;
+}
+.mod_menu_question .mod_ques_hall dl dd .q_t .uname .que_right .comm.is_spadmin em {
+  width: 30px;
+  display: inline-block;
+  color: #ffffff;
+  line-height: 19px;
+  text-align: center;
+  font-size: 12px;
+  position: absolute;
+  right: 0px;
+  font-style: normal;
+  border-radius: 2px;
+  height: 19px;
+  background: #f54957;
+}
+.mod_menu_question .mod_ques_hall dl dd .q_t .uname .que_right .comm.is_spadmin span {
+  width: 0;
+  position: absolute;
+  left: 0;
+  height: 0;
+  top: 5px;
+  border-top: 4px solid transparent;
+  border-right: 6px solid #f54957;
+  border-bottom: 4px solid transparent;
+}
+.mod_menu_question .mod_ques_hall dl dd .q_t .uname .que_right .nickname {
+  color: #75787c;
+  font-size: 12px;
+}
+.mod_menu_question .mod_ques_hall dl dd .q_t .uname .que_right .chat_time {
+  color: #b1b6bc;
+  font-size: 12px;
+  padding-left: 13px;
+}
+.mod_menu_question .mod_ques_hall dl dd .q_t .uname .que_right p {
+  color: #556259;
+  font-size: 14px;
+  padding: 3px 0 4px 0;
+  word-break: break-word;
+}
+.mod_menu_question .mod_ques_hall dl dd .q_re {
+  padding: 0 0 5px 0;
+}
+.mod_menu_question .mod_ques_hall dl dd .q_re .rep_person {
+  font-size: 14px;
+  line-height: 24px;
+  color: #56acf5;
+  /* margin-top: 5px;*/
+  overflow: hidden;
+  background: url(img/icons.png) 0 -212px no-repeat;
+}
+.mod_menu_question .mod_ques_hall dl dd .q_re .rep_person .rep_msg {
+  /*margin-left: 10px;*/
+  color: #556259;
+}
+.mod_menu_question .mod_ques_hall dl dd .q_re .rep_person .user i {
+  background-position: 0 -82px;
+}
+.mod_menu_question .mod_ques_hall dl dd .q_re .rep_person .admin i {
+  background-position: 0 -44px;
+}
+.mod_menu_question .mod_ques_hall dl dd .q_re .rep_person .admin em {
+  background: url("img/role_icon.png") no-repeat;
+  display: inline-block;
+  width: 37px;
+  height: 20px;
+  background-size: 30px auto;
+  position: relative;
+  top: 9px;
+  left: 4px;
+}
+.mod_menu_question .mod_ques_hall dl dd .q_re .rep_person .spadmin i {
+  background-position: 0 0;
+}
+.mod_menu_question .mod_ques_hall dl dd .q_re .rep_person .spadmin em {
+  background: url("img/role_icon.png") no-repeat;
+  display: inline-block;
+  width: 37px;
+  height: 20px;
+  background-size: 30px auto;
+  position: relative;
+  top: 9px;
+  left: 4px;
+  background-position: 0 -27px;
+}
+.mod_menu_question .mod_ques_hall dl dd .q_re .rep_person i {
+  /*display: inline-block;*/
+  width: 24px;
+  float: left;
+  display: block;
+  height: 28px;
+  background: url("img/avatars.png");
+  padding: 2px;
+  margin: 7.5px 5px 0 0;
+}
+.mod_menu_question .mod_ques_hall dl dd .q_re p {
+  word-break: break-all;
+  color: #333333;
+}
+.mod_menu_question .mod_ques_hall dl dd .q_t p,
+.mod_menu_question .mod_ques_hall dl dd .re_msg p {
+  padding-bottom: 3px;
+  padding-left: 32px;
+  font-size: 14px;
+  line-height: 20px;
+}
+.mod_menu_question .mod_ques_post {
+  height: 28px;
+  background: #f6f8f9;
+  padding: 4px 0 6px 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  position: fixed;
+  z-index: 105;
+  bottom: 0px;
+  width: 100%;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+.mod_menu_question .mod_ques_post .post_con {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  width: 100%;
+}
+.mod_menu_question .mod_ques_post .post_con textarea {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  height: 12px;
+  border: 1px solid #ddd;
+  width: 100%;
+  font-size: 14px;
+  display: block;
+  border-radius: 4px;
+  line-height: 12px;
+  background: #ffffff;
+  margin: 0 54px 0 10px;
+  padding: 8px 35px 8px 8px;
+  resize: none;
+}
+.mod_menu_question .mod_ques_post .post_con .qsend {
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  box-flex: 0;
+  position: absolute;
+  right: 0px;
+  width: 54px;
+  text-align: center;
+  /* height: 27px; */
+  line-height: 30px;
+  font-size: 16px;
+  color: #56acf5;
+  font-weight: bold;
+  padding: 0;
+}
+.mod_menu_question .mod_ques_post .post_con .qsend.default {
+  color: #AAAAAA;
+}
+/*=================================================================================================*/
+/*@提问模屏*/
+.horizontal .mod_menu_question .mod_ques_hall {
+  height: auto;
+  top: 0;
+  bottom: 32px;
+}
+.horizontal .mod_menu_question .mod_ques_post {
+  width: 30%;
+  border-left: 1px solid #cccccc;
+}
+.horizontal .mod_menu_question .mod_ques_post.touchsend {
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+.horizontal .mod_menu_question .mod_ques_post .post_con textarea {
+  padding: 8px;
+  margin: 0 54px 0 8px;
+}

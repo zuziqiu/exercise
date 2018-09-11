@@ -1,0 +1,400 @@
+/**
+ * #name :  设置
+ * author:  liangh;
+ */
+.h_opration {
+  display: none;
+}
+.mod_set {
+  top: 0;
+  bottom: 0px;
+  position: absolute;
+  width: 100%;
+  display: none;
+}
+.mod_set .net_sucess {
+  background: #000000;
+  position: absolute;
+  z-index: 10000;
+  width: 80px;
+  height: 34px;
+  line-height: 34px;
+  top: 50%;
+  left: 50%;
+  display: none;
+  margin-left: -35px;
+  margin-top: -104px;
+  border-radius: 50em;
+  -webkit-opacity: 0.8;
+  opacity: 0.8;
+  text-align: center;
+}
+.mod_set .net_sucess span {
+  font-size: 14px;
+  color: #ffffff;
+}
+.mod_set .set_menu {
+  /*margin: 0px 0 0 32px;*/
+  position: Absolute;
+  width: 100%;
+  /*right: 32px;*/
+}
+.mod_set .set_menu .toggle {
+  display: none;
+}
+.mod_set .set_menu .menu_list li {
+  width: 25%;
+  height: 65px;
+  float: left;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 26px;
+  position: relative;
+}
+.mod_set .set_menu .menu_list li i {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background: url(img/set_icons.png) no-repeat;
+  margin: 0  auto;
+}
+.mod_set .set_menu .menu_list li span {
+  display: block;
+  color: #32383d;
+  position: relative;
+  top: 6px;
+}
+.mod_set .set_menu .menu_list li.video_status i {
+  background-position: 0px -90px;
+  background-size: 100% auto;
+}
+.mod_set .set_menu .menu_list li.video_status i.c_camera {
+  background-position: 0px -45px;
+  background-size: 100% auto;
+}
+.mod_set .set_menu .menu_list li.video_status i.cvideo {
+  background-position: 0px 0;
+  background-size: 100% auto;
+}
+.mod_set .set_menu .menu_list li.voice_change i {
+  background-position: 0px -90px;
+  background-size: 100% auto;
+}
+.mod_set .set_menu .menu_list li.voice_change i.vchange {
+  background-position: 0px -272px;
+}
+.mod_set .set_menu .menu_list li.screen_change i {
+  background-position: 0px -135px;
+  background-size: 100% auto;
+}
+.mod_set .set_menu .menu_list li.screen_change i.schange {
+  background-position: 0px -318px;
+}
+.mod_set .set_menu .menu_list li.net_choice i {
+  background-position: 0px -180px;
+  background-size: 100% auto;
+}
+.mod_set .set_menu .menu_list li.notice i {
+  background-position: 0px -225px;
+  background-size: 100% auto;
+}
+.mod_set .set_menu .menu_list li.notice .new_nt {
+  width: 6px;
+  display: none;
+  height: 6px;
+  line-height: 18px;
+  text-align: center;
+  border-radius: 50em;
+  position: absolute;
+  background: #f00;
+  color: #fff;
+  top: 43px;
+  left: 62%;
+}
+.mod_set .set_menu li:last-child {
+  margin-right: 0;
+}
+/*返回按钮公共样式*/
+.back_btn {
+  height: 30px;
+  border-bottom: 1px solid #dddddd;
+}
+.back_btn .title {
+  display: block;
+  float: left;
+  line-height: 30px;
+  color: #333333;
+  margin-left: 10px;
+}
+.back_btn span {
+  color: #46494c;
+  display: block;
+  float: right;
+  border-radius: 4px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 22px;
+  margin-top: 3px;
+  width: 40px;
+  margin-right: 10px;
+}
+/*公告*/
+.mod_notice {
+  width: 100%;
+  position: absolute;
+  top: -33px;
+  bottom: 0;
+  background: #ffffff;
+  z-index: 110;
+}
+.mod_notice .notice_content {
+  margin: 36px 35px 0 36px;
+  color: #555555;
+  /*position: absolute;
+		top: 0;*/
+}
+.mod_notice .notice_content h3 {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.mod_notice .notice_content p {
+  line-height: 20px;
+  font-size: 14px;
+  word-break: break-word;
+}
+/*网络选择*/
+.mod_network {
+  width: 100%;
+  bottom: 0;
+  top: -33px;
+  background: #ffffff;
+  z-index: 9999;
+  position: absolute;
+}
+.mod_network .network_cont {
+  /* top: 50%; */
+  /* left: 50%; */
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  display: block;
+  /* position: absolute; */
+  /* border-radius: 8px; */
+  /* display: none;*/
+  /* background: #ffffff; */
+  /* margin: -120px 0 0 -142px; */
+  /* box-shadow: -3px 3px 54px 0px rgba(0, 0, 0, 0.3); */
+}
+.mod_network .network_cont .net_top {
+  height: 27px;
+  height: 37px;
+  line-height: 37px;
+  padding-left: 10px;
+  /*padding: 10px 16px 0 16px;*/
+}
+.mod_network .network_cont .net_top .back_btn {
+  float: right;
+  text-align: center;
+  line-height: 22px;
+  margin: 7px 10px 0 0px;
+}
+.mod_network .network_cont .net_top span {
+  font-size: 14px;
+  float: left;
+  color: #333333;
+}
+.mod_network .network_cont .net_top .lotter_close {
+  position: absolute;
+  right: 0;
+  top: -65px;
+}
+.mod_network .network_cont .net_top .lotter_close .close_icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: url("img/lottery_close.png") no-repeat;
+  background-size: 24px 24px;
+  margin: 15px 0 0 1px;
+}
+.mod_network .network_cont .net_top .lotter_close .line {
+  display: block;
+  width: 2px;
+  height: 28px;
+  background: #ffffff;
+  position: absolute;
+  top: 37px;
+  left: 12px;
+}
+.mod_network .network_cont .net_text {
+  height: 30px;
+  line-height: 30px;
+  font-size: 12px;
+  text-align: center;
+  color: #eb6877;
+}
+.mod_network .network_cont .net_select {
+  width: 100%;
+  top: 65px;
+  bottom: 0;
+  overflow-y: auto;
+}
+.mod_network .network_cont .net_select ul {
+  margin: auto 10% auto;
+  clear: both;
+  background: brown;
+}
+.mod_network .network_cont .net_select li {
+  height: 32px;
+  list-style-type: none;
+  border-radius: 50em;
+  color: #566159;
+  border: 1px solid #e8e8e8;
+  text-align: center;
+  line-height: 32px;
+  float: left;
+  overflow: hidden;
+  width: 40%;
+  margin: 1.2rem 2% 0;
+  padding: 0 2%;
+}
+.mod_network .network_cont .net_select li.clickstyle {
+  border: 1px solid #56acf5;
+}
+.mod_network .network_cont .net_select li img {
+  width: 20px;
+  height: 20px;
+  float: left;
+  padding: 0 4px;
+  margin-top: 6px;
+  margin-left: 1.5rem;
+}
+.mod_network .network_cont .net_select li span {
+  float: left;
+  font-size: 12px;
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+.mod_network .network_cont .net_select li.select_hover {
+  border: 1px solid #2bb53e;
+  border-radius: 50em;
+}
+.mod_network .network_cont .net_select li.auto span {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+/*======================================================*/
+.horizontal .mod_network {
+  width: 100%;
+  height: auto;
+  z-index: 9999;
+  position: absolute;
+  top: -33px;
+  background: #ffffff;
+  bottom: 0;
+}
+.horizontal .mod_network .network_cont .net_select ul {
+  margin: auto 12px;
+}
+.horizontal .h_opration {
+  position: fixed;
+  bottom: 52px;
+  display: block;
+  right: 10px;
+  z-index: 3;
+}
+.horizontal .h_opration.hidden {
+  display: none;
+}
+.horizontal .h_opration span {
+  display: block;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  color: #ffffff;
+  position: relative;
+  box-shadow: 0 0px 5px rgba(106, 182, 246, 0.6);
+  font-size: 1.2rem;
+  background: #6ab6f6;
+  border-radius: 50em;
+}
+.horizontal .h_opration span.reload {
+  margin-top: 12px;
+}
+.horizontal .left_toggle {
+  position: fixed;
+  bottom: 77px;
+  z-index: 200;
+}
+.horizontal .left_toggle span {
+  display: block;
+  background: url(img/left_toggle.png) no-repeat;
+  width: 20px;
+  height: 50px;
+  background-size: 100% auto;
+}
+.horizontal .left_toggle span:after {
+  width: 50px;
+  height: 80px;
+  content: ".";
+  position: relative;
+  display: block;
+  bottom: 15px;
+}
+.horizontal .left_toggle.recover {
+  right: 0;
+}
+.horizontal .left_toggle.recover span {
+  background: url(img/right_toggle.png) no-repeat;
+  background-size: 100% auto;
+}
+.horizontal .mod_set {
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+.horizontal .mod_set .set_menu {
+  /*height: 100%;*/
+  width: 100%;
+  bottom: 0;
+  box-shadow: 0 2px 6px #cccccc;
+  z-index: 110;
+  background: #ffffff;
+  top: -33px;
+}
+.horizontal .mod_set .set_menu .menu_list {
+  width: 80%;
+  height: 100%;
+  margin: 0 10% 0 10%;
+}
+.horizontal .mod_set .set_menu .toggle {
+  width: 40px;
+  height: 22px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  font-size: 12px;
+  display: block;
+  position: relative;
+  top: 12px;
+  left: 12px;
+  text-align: center;
+  line-height: 22px;
+  background: #f6f8f9;
+}
+.horizontal .mod_set .set_menu li {
+  width: 50%;
+  padding-top: 20px;
+}
+.horizontal .mod_set .set_menu li.notice .new_nt {
+  top: 63px;
+}
+.horizontal .mod_notice .notice_content {
+  margin: 12px 12px 0 12px;
+}
+.horizontal .back_btn {
+  float: none;
+  margin: 12px 0px 0 12px;
+}
