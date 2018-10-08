@@ -18,6 +18,8 @@ window.onload = function(){
         camera.position.x = 0;
         camera.position.y = 0;
         camera.position.z = 600;
+        
+        // up 供lookAt方法使用，决定结果（渲染）的方向。默认是（0，1，0）方向
         camera.up.x = 0;
         camera.up.y = 1;
         camera.up.z = 0;

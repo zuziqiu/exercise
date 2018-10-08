@@ -10,15 +10,16 @@
     <script>
         var a = function(){
             console.log(23)
+            return 'haoge'
         }
         let promise = new Promise(function(resolve,reject){
-            resolve();
-            a()
+            resolve(a);
+            // a()
         });
-        promise.then(function(){
-            console.log('resolved');
-        }).then(function(){
-            console.log('huang');
+        promise.then(function(c){
+            return c()
+        }).then(function(h){
+            console.log(h);
         });
         console.log('Hi!');    
     </script>

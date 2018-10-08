@@ -74,10 +74,10 @@
                 // Fog：定义材质的颜色是否受全局雾效的影响。、
                 var material = new THREE.LineBasicMaterial( { vertexColors: THREE.VertexColors} );
 
+                // 线的材质可以由2点的颜色决定
                 var color1 = new THREE.Color( 0x444444 ), 
                     color2 = new THREE.Color( 0xFF0000 );
-
-                // 线的材质可以由2点的颜色决定
+                // 定义2个顶点的位置
                 var p1 = new THREE.Vector3(  -500, 0, 0 );
                 var p2 = new THREE.Vector3(  500, 0, 0 );
                 // vertices变量，可以用来存放点。 

@@ -1,0 +1,36 @@
+{
+  "name": "marko-k",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "n": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack -mode development",
+    "build": "webpack -mode production"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "eslint-loader": "^2.0.0",
+    "fabric": "^2.3.3",
+    "html-webpack-plugin": "^3.2.0",
+    "jshint": "^2.9.5",
+    "jshint-loader": "^0.8.4",
+    "preact": "^8.2.9",
+    "preact-redux": "^2.0.3",
+    "redux": "^4.0.0",
+    "symbol-observable": "^1.2.0",
+    "uglifyjs-webpack-plugin": "^1.2.7",
+    "vconsole": "^3.2.0",
+    "webpack": "^4.15.1",
+    "webpack-cli": "^3.0.8"
+  },
+  "dependencies": {
+    "jshint-loader": "^0.8.4",
+    "qwebchannel": "^5.9.0"
+  }
+}

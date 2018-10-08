@@ -17,7 +17,11 @@
     <script type="text/javascript">
         // 场景 场景是所有物体的容器，如果要显示一个苹果，就需要将苹果对象加入场景中。 
         var scene = new THREE.Scene();
-        // 透视相机
+        // 透视相机(4个参数)
+  //       fov 可视角度 
+  // 　　  aspect 实际窗口的纵横比 
+  // 　　  near 近处的裁面的距离
+  // 　　  far 远处的裁面的距离 
         var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
         // 渲染器
         var renderer = new THREE.WebGLRenderer();
@@ -26,12 +30,12 @@
         
         document.body.appendChild(renderer.domElement);
         var geometry = new THREE.CubeGeometry(1,1,1);
-        var material = new THREE.MeshBasicMaterial({color: 0x00ff00});
+        var material = new THREE.MeshBasicMaterial({color: 0x00ff});
         var cube = new THREE.Mesh(geometry, material); 
         scene.add(cube);
         camera.position.z = 5;
         function render() {
-            // 实时渲染(持续进行)
+            // 原生js Api 实时渲染(持续进行)
             requestAnimationFrame(render);
             cube.rotation.x += 0.1;
             cube.rotation.y += 0.1;
