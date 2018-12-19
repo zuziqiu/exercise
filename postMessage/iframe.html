@@ -9,6 +9,7 @@
 <body>
     iframe
     <script>
+        window.parent.postMessage('子级', '*')
         window.addEventListener('message',function(event) {
             console.log('来自父级窗口message received:  ' + event.data,event);
             event.source.postMessage('holla back youngin!',"*");

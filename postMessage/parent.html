@@ -17,6 +17,9 @@
             var message = 'Hello!  The time is: ' + (new Date().getTime());
             iframe.postMessage(message,domain); 
         }
+        window.addEventListener('message',function(event) {
+            console.log('父级received:  ' + event.data,event);
+        },false);
     </script>
 </body>
 </html>
