@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+  <style>
+    body{
+      background: #333
+    }
+    #container{
+      position: fixed;
+      left: 50%;
+      margin-left: -100px;
+      top: 50%;
+      margin-top: -200px;
+    }
+    #container #window {
+      height: 300px;
+      width: 300px;
+      border: 1px solid #eee;
+      margin-bottom: 10px;
+    }
+    #container #window div {
+      color: #fff;
+      margin-top: 5px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 20px;
+    }
+    textarea{
+      width: 200px;
+      height: 200px;
+      display: block;
+      margin-bottom: 50px;
+    }
+    input{
+      display: block;
+      height: 20px;
+      margin-right: 20px;
+      float: left;
+    }
+    button{
+      display: block;
+    }
+  </style>
+<body>
+  <div id="container">
+    <div id="window"></div>
+    <input id= "content" type="text">
+    <button id='send'>发送消息</button>
+  </div>
+  <script>
+    window.onload = function() {
+      // var ws = new WebSocket("ws://echo.websocket.org");
+      var ws = new WebSocket("ws://127.0.0.1:8080/server/index.js");
+      ws.onopen = function (e) {
+        // ws.send(`I'm a client`);
+        // console.log('Connection to server opened');
+        document.querySelector("#send").onclick = function () {
+          var content = document.querySelector('#content').value;
+          var div = document.createElement('div')
+          div.innerHTML = content
+          document.querySelector('#window').appendChild(div)
+          ws.send(content);
+        }
+      }
+      ws.onmessage = function (message) {
+          var div = document.createElement('div')
+          div.innerHTML = message.data
+          document.querySelector('#window').appendChild(div)
+      }
+    }
+  </script>
+</body>
+</html>

@@ -17,6 +17,8 @@
         $mime = image_type_to_mime_type($imagetype);
         // 组装成这个方法imagecreatefromjpeg() =>创建画布资源
         $createFun = str_replace("/", "createfrom", $mime);
+        // imagejpeg() 从 image 图像以 filename 为文件名创建一个 JPEG 图像
+        // 组装输出命令
         $outFun = str_replace("/", null, $mime);
         $src_image = $createFun($filename);
         $dst_image = imagecreatetruecolor($dst_w, $dst_h);

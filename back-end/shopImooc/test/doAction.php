@@ -22,7 +22,7 @@
         if($imgFlag){
             $info = getimagesize($tmp_name);
             if(!$info){
-                exit("不是真正的文件类型");
+                exit("不是真正的图片类型");
             }
         }
         $filename = getUniName().".".$ext;

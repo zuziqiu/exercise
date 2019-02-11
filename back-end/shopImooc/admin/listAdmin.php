@@ -55,13 +55,13 @@ if(!$rows){
             </thead>
             <tbody>
                 <?php $i=1; foreach ($rows as $key):?>
-                <tr>
-                    <!--这里的id和for里面的c1 需要循环出来-->
-                    <td><input type="checkbox" id="c1" class="check"><label for="c1" class="label"><?php echo $key['id'];?></label></td>
-                    <td><?php echo $key['username'];?></td>
-                    <td><?php echo $key['email'];?></td>
-                    <td align="center"><input type="button" value="修改" class="btn" onclick="editAdmin(<?php echo $key['id'];?>)"><input type="button" value="删除" class="btn"  onclick="delAdmin(<?php echo $key['id'];?>)"></td>
-                </tr>
+                  <tr>
+                      <!--这里的id和for里面的c1 需要循环出来-->
+                      <td><input type="checkbox" id="c1" class="check"><label for="c1" class="label"><?php echo $key['id'];?></label></td>
+                      <td><?php echo $key['username'];?></td>
+                      <td><?php echo $key['email'];?></td>
+                      <td align="center"><input type="button" value="修改" class="btn" onclick="editAdmin(<?php echo $key['id'];?>)"><input type="button" value="删除" class="btn"  onclick="delAdmin(<?php echo $key['id'];?>)"></td>
+                  </tr>
                 <?php $i++;endforeach;?>
                 <?php if($totalRows>$pageSize):?>
                     <tr>

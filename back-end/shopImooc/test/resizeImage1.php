@@ -7,7 +7,7 @@
     //echo $mime;//image/jpeg,image/gif
     // 组装命令用于创建画布(创建画布资源)
     $createFun = str_replace("/","createfrom", $mime);
-    //imagejpeg()
+    //imagejpeg() 从 image 图像以 filename 为文件名创建一个 JPEG 图像
     // 组装输出命令
     $outFun = str_replace("/", null, $mime);
     $src_image = $createFun($filename);

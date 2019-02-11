@@ -11,6 +11,7 @@
         $vals = "'".join("','",array_values($array))."'";
         $sql = "insert {$table}($keys) values({$vals})";
         mysql_query($sql);
+        var_dump('insert 语句是：', $sql);
         return mysql_insert_id();
     }
     // 更新
@@ -25,6 +26,7 @@
             $str.=$sep.$key."='".$val."'";
         }
         $sql = "update {$table} set {$str}".($where == null?null:" where ".$where);
+        var_dump('update 语句是：', $sql);
         $result=mysql_query($sql);
         if($result){
             // 返回受影响的行的数目
@@ -37,6 +39,7 @@
     function delete($table, $where){
         $where = $where == null?null:" where ".$where;
         $sql = "delete from {$table} {$where}";
+        var_dump('delete 语句是：', $sql);
         mysql_query($sql);
         // 返回受影响的行的数目
         return mysql_affected_rows();
@@ -65,4 +68,14 @@
         $result = mysql_query($sql);
         return mysql_num_rows($result);
     }
+    
+    /**
+     * 得到上一步插入记录的ID号
+     * @return number
+     */
+    function getInsertId(){
+      return mysql_insert_id();
+    }
+
+
 ?>

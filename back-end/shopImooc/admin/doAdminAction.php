@@ -1,7 +1,7 @@
 <?php
     require_once './../include.php';
-    $act = $_REQUEST['act'];
-    $id = $_REQUEST['id'];
+    $act=$_REQUEST['act'];
+    $id=$_REQUEST['id'];
     if($act == 'logout'){
         logout();
     }
@@ -22,8 +22,24 @@
         $mes = editCate($where);
     }
     else if($act == "delCate"){
-        $where = "id={$id}";
-        $mes = delCate($where);
+        $mes = delCate($id);
+    }
+    else if($act == "addPro") {
+      $mes = addPro();
+    }else if($act == "editPro"){
+      $mes = editPro($id);
+    }else if($act=="delPro"){
+      $mes = delPro($id);
+    }else if($act == 'addUser') {
+      $mes = addUser();
+    }elseif($act=="delUser"){
+      $mes=delUser($id);
+    }elseif($act=="editUser"){
+      $mes=editUser($id);	
+    }elseif($act=="waterText"){
+      $mes=doWaterText($id);
+    }elseif($act=="waterPic"){
+      $mes=doWaterPic($id);
     }
 ?>
 

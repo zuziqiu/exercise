@@ -92,4 +92,48 @@
         }
         return $dstFilename;
     };
+    
+    /**
+     *添加文字水印
+    * @param string $filename
+    * @param string $text
+    * @param string  $fontfile
+    */
+    function waterText($filename,$text="imooc.com",$fontfile="MSYH.TTF"){
+      $fileInfo = getimagesize ( $filename );
+      $mime = $fileInfo ['mime'];
+      $createFun = str_replace ( "/", "createfrom", $mime );
+      $outFun = str_replace ( "/", null, $mime );
+      $image = $createFun ( $filename );
+      $color = imagecolorallocatealpha ( $image, 255, 0, 0, 50 );
+      $fontfile = "../fonts/{$fontfile}";
+      imagettftext ( $image, 14, 0, 0, 14, $color, $fontfile, $text );
+      $outFun ( $image, $filename );
+      imagedestroy ( $image );
+    }
+
+    /**
+     *添加图片水印
+    * @param string $dstFile
+    * @param string $srcFile
+    * @param int $pct
+    */
+    function waterPic($dstFile,$srcFile="../images/logo.jpg",$pct=30){
+      $srcFileInfo = getimagesize ( $srcFile );
+      $src_w = $srcFileInfo [0];
+      $src_h = $srcFileInfo [1];
+      $dstFileInfo = getimagesize ( $dstFile );
+      $srcMime = $srcFileInfo ['mime'];
+      $dstMime = $dstFileInfo ['mime'];
+      $createSrcFun = str_replace ( "/", "createfrom", $srcMime );
+      $createDstFun = str_replace ( "/", "createfrom", $dstMime );
+      $outDstFun = str_replace ( "/", null, $dstMime );
+      $dst_im = $createDstFun ( $dstFile );
+      $src_im = $createSrcFun ( $srcFile );
+      imagecopymerge ( $dst_im, $src_im, 0, 0, 0, 0, $src_w, $src_h, $pct );
+    //	header ( "content-type:" . $dstMime );
+      $outDstFun ( $dst_im, $dstFile );
+      imagedestroy ( $src_im );
+      imagedestroy ( $dst_im );
+    }
 ?>
