@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>会员分享</title>
+    <link rel="stylesheet" href="css/huiyuanfenxiang.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style type="text/css">
+    	html,body{
+			background-color: #FFFFFF;
+		}
+		/*main样式*/
+		.member{
+			width: 100%; 
+			margin: 0 auto;
+		}
+		.member_bg{
+			position: absolute;
+			width: 100%;
+		}
+		.member_main{
+			width: 100%;
+			background-color: #FFFFFF;
+			z-index: 98;
+			position: relative;
+		}
+		
+		.member > img:first-child{
+			width: 100%;
+			background-repeat: no-repeat;
+		}
+		
+		.member_content{
+			position: absolute;
+			margin-top: 14%;
+			left: 50%;
+			margin-left: -129px;
+		}
+		
+		.member_content img, .introduce{
+			float: left;
+		}
+		
+		.member_content p{
+			margin-top: 5px;
+			margin-left: 20px;
+			margin-bottom: 0;
+			color: white;
+			font-size: 18px;
+			
+		}
+		
+		.member_name{
+			margin-left: 2px;
+			font-size: 30px;
+			font-weight: bold;
+		}
+		
+		.change{
+			width: 100%;
+			text-align: center;
+			margin-bottom: 10px;
+		}
+		
+		.code{
+			margin-top: 70%;
+		}
+		
+		.press{
+			color: rgb(198,198,198);
+			font-size: 14px;
+		}
+		
+		.join{
+			color: rgb(128,128,128);
+			font-weight: bold;
+			font-size: 16px;
+		}
+
+    </style>
+</head>
+<body>
+	<div class="member">
+		
+		<div class="tnav col">
+			<b class="arrow"><span class="ic_leftarrow" data-url="index.html"></span> 会员分享</b>
+			<span class="backmain ic_home"></span>
+		</div>
+		<!--主题内容-->
+		<div class="member_main">
+		<img class="member_bg" src="img/img_cloud.png"/>
+			<div class="member_content">
+				<img src="img/12-会员分享_06.png"/>
+				<div class="introduce">
+					<p>我是<span class="member_name">林先生</span>，</p>
+					<p>这是我的独立二维码</p>
+				</div>
+			</div>
+			<div class="change">
+			<img class="code" src="img/12-会员分享_10.jpg"/>
+			</div>
+			<div class="change">
+			<span class="press">长按识别图中二维码</span>
+			</div>
+			<div class="change">
+			<span class="join">加入并领取500会员积分</span>
+			</div>
+		</div>
+		<!--/主题内容-->
+	</div>
+	<script type="text/javascript" src="js/jquery-1.12.2.min.js" ></script>
+    <script type="text/javascript" src="js/base.js" ></script>
+</body>
+</html>

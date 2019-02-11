@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>个人资料</title>
+    <!--<link rel="stylesheet" href="css/gerenziliao.css" />-->
+	<link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style type="text/css">
+			.pDate,.pDate_main,.pDate_main_header,.pDate_main_foot{
+				width: 100%;
+			}
+			
+			.pDate_main_header{
+				background-color: #ffffff;
+				width: 100%;
+			}
+			
+			.pDate_main_photo{
+				width: 100%;
+				height: 60px;
+				padding-top:8%;
+				padding-bottom: 8%;
+				overflow: hidden;
+			}
+			
+			.pDate_main_photo img,.pDate_main_photo button{
+				float: left;
+			}
+			
+			.pDate_main_photo img:first-child{
+				margin-top: -8px;
+				margin-left: 8%;
+			}
+			
+			.pDate_main_photo button{
+				font-size: 14px;
+				background-color: #FFFFFF;
+				border: none;
+				font-weight: bold;
+				color: #000000;
+				margin-top:22px;
+				margin-left: 6%;
+			}
+			
+			.pDate_main_photo img:last-child{
+				width: 16px;
+				height: 16px;
+				margin-top: 20px;
+				float: right;
+				margin-right: 10%;
+			}
+			
+			.pDate_icon{
+				width: 16px;
+				height: 16px;
+				float: right;
+				right: 10%;
+				position: absolute;
+				top: 50%;
+				margin-top: -8px;
+			}
+			
+			.pDate_main_information{
+				border-top: 1px solid #f0f0f0;
+			}
+			
+			.pDate_main span{
+				float: left;
+				margin-left: 8%;
+				color: #737373;
+				width: 70px;
+				text-align:justify;
+				text-justify: distribute-all-lines;
+				text-align-last: justify;
+				-moz-text-align-last: justify;
+				font-weight: 600;
+				font-size: 14px;
+			}
+			
+			.pDate_main_information>div,.pDate_main_contact>div{
+				color: rgba(252,252,252,0);
+				font-weight: 600;
+				font-size: 14px;
+				margin-left: 35%;
+			}
+			
+			.pDate_main_foot{
+				background-color: #FFFFFF;
+				margin-top: 1%;
+			}
+			
+			.pDate_main_contact{
+				border: 1px solid #f0f0f0;
+			}
+			
+			.pDate_main_information ,.pDate_main_contact{
+				padding-top: 5%;
+				padding-bottom: 5%;
+			}
+			input{
+				outline: none;
+				border: none;
+				font-weight: 600;
+			    font-size: 14px
+			}
+			
+			/*弹出头像修改选择引导样式*/
+			/*.imgTips_eject{
+				width: 100%;
+				position: absolute;
+				bottom: -100%;
+				z-index: 11;
+				background-color: #cdcdce;
+				
+			}
+			
+			.information_mengceng{
+				background-color: rgba(122,122,122,0.5);
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				z-index: 10;
+			}
+			.information_photograph,.img_choose,.img_cancel{
+				padding-top: 5%;
+				padding-bottom: 5%;
+				text-align: center;
+				font-size: 14px;
+				font-weight: 600;
+			}*/
+			.pDate_main_header>input{
+				width: 100%;
+				height: 60px;
+				padding-top: 8%;
+				padding-bottom: 8%;
+				position: absolute;
+				top: 0;
+				z-index: 2;
+				opacity:0;
+			}
+			.information_photograph,.img_choose{
+				background-color: #fcfcfc;
+			}
+			.img_choose{
+				border-top:1px solid #efeff4;
+			}
+			.img_cancel{
+				margin-top: 2%;
+				background-color: #e6e6e6;
+			}
+			
+			
+			
+			#containnor{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				display: none;
+				z-index: 13;
+				background-color: rgba(122,122,122,0.5);
+			}
+			
+			#webcam{
+				width: 100%;
+				height: 100%;
+			}
+			.img_press{
+				display: none;
+				position: absolute;
+				width: 60px;
+				height: 60px;
+				border-radius: 30px;
+				background-color: #cdcdce;
+				left: 50%;
+				margin-left: -30px;
+				bottom: 0;
+				margin-bottom: 10%;
+			}
+			
+			.photo_press{
+				position: absolute;
+				top: 5px;
+				left: 5px;
+				width: 50px;
+				height: 50px;
+				border-radius: 25px;
+				background-color: #FFFFFF;
+			}
+			
+			/*从相册选择*/
+			.preview{
+				float: left;
+				margin-left: 8%;
+			}
+			#imghead{
+				margin: 0;
+				margin-top:;
+				width: 100%;
+				height: 100%;
+				border:none ;
+			}
+			@media only screen and (min-width: 1000px){
+				.preview{
+					width:18%;
+					height: 280%;
+					margin-top: -5%;
+				}
+				/*.buys{
+					margin-top: 14%;
+				}*/
+			}
+			@media only screen and (min-width: 501px) and (max-width: 1000px) {
+				.preview{
+					width:17%;
+					height: 220%;
+					margin-top: -4.5%;
+				}
+				/*.buys{
+					margin-top: 9%;
+				}*/
+			}
+			@media only screen and (min-width: 416px) and (max-width: 500px) {
+				.preview{
+					width:20%;
+					height: 160%;
+					margin-top: -3.7%;
+				}
+				/*.buys{
+					margin-top: 9%;
+				}*/
+			}
+			
+			@media only screen and (min-width: 361px) and (max-width: 415px) {
+				.preview{
+					width:22%;
+					height: 150%;
+					margin-top: -4%;
+				}
+				/*.buys{
+					margin-top: 22%;
+				}*/
+			}
+			@media only screen and (min-width: 320px) and (max-width: 360px) {
+				.preview{
+					width:24%;
+					height: 130%;
+					margin-top: -3%;
+				}
+				/*.buys{
+					margin-top: 14%;
+				}*/
+			}
+    
+    
+    		/*点击弹出模块*/
+    		.exchange_method_main,.distribution_mode_main{
+				position: absolute;
+				top: 30%;
+				z-index: 100;
+				background-color: #FFFFFF;
+				width: 87.111%;
+				margin: auto 6.444%;
+				padding: 0;
+			}
+			.mengceng{
+				background-color:#000000; opacity:0.1;filter:alpha(opacity=50);
+				width: 100%;
+				padding-bottom:177%;
+			}
+			
+			.exchange_method,.distribution_mode{
+				position: absolute;
+				z-index: 99;
+				width: 100%;
+				top: 0;
+			}
+			.weui-select {
+				padding-right: 30px;
+			    -webkit-appearance: none;
+			    border: 0;
+			    outline: 0;
+			    font-size: inherit;
+			    line-height: 44px;
+			    padding-left: 20px;
+			    padding-right: 30px;
+			    background-color: transparent;
+			}
+			.weui-select > div{
+				border-bottom: 1px solid #F0F0F0;
+			}
+			.weui-select div:last-child{
+				border-bottom: none;
+			}
+			.weui-select >div {
+				width: 100%;
+				height: 44px;
+			}
+			.weui-select > div >div{
+				float: left;
+				margin-left: 3px;
+			}
+			.weui-select span{
+				color:dodgerblue;
+				font-size: 17px;
+				font-weight: bold;
+				float: right;
+				margin-right: 3px;
+			}
+			.pDate_main .modifyPassword{
+				margin-top: 5%;
+				width: 87.11112%;
+				margin-left: 6.44444%;
+				margin-right: 6.44444%;
+			    display: inline-block;
+			    background-color: #10aeff;
+			    color: #fff;
+			    font-size: 1.2rem;
+			    border-radius: 0.3rem;
+			    padding: 2.7% 5%;
+			    border: none;
+			    outline: none;
+			    margin-bottom: 5%;
+			}
+			.pDate_main .buys {
+			    width: 87.11112%;
+				margin-left: 6.44444%;
+				margin-right: 6.44444%;
+			    display: inline-block;
+			    background-color: #10aeff;
+			    color: #fff;
+			    font-size: 1.2rem;
+			    border-radius: 0.3rem;
+			    padding: 2.7% 5%;
+			    border: none;
+			    outline: none;
+			    margin-bottom: 3%;
+			}
+			@media only screen and (min-width: 550px){
+				.tnav~*:nth-child(2){
+					padding-top: 7%;
+					background-color: #FFFFFF;
+				}
+			}
+    </style>
+</head>
+<body>
+	<div class="pDate">
+		<div class="tnav col">
+			<b class="arrow"><span class="ic_leftarrow" data-url="index.html"></span> 个人资料</b>
+			<span class="backmain ic_home"></span>
+		</div>
+		
+		<div class="pDate_main">
+			<div class="pDate_main_header">
+				<div class="pDate_main_photo">
+					<div class="preview">
+				   		<img id="imghead" src='img/people01.png'>
+					</div>
+					<!--<img src="img/people01.png"/>-->
+					<button>修改头像</button>
+					<img src="svg/rightarrow.svg"/>
+				</div>
+				<form action="">
+					<div class="pDate_main_information">
+						<span>昵称</span>
+						<div class="information_name" style="color:#000000;">
+							<input type="text" name="Name" id="nickname" placeholder="昵称"/>
+						</div>
+					</div>
+					<div class="pDate_main_information" style="position: relative;">
+						<span>性别</span>
+						<div class="information_sex" style="color:#000000;">
+							<input type="text" name="Sex" id="sex"  readonly="true" style="color: #888888;"/>
+						</div>
+						<img class="pDate_icon" src="svg/rightarrow.svg"  style="padding-left: 100%;display: block;z-index: 99;padding-top: 10px;padding-bottom: 10px;top:50%;margin-top: -18px;"/>
+					</div>
+				</form>
+				<div class="pDate_main_information">
+					<span>生日</span>
+					<div class="information_bd">1990-12-20</div>
+				</div>
+			</div>
+			<div class="pDate_main_foot">
+				<div class="pDate_main_contact">
+					<span>卡号</span>
+					<div class="contact_card">.</div>
+				</div>
+				<div class="pDate_main_contact">
+					<span>绑定手机</span>
+					<div class="contact_phone">.</div>
+				</div>	
+				<div class="pDate_main_contact">
+					<span>会员级别</span>
+					<div class="contact_level">.</div>
+				</div>
+			</div>
+			<button class="modifyPassword" onclick="window.location='modifyPassword.html'">修改密码</button>			
+			<button class="buys" onclick="nicknameabc()">保存</button>			
+		</div>
+	</div>
+	<!--弹出头像修改选择引导-->
+	<!--<div class="information_mengceng" hidden=""></div>
+	<div class="imgTips_eject">-->
+		<!--<div class="information_photograph" id="openCamera">
+			拍照
+		</div>-->
+		<!--<div>
+			<div class="img_choose">
+				从手机相册选择
+			</div>-->
+	<!--	<input type="file" onchange="previewImage(this)" />     -->
+		<!--</div>
+		<div class="img_cancel">
+				取消
+		</div>
+	</div>-->
+	<!--摄像头-->
+	<!--<div id="containnor">
+	    <video id="webcam"></video>
+	    <div class="img_press"><div class="photo_press"></div> </div>
+    </div>-->
+    <!--选择相册-->
+    <!--<div class="preview">
+   		<img id="imghead" width=100% height=100% border=none [src='']>
+	</div>-->
+	<!--弹出选择性别-->
+	<div class="distribution_mode"  hidden="">
+		<div class="mengceng"></div>
+			<div class="exchange_method_main">
+				<div class="weui-select" name="select1">
+					<div>
+				    <div>男</div><span>√</span>
+				    </div>
+				    <div>
+				    <div>女</div><span hidden="">√</span>
+				    </div>
+				</div>    
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-1.12.2.min.js" ></script>
+	<script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script>  
+	<script type="text/javascript" src="js/base.js" ></script>
+	<script>
+		window.onload=function(){
+			$(".pDate_main_photo").click(function(){
+//				$(".information_mengceng,.imgTips_eject").show();
+//				$(".imgTips_eject").animate({"bottom":"0"},500);
+				previewImage(this);
+			});
+			
+//			$(".img_cancel,.information_mengceng").click(function(){
+//				$(".information_mengceng").hide();
+//				$(".imgTips_eject").hide().css({"bottom":"-30%"});
+//			}); 
+			
+//			$(".information_photograph").click(function(){
+//				$("#containnor,.img_press").show();
+//				$(".information_mengceng").hide();
+//				$(".imgTips_eject").hide().css({"bottom":"-100%"});
+//			});
+			
+//			$(".img_press").click(function(){
+//				$(".information_mengceng").hide();
+//				$("#containnor,.img_press").hide();
+//			});
+		};
+		
+		
+		
+		
+		var gerenziliao_form;
+		var im_nickname;
+		var im_sex;
+		var Sex;
+		
+		
+//		获取个人信息
+		myajax({ 
+			"cache-control": "no-cache",
+			"postman-token": "d0e32ffb-d5a2-0f6f-d64f-66e3a0078a0a",
+			data: {
+			"_api":"member_info_by_wechat/GetCustomerInfo",
+			"WechatId": "ospcgwllZQ98DVrhiKhaVcEjL6zc",
+		    "BranchId": "3D7775B5-33D1-4348-B3AA-4CFD9AEEC0D2",
+		    "Telephone": "",
+		    "CustomerNo": "",
+			}
+		},'successfn1');
+		
+		
+//      获取个人信息		
+		function successfn1(response){
+			console.log("fn1请求成功");
+			var personal_information = JSON.parse(response);
+			personal_information.Data.forEach(function(pI_bangding){
+				$("#nickname").val(pI_bangding.SecondName);
+				pI_bangding.Gender==0?$("#sex").val("男"):pI_bangding.Gender==1?$("#sex").val("女"):null;
+				$(".information_bd").text(pI_bangding.Birthday).css({"color":"#888888","height":"14px"});
+				//	未绑卡状态卡号显示为空
+				if(pI_bangding.LevelID!="66666666-6666-6666-6666-666666666666"){
+					$(".contact_card").text(pI_bangding.Number).css({"color":"#888888","height":"14px"});
+				}
+				$(".contact_phone").text(pI_bangding.Phone).css({"color":"#888888","height":"14px"});
+				$(".contact_level").text(pI_bangding.Level).css({"color":"#888888","height":"14px"});
+//				后台获取Sex
+				Sex=pI_bangding.Gender;
+				if(Sex == 0){
+					$(".weui-select > div").eq(0).children("span").show();
+					$(".weui-select > div").eq(1).children("span").hide();
+				}else{
+					$(".weui-select > div").eq(0).children("span").hide();
+					$(".weui-select > div").eq(1).children("span").show();
+				}
+			})
+		}
+		
+//		弹出性别提示
+		$(".mengceng").click(function(){
+			$(".distribution_mode").hide();
+		});
+			
+		$(".pDate_main_information .pDate_icon").click(function(){
+			$(".distribution_mode").show();
+		});
+		
+//      性别输入保存
+		$(".distribution_mode .weui-select > div ").click(function(){
+			var b =$(".distribution_mode .weui-select > div > div" ).eq($(this).index()).text();
+			$(".distribution_mode").hide();
+			$("#sex").val(b);
+			$(".distribution_mode .weui-select > div > span" ).hide();
+			$(".distribution_mode .weui-select > div > span" ).eq($(this).index()).show();
+			
+//		 	判断男女标识符    
+			im_sex = $("#sex").val();
+			if(im_sex=="男"){
+				Sex = 0;
+			}else{
+				Sex = 1;
+			}
+		});	
+
+		function nicknameabc(){
+			im_nickname = $("#nickname").val();
+			if(im_nickname.length==0){
+				return false
+			}
+			var Random = Math.floor(Math.random()*1000);
+			var Collate = md5("CustID"+"2c1cb150-9f1b-431d-a72f-93bb549631e3"+
+					"Name"+im_nickname+
+					"Sex"+Sex+
+					"Picture"+""+
+					"BranchId"+"3D7775B5-33D1-4348-B3AA-4CFD9AEEC0D2"+
+					"Random"+Random+
+					"huake1212");
+			myajax({ 
+			 	"cache-control": "no-cache",
+				"postman-token": "2fd061e2-cd41-4635-4609-6c76721c8f96",
+				data: {
+					"_api":"Customer/UpdateCustomerInfo",
+					"CustID": "2c1cb150-9f1b-431d-a72f-93bb549631e3",
+					"Name": im_nickname,
+					"Sex": Sex,
+					"Picture":"",
+					"BranchId": "3D7775B5-33D1-4348-B3AA-4CFD9AEEC0D2",
+					"Random": Random,
+					"Collate": Collate,
+			  	}
+			},'successfn2');
+		}
+				
+		
+		
+//      保存成功	
+		function successfn2(response){
+			console.log("fn2请求成功")
+			var gL_name = JSON.parse(response);
+			if(gL_name.MsgID==1){
+				location.href="index.html";
+			}
+		};
+		
+		
+//		判断异步请求相关回调函数
+		function successfn(response,action){
+			if(action=='successfn1'){
+				successfn1(response);
+				}
+				
+			if(action=='successfn2'){
+				successfn2(response);
+				}
+		}
+		
+        //图片上传预览    IE是用了滤镜。
+//      function previewImage(file)
+//      {
+////        var MAXWIDTH  = 260; 
+////        var MAXHEIGHT = 180;
+//        var div = $('.preview');
+//        if (file.files && file.files[0])
+//        {
+//            div.innerHTML ='<img id=imghead>';
+//            var img = document.getElementById('imghead');
+////            img.onload = function(){
+////              var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+////              img.width  =  rect.width;
+////              img.height =  rect.height;
+//////                 img.style.marginLeft = rect.left+'px';
+////              img.style.marginTop = rect.top+'px';
+////            }
+//            var reader = new FileReader();
+//            reader.onload = function(evt){img.src = evt.target.result;}
+//            reader.readAsDataURL(file.files[0]);
+//            $(".preview").show();
+//        }
+//        else //兼容IE
+//        {
+//          var sFilter='filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+//          file.select();
+//          var src = document.selection.createRange().text;
+//          div.innerHTML = '<img id=imghead>';
+//          var img = document.getElementById('imghead');
+//          img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+//          var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+//          status =('rect:'+rect.top+','+rect.left+','+rect.width+','+rect.height);
+//          div.innerHTML = "<div id=divhead style='width:"+rect.width+"px;height:"+rect.height+"px;margin-top:"+rect.top+"px;"+sFilter+src+"\"'></div>";
+//        }
+//        	$(".information_mengceng").hide();
+//			$(".imgTips_eject").hide().css({"bottom":"-100%"});
+//      }
+////      function clacImgZoomParam( maxWidth, maxHeight, width, height ){
+////          var param = {top:0, left:0, width:width, height:height};
+////          if( width>maxWidth || height>maxHeight )
+////          {
+////              rateWidth = width / maxWidth;
+////              rateHeight = height / maxHeight;
+////               
+////              if( rateWidth > rateHeight )
+////              {
+////                  param.width =  maxWidth;
+////                  param.height = Math.round(height / rateWidth);
+////              }else
+////              {
+////                  param.width = Math.round(width / rateHeight);
+////                  param.height = maxHeight;
+////              }
+////          }
+////          param.left = Math.round((maxWidth - param.width) / 2);
+////          param.top = Math.round((maxHeight - param.height) / 2);
+////          return param;
+////      }
+		
+
+		
+		
+
+
+			
+
+
+
+		
+		
+////		调用摄像头
+//		var openCa = document.getElementById('openCamera');
+//		 
+//		navigator.mediaDevices = navigator.mediaDevices || ((navigator.mozGetUserMedia || navigator.webkitGetUserMedia) ? {
+//		   getUserMedia: function(c) {
+//		     return new Promise(function(y, n) {
+//		       (navigator.mozGetUserMedia ||
+//		        navigator.webkitGetUserMedia).call(navigator, c, y, n);
+//		     });
+//		   }
+//		} : null);
+//		 
+//		// console.log(navigator.mediaDevices.getUserMedia);
+//		// if (!navigator.mediaDevices) {
+//		//   console.log("getUserMedia() not supported.");
+//		//   return;
+//		// }
+//		openCa.onclick = startStream;
+//		 
+//		function startStream(e){
+//		    var constraints = { audio: true, video: true };
+//		 
+//		 
+//		    navigator.mediaDevices.getUserMedia(constraints)
+//		    .then(function(stream) {
+//		        var video = document.getElementById('webcam');
+//		        console.log(video);
+//		        if(window.URL){
+//		            video.src = window.URL.createObjectURL(stream);
+//		        }else{
+//		            video.src = stream;
+//		        }
+//		        // video.paly();
+//		        video.autoplay = true;
+//		      // video.src = window.URL.createObjectURL(stream);
+//		      // video.onloadedmetadata = function(e) {
+//		      //   video.play();
+//		      }
+//		    )
+//		    .catch(function(err) {
+//		      console.log(err.name + ": " + err.message);
+//		    });
+//		}
+//
+//
+//
+//
+
+	</script>
+</body>
+</html>

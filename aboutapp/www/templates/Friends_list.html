@@ -1,0 +1,80 @@
+<ion-view class="comunication_list Peripheral_orders friends_list" >
+	<div class="bar bar-header">
+		<div class="title">
+			通信列表
+		</div>
+		<img id="nav_release" src="img/nav_add.png" ng-click="nextgo('comunication_list_addfriends')" alt="" />
+		
+	</div>
+	<ion-view class="content has-header" >
+		<div class="row header_a_select">
+			<a class="col" href="#/tab/Comunication_list" nav-transition="none">聊天</a>
+			<a class="col" href="#/tab/Friends_list" style="border-bottom:3px solid #000" nav-transition="none">好友</a>
+		</div>
+		<ion-pane style="background-color:#eee;">
+			<ion-content style="padding-top:30px;">
+				<!--ng-controller="chatList"-->
+				<!--<div class="list" can-swipe="listCanSwipe">
+					<a class="item item-avatar item-remove-animate" ng-repeat="x in friends_list" ng-href="{{x.dataUrl}}" ng-cloak>
+						<img ng-src="{{x.imgUrl}}" alt="" />
+						<h2 >{{x.Name}}</h2>
+						<p><img ng-if="x.minimgUrl[1]" ng-src="{{x.minimgUrl[0]}}"  alt="" style="width:17px;vertical-align:middle;margin:0 5px 3px 0;border-radius: 50%;" />{{x.Content}}</p>
+						<ion-option-button class="button-positive">
+							删除
+						</ion-option-button>
+					</a>
+				</div> -->
+				 <!--class="list"-->
+				<ion-list >
+					<!--class="item item-avatar item-remove-animate"-->
+					<ion-item class="item-avatar item-remove-animate" ng-repeat="x in friends_list" href="#/Chats" ng-switch="x.user_type" ng-cloak>
+						<img ng-src="{{x.avatar}}" alt="" />
+						<h2 >{{x.user_nicename}}</h2>
+						<p ng-switch-when="2">{{x.signature}}</p>
+						<p ng-switch-when="3"><img  ng-src="{{x.courier_attrs.icon}}"  alt="" style="width:17px;vertical-align:middle;margin:0 5px 3px 0;border-radius: 50%;" />{{x.courier_attrs.name+x.distance}}</p>
+						<ion-option-button class="button-assertive" ng-click="Popupmainshowclick(x.id,x)">
+							删除
+						</ion-option-button>
+					</ion-item>
+				</ion-list>
+			</ion-content>
+			<div class="location_marker">
+				<div>A</div>
+				<div>B</div>
+				<div>C</div>
+				<div>D</div>
+				<div>E</div>
+				<div>F</div>
+				<div>G</div>
+				<div>H</div>
+				<div>I</div>
+				<div>J</div>
+				<div>K</div>
+				<div>L</div>
+				<div>M</div>
+				<div>N</div>
+				<div>O</div>
+				<div>P</div>
+				<div>Q</div>
+				<div>R</div>
+				<div>S</div>
+				<div>T</div>
+				<div>U</div>
+				<div>V</div>
+				<div>W</div>
+				<div>X</div>
+				<div>Y</div>
+				<div>Z</div>
+			</div>
+		</ion-pane>
+	</ion-view>
+	<div id="Popupmain" ng-if="Popupmainshow" ng-click="Popupmainshowclick()">
+		<div class="Popup posit" ng-click="Popupclick()">
+			<p>是否删除该好友</p>
+			<div>
+				<button ng-click="Popupmainshowclick()">取消</button>
+				<button style="color:#FF0000" ng-click="deleteFriend()">删除</button>
+			</div>
+		</div>
+	</div>
+</ion-view>

@@ -1,0 +1,180 @@
+/*公共样式*/
+body{
+	font-family: "微软雅黑";
+	min-width: 300px;
+}
+html,body{
+	margin: 0;
+	padding: 0;
+}
+a,a:hover{
+	color: white;
+	font-size: 12px;
+}
+
+a:hover{
+	text-decoration: none;
+}
+
+ul,li{
+	margin: 0px;
+	padding: 0px;
+	list-style:none;
+}
+
+
+/*头部样式*/
+.header_top{
+	width: 100%;
+}
+.header_top_bar{
+	width: 100%;
+	height:50px;
+	position: fixed;
+	z-index: 1001;
+	top: 0;
+}
+
+.header_top .item img{
+	width: 100%;
+	height: 410px;
+}
+
+.logo{
+	height:34px;
+	width: 230px;
+	float: left;
+	margin-top: 7px;
+	margin-left:10%;
+}
+.header_top .logo a{
+	display: block;
+	position: relative;
+	height: 34px;
+}
+
+.header_top .logo img{
+	width: 22px;
+	height: 22px;
+	float: left;
+	margin-top: 5px;
+	margin-right: 4px ;
+}
+
+.header_top .logo span:first-child{
+	width: 66px;
+	font-size: 22px;
+	float: left;
+	display: block;
+	margin-right: 2px;
+	position: absolute;
+	margin-left: 26px;
+}
+
+.union{
+	position: absolute;
+	left: 104px;
+	top: 4px;
+	width: 80px;
+	font-size: 12px;
+}
+
+.website{
+	position: absolute;
+	left:108px;
+	top: 14px;
+	font-size: 12px;
+}
+
+/*内容样式-*/
+/*.main .container{
+	padding-left: 20%;
+	padding-right: 20%;
+}*/
+
+section img{
+	width: 100%;
+	height: auto;
+}
+.main section .container .row div:first-child{
+	padding-right: 0;
+}
+.public{
+	display: block;
+	width: 100%;
+	font-size: 20px;
+	float: left;
+	border-bottom: 2px solid #C0C0C0;
+	margin-bottom: 28px;
+	margin-top: 36px;
+	padding-bottom: 8px;
+	display: block;
+}
+
+.company .public{
+	font-weight: bold;
+}
+
+/*小屏幕优化显示*/
+@media (max-width: 767px) {
+	
+.header_top .item img{
+	height: 240px;
+}
+	
+.optimization img{
+width: 310%;
+height: auto;
+padding: 0;
+}
+	
+.optimizations{
+	display: block;
+	width: 155%;
+	margin-top: 105%;
+	margin-left: -55%;
+}
+
+.change{
+	margin-top: 85%;
+}
+
+.nav > li{
+	background: rgb(188,188,188);
+}
+
+}
+
+/*bootstrap样式扩展*/
+.navbar-default .navbar-nav > li > a,.navbar-default .navbar-nav > li >a:hover{
+	color: white;
+	padding: 8px;
+}
+
+.navbar-collapse {
+    padding-right: 15px;
+    padding-left: 15px;
+    overflow-x: visible;
+    -webkit-overflow-scrolling: touch;
+    border-top: none;
+    -webkit-box-shadow:none;
+    box-shadow:none;
+}
+
+.navbar-default{
+	background:none;
+	border: none;
+	position: absolute;
+	top: 6px;
+	right: -5px;
+}
+
+.navbar-toggle{
+	background-color: #ddd;
+	margin-top: 2px;
+}
+
+.navbar-nav {
+    float: right;
+    margin: 0;
+}

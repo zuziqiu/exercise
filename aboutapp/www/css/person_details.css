@@ -1,0 +1,123 @@
+.person_details{
+	background-color: #eee;
+}
+.person_details .bar-header{
+	margin-bottom:0;
+	background-image:none ;
+	
+}
+.person_details .has-header{
+	margin:0;
+}
+
+
+.person_details .person_header{
+	width:100%;
+	padding:0 16px 12px;
+	font-size: 13px;
+	color:#333;
+	background-color:#ffe500;
+}
+.person_details .person_header>p{
+	position:absolute;
+	top:0;
+	left:16px;
+}
+
+.person_details .person_title{
+	font-size:14px;
+	margin:auto;
+	text-align: center;
+}
+.person_details .person_title img{
+	width:72px;
+	height:72px;
+}
+.person_details .person_title>h2{
+	margin:5px 0 6px;
+	/*line-height: 16px;*/
+	color:#181818;
+	font-size: 16px;
+}
+.person_details .person_title:nth-child(n){
+	line-height: 16px;
+}
+.person_details .person_title button{
+	width:120px;
+	height:34px;
+	background-color:#333;
+	opacity:0.5;
+	filer:alpha(opcity=50);
+	color:#ffe500;
+	margin:5px;
+	border-radius:17px;
+	font-size: 13px;
+	font-family: "黑体";
+	padding-top:3px;
+}
+.person_details .person_title button>img{
+	width:20px;
+	height:20px;
+	
+	margin:0 8px 3px 0;
+	/*margin-right:8px;*/
+	vertical-align: middle;
+	border-radius: 50%;
+}
+.person_details .list{
+	margin-top:0;
+}
+
+.person_details .has-header>:nth-last-child(1){
+	margin:0 !important;
+}
+
+
+.person_details .item{
+	width:100%;
+	text-align: left;
+	padding:9px 16px;
+	height:auto;
+	min-height:50px;
+	border-radius:0;
+}
+.person_details .item>h2{
+	font-size: 14px;
+	font-weight:normal ;
+	text-shadow: 0px 0px 0px #181818;
+	color:#181818;
+	font-family:"黑体";
+}
+.person_details .item>:nth-child(n){
+	margin:5px 0;
+	font-family:"黑体";
+}
+.person_details .button:after{
+	content:none;
+}
+.person_details .has-header .item-avatar{	
+	padding-left:60px;
+}
+.person_details .item-avatar>h2{
+	font-size: 16px;
+	color:#333;
+}
+.person_details .item-avatar .item-note>img{
+	margin-top:3px;
+	width:15px;
+}
+
+.person_details .item-avatar>p{
+	line-height:18px;
+	white-space: normal;
+	text-align: justify;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+.person_details .item-avatar>img:first-child{
+	height:40px;
+	width:40px;
+	top:10px;
+	left:10px;
+	margin:0;
+}

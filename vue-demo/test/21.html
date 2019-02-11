@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../file/vue.js"></script>
+</head>
+<style>
+    *{
+        margin:0; padding:0;
+    }
+    #all{
+        width:1000px; height:1000px; margin:0 auto; overflow: hidden;
+        background-color: #ccc;
+    }
+
+    #name{
+        width:120px;
+        height:30px;
+    }
+    select{
+        width:120px;
+        height:30px;
+    }
+    input{
+        width:120px;
+        height:30px;
+    }
+
+    /* 可以设置不同的进入和离开动画 */
+    /* 设置持续时间和动画函数 */
+    .slide-pull-enter-active ,.slide-pull-leave-active{
+        transition: all 0.3s ease;
+    }
+
+    .slide-pull-enter, .slide-pull-leave-to
+        /* .slide-pull-leave-active for <2.1.8 */ {
+        /*transform: translateX(10px);*/
+        opacity: 0;
+    }
+
+    .slide-pull-enter-active .content,.slide-pull-leave-active .content{
+        transition: all 0.3s ease;
+    }
+
+
+    .slide-pull-enter .content, .slide-pull-leave-to .content{
+        right:-100% !important;
+    }
+
+    #mask{
+        position:relative;
+        width:100%;
+        height:300px;
+    }
+
+    #mask .bg{
+        position:absolute;
+        width:100%;
+        height:100%;
+        top:0;
+        left:0;
+        background-color: #000;
+        opacity: 0.5;
+        z-index:10;
+    }
+
+    #mask .content{
+        position:absolute;
+        width:50%;
+        right:0;
+        top:0;
+        background-color: #fff;
+        height:100%;
+        Z-index:100;
+    }
+</style>
+<body>
+<div id="app"  >
+    <div v-say:set.a.b="age" data-id="x2">{{age}}</div>
+    <div v-say.a.b="age" data-id="x2">{{age}}</div>
+    <div v-hello='{color:"red",age:18}'></div>
+    <button @click="update">button</button>
+</div>
+
+
+
+<script>
+    /*
+    *
+    *    v-say:set.a.b="age" =>
+    *
+    *     1. binding.expression: "age"
+    *     2. binding.modifiers : {
+    *       a : true,
+    *       b : true
+    *     }
+    *     3. binding.name : say
+    *     4. binding.rawName: "v-say.a.b"
+    *     5. binding.value : 当前的age值
+    *     6. binding.oldValue : 上一个age值
+    *     7. binding.arg : set
+    * */
+
+    /*
+    *   v-hello='{color:"red",age:18}' =>
+    *   1. binding.value.color : 'red'
+    *   2. binding.value.age : 18
+    *   3. ........
+    *   4 .....
+    *   ......
+    *
+    * */
+
+
+    Vue.directive('say',{
+
+        //指令第一次绑定到元素时调用，用这个钩子函数可以定义一个在绑定时执行一次的初始化动作。
+        bind : function(){
+        //    console.log(arguments);
+       //     console.log('bind');
+        },
+
+        //被绑定元素插入父节点时调用（父节点存在即可调用，不必存在于 document 中）。
+        inserted: function (el) {
+        //    console.log(arguments);
+         //   console.log('inserted');
+        },
+
+        //当指令只需要bind和update时，可以Vue.directive('dirName',function(){}); function(){}会在bind阶段执行一次，在以后的每次update阶段都执行一次
+        //被绑定元素所在的模板更新时调用，而不论绑定值是否变化。通过比较更新前后的绑定值，可以忽略不必要的模板更新（详细的钩子函数参数见下）。
+        update : function( el, binding ){
+            console.log('binding');
+            console.log(binding);
+        },
+
+        //被绑定元素所在模板完成一次更新周期时调用。
+        componentUpdated : function(){
+          //  console.log(arguments);
+          //  console.log('componentUpdated');
+        },
+
+        //只调用一次， 指令与元素解绑时调用。
+        unbind : function(){
+            console.log('unbind');
+        }
+
+    });
+
+    Vue.directive('hello',{
+        bind : function( el, binding ){
+            console.log(binding);
+        },
+        update : function(){}
+    });
+
+
+
+
+
+    new Vue({
+        el : '#app',
+        data : {
+            age : 1,
+            someValue : 'xxx'
+        },
+        methods : {
+            update : function(){
+                this.age++;
+            }
+        }
+    });
+
+
+
+
+</script>
+
+</body>
+</html>

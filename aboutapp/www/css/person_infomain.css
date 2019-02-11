@@ -1,0 +1,285 @@
+.person_infomain{
+	background-color: #eee;
+}
+.person_infomain #person_change{
+	position: absolute;
+	width:48px;
+	height:48px;
+	padding:14px;
+	top:0;
+	right:0;
+}
+.person_infomain .bar{
+	position:relative;
+}
+.person_infomain .bar-header{
+	min-height:10px !important;
+	height:10px;
+	padding:0;
+	font-size:0;
+	color:#333;
+	background-color:#ffe500;
+	margin-bottom:0;
+	
+}
+.person_infomain .person_header{
+	width:100%;
+	height:202px !important;
+	padding:14px 16px;
+	font-size: 13px;
+	color:#333;
+	background-color:#ffe500;
+	margin-bottom:10px;
+	position:fixed;
+	top:0;
+	z-index: 10;
+}
+
+
+.person_infomain .person_title{
+	height:100%;
+	top:14px;
+	font-size:14px;
+	position:absolute;
+	left:0;
+	right:0;
+	margin:auto;
+	text-align: center;
+}
+.person_infomain .person_title img{
+	width:72px;
+	height:72px;
+}
+.person_infomain .person_title>h2,.person_infomain .bar .title>h2{
+	margin:5px 0 10px;
+	/*line-height: 16px;*/
+	color:#181818;
+	font-size: 16px;
+}
+.person_infomain .person_title:nth-child(n){
+	/*margin-bottom:0 0 10px;*/
+	line-height: 16px;
+}
+.person_infomain .person_title button{
+	width:120px;
+	height:34px;
+	background-color:#333;
+	opacity:0.5;
+	filer:alpha(opcity=50);
+	color:#ffe500;
+	margin:5px;
+	border-radius:17px;
+}
+.person_infomain .person_title button>img{
+	width:25px;
+	height:25px;
+	/*margin:0 5px 5px 0;*/
+	margin-right:5px;
+	vertical-align: middle;
+	border-radius: 50%;
+}
+
+
+
+
+.person_infomain .has-header{
+	top:0px !important;
+	height:auto;
+	background-color:#eee;
+	z-index: 10;
+}
+.platform-ios .person_infomain .has-header{
+    top:14px !important;
+}
+
+
+
+.person_infomain .has-header .row{
+	background-color: #fff;
+	text-align: center;
+	font-size:12px ;
+	color:#181818;
+	padding:0;
+	margin:0;
+}
+.person_infomain .has-header .row .col{
+	padding:9.444% 0;
+}
+.person_infomain .has-header .row .col:hover{
+	background-color:rgba(0,0,0,0.3);
+}
+.person_infomain .has-header .row>:nth-child(2){
+	border:1px solid #adadad;
+	border-top:0;
+	border-bottom: 0;
+}
+.person_infomain .has-header .row img{
+	width:20px;
+}
+
+
+
+.person_info_express .person_header{
+	height:226px !important;
+}
+
+
+
+
+
+
+/*我的零钱*/
+.my_change .bar{
+	background-size:0;
+}
+.my_change .bar-header{
+	padding:0;
+	height:48px;
+	background-color:#ffe500;
+	color:#181818 !important;
+}
+.my_change .platform-android .bar .title{
+	font-weight:bold;
+	top:2%;
+}
+/*账单部分头部*/
+.my_change .bar-header .select_list{
+	height:48px;
+	position:absolute;
+	right:0;
+	padding:15px 16px;
+	
+}
+.my_change .bar-header .select_list .select_show{
+	width:130px;
+	position:absolute;
+	top:45px;
+	right:4px;
+	background-color:#444;
+	border-radius:6px;
+	display:none;
+	
+}
+.my_change .bar-header .select_list .select_show::before{
+	width:8px;
+	height:8px;
+	background-color:#444;
+	transform: rotateZ(45deg);
+	position:absolute;
+	top:-4px;
+	right:18px;
+	content:'';
+}
+.my_change .bar-header .select_list .select_show>button{
+	width:100%;
+	color:#fff;
+	padding:0;
+	height:46px;
+	font-weight:bold;
+}
+/*************************************/
+
+
+
+.my_change .has-header,.platform-ios .my_change .has-header{
+	top:48px;
+	margin-bottom:0;
+	padding-bottom:0;
+	height:auto;
+	background-color:#eee;
+}
+.platform-ios .my_change .has-header{
+	top:43px;
+}
+
+.my_change .has-header .mychangeheader{
+	width:100%;
+	/*height:180px;*/
+	background-color: #ffe500;
+	text-align: center;
+	padding:0;
+	position:fixed;
+	top:0;
+	z-index:10;
+}
+
+.my_change .has-header .mychangeheader_view{
+	height:130px;
+	padding-top:10px;
+}
+.my_change .has-header .mychangeheader_view>h2{
+	font-size: 40px;
+	color:#181818;
+}
+/*账单部分头部*/
+.my_change .has-header .mychangeheader_view .row{
+	height:auto;
+	background-color: #ffe500;
+	margin-top:20px;
+}
+.my_change .has-header .mychangeheader_view .col{
+	padding:0;
+}
+.my_change .has-header .mychangeheader_view .col>:nth-child(n){
+	margin:0;
+	
+}
+.my_change .has-header .mychangeheader_view .col>h2{
+	font-size: 26px;
+}
+/********************************************/
+.my_change .has-header .header_a_select{
+	height:50px;
+	background-color: #fff;
+	text-align: center;
+	padding:0;
+	/*font-weight: bold;*/
+}
+.my_change .has-header .header_a_select .col{
+	color:#181818;
+	padding:0;
+	font-size: 12px;
+	border:none;
+	border-radius:0;
+}
+.my_change .has-header .header_a_select>:nth-child(2){
+	border:1px solid #ccc;
+	border-top:none;
+	border-bottom:none;
+}
+.my_change .has-header .header_a_select .col>img{
+	height:100%;
+	padding:14px 8px 18px;
+	vertical-align:middle;
+}
+.my_change .item{
+	width:100%;
+	height:auto;
+	min-height:50px;
+	padding:8px 16px;
+	border:none;
+	margin: 0;
+	line-height:15px;
+	font-size:12px;
+	color:#333;
+	text-align:left;
+	font-family: "黑体";
+	border-radius:0;
+}
+.my_change .item>div{
+	position: absolute;
+	top:0;
+	bottom:0;
+	right:16px;
+	margin:auto;
+	height:20px;
+	line-height:20px;
+	font-size: 14px;
+}
+.my_change .list{
+	/*margin:0 0 10px;*/
+	margin:0;
+}
+.my_change .item>p{
+	line-height:18px;
+}

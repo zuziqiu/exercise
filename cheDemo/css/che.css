@@ -1,0 +1,246 @@
+.car{
+	min-width: 320px;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	margin: 0 auto;
+}
+.car_menu{
+	width: 200%;
+	display: block;
+}
+.complete{
+	margin: 0 auto;
+	float: left;
+	width: 50%;
+	background: #FFFFFF;
+}
+.complete_top{
+	/*display: none;*/
+	top: 0;
+	left: 0;
+	height: 62px;
+	width:100%;
+	z-index: 999;
+	background-color: rgb(71,71,71);
+	text-align: center;
+	position: relative;
+}
+.top_carpic{
+	width: 67px;
+	height: 62px;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.top_carpic img{
+	width: 67px;
+	height: 62px;
+}
+.top_rigthpic{
+	width: 67px;
+	height: 62px;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.top_rigthpic img{
+	width: 67px;
+	height: 62px;
+}
+.chepai{
+	color: white;
+	font-size: 22px;
+	line-height: 62px;
+}
+.main_complete{
+	color: white;
+}
+.main_top{
+	background-color: rgb(240,87,55);
+	width: 100%;
+	height: 63px;
+	text-align: center;
+	float: left;
+	position: relative;
+}
+.moneypic{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.moneypic img{
+	width: 57px;
+	height: 63px;
+}
+.main_top span{
+	display: block;
+	color: white;
+	font-size: 18px;
+	line-height: 63px;
+	float: left;
+	padding-left: 67px;
+}
+.main_rihgtpic{
+	position: absolute;
+	right: 5px;
+	top: 14px;
+}
+.main_rihgtpic img{
+	width: 90px;
+	height: 40px;
+}
+.main_complete p{
+	width:100%;
+	display: block;
+	float: left;
+	padding-left: 10px;
+	font-size: 36px;
+	background-color: rgb(240,87,55);
+	padding-bottom: 10px;
+}
+.main_foot{
+
+	width: 100%;
+	
+}
+.main_foot ul{
+	float: left;
+	width: 33.33333%;
+	text-align: center;
+	padding: 20px 0;
+	border: 1px solid #e0e0e0;
+	background-color: rgb(240,87,55);
+	
+}
+.main_foot ul li{
+	font-size: 18px;
+	margin-top: 4px;
+}
+.nav{
+	width: 100%;
+}
+.nav_menu{
+	text-align: center;
+	width: 100%;
+}
+.nav_menu ul{
+	background: #E0E0E0;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+.nav_menu ul li {
+	width: 23%;
+	/*min-height: 100px;*/
+	float: left;
+	position: relative;
+	border: 1px solid #e0e0e0;
+	margin: 1% 1%;
+	overflow: hidden;
+	/*box-sizing: border-box;*/ 
+}
+.nav_menu ul li img{
+	width: 100%;
+	height: 100%;
+}
+.play{
+	width: 100%;
+	float: left;
+}
+.play img{
+	width: 100%;
+	height: 100%;
+}	
+.footing{
+	width: 100%;
+	top:710px;
+	text-align: center;
+}
+.footing div{
+	float: left;
+	width: 33.3333%;
+}
+.footing img{
+	width：60px;
+	height: 60px;
+}
+.shezhi{
+	width: 50%;
+	float: left;
+	margin: 0 auto;
+}
+.shezhi_top{
+	height: 40px;
+	width: 100%;
+	position: relative;
+	top: 0;
+	right: 0;
+	height: 62px;
+	width:100%;
+	z-index: 999;
+	background-color: rgb(71,71,71);
+	text-align: center;
+	color: white;
+}
+.wireless{
+	margin-bottom: 20px;	
+}
+.shezhi ul span{
+	position: absolute;
+	top: 0px;
+	right: 10px;
+	line-height: 65px;
+	padding-right: 10px;
+	font-size: 18px;
+	display: block;
+	float: right;
+}
+.shezhi ul{
+	width: 100%;
+	background: #FFFFFF;
+}
+.wireless li{
+	position: relative;
+	height: 65px;
+	width: 100%;
+	border-bottom: 1px solid #e0e0e0;
+}
+.center li{
+	position: relative;
+	height: 65px;
+	width: 100%;
+	border-top: 1px solid #e0e0e0;
+}
+.shezhi img{
+	width: 60px;
+	height: 60px;
+}
+.back{
+	display: block;
+	float: left;
+	line-height: 62px;
+	font-size: 28px;
+	position: absolute;
+	width: 50px;
+}
+.back a{
+	color: white;
+}
+.shezhi b{
+	position: absolute;
+	top:22px;
+	left: 65px;
+}
+
+.ball{
+	display: none;
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	border-radius: 15px;
+	background-color: #7AE6FF;
+	top: 0;
+	left: 0;
+}

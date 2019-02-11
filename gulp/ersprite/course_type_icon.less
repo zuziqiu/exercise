@@ -1,0 +1,198 @@
+/*
+LESS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: @icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+@icon-home: x y offset_x offset_y width height total_width total_height image_path name;
+
+At the bottom of this section, we provide information about the spritesheet itself
+@spritesheet: width height image @spritesheet-sprites;
+*/
+@baby-name: 'baby';
+@baby-x: 0px;
+@baby-y: 0px;
+@baby-offset-x: 0px;
+@baby-offset-y: 0px;
+@baby-width: 48px;
+@baby-height: 48px;
+@baby-total-width: 48px;
+@baby-total-height: 552px;
+@baby-image: 'course_type_icon.png';
+@baby: 0px 0px 0px 0px 48px 48px 48px 552px 'course_type_icon.png' 'baby';
+@class-name: 'class';
+@class-x: 0px;
+@class-y: 56px;
+@class-offset-x: 0px;
+@class-offset-y: -56px;
+@class-width: 48px;
+@class-height: 48px;
+@class-total-width: 48px;
+@class-total-height: 552px;
+@class-image: 'course_type_icon.png';
+@class: 0px 56px 0px -56px 48px 48px 48px 552px 'course_type_icon.png' 'class';
+@crown-name: 'crown';
+@crown-x: 0px;
+@crown-y: 112px;
+@crown-offset-x: 0px;
+@crown-offset-y: -112px;
+@crown-width: 48px;
+@crown-height: 48px;
+@crown-total-width: 48px;
+@crown-total-height: 552px;
+@crown-image: 'course_type_icon.png';
+@crown: 0px 112px 0px -112px 48px 48px 48px 552px 'course_type_icon.png' 'crown';
+@discount-name: 'discount';
+@discount-x: 0px;
+@discount-y: 168px;
+@discount-offset-x: 0px;
+@discount-offset-y: -168px;
+@discount-width: 48px;
+@discount-height: 48px;
+@discount-total-width: 48px;
+@discount-total-height: 552px;
+@discount-image: 'course_type_icon.png';
+@discount: 0px 168px 0px -168px 48px 48px 48px 552px 'course_type_icon.png' 'discount';
+@free1-name: 'free1';
+@free1-x: 0px;
+@free1-y: 224px;
+@free1-offset-x: 0px;
+@free1-offset-y: -224px;
+@free1-width: 48px;
+@free1-height: 48px;
+@free1-total-width: 48px;
+@free1-total-height: 552px;
+@free1-image: 'course_type_icon.png';
+@free1: 0px 224px 0px -224px 48px 48px 48px 552px 'course_type_icon.png' 'free1';
+@icon-live-name: 'icon_live';
+@icon-live-x: 0px;
+@icon-live-y: 280px;
+@icon-live-offset-x: 0px;
+@icon-live-offset-y: -280px;
+@icon-live-width: 48px;
+@icon-live-height: 48px;
+@icon-live-total-width: 48px;
+@icon-live-total-height: 552px;
+@icon-live-image: 'course_type_icon.png';
+@icon-live: 0px 280px 0px -280px 48px 48px 48px 552px 'course_type_icon.png' 'icon_live';
+@icon-love-name: 'icon_love';
+@icon-love-x: 0px;
+@icon-love-y: 336px;
+@icon-love-offset-x: 0px;
+@icon-love-offset-y: -336px;
+@icon-love-width: 48px;
+@icon-love-height: 48px;
+@icon-love-total-width: 48px;
+@icon-love-total-height: 552px;
+@icon-love-image: 'course_type_icon.png';
+@icon-love: 0px 336px 0px -336px 48px 48px 48px 552px 'course_type_icon.png' 'icon_love';
+@lady-name: 'lady';
+@lady-x: 0px;
+@lady-y: 392px;
+@lady-offset-x: 0px;
+@lady-offset-y: -392px;
+@lady-width: 48px;
+@lady-height: 48px;
+@lady-total-width: 48px;
+@lady-total-height: 552px;
+@lady-image: 'course_type_icon.png';
+@lady: 0px 392px 0px -392px 48px 48px 48px 552px 'course_type_icon.png' 'lady';
+@medical-name: 'medical';
+@medical-x: 0px;
+@medical-y: 448px;
+@medical-offset-x: 0px;
+@medical-offset-y: -448px;
+@medical-width: 48px;
+@medical-height: 48px;
+@medical-total-width: 48px;
+@medical-total-height: 552px;
+@medical-image: 'course_type_icon.png';
+@medical: 0px 448px 0px -448px 48px 48px 48px 552px 'course_type_icon.png' 'medical';
+@study-name: 'study';
+@study-x: 0px;
+@study-y: 504px;
+@study-offset-x: 0px;
+@study-offset-y: -504px;
+@study-width: 48px;
+@study-height: 48px;
+@study-total-width: 48px;
+@study-total-height: 552px;
+@study-image: 'course_type_icon.png';
+@study: 0px 504px 0px -504px 48px 48px 48px 552px 'course_type_icon.png' 'study';
+@spritesheet-width: 48px;
+@spritesheet-height: 552px;
+@spritesheet-image: 'course_type_icon.png';
+@spritesheet-sprites: @baby @class @crown @discount @free1 @icon-live @icon-love @lady @medical @study;
+@spritesheet: 48px 552px 'course_type_icon.png' @spritesheet-sprites;
+
+/*
+The provided classes are intended to be used with the array-like variables
+
+.icon-home {
+  .sprite-width(@icon-home);
+}
+.icon-email {
+  .sprite(@icon-email);
+}
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+.sprite-width(@sprite) {
+  width: extract(@sprite, 5);
+}
+
+.sprite-height(@sprite) {
+  height: extract(@sprite, 6);
+}
+
+.sprite-position(@sprite) {
+  @sprite-offset-x: extract(@sprite, 3);
+  @sprite-offset-y: extract(@sprite, 4);
+  background-position: @sprite-offset-x @sprite-offset-y;
+}
+
+.sprite-image(@sprite) {
+  @sprite-image: extract(@sprite, 9);
+  @sprite-image-bare: ~`"@{sprite-image}".slice(1, -1)`;
+  background-image: url(@sprite-image-bare);
+}
+
+.sprite(@sprite) {
+  .sprite-image(@sprite);
+  .sprite-position(@sprite);
+  .sprite-width(@sprite);
+  .sprite-height(@sprite);
+}
+
+/*
+The `.sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of LESS
+
+This must be run when you have at least 2 sprites.
+  If run with a single sprite, then there will be reference errors.
+
+.sprites(@spritesheet-sprites);
+*/
+.sprites(@sprites, @i: 1) when (@i <= length(@sprites)) {
+  @sprite: extract(@sprites, @i);
+  @sprite-name: e(extract(@sprite, 10));
+  .@{sprite-name} {
+    .sprite(@sprite);
+  }
+  .sprites(@sprites, @i + 1);
+}

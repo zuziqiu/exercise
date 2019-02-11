@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>webupload</title>
+	<link rel="stylesheet" type="text/css" href="css/course_video.css">
+</head>
+<style type="text/css">
+/*	#webupload{
+		width: 100px;
+		height: 30px;
+		line-height: 30px;
+		margin: 400px auto;
+		border: 1px solid #dddddd;
+		text-align: center;
+		font-size: 14px;
+		border-radius: 4px;
+		cursor: pointer;
+	}*/
+</style>
+<body>
+	<dl class="course_Video">
+		<dt>课程视频</dt>
+		<dd class="Video_choose " tal:attributes="class php: empty(video) ? 'Video_choose' : 'Video_choose hidden'">
+			<p id="webupload">选择视频</p>
+			<em>建议上传MP4，FLV、AVI需要转码，最大2G</em>
+		</dd>
+
+		<dd class="progress_box hidden">
+
+			<div class="progress_title">
+				<span id="course_title">biaoti</span>
+				<a href="javascript:void(0)" target="" class="upload_cancel">取消</a>
+			</div>
+
+			<div class="progress_show">
+				<div class="progress_bar box_sizing">
+					<div class="progress_length"></div>
+					<div class="progress_value"></div>
+				</div>	
+				<p class="progress_number">0%</p>
+				<p class="progress_precent">
+					<span class="current_progress">0M/</span>
+					<span class="total_length">0M</span>
+				</p>
+
+			</div>
+
+		</dd>
+
+		<dd class="progress_success_box hidden" tal:attributes="class php: !empty(video) ? 'progress_success_box' : 'progress_success_box hidden'">
+
+			<div class="progress_title">
+				<span class="course_title" tal:content="php: !empty(video) ? video['fileName'] : ''"></span>
+			</div>
+
+			<div class="progress_show">
+				<p class="progress_precent">
+					<span class="total_length" tal:content="php: !empty(video) ? (empty(video['convertFileSize']) ? ceil(video['origFileSize']/1048576) . 'M' : ceil(video['convertFileSize']/1048576) . 'M') : ''">0M</span>
+					<span class="success_tips" tal:content="php: video['status'] == 0 || video['status'] == 1 ? '已上传' : (video['status'] == 2 ? '上传失败' : (video['status'] == 3 ? '已删除' : ''))">已上传</span>
+				</p>
+
+			</div>
+
+		</dd>
+	</dl>
+ 	<!-- <p id="webupload">上传</p> -->
+	<!-- <input id="webupload" type="text" /> -->
+</body>
+<script src="js/jquery-1.12.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/webuploader.min.js" type="text/javascript" charset="utf-8"></script>
+<script>
+
+var uploader = {
+
+	defaults:{
+		attr: 1,
+		video_id: "",
+		videoDuration: "",
+		fileName: "",
+		fileSize: "",
+		status: "" ,
+		post_flag: true,
+		video_flag :false,
+		a_click: false,
+	},
+// 检查video信息
+	checkVideoDetail: function(md5, file, callback){
+		var that = this;
+		$.ajax({
+			url: window.upload_video_url ,
+			type: 'POST',
+			dataType: 'jsonp',
+			data: {
+				'md5': md5
+			},
+			success: function(response){
+				// 需要上传
+				// 执行callback
+				if(response.needUpload === true){
+					if(typeof (callback) === "function"){
+						callback(response);
+					}
+				}
+				// 服务器已上传
+				else{
+					// 不能重复上传的操作/提示
+					$(".Video_choose").addClass('hidden');	// 选择视频按钮消失
+					$(".video_agreement").addClass('hidden');// 隐藏上传协议
+					// $(".course_title").text(file.name); 	// 显示上传完成后提示的文件名
+					$(".progress_value").width("100%");		// 进度条100%
+					$(".progress_number").text("100%");		// 总长度100%
+
+					// 小于1M的视频，显示1M
+					if(parseInt(file.size/1024/1024)>0){
+						$(".current_progress").text(parseInt(file.size/1024/1024)+"M/");	// 上传完成
+						$(".total_length").text(parseInt(file.size/1024/1024)+"M");
+					}
+					else{
+						$(".current_progress").text("1M/");					// 上传完成
+						$(".total_length").text("1M");
+					}
+
+					$(".progress_box").removeClass('hidden');
+					that.defaults.video_id = response.data.videoId;			// video_id不为空时才能保存
+					that.defaults.videoDuration = response.data.duration;	// 传总时长
+					that.defaults.status   = response.data.status;			// 视频状态
+					that.defaults.convertFileSize = response.data.fileSize;	// 视频转换后大小
+
+					setTimeout(function(){
+						that.upload_reset();
+						$(".progress_success_box").removeClass('hidden');
+						that.defaults.video_flag = false;         // 视频上传中取消时提示窗口的弹出标志
+					},1000);
+				}
+			}
+		});
+	},
+
+	// uploader;
+ 	video_uploader: function(){
+ 		var that = this,
+	    	video_uploader,
+			MD5 = "",
+		    getMD5 = function(){
+				return that.MD5;
+			},
+			maxSize = 2;
+
+		// 初始化Web Uploader
+		video_uploader = WebUploader.create({
+
+			//上传方式
+			method: 'POST',
+
+		    // 选完文件后，是否自动上传。
+		    auto: false,
+
+			// 分片上传
+			chunked: true,
+
+			// 超时
+			timeout: 0,
+
+			// 5MB/分片
+			chunkSize: 5 * 1024 * 1024,
+
+			// 网络问题，重传5次
+			chunkRetry: 5,
+
+			// 预处理下一片
+			prepareNextFile: true,
+
+		    // upload-field-name
+		    fileVal: "filedata",//window.upload_data.data.field,
+
+			// html5优先
+			runtimeOrder: "html5",
+
+		    // swf文件路径
+		    swf: '/templates/pc/teach_cms/js/swf/Uploader.swf',
+
+		    // 文件接收服务端。
+		    server: "http:\/\/fp3.talk-fun.com\/live\/api\/fileUpload.php?codes=eyJwaWQiOjExMjQ0LCJiaWQiOiIyOTU2MyIsInRpdGxlIjoiIiwic2lkIjozLCJfdCI6MTQ5NTI1Mjc1NCwiY2xpZW50X2lwIjoiMTI3LjAuMC4xIiwiZXQiOjE0OTc4NDQ3NTQsInJhbmQiOjI3NDc4ODk0LCJzaWduIjoiNTA0NDUwMWFiNmU1ODFhZmQwY2VhYWU4ZWE1MGIwNzQifQ&sub=uploadVideo",
+
+		    //{int} [可选] [默认值：undefined] 验证文件总数量, 超出则不允许加入队列。
+		    fileNumLimit: 1,
+
+			//{int} [可选] [默认值：undefined] 验证单个文件大小是否超出限制, 超出则不允许加入队
+			fileSingleSizeLimit: maxSize * 1024 * 1024 *1024,
+		   
+		    // 选择文件的按钮。可选。
+		    // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+		    pick: '#video_upload',
+
+			// 每次上传并发
+			threads: 1,
+
+		    // 只允许选择图片文件。
+		    accept: {
+		        title: 'video',
+		        extensions: 'mp4,avi,flv',
+		        mimeTypes: 'video/*'
+		    }
+		});
+		
+		// 上传文件到服务器前，会执行该事件
+		// ============================
+		// 第一个参数得到 file 文件
+		// 第二个参数为上传文件的扩展参数(即需要扩展的字段名称)
+		// 第三个是header参数
+		video_uploader.on("uploadBeforeSend", function(__file, params, header){
+			
+			// 必需在上传文件前得到md5参数并发送
+			params["md5"] = that.MD5;
+
+			// 服务器要求从第 `1` 片开始
+			params["chunk"] = __file.chunk + 1;
+
+		});
+	
+	
+
+		// ⚠️上传前需要验证服务器信息
+		video_uploader.on('beforeFileQueued', function(file) {
+
+			var vUpload = this;
+			 // 初始化时长&显示"解析文件中"
+	 		$(".parse_file").removeClass('hidden');
+	 		$(".progress_precent").addClass('hidden');
+
+			// 得到整个文件MD5
+			vUpload.md5File(file).then(function(md5){
+
+				// copy => that.MD5
+				that.MD5 = md5;
+				
+				// 如服务器验证通过会执行 callback
+				that.checkVideoDetail(md5, file, function(res){
+					vUpload.upload();
+				});
+
+				// 视频开始上传显示总时长
+		 		$(".parse_file").addClass('hidden');
+		 		$(".progress_precent").removeClass('hidden');
+			})
+
+			// 选择文件前
+	    	that.defaults.fileName = file.name;
+	    	that.defaults.fileSize = file.size;
+			that.videoFile = file;
+			$("#course_title, .course_title").text(file.name);	// 显示选取的文件名
+
+			// 转化
+			var size2mb = parseInt(file.size/1024/1024, 10);
+			if(size2mb > 0){
+				$(".total_length").text(size2mb + "M");
+			}
+			else{
+				$(".total_length").text("1M");
+			}
+		});
+		
+
+		// fileQueued
+		video_uploader.on('fileQueued', function( file ) {
+			$(".Video_choose").addClass('hidden');
+			$(".video_agreement").addClass('hidden');// 隐藏上传协议
+			$(".progress_box").removeClass('hidden');
+
+			// 上传视频中点击取消弹出窗口提示的标志
+			that.defaults.video_flag = true;
+
+			// 上传视频中禁止a跳转
+			$("a").click(function(event){
+				// video_flag判断视频是否上传中(cancel会重新赋值)
+				if(that.defaults.video_flag){
+					// 防止页面跳转中断视频上传=>a链接点击的状态
+					that.defaults.a_click = true;
+					if(!($(this).attr("target") == "_blank")){
+
+						if($(this).text() == "微信客服") return false;
+						if($(this).hasClass('ht_download')) return false;
+
+						var href = $(this).attr("href");
+						var elment = $(this)
+						$(this).attr("href","javascript:void(0)");
+						$(".is_cancel_upload").removeClass('hidden');
+						// 确认取消
+					    $(".sure_upload").click(function(){  
+					    	// 由页面a链接跳转而发起的“是否取消上传视频”      	
+							if(that.defaults.a_click){
+					        	$(".is_cancel_upload").addClass('hidden');
+					        	window.location.href = href;
+						    }
+					    });
+				        // 否定取消
+				        $(".cancel_upload").click(function(){
+				        	$(".is_cancel_upload").addClass('hidden');
+				        	elment.attr("href",href);
+	    					// 防止页面跳转中断视频上传=>a链接点击的状态
+				        	that.defaults.a_click = false;
+				        })
+					}
+				}
+			})
+		});
+
+
+		// 进度条(不能开fiddler，上传数据显示会出现异常)
+		video_uploader.on( 'uploadProgress', function(file, percentage) {
+			that.upload_progress(file, percentage);
+		});
+
+		// md5验证，无重复上传时，上传成功
+		video_uploader.on( 'uploadSuccess', function(file, response) {
+			if(response.code == 0){
+				that.defaults.video_flag = false;         // 视频上传中取消时提示窗口的弹出标志
+
+				$(".progress_box").addClass('hidden');
+				// $(".course_title").text(file.name); 					// 显示上传完成后提示的文件名
+				$(".progress_number").text(parseInt(1*100)+"%");		// 总长度100%
+
+				// 小于1M的视频，显示1M
+				if(parseInt(file.size/1024/1024)>0){
+					$(".current_progress").text(parseInt(file.size/1024/1024)+"M/");	// 上传完成
+					$(".total_length").text(parseInt(file.size/1024/1024)+"M");
+				}
+				else{
+					$(".current_progress").text("1M/");					// 上传完成
+					$(".total_length").text("1M");
+				}
+
+				$(".progress_success_box").removeClass('hidden');
+	 		    that.defaults.video_id = response.data.videoId;			// video_id不为空时才能保存
+	 		    that.defaults.videoDuration = response.data.duration;	// 传总时长
+	 		}
+	 		else{
+	 			alert("上传失败，请重试")
+	 			that.defaults.video_flag = false;         // 视频上传中取消时提示窗口的弹出标志
+	 		}
+		});
+
+		// 上传出错清空队列
+		video_uploader.on('uploadError', function(file, response  ) {
+	    	// var _file = (video_uploader.getFiles());
+	    	// // 清空队列
+	        // for(var i = 0 ;i<_file.length;i++){
+	        //     //从队列中移除掉
+	        //     video_uploader.removeFile(_file[i],true);
+	        // }
+		});
+
+		// 取消上传&清空队列
+	   	$(".progress_box").on('click', '.upload_cancel', function() {
+	    	// var _file = (video_uploader.getFiles());
+	    	// 清空队列
+	        // for(var i = 0 ;i<_file.length;i++){
+			// 	//取消文件上传
+	        //     video_uploader.cancelFile(_file[i]);
+	        //     //从队列中移除掉
+	        //     video_uploader.removeFile(_file[i],true);
+	        // }
+
+			// 防止页面跳转中断视频上传=>a链接点击的状态
+	        that.defaults.a_click = false;  
+	        // 弹出取消确认窗口
+	        $(".is_cancel_upload").removeClass('hidden');
+	        // 确认取消
+	        $(".sure_upload").click(function(){        	
+				// 移除 & 清空队列
+				video_uploader.cancelFile(that.videoFile);
+				video_uploader.removeFile(that.videoFile, true);
+				that.videoFile = null;
+
+				// UI
+		    	$(".progress_box").addClass('hidden');
+		    	$(".Video_choose").removeClass("hidden");
+		    	$(".video_agreement").removeClass('hidden');// 显示上传协议
+
+		    	// 初始化
+		    	that.upload_reset();
+				that.defaults.video_flag = false;         // 视频上传中取消时提示窗口的弹出标志
+	        	$(".is_cancel_upload").addClass('hidden');
+	        });
+	        // 否定取消
+	        $(".cancel_upload").click(function(){
+	        	$(".is_cancel_upload").addClass('hidden');
+	        })
+		})
+
+		// copy.
+		that.videoUploader = video_uploader;
+
+ 	},
+
+ 	// 上传进度(进度条)
+ 	upload_progress: function(file, percentage){
+		$(".progress_value").width(parseInt(percentage*100)+"%");					// 进度条
+		$(".progress_number").text(parseInt(percentage*100)+"%");				    // 进度条数值
+		$(".current_progress").text(parseInt(file.size/1024/1024*percentage)+"M/");	// 当前进度
+ 	},
+
+ 	// 初始化
+	upload_reset: function(){
+		// 初始化上传中进度条&显示上传已完成提示
+		$(".progress_box").addClass('hidden');	
+		$("#course_title").text("");
+		$(".progress_value").width("0%");
+		$(".progress_number").text("0%");	
+		$(".current_progress").text("0M/");
+		$(".progress_box .total_length").text("0M");
+	},
+
+	//入口
+	init: function(){
+		var that = this;
+		that.video_uploader();
+	}
+};
+
+$(function(){
+	uploader.init();
+});
+
+</script>
+</html>

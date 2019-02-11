@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../file/vue.js"></script>
+</head>
+<style>
+    *{
+        margin:0; padding:0;
+    }
+    #all{
+        width:1000px; height:1000px; margin:0 auto; overflow: hidden;
+        background-color: #ccc;
+    }
+
+    #name{
+        width:120px;
+        height:30px;
+    }
+</style>
+<body>
+   <div id="all">
+       <div>
+           <span>data : number;</span>
+           <span>{{number}}</span>
+       </div>
+      <div>
+          <span>data : name;</span>
+          <span>{{name}}</span>
+      </div>
+       <div>
+           <span>watch : name;</span>
+           <span>{{fullname}}</span>
+       </div>
+       <div>
+           <span>methods : say();</span>
+           <span>{{say()}}</span>
+       </div>
+       <div>
+           <span>filters : sayHello;</span>
+           <span>{{name | sayHello}}</span>
+       </div>
+       <div>
+           <span>computed : age;</span>
+           <span>{{age}}</span>
+           <span>{{age}}</span>
+       </div>
+       <div>
+           <span>computed : gf , getter setter</span>
+           <span>{{gf}}</span>
+       </div>
+
+       <div>
+           <input type="text" v-model="name" id="name" />
+       </div>
+   </div>
+
+   <script>
+       var vm = new Vue({
+           el : '#all',
+           data : {
+               name : 'wbr',
+               fullname : '',
+               yj : '妖精',
+               number : 0
+           },
+           methods : {
+               say : function(){
+                  return this.name + ' saying';
+               }
+           },
+           filters : {
+               sayHello : function( input ){
+                   return input + ' hello';
+               }
+           },
+           computed : {
+               age : function(){
+                    console.log('computed age');
+                    return this.name.length * 3;
+               },
+               gf : {
+                   get : function(){
+                       return this.name + '的女朋友是:' + this.yj;
+                   },
+                   set : function( newVal ){
+                          this.yj = newVal;
+                   }
+               }
+           },
+           watch : {
+               name : function( newVal ){
+                   this.fullname = newVal + '::' + newVal.length;
+               }
+           }
+       });
+
+       console.log( vm );
+
+
+           vm.gf = 'xiao yao jing';
+
+   </script>
+</body>
+</html>

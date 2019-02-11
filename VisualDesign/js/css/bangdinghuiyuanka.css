@@ -1,0 +1,66 @@
+*{
+	padding:0;
+	margin:0;
+}
+html,body{
+	width:100%;
+	height:100%;
+	background-color:rgb(239,239,244);
+}
+
+.mCard,.mCard_main,.mCard_tips,form{
+	width: 100%;
+}
+
+.mCard_tips{
+	background-color: #ffbe00;
+	padding-top: 4%;
+	padding-bottom: 4%;
+	padding-left: 4%;
+	width: 96%;
+	font-size: 12px;
+	color: #ffffff;
+	line-height: 18px;
+}
+
+.mCard_main > form div{
+	padding-top: 4.44%;
+	padding-bottom: 4.44%;
+	padding-left: 4%;
+	font-size: 14px;
+	font-weight: 600;
+	border: 1px solid #f0f0f0;
+	background-color: #FFFFFF;
+}
+.mCard_main form span{
+	color: #666666;
+	text-align:justify;
+	text-justify: distribute-all-lines;
+	text-align-last: justify;
+	-moz-text-align-last: justify;
+	width: 70px;
+	float: left;
+	font-weight: 600;
+}
+.mCard_main form > div >input{
+	border-style: none;
+	outline: none;
+	font-size: 14px;
+	margin-left: 5%;
+	font-weight: 600;
+}
+
+.mCard_main > button{
+	border-style: none;
+	background-color:#ffbe00 ;
+	width: 90%;
+	padding-top:3% ;
+	padding-bottom: 3%;
+	margin-left: 5%;
+	border-radius: 8px;
+	font-size: 18px;
+	color: #ffffff;
+	font-weight: bold;
+	margin-top: 42%;
+	outline: none;
+}

@@ -1,0 +1,43 @@
+/*整体样式*/
+body{
+	margin: 0;
+ 	font-family: "microsoft yahei",sans-serif;/*第二个是手机的默认字体*/
+}	
+
+ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+
+/*order_main样式*/
+.order,.order_main{
+	width: 100%;
+	background-color: #FFFFFF;
+}
+.order_main{
+	margin-top: 1%;
+	padding-bottom: 25%;
+}
+.order_main li{
+	font-size:1rem;
+	line-height: 50px;
+	padding-top: 1.4%;
+	padding-bottom: 1.4%;
+	border-bottom:1px solid #f0f0f0;
+	margin-left: 5%;
+}
+
+.order_main li p{
+	width: 80px;
+	margin: 0;
+	float: left;
+	color: rgb(168,168,168);
+	text-align-last: justify;
+}
+
+.order_main li span{
+ 	color: rgb(99,99,99);
+	margin-left: 6%;	
+}

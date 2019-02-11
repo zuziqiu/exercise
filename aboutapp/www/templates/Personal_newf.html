@@ -1,0 +1,39 @@
+<ion-view class="comunication_list Peripheral_orders personal_newt personal_newf slide-right-left">
+	<div class="bar bar-header">
+		<a href="#/tab" nav-direction="back">
+			<!--ng-click="nextgo('tab')"-->
+			<img id="return" src="img/nav_return.png"  />
+		</a>
+		<!--<img id="return" src="img/nav_return.png" ng-click="nextgo('tab')" />-->
+		<div class="title">
+			个人消息
+		</div>
+		
+	</div>
+	<ion-view class="content has-header" >
+		<div class="row header_a_select">
+			<a class="col" href="#/personal_newt" nav-transition="none">通知</a>
+			<a class="col" href="#/personal_newf" nav-transition="none" style="border-bottom:3px solid #000">好友申请</a>
+		</div>
+		<ion-pane style="background-color:#eee;">
+			<ion-content style="padding-top:30px;">
+				<div class="list friend_list" >
+					<div class="item item-avatar" ng-repeat="x in agreeFriendslist" ng-switch="x.type">
+						<img ng-src="{{x.avatar}}" alt="" />
+						<h2 >{{x.user_nicename}}</h2>
+						<p ng-switch-when="0">请添加为好友</p>
+						<p ng-switch-default>已添加为好友</p>
+						<button class="add_friend posit" ng-switch-when="0" ng-click="agreeFriend(x.from_user_id)">同意</button>
+						<button class="add_friend posit" ng-switch-default style="background-color:#e6e6e6;border-color:#d1d1d1"><img src='img/list_finish.png' style='width:30%;' alt='' /></button>
+					</div>
+					<!--<div class="item item-avatar">
+						<img src="img/header.png" alt="" />
+						<h2 >KOFFING</h2>
+						<p>请添加为好友</p>
+						<button class="add_friend posit">同意</button>
+					</div>-->
+				</div>
+			</ion-content>
+		</ion-pane>
+	</ion-view>
+</ion-view>

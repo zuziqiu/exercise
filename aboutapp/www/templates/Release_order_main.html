@@ -1,0 +1,192 @@
+<ion-view class="release_order release_order_main order_detail" >
+	<div class="bar bar-header">
+		<a href="#/tab" style="position:absolute;top:0;left:0;" nav-direction="back">
+			<img id="return" src="img/nav_return.png"  />
+		</a>
+		<!--<img id="return" src="img/nav_return.png" ng-click="nextgo('tab')"></img>	-->
+		<div class="title">发布订单</div>
+	</div>
+	<ion-view class="content has-header" >
+		<ion-pane style="background-color:#eee;">
+			<ion-content>
+				<div class="list">
+					<div class="item" style="min-height:40px;padding:12px 16px;">
+						基本信息
+					</div>
+					<div class="item item-avatar" ng-show="{{!sendershowsw1}}" ng-click="Mainsender_recipientselect(1)">
+						<img src="img/ic_send.png" alt="" />
+						<div>
+							<h2 ><span style="max-width:58px;display:inline-block;text-overflow:ellipsis;overflow: hidden;vertical-align: bottom;">{{senderdz_detail.name}}</span> {{senderdz_detail.mobile}}</h2>
+							<p>{{senderdz_detail.area}}</p><br />
+							<p>{{senderdz_detail.detail}}</p>
+						</div>
+						<!--<div>
+							<h2 ><span style="max-width:58px;display:inline-block;text-overflow:ellipsis;overflow: hidden;vertical-align: bottom;">{{senderdz_detail.person_name}}</span> {{senderdz_detail.person_phone}}</h2>
+							<p>{{senderdz_detail.already_selectstr1}}</p><br />
+							<p>{{senderdz_detail.person_detail}}</p>
+						</div>-->
+						<img class="posit" src="img/list_right.png" alt="" />
+					</div>
+					<button class="item item-avatar" ng-show="{{sendershowsw1}}" style="height:76px;" ng-click="Mainsender_recipientselect(1)">
+						<img src="img/ic_send.png" alt="" />
+						<p style="font-size: 14px;">请输入寄件人详细地址</p>
+						<img class="posit" src="img/list_right.png" alt="" />
+					</button>
+					<div class="item item-avatar" ng-show="{{!recipientshowsw1}}" ng-click="Mainsender_recipientselect(2)">
+						<img src="img/ic_closed.png" alt="" />
+						<div>
+							<h2 ><span style="max-width:58px;display:inline-block;text-overflow:ellipsis;overflow: hidden;vertical-align: bottom;">{{recipientdz_detail.name}}</span> {{recipientdz_detail.mobile}}</h2>
+							<p>{{recipientdz_detail.area}}</p><br />
+							<p>{{recipientdz_detail.detail}}</p>
+						</div>
+						<img class="posit" src="img/list_right.png" alt="" />
+					</div>
+					<button class="item item-avatar" ng-show="{{recipientshowsw1}}" style="height:76px;" ng-click="Mainsender_recipientselect(2)">
+						<img src="img/ic_closed.png" alt="" />
+						<p style="font-size: 14px;">请输入寄件人详细地址</p>
+						<img class="posit" src="img/list_right.png" alt="" />
+					</button>
+				</div>
+				<div class="list cargo_info">
+					<div class="item" ng-click="select()" style="min-height:40px;padding:12px 16px;border-bottom-width:0;">
+						货物信息(可选)
+						<img class="posit" style="width:15px;" src="img/list_bottom.png" alt="" />
+					</div>
+					<div class="list detailed">
+						<button class="item item-avatar Release_ordergo" ng-click="nextgo('choose_express_company')" >
+							<span>快递公司</span><span class="express_company"></span>
+							<img class="posit" src="img/list_right.png" alt="" />
+						</button>
+						<button class="item item-avatar Release_ordergo" ng-click="nextgo('release_order_goodst')">
+							<span>货物类型</span><span class="type_of_goods"></span>
+							<img class="posit" src="img/list_right.png" alt="" />
+						</button>
+						<button class="item item-avatar Release_ordergo" ng-click="nextgo('release_order_goodssize')">
+							<span>货物大小</span><span class="size_of_goods"></span>
+							<img class="posit" src="img/list_right.png" alt="" />
+						</button>
+						<button class="item item-avatar Release_ordergo" ng-click="nextgo('release_order_goodsw')">
+							<span>货物重量</span><span class="weight_of_goods"></span>
+							<img class="posit" src="img/list_right.png" alt="" />
+						</button>
+						<button class="item item-avatar Release_ordergo" ng-click="nextgo('release_order_remarks')">
+							<span>添加备注</span><span class="remarks_word" style="max-width:68%;display: inline-block;vertical-align:top;padding-right:16px;" ></span>
+							<img class="posit" src="img/list_right.png" alt="" />
+						</button>
+					</div>
+				</div>
+				<div class="list">
+					<div class="item" style="min-height:40px;padding:12px 16px;">
+						发布方式
+					</div>
+					<!--ng-controller="selecttimekey"-->
+					<div id="release" class="list detailed" >
+						<button class="item item-avatar">
+							<span>即时发布</span>
+							<img class="posit ic_radio_selected" src="img/ic_radio_selected.png" alt="" />
+						</button>
+						<!--on-tap="timeKey()"-->
+						<button id="selectTime" class="item item-avatar" >
+							<span id="appointment">预约发布</span>
+							<img class="posit ic_radio_selected" src="img/ic_radio_nomal.png" alt="" />
+						</button>
+						<button id="reward" class="item item-avatar" on-tap="idreward()">
+							<span id="reward_text">悬赏发布</span>
+							<img class="posit ic_radio_selected" src="img/ic_radio_nomal.png" alt="" />
+						</button>
+					</div>
+				</div>
+				<div class="btn01">	
+					<button>发布订单</button><button>发送给快递</button>
+				</div>
+			</ion-content>
+			<div class="tip">
+				<span>发布成功</span>	
+			</div>
+		</ion-pane>
+	</ion-view>
+	<div id="Time">
+		<div id="datePage">
+			<div id="datetitle">
+				<img id="datecancle" class="posit close01" src="img/ic_down.png" alt="" />
+				<span style="font-weight:bold;">预约时间</span>
+				<div id="dateconfirm" class="posit">确定</div>
+			</div>
+			<div id="timemark">
+			</div>
+			<div id="datescroll_datetime">
+				<div id="Daywrapper">
+					<ul>
+						<li>&nbsp;</li>
+						<li>今天</li>
+						<li>明天</li>
+						<li>后天</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+					</ul>
+				</div>
+				<div id="Hourwrapper">
+					<ul></ul>
+				</div>
+				<div id="Minutewrapper">
+					<ul></ul>
+				</div>
+				<div id="static">
+					<ul style="color:#181818;font-size:13px;">
+						<li>&nbsp;</li>
+						<li>至</li>
+						<li>&nbsp;</li>
+					</ul>
+				</div>
+				<div id="Hourwrapper1">
+					<ul></ul>
+				</div>
+				<div id="Minutewrapper1">
+					<ul></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="pay">
+		<ion-footer-bar ng-hide=payfooter_bar  keyboard-attach style="padding:0;">
+			<div id="pay_main">
+				<div id="datetitle">
+					<img id="paycancle" class="posit close01" src="img/ic_down.png" alt="" />
+					<span style="font-weight:bold;">悬赏金额</span>
+					<div id="payconfirm" class="posit">确定</div>
+				</div>
+				<div class="list list-inset">
+					<label class="item item-input" style="border-radius: 6px;border:1px solid #d1d1d1;min-height:48px;">
+						<input class="pay" type="number" placeholder="填写金额" />
+						<img class="btn_clear" src="img/ic_clear.png" alt="" />
+						<button class="get01">元</button>
+					</label>
+				</div>
+				<p style="font-size: 13px;color:#333;text-align: center;">
+					使用账户余额支付，<a id="pay_change" style="color:0182e1" href="#/release_order_changepay" >更换</a>
+				</p>
+			</div>
+		</ion-footer-bar>
+		
+		
+		
+		<!--<div id="pay_main">
+			<div id="datetitle">
+				<img id="paycancle" class="posit close01" src="img/ic_down.png" alt="" />
+				<span style="font-weight:bold;">悬赏金额</span>
+				<div id="payconfirm" class="posit">确定</div>
+			</div>
+			<div class="list list-inset">
+				<label class="item item-input" style="border-radius: 6px;border:1px solid #d1d1d1;min-height:48px;">
+					<input class="pay" type="number" placeholder="填写金额" />
+					<img class="btn_clear" src="img/ic_clear.png" alt="" />
+					<button class="get01">元</button>
+				</label>
+			</div>
+			<p style="font-size: 13px;color:#333;text-align: center;">
+				使用账户余额支付，<a id="pay_change" style="color:0182e1" href="#/release_order_changepay" >更换</a>
+			</p>
+		</div>-->
+	</div>
+</ion-view>

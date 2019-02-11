@@ -1,0 +1,83 @@
+<ion-view class="person_infomain person_info_express" >
+	<div class="bar bar-header">
+	</div>
+	<ion-view class="content has-header">
+		<div class="person_header">
+			<p>ID:{{list1.id}}</p>
+			<div class="person_title">
+				<!--img/head_portrait01.png-->
+				<img style="border-radius:50%;" ng-src="{{list1.avatar}}" alt="" />
+				<!--威猛的小老虎-->
+				<h2><b>{{list1.user_nicename}}</b></h2>
+				<p>{{list1.signature}}</p>
+				<p ng-switch="''+list1.express_company_icon">{{list1.express_company_name}} <!--<span ng-switch-when=""></span><span ng-switch-default>|</span> {{list1.express_company_icon}}--></p>
+				<div>
+					<button>
+						<img src="img/ic_binding.png" alt="" />手机已绑定
+					</button><button>
+						<img src="img/ic_code .png" alt="" />二维码名片
+					</button>
+				</div>
+			</div>
+			<img id="person_change" src="img/nav_setting.png" alt="" ng-click="nextgo('person_infosz')" />
+		</div>
+		<ion-pane style="background-color:#eee;">
+			<ion-content style="padding-top:236px;">
+				<div class="row" style="border-bottom:1px solid #ADADAD;">
+					<div class="col" ng-click="nextgo('My_order_management')">
+						<div class="col-demo">
+							<img src="img/ic_order .png" alt="" /><br />
+							我的订单
+						</div>
+					</div>
+					<div class="col" ng-click="nextgo('personal_newt')">
+						<div class="col-demo">
+							<img src="img/ic_personal message.png" alt="" /><br />
+							个人消息
+						</div>
+					</div>
+					<div class="col" ng-click="nextgo('Person_drafts')">
+						<div class="col-demo">
+							<img src="img/ic_draft.png" alt="" /><br />
+							草稿箱
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col" ng-click="nextgo('My_change')">
+						<div class="col-demo">
+							<img src="img/ic_wallet.png" alt="" /><br />
+							我的零钱
+						</div>
+					</div>
+					<div class="col" ng-click="nextgo('Management_address')">
+						<div class="col-demo">
+							<img src="img/ic_address.png" alt="" /><br />
+							管理地址
+						</div>
+					</div>
+					<div class="col">
+						<div class="col-demo"></div>
+					</div>
+				</div>
+				<div class="row" style="margin:10px 0 72px;">
+					<div class="col">
+						<div class="col-demo">
+							<img src="img/ic_registered.png" alt="" /><br />
+							快递订单
+						</div>
+					</div>
+					<div class="col">
+						<div class="col-demo">
+							<img src="img/ic_service.png" alt="" /><br />
+							联系客服
+						</div>
+					</div>
+					<div class="col" >
+						<div class="col-demo"></div>
+					</div>
+				</div>
+			</ion-content>
+		</ion-pane>
+	</ion-view>
+</ion-view>

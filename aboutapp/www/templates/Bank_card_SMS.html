@@ -1,0 +1,17 @@
+<ion-view class="personsign_info" ng-clock>
+	<div class="bar bar-header">
+		<img id="return" class="posit" src="img/nav_return.png" ng-click="goback()"></img>	
+		<div class="title">短信验证码</div>
+	</div>
+	<div class="content has-header">
+		<p style="margin:16px 16px 0;color:#999">请输入手机133****3333收到的短信验证码</p>
+		<div class="list list-inset">
+			<label class="item item-input">
+				<input class="YZ" type="text" maxlength="6" placeholder="请填写验证码" style="background-color:#fff" disabled/>
+				<img class="btn_clear" src="img/ic_clear.png" alt="" />
+				<button class="get01" style="{{send.color}}">{{send.get01text}}</button>
+			</label>
+		</div>
+		<button class="btn01 button">完成</button>
+	</div>
+</ion-view>

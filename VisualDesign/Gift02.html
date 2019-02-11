@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>兑换详情</title>
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/base.css" />
+		<style type="text/css">
+			html,#main{
+				background-color: #FFFFFF;
+			}
+			h2{
+				margin-bottom:5%;
+				color:rgba(252,252,52,0);
+			}
+			.header{
+				width:100%;
+				height:25%;
+				background-color:#fff;
+				position: relative;
+			}
+			@media only screen and (min-width: 700px) {
+		  		.header {
+					margin-top: 7% !important;
+				}
+		   	}	
+			@media only screen and (min-width: 451px) and (max-width: 690px) {
+		   		.header {
+					margin-top: 10% !important;
+				}
+		   	}
+		   	@media only screen and (max-width: 450px) {
+				.header {
+					margin-top: 10% !important;
+				}
+			}
+			@media only screen and (max-width: 390px) {
+				.header {
+					margin-top: 10% !important;
+				}
+			}
+			@media only screen and (max-width: 350px) {
+				.header {
+					margin-top: 11.5% !important;
+				}
+			}
+			.header .inner{
+				width:300%;
+				height:100%;
+				top:0;
+				left:0;
+				position:absolute;
+				transition:1s all;
+			}
+			.header .tab{
+				width:50%;
+				position:absolute;
+				bottom:5%;
+				left:0;
+				right:0;
+				margin:auto;
+				text-align: center;
+			}
+			.header .tab>button{
+				width:8px;
+				height:8px;
+				background-color:rgba(111,111,111,0.3);
+				border-radius:50%;
+				margin:0 1%;
+			}
+			.header .inner>img{
+				width:33.3333%;
+				height:100%;
+			}
+			.sel{
+				background-color:#fff;
+				line-height:1.5rem;
+				word-spacing:0.8rem;
+			}
+			.sel>:nth-child(n){
+				padding:4.44444% 6.44444%;
+				border-bottom:1px solid #d0d0d0;
+				/*font-weight:bold;*/
+			}
+			.sel>:last-child{
+				border-bottom:none;
+				/*font-weight:bold;*/
+			}
+			.sel .sel2{
+				background-color:#fff;
+				transition:1s all;
+			}
+			.sel .sel2 img{
+				width:0.9rem;
+				padding:0.2rem;
+				margin-right:1%;
+				border-radius: 50%;
+			}
+			.sel .sel2 .intro{
+				margin-bottom:35.55%;
+			}
+			.ofw{
+				overflow: hidden;
+			}
+			.fl{
+				float:left;
+			}
+			[class^=Gift02_]{
+				color: rgba(252,252,252,0);
+			}
+			.buy{
+				position: fixed;
+				bottom: 0;
+				width: 87.11112% !important;
+				margin-left: 6.44444%  !important;
+				margin-right: 6.44444%  !important;
+			}
+			.tnav~*:nth-child(2) {
+				top:0;
+			    padding-top: 0;
+			    background-color: #FFFFFF;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main">
+			<div class="tnav col">
+				<b class="arrow"><span class="ic_leftarrow" data-url="Gift01.html"></span> 兑换详情</b>
+				<span class="backmain ic_home"></span>
+			</div>
+			<div class="header ofw">
+				<div class="ofw inner">
+					<img class="fl"  alt="" />
+					<img class="fl"  alt="" />
+					<img class="fl"  alt="" />
+				</div>
+				<div class="tab">
+					<button style="background-color:#ffbe00;"></button>
+					<button></button>
+					<button></button>
+				</div>
+			</div>
+			<ol class="sel">
+				<li class="sel2" style="border:none">
+					<ol>
+						<h2>*</h2>
+						<li class="col ofw">
+							<img class="fl" style="background-color: #10aeff;" src="img01/token.svg" alt="" />
+
+							<span class="Gift02_Point"></span>积分
+						</li>
+						<li class="col ofw">
+							<img class="fl" style="background-color: #09bb07;" src="img01/lotterytickets.svg" alt="" />
+							<span class="Gift02_Tickets"></span>彩票
+						</li>
+					</ol>
+				</li>
+				<hr style="height:1px;padding:0;border:none;background-color:#d0d0d0;margin:0 4.4444%" />
+				<li class="sel2 col">
+					<ol class="intro">
+						<li><big>库存:</big><span class="Gift02_Qty">*</span>件</li>
+						<li><big>分类:</big><span class="Gift02_ClassName">*</span></li>
+						<li><big>简介:</big><span class="Gift02_">*</span></li>
+						<li><big>详情:</big><span class="Gift02_Note">*</span></li>
+					</ol>
+				</li>
+			</ol>
+			<button class="buy">立即兑换</button>
+		</div>
+		<script src="js/jquery-1.12.2.min.js" type="text/javascript"></script>
+		<script src="js/base.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			var winWidth=document.documentElement.offsetWidth;
+			var x1,x2,x3,x4,x5,x6,i=0;
+			var sw=true;
+			$(window).resize(function(){
+				winWidth=document.documentElement.offsetWidth;
+			})
+			
+			$(".inner").on("touchstart",function(){
+					x1=event.touches[0].clientX;
+					x3=$(".inner").offset().left;
+//				console.log(x1)
+				$(this).on("touchmove",function(){	
+						x2=event.touches[0].clientX;
+						x4=x2-x1;
+				}).on("touchend",function(){
+					if(sw&&(x3%winWidth==0)){
+						x5 = x4>=(winWidth/10) ? winWidth : x4 <= (-winWidth/10) ? -winWidth : 0;
+						if(x3+x5>0){
+							$(".inner").css("left",0);
+						}else if(x3+x5<(-2*winWidth)){
+							$(".inner").css("left",-2*winWidth);
+						}else{
+							sw=false;
+							if(x5<0){
+								i++;
+							}else if(x5>0){
+								i--;
+							}else{
+								i=i;
+							}
+							console.log(i);
+							$(".tab").children().css("background-color","rgba(111,111,111,0.3)");
+							$(".tab").children().eq(i).css("background-color","#ffbe00");
+							$(".inner").css("left",x3+x5);
+							setTimeout(function(){
+								sw=true;
+							},1100)
+						}
+					}
+					
+				})
+			})
+			$(".tab").children().click(function(){
+				i=$(this).index();
+				$(".tab").children().css("background-color","rgba(111,111,111,0.3)");
+				$(this).css("background-color","#ffbe00");
+				$(".inner").css("left",-i*winWidth);
+			})
+			
+//			接收ProductID
+			var getval=document.cookie.split(";")[0].split("=")[1];
+//			异步请求调用
+			myajax({ 
+				"cache-control": "no-cache",
+				"postman-token": "747c5ea4-2c8d-1578-da4c-d25fa7572fae",
+				data: {
+					"_api":"GiftList/GetGiftDetail",
+				    "ProductID": getval,
+				    "UserId": "2C1CB150-9F1B-431D-A72F-93BB549631E3"
+				}
+			},"successfn1");
+//			判断异步请求相关回调函数		
+			function successfn(response,action){
+				if(action=='successfn1'){
+					successfn1(response);
+					}
+					
+				if(action=='successfn2'){
+					successfn2(response);
+					}
+				
+				if(action=='successfn3'){
+					successfn3(response);
+				}
+			}
+			
+			//回调函数
+		    function successfn1(response){
+		    	var gift = JSON.parse(response);
+		    	gift.Data.forEach(function(gt){
+		    		$(".inner img").eq(0).attr("src",gt.ImagePath)
+		    		$(".inner img").eq(1).attr("src",gt.ImagePath2)
+		    		$(".inner img").eq(2).attr("src",gt.ImagePath3)
+			    	$(".sel2 ol h2").text(gt.Name).css("color","#000000");
+			    	$(".Gift02_Point").text(gt.ExchangePoint).css("color","#a5a5a5");
+			    	$(".Gift02_Tickets").text(gt.ExchangeTickets).css("color","#a5a5a5");
+			    	$(".Gift02_Qty").text(gt.Qty).css("color","#a5a5a5");
+			    	$(".Gift02_ClassName").text(gt.ClassName).css("color","#a5a5a5");
+			    	$(".Gift02_Note").text(gt.Note).css("color","#a5a5a5");
+		    	});
+		    }
+			//异步请求调用
+			
+//			页面跳转传值
+			$(".buy").click(function(){
+				window.location.href="Gift03.html";
+			});
+		</script>			
+		</script>  
+	</body>
+</html>

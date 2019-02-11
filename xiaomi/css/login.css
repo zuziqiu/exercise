@@ -1,0 +1,78 @@
+body{
+	margin: 0px;
+	padding: 0px;
+	background-color: #F5F5F5;
+	color: #949292;
+}
+a{
+	text-decoration: none;
+}
+li{
+	list-style: none;
+}
+.login_first{
+	width: 854px;
+	height: 500px;
+	margin:100px auto 0px auto;
+	padding-top: 50px;
+	background-color: white;
+	text-align: center;
+}
+.login_last{
+	width: 854px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	margin-top: 190px;
+}
+span{
+	display: block;
+	margin-top: 20px;
+	margin-bottom: 30px;
+	font-size: 32px;
+	color: black;
+}
+.login_input{
+	width: 364px;
+	height: 52px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	border: 1px solid #949292;
+}
+.login_input input{
+	width: 338px;
+	height: 50px;
+	border-style: none;
+}
+.goto{
+	width: 363px;
+	height: 50px;
+	margin:0px auto 20px auto;
+	background-color: red;
+	line-height: 50px;
+	color: white;
+	font-size: 14px;
+}
+.login_more a{
+	margin: 20px 10px 0px 10px ;
+	color: #949292;
+	font-size: 14px;
+}
+.login_more a:hover{
+	color: orange;
+}
+.login_last_top{
+	width: 854px;
+	height: 22px;
+	margin: 20px;
+}
+.login_last_top li{
+	float: left;
+}
+.login_last_footer{
+	margin-bottom: 30px;
+}
+.phcolor{
+	color:#949292
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../file/vue.js"></script>
+    <script src="../file/vuex.js"></script>
+</head>
+<style>
+    *{
+        margin:0; padding:0;
+        box-sizing: border-box;
+    }
+
+    #all{
+        width:1000px; height:1000px; background-color: #ccc; margin:0 auto; overflow: hidden;
+    }
+    .wrapper{
+        height:25px;
+        line-height: 25px;
+
+        font-size:12px;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    .wrapper .item{
+        float: left;
+        min-height: 1px;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .wrapper .dir{
+        text-align: center;
+        width:25px;
+        height:25px;
+        border:1px solid #ccc;
+        background-color: #fff;
+    }
+
+    .wrapper .number-group{
+        height:25px;
+        overflow: hidden;
+    }
+
+    .wrapper .number-btn{
+        text-align: center;
+        width: 25px;
+        height: 25px;
+        overflow: hidden;
+        white-space:nowrap;
+        text-overflow:ellipsis;
+        padding:1px;
+    }
+
+    .wrapper .number-btn:hover{
+        background-color: #13C48B;
+        color:#fff;
+    }
+
+
+    .wrapper .page{
+        outline: none;
+        width:50px;
+        height:25px;
+        text-align: center;
+
+    }
+
+    .wrapper .btn-jump{
+        width:50px;
+        border:1px solid #ccc;
+        line-height: 23px;
+        background-color: #fff;
+    }
+
+    .wrapper .cursor-pointer:hover{
+        cursor: pointer;
+    }
+
+    .wrapper .cur{
+        background-color: #13C48B;
+        color:#fff;
+    }
+
+    .wrapper .w67{
+        width:67px;
+    }
+
+    .wrapper .ml23{
+        margin-left:23px;
+    }
+
+    .fl{
+        float: left;
+    }
+
+    .fr{
+        float: right;
+    }
+</style>
+<body>
+<div id="all" @click="click">
+   <test :page="page"></test>
+</div>
+<script type="text/x-template" id="test-tpl">
+    <div>
+        <div v-for="i in getNum()">{{i}}</div>
+        <div><input type="text" v-model="text"/></div>
+    </div>
+
+
+</script>
+<script>
+
+    var vm = new Vue({
+        el : '#all',
+
+        data : {
+            page :2
+        },
+
+        methods : {
+            click : function(){
+                this.page++;
+            }
+        },
+
+        components : {
+            test : {
+                template : '#test-tpl',
+                props : ['page'],
+                methods : {
+                    getNum : function(){
+                         console.log('getNum');
+                        return [1,2,3,4].concat([this.page]);
+                    }
+                },
+                data :function(){
+                    return  {
+                        text : this.page
+                    }
+                },
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

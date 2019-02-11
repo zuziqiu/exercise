@@ -1,0 +1,23 @@
+<ion-view class="personsign_info withdrawals">
+	<div class="bar bar-header">
+		<img id="return" class="posit" src="img/nav_return.png" ng-click="goback()"></img>	
+		<div class="title">添加银行卡</div>
+	</div>
+	<div class="content has-header" style="font-family:'黑体' ;">
+		<div class="list list-inset">
+			<label class="item item-input">
+				<button>持卡人</button>
+				<input class="name" type="text" placeholder="姓名" />
+				<img class="btn_clear" src="img/ic_clear.png" alt="" />
+			</label>
+		</div>
+		<div class="list list-inset">
+			<label class="item item-input">
+				<button>卡号</button>
+				<input class="card_number" type="text" placeholder="储值卡卡号" maxlength="19"/>
+				<img class="btn_clear" src="img/ic_clear.png" alt="" />
+			</label>
+		</div>
+		<button class="btn01 button" data-url="Bank_card_information">下一步</button>
+	</div>
+</ion-view>

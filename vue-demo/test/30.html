@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../file/vue.js"></script>
+    <script src="../file/jquery-2.1.1.js"></script>
+</head>
+<style>
+    *{
+        margin:0; padding:0;
+    }
+
+    #all{
+        width:1000px;
+        height:200px;
+        overflow-y: auto;
+        background-color: yellow;
+    }
+    #box{
+        width:100px;
+        height:1000px;
+        background-color: #ccc;
+    }
+</style>
+<body>
+  <div id="all" v-inner-scroller="{innerId:'box',setIsLoading:setIsLoading,getIsLoading:getIsLoading,callback:callback}">
+    <div id="box" ></div>
+  </div>
+  <script>
+      //测试滚动加载
+      // v-scroller="{getIsLoading:xx,setIsLoading:function(){},callback:function(){},innerId:xx,span:xxx}"
+
+      Vue.directive('innerScroller',{
+
+          bind : function( el, binding ){
+              var setIsLoading = binding.value.setIsLoading;
+              var callback = binding.value.callback;
+              var innerId = binding.value.innerId;
+              var timer = null;
+              $(el).scroll(function(){
+
+                  var isLoading = binding.value.getIsLoading();
+
+                  if(isLoading){ return;}
+                  if($(el)[0].offsetHeight + $(el).scrollTop() >=  $('#'+innerId)[0].offsetHeight ){
+
+                      window.clearTimeout(timer);
+                      timer = window.setTimeout(function(){
+                              setIsLoading(true);
+                      },500)
+
+
+                  }
+              });
+
+          }
+      });
+
+      var vm = new Vue({
+          el : '#all',
+          data : {
+              isLoading : false
+          },
+          methods : {
+              setIsLoading : function( val ){
+                  console.log('setIsLoading:'+val);
+                  this.isLoading = val;
+              },
+              getIsLoading : function(){
+                  return this.isLoading;
+              },
+              callback : function(){
+
+              }
+          }
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<ion-view class="release_order Chats">
+	<div class="bar bar-header">
+		<a href="#/tab" style="position:absolute;top:0;left:0;" nav-direction="back">
+			<img id="return" src="img/nav_return.png"  />
+		</a>
+		<!--<img id="return" class="posit" src="img/nav_return.png" ng-click="nextgo('tab')"></img>	-->
+		<div class="title">粉红色的鸡叔</div>
+	</div>
+	<ion-view class="content has-header" >
+		<ion-pane style="background-color:#eee;">
+			<!--聊天界面-->
+			<!--<div id="chat" style="display: none;" >-->
+			<ion-content id="chat">
+				<div class="chat_content" >
+					<div class="chat_left" >
+						<p>10:11</p>
+						<div><div ng-click="nextgo('Other_details')"></div>嗨，在吗?</div>
+					</div>
+					<div class="chat_right" >
+						<p>10:22</p>
+						<div><div ng-click="nextgo('My_details')"></div>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈</div>
+					</div>
+				</div>
+			</ion-content>
+			<!--</div>-->
+			<ion-footer-bar style="padding:0;" keyboard-attach>
+				<div id="send" ng-click="scrollbottom()">
+					<div class="send_top row row-bottom" ng-click="sendtop()">
+						<img id="send_speak" class="col" src="img/ic_voice.png" style="left:0;" alt="" />
+						<label class="item-input-wrapper col">
+							<div class="row row-bottom">
+							 	<textarea focus-Input id="write" class="col" name="write_something" rows="1"></textarea>
+							  	<img class="col" src="img/ic_expression.png" alt="" />
+							</div>
+						</label>
+						<img id="send_add" class="col"  ng-click="add_scrollbottom()" src="img/ic_evenmore.png" style="right:0" alt="" />
+						<button id="send_go" class="col" ng-click="scrollbottom()">发送</button>
+					</div>
+					<div class="send_body1">
+						<div>
+							<img src="img/ic_taking.png" alt="" />
+							<p>拍照</p>
+						</div>
+						<div>
+							<img src="img/ic_photo.png" alt="" />
+							<p>图片</p>
+						</div>
+						<div ng-click="nextgo('Geolocation')">
+							<img src="img/ic_location.png" alt="" />
+							<p>定位</p>
+						</div>
+						<div>
+							<img src="img/ic_card.png" alt="" />
+							<p>付费</p>
+						</div>
+						<div>
+							<img src="img/ic_sendorder.png" alt="" />
+							<p>订单</p>
+						</div>
+						<div>
+							<img src="img/ic_senddraft.png" alt="" />
+							<p>草稿</p>
+						</div>
+						<div>
+							<img src="img/ic_businesscard.png" alt="" />
+							<p>名片</p>
+						</div>
+						
+					</div>
+				</div>
+			</ion-footer-bar>
+		</ion-pane>
+	</ion-view>
+</ion-view>

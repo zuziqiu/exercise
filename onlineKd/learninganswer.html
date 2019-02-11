@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1.0,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+	<link rel="stylesheet" href="content/fonts.css" />
+	<link rel="stylesheet" type="text/css" href="content/themes/default/default.css" />
+	<link rel="stylesheet/less" type="text/css" href="content/reflow.less" />
+	<!-- <link rel="stylesheet" href="content/reflow.css" /> -->
+	<script src="scripts/jquery.min.js" type="text/javascript"></script>
+	<script src="scripts/base.js" type="text/javascript"></script>
+	<script src="scripts/less.min.js" type="text/javascript"></script>
+	<title>可点在线教育OnlineKD - 学习答疑</title>
+</head>
+<body>
+	<div class="header">
+		<div class="contain">
+			<div class="logo partLeft"><a href="index.html"><img src="images/logo.png" alt=""></a></div>
+			<div class="mainMenu partLeft">
+				<ul>
+					<li><a class="btn g_lightgray" href="expertlist.html">预约专家</a></li>
+					<li><a class="btn g_lightgray" href="moreinfo_help.html">学习答疑</a></li>
+					<li><a class="btn g_lightgray" href="workcomment.html">作品点评</a></li>
+				</ul>
+			</div>
+			<div class="searchBox partRight">
+				<input class="searchInput" type="text" value=""/>
+				<a href='javascript:void(0);' class="ic ic_search"></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="mb_header">
+		<span class="ic ic_menu pol"></span>
+		<div class="logo"><a href="index.html"><img src="images/logo.png" alt=""></a></div>
+		<span class="ic ic_share por" id='share'></span>
+		<div class="mb_menu">
+			<h2 class="slogan">可点提供书法美术科目的专家学习答疑和作品点评指导</h2>
+
+			<ul>
+				<li class="selection"><a href="index.html">首页</a></li>
+				<li><a href="expertlist.html">预约专家</a></li>
+				<li><a href="moreinfo_help.html">学习答疑</a></li>
+				<li><a href="workcomment.html">作品点评</a></li>
+				<li><a href="javascript:void(0);">下载移动客户端</a></li>
+			</ul>
+
+			<div class="userPart userlogged"><!--userlogged控制登录显示隐藏-->
+				<div class="login">
+					<a href="signin.html" class="btn g_gray">登录</a>
+					<a href="javascript:void(0);" class="btn g_blue">注册</a>
+				</div>
+				<div class="loggedIn">
+					<a href="mykd.html" class="btn g_gray">我的可点</a>
+					<a href="javascript:void(0);" class="btn g_red">充值</a>
+					<a href="javascript:void(0);" class="link">退出账户</a>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="mainBody">
+
+		<div class="subBar">
+			<div class="contain">
+				<h2 class="partLeft slogan">可点提供书法美术科目的专家学习答疑和作品点评指导</h2>
+				<div class="partRight">
+					<div class="submenu">
+						<ul>
+							<li><a href="javascript:void(0)">了解可点服务</a></li>
+							<li><a href="javascript:void(0)">下载移动客户端</a></li>
+							<li><a href="javascript:void(0)">专家库</a></li>
+						</ul>
+					</div>
+					<div class="userPart "><!--userlogged控制登录显示隐藏-->
+						<div class="login">
+							<a href="javascript:void(0);" class="btn g_gray">登录</a>
+							<a href="javascript:void(0);" class="btn g_blue">注册</a>
+						</div>
+						<div class="loggedIn">
+							<a href="javascript:void(0);" class="link">退出账户</a>
+							<a href="mykd.html" class="btn g_gray">我的可点</a>
+							<a href="javascript:void(0);" class="btn g_red">充值</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="pageContain">
+			<div class="contain">
+				<div class="breadcrumb">
+					首页》学习答疑
+				</div>
+				<div class="pageContent">
+					<h2 class="title">学习答疑</h2>
+					<div class="content">
+						<form class="form">
+							<p class="explain"><span class="ic ic_warning"></span>为了让专家更好地了解学生的情况，请您先完善以下信息</p>
+							<dl>
+								<dt>姓名</dt>
+								<dd><input type="text" placeholder="请输入 邮箱/手机号/用户名"></dd>
+							</dl>
+							<dl>
+								<dt>年龄</dt>
+								<dd><input type="text" placeholder="请输入年龄"></dd>
+							</dl>
+							<dl>
+								<dt>详细地址</dt>
+								<dd>
+									<div class="addressPicker" data-toggle="distpicker">
+										<select data-province="---- 选择省 ----"></select>
+										<select data-city="---- 选择市 ----"></select>
+										<select data-district="---- 选择区 ----"></select>
+									</div>
+								</dd>
+								<dd><input class="item_longInput" type="text" placeholder="请输入详细地址"></dd>
+							</dl>
+							<dl>
+								<dt class="b">是否有参加过兴趣学习班？</dt>
+								<dd>
+									<label for="hobbyClass_yes">
+										<input type="radio" name="hobbyClass" id='hobbyClass_yes' value="hobbyClass_yes" />
+										<span class="labelitem ic ic_check_small"></span>
+										<span>有</span>
+									</label>
+									<label for="hobbyClass_no">
+										<input type="radio" name="hobbyClass" id='hobbyClass_no' value="hobbyClass_no" />
+										<span class="labelitem ic ic_check_small"></span>
+										<span>无</span>
+									</label>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="b">参加过什么课程？</dt>
+								<dd>
+									<label for="course_yingbishufa">
+										<input type="checkbox" name="overCourse" id='course_yingbishufa' value="course_yingbishufa" />
+										<span class="labelitem ic ic_check_small"></span>
+										<span>硬笔书法</span>
+									</label>
+									<label for="course_maobishufa">
+										<input type="checkbox" name="overCourse" id='course_maobishufa' value="course_maobishufa" />
+										<span class="labelitem ic ic_check_small"></span>
+										<span>毛笔书法</span>
+									</label>
+									<label for="course_gongbiguohua">
+										<input type="checkbox" name="overCourse" id='course_gongbiguohua' value="course_gongbiguohua" />
+										<span class="labelitem ic ic_check_small"></span>
+										<span>工笔国画</span>
+									</label>
+									<label for="course_xieyiguohua">
+										<input type="checkbox" name="overCourse" id='course_xieyiguohua' value="course_xieyiguohua" />
+										<span class="labelitem ic ic_check_small"></span>
+										<span>写意国画</span>
+									</label>
+									<label for="course_jianbihua">
+										<input type="checkbox" name="overCourse" id='course_jianbihua' value="course_jianbihua" />
+										<span class="labelitem ic ic_check_small"></span>
+										<span>简笔画</span>
+									</label>
+									<label for="course_labiyouhuabang">
+										<input type="checkbox" name="overCourse" id='course_labiyouhuabang' value="course_labiyouhuabang" />
+										<span class="labelitem ic ic_check_small"></span>
+										<span>蜡笔画/油画棒</span>
+									</label>
+									<label for="course_sumiaosuxieshuifenshuicai">
+										<input type="checkbox" name="overCourse" id='course_sumiaosuxieshuifenshuicai' value="course_sumiaosuxieshuifenshuicai" />
+										<span class="labelitem ic ic_check_small"></span>
+										<span>素描/速写/水粉/水彩</span>
+									</label>
+									<label class="checkedShowSubLevel" for="course_qita">
+										<input type="checkbox" name="overCourse" id='course_qita' value="course_qita" />
+										<span class="labelitem ic ic_check_small"></span>
+										<span>其他（请注明）:</span>
+									</label>
+									<input class='checked_show item_otherInput' type="text"/>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="b">曾学习时间</dt>
+								<dd>
+									<label for="time_ganggang">
+										<input type="radio" name="learnTime" id='time_ganggang' value="time_ganggang" />
+										<span class="labelitem ic ic_check_small"></span>
+										<span>刚刚开始学习</span>
+									</label>
+									<label for="time_1_3m">
+										<input type="radio" name="learnTime" id='time_1_3m' value="time_1_3m" />
+										<span class="labelitem ic ic_check_small"></span>
+										<span>1-3个月</span>
+									</label>
+									<label for="time_4_6m">
+										<input type="radio" name="learnTime" id='time_4_6m' value="time_4_6m" />
+										<span class="labelitem ic ic_check_small"></span>
+										<span>4-6个月</span>
+									</label>
+									<label for="time_6_12m">
+										<input type="radio" name="learnTime" id='time_6_12m' value="time_6_12m" />
+										<span class="labelitem ic ic_check_small"></span>
+										<span>半年-1年</span>
+									</label>
+									<label for="time_12_24m">
+										<input type="radio" name="learnTime" id='time_12_24m' value="time_12_24m" />
+										<span class="labelitem ic ic_check_small"></span>
+										<span>1-2年</span>
+									</label>
+									<label for="time_24mplus">
+										<input type="radio" name="learnTime" id='time_24mplus' value="time_24mplus" />
+										<span class="labelitem ic ic_check_small"></span>
+										<span>2年以上</span>
+									</label>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="b">在哪里学习？</dt>
+								<dd>
+									<label for="locale_shaoniangong">
+										<input type="checkbox" name="learnWhere" id='locale_shaoniangong' value="locale_shaoniangong" />
+										<span class="labelitem ic ic_check_small"></span>
+										<span>少年宫/培训机构</span>
+									</label>
+									<label for="locale_xuexiao">
+										<input type="checkbox" name="learnWhere" id='locale_xuexiao' value="locale_xuexiao" />
+										<span class="labelitem ic ic_check_small"></span>
+										<span>学校</span>
+									</label>
+									<label for="locale_jiajiao">
+										<input type="checkbox" name="learnWhere" id='locale_jiajiao' value="locale_jiajiao" />
+										<span class="labelitem ic ic_check_small"></span>
+										<span>家教（包括亲戚教学）</span>
+									</label>
+									<label for="locale_zixue">
+										<input type="checkbox" name="learnWhere" id='locale_zixue' value="locale_zixue" />
+										<span class="labelitem ic ic_check_small"></span>
+										<span>自学</span>
+									</label>
+									<label class="checkedShowSubLevel" for="locale_qita">
+										<input type="checkbox" name="learnWhere" id='locale_qita' value="locale_qita" />
+										<span class="labelitem ic ic_check_small"></span>
+										<span>其他（请注明）:</span>
+									</label>									
+									<input class='checked_show item_otherInput' type="text"/>
+								</dd>
+							</dl>
+							<button class="btn g_lightgray">保存信息</button>
+						</form>
+						<hr class="div">
+						<form class="form">
+							<dl>
+								<dt>问题描述</dt>
+								<dd>
+									<div class="textarea">
+										<textarea name="" id="" cols="30" rows="10" placeholder="请填写您的问题"></textarea>
+									</div>
+									<div class="additional clear">
+										<ul class="partFunction">
+											<li>
+												<span class="ic ic_img"></span>
+												<span>图片</span>
+											</li>	
+											<li>
+												<span class="ic ic_voice"></span>
+												<span>语音说明</span>
+											</li>
+										</ul>
+										<p class="counter">0/1000</p>
+									</div>
+								</dd>
+							</dl>
+							<dl>
+								<dt></dt>
+								<dd class='mb_col2'>
+									<label for="designate_yes">
+										<input type="radio" checked="true" name="designateExpert" id='designate_yes' value="designate_yes" />
+										<span class="labelitem ic ic_check_small"></span>
+										<span>不指定专家</span>
+									</label>
+									<label for="designate_no">
+										<input type="radio" name="designateExpert" id='designate_no' value="designate_no" />
+										<span class="labelitem ic ic_check_small"></span>
+										<span>我要指定专家</span>
+									</label>
+									<div class="checked_show">
+										<div class="itemSelector selector_expert">
+											<span class="ic ic_downarrow"></span>
+											<div class="selectitem selectitem_expert">
+												<div class="portrait" style="background-image:url(images/ava_01.png);"></div>
+												<div class="expertName">蔡显良</div>
+												<div class="bookNum">预约号 - <b>25660</b></div>
+											</div>
+										</div>
+									</div>
+								</dd>
+							</dl>
+							<button class="btn g_blue">提 问</button>
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="bottom">
+			<div class="contain">
+				<div class="siteMap clear">
+	<dl>
+		<dt class="largeClass"><a href="javascript:void(0);">可点服务</a><span class="ic ic_downarrow"></span></dt>
+		<dd><a href="javascript:void(0);">学习答疑</a></dd>
+		<dd><a href="javascript:void(0);">作品点评</a></dd>
+	</dl>
+	<dl>
+		<dt class="largeClass"><a href="javascript:void(0);">操作指南</a><span class="ic ic_downarrow"></span></dt>
+		<dd><a href="javascript:void(0);">操作指南</a></dd>
+	</dl>
+	<dl>
+		<dt class="largeClass"><a href="javascript:void(0);">关于可点</a><span class="ic ic_downarrow"></span></dt>
+		<dd><a href="javascript:void(0);">关于可点</a></dd>
+		<dd><a href="javascript:void(0);">可点创始人</a></dd>
+		<dd><a href="javascript:void(0);">联系我们</a></dd>
+	</dl>
+	<dl>
+		<dt class="largeClass"><a href="javascript:void(0);">可点思想</a><span class="ic ic_downarrow"></span></dt>
+		<dd><a href="javascript:void(0);">可点的思考方式</a></dd>
+		<dd><a href="javascript:void(0);">品牌诠释</a></dd>
+		<dd><a href="javascript:void(0);">价值观</a></dd>
+		<dd><a href="javascript:void(0);">教育主张</a></dd>
+		<dd><a href="javascript:void(0);">可点文化</a></dd>
+	</dl>
+	<dl>
+		<dt class="largeClass"><a href="javascript:void(0);">可点动态</a><span class="ic ic_downarrow"></span></dt>
+		<dd><a href="javascript:void(0);">社会责任</a></dd>
+	</dl>
+	<dl>
+		<dt class="largeClass"><a href="javascript:void(0);">加入可点</a><span class="ic ic_downarrow"></span></dt>
+		<dd><a href="javascript:void(0);">工作机会</a></dd>
+		<dd><a href="javascript:void(0);">专家加入可点</a></dd>
+	</dl>
+</div>
+				<div class="cooperation">
+					<dl class="clear">
+						<dt class="largeClass">合作单位</dt>
+						<dd><a href="javascript:void(0);"><img src="images/cp_广州美术学院.png" alt="广州美术学院"></a></dd>
+						<dd><a href="javascript:void(0);"><img src="images/cp_暨南大学.png" alt="暨南大学"></a></dd>
+						<dd><a href="javascript:void(0);"><img src="images/cp_华南师范大学.png" alt="华南师范大学"></a></dd>
+						<dd><a href="javascript:void(0);"><img src="images/cp_广东技术师范学院.png" alt="广东技术师范学院"></a></dd>
+						<dd><a href="javascript:void(0);"><img src="images/cp_香港书画报.png" alt="香港书画报"></a></dd>
+						<dd><a href="javascript:void(0);"><img src="images/cp_新快报.png" alt="新快报"></a></dd>
+					</dl>
+				</div>
+				<div class="footer">
+					<p class="copyright">Copyright © 可点国际教育科技有限公司版权所有</p>
+					<a class="link netRecord" href="javascript:void(0);">粤ICP证030173号</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!--<script type="text/javascript" src="http://openapi.baidu.com/widget/social/1.0/share.js"> </script>
+	<script type="text/javascript">
+		var config = {
+			"afterRender":function(){
+           //your code
+       },
+       "client_id":"ZVEpDSsmZ0qxa1gmgDAh1Fje",
+       "dom_id":"share",
+       "content":"可点在线教育OnlineKD,提供书法美术科目的专家学习答疑和作品点评指导",
+       "theme":"native"
+   };
+   baidu.socShare.init(config);
+</script>-->
+</body>
+</html>
+
+
+<script src="scripts/distpicker.data.js"></script>
+<script src="scripts/distpicker.js"></script>

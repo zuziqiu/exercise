@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>关注赠送</title>
+    <link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/base.css" />
+	<style type="text/css">
+		.advertisement,.advertisement_main{
+			width: 100%;
+		}
+		
+		.advertisement_main_menu{
+			margin-top: 10px;
+			background-color: white;
+			position: relative;
+			padding: 6%;
+			padding-right: 0;
+		}
+		
+		.advertisement_address{
+			width: 62%;
+		}
+		
+		.advertisement_map{
+			width: 62%;
+			padding-bottom: 2%;
+		}
+		.advertisement_map > div{
+			float: left;
+			height: 36px;
+			margin-right: 9px;
+		}
+		.advertisement_map img{
+			width: 20px;
+			height: 20px;
+		}
+		.advertisement_address img{
+			height: 16px;
+			width: 16px;
+		}
+		.advertisement_address{
+			margin-bottom: 3%;
+		}
+		.advertisement_address span{
+			font-size: 16px;
+			font-weight: bold;
+			color: #000000;
+			margin-left: 6px;
+		}
+		
+		.advertisement_map span{
+			font-size: 10px;
+			color: rgb(128,128,128);
+			font-weight:500;
+			line-height: 18px;
+		}
+		.follows{
+			position: absolute;
+			right: 8%;
+			top: 50%;
+			margin-top: -17px;
+			width: 80px;
+			line-height: 32px;
+		}
+		.followIn {
+			color: #888888;
+			border: 1px solid  #f0edf0;
+			background-color:  #FFFFFF;
+			border-radius: 5px 5px 5px 5px;
+		}
+		
+		.followIn img{
+			margin-top: 4px;
+			float: left;
+		}
+		
+		.followIn span{
+			text-align: right;
+			display: block;
+			height: 32px;
+			margin-right: 12px;
+			font-size: 12px;
+			font-weight: 600;
+			color: #d6d6d6;
+		}
+		
+		.followOut {
+			color: #FFFFFF;
+			border: 1px solid  #09bb07;
+			background-color:  #09bb07;
+			border-radius: 5px 5px 5px 5px;	
+			
+		}
+		
+		.followOut img{
+			width: 18px;
+			height: 18px;
+			float: left;
+			margin-left: 7px;
+			margin-top: 7px;
+		}
+		
+		.followOut span{
+			text-align: right;
+			display: block;
+			height: 32px;
+			margin-right: 12px;
+			font-size: 12px;
+			font-weight: 600;
+		}
+		
+		
+		
+		/*二维码样式*/
+		
+		.distinguish_press{
+			position: fixed;
+			z-index: 99;
+			width: 100%;
+			top: 0;
+		}
+		
+		.mengceng{
+			background-color:#000000; 
+			opacity:0.1;
+			filter:alpha(opacity=50);
+			width: 100%;
+			padding-bottom:178%;
+		}
+		
+		.distinguish_press_main{
+			position: absolute;
+			top: 13%;
+			z-index: 100;
+			background-color: #FFFFFF;
+			width: 81.111%;
+			margin: auto 4.444%;
+			padding: 5% 5%;
+			border-radius: 10px;
+		}
+		
+		.distinguish_press_map > div{
+			float: left;
+			height: 20px;
+			margin-right: 9px;
+		}
+		.distinguish_press_map img{
+			width: 20px;
+			height: 20px;
+		}
+		.distinguish_press_address img{
+			height: 16px;
+			width: 16px;
+		}
+		.distinguish_press_address{
+			margin-bottom: 2%;
+		}
+		.distinguish_press_address span{
+			font-size: 16px;
+			font-weight: bold;
+			color: #101010;
+			margin-left: 6px;
+		}
+		
+		.distinguish_press_map span,.distinguish_press_tips{
+			font-size: 10px;
+			color:#707070;
+			font-weight:500;
+			display: block;
+			line-height: 18px;
+		}
+		
+		.press_erweima{
+			margin-top: 10%;
+			text-align: center;
+			padding-bottom: 5%;
+		}
+		.distinguish_press_tips{
+			color: #ababab;
+		}
+		.tnav .arrow>span {
+		    vertical-align: top;
+		    padding-right: 1%;
+		    margin-right: 38px;
+		}
+		.tnav~*:nth-child(2) {
+			padding-top: 10%
+		}
+	</style>
+</head>
+<body>
+	<div class="advertisement">
+		<div class="tnav col">
+			<b class="arrow"><span class="ic_leftarrow" data-url="index.html"></span>公众号推荐</b>
+			<span class="backmain ic_home"></span>
+		</div>
+		
+		<div class="advertisement_main" id="view">
+			<script type="text/html" id="model">
+				{{# for(var i = 0, len = d.Data.length; i < len; i++){ }}
+				<div class="advertisement_main_menu">
+					<div class="advertisement_address">
+						<img src="svg/shop.svg"/>
+						<span>{{d.Data[i].Name}}</span>
+					</div>
+					<div class="advertisement_map">
+						<div><img src="svg/address.svg"/></div>
+						<span>{{d.Data[i].Note}}</span>
+					</div>
+					
+					<div class="follows">
+						<div class="followOut" hidden="">
+							<img src="svg/shop_choose.svg"/><span>未关注</span>
+						</div>
+						<div class="followIn" hidden="">
+							<img src="img/17-广告-01公众号列表_15.png"/><span>已关注</span>
+						</div>
+					</div>
+				</div>
+				{{# } }}
+			</script>
+		</div>
+		
+		<!--二维码页面内容-->
+		<div class="distinguish_press" hidden="">
+			<div class="mengceng"></div>
+			<div class="distinguish_press_main">
+				<div class="distinguish_press_address">
+					<img src="svg/shop.svg"/>
+					<span>环游嘉年华 天河城</span>
+				</div>
+				<div class="distinguish_press_map">
+					<div><img src="svg/address.svg"/></div>
+					<span>广州番禺区番禺大道北1451号捷艺产业发展大厦6楼</span>
+				</div>
+				<div class="press_erweima" >
+					<div class="ew"></div>
+					<span class="distinguish_press_tips">长按识别二维码关注</span>
+				</div>
+			</div>
+		</div>
+		<!--/二维码页面内容-->
+	</div>
+    <script type="text/javascript" src="js/jquery-1.12.2.min.js" ></script>
+    <script type="text/javascript" src="js/laytpl.js" ></script>
+    <script src="js/jquery.qrcode.min.js" type="text/javascript" ></script>
+    <script type="text/javascript" src="js/base.js" ></script>
+    <script type="text/javascript">
+	    $(function(){
+		    $(".advertisement_main").on("click",".advertisement_main_menu",function(){
+				$('body').on('touchmove', function (event) {
+				    event.preventDefault();
+				});
+		    	$(".ew").children("canvas").remove();		//重置二维码
+		    	$(".distinguish_press").show();
+		    	$(".distinguish_press_address span").text($(this).find(".advertisement_address").children("span").text());
+		    	$(".distinguish_press_map span").text($(this).find(".advertisement_map").children("span").text());
+				var url="http://test3.msqsoft.net/zkweixinhtml5/VisualDesign/index.html?ticket=" + data.Data[$(this).index()].Wechat;
+				jQuery(function(){		//点击生成二维码
+					jQuery('.ew').qrcode(url);
+				});
+		    });
+		    
+	    	$(".mengceng").click(function(){
+				$(".distinguish_press").hide();
+				$("body").unbind("touchmove");
+			});
+			//获取公众号列表
+			myajax({
+				data:{
+					"OpenID": "ospcgwllZQ98DVrhiKhaVcEjL6zc",
+				    "BranchId": "3D7775B5-33D1-4348-B3AA-4CFD9AEEC0D2",
+				    "AdvertType": "1",
+					"_api": "Advert/GetAdvertList",
+				}
+			},'successfn1');
+			//点击关注公众号列表
+//			myajax({
+//				data:{
+//					"OpenID": "ospcgwllZQ98DVrhiKhaVcEjL6zc",
+//				    "Wechat": "cd-oto-fa",
+//				    "BranchId": "3D7775B5-33D1-4348-B3AA-4CFD9AEEC0D2",
+//					"_api": "Advert/GiveMemberAssets",
+//				}
+//			},'successfn2');
+	    });
+	    //获取公众号列表
+	    function successfn(response,action){
+			if(action=='successfn1'){
+				successfn1(response);
+			}
+			if(action=='successfn2'){
+				successfn2(response);
+			}
+		}
+	    var data;
+	    function successfn1(response){
+	    	data = JSON.parse(response);
+	    	var gettpl = document.getElementById('model').innerHTML;
+			laytpl(gettpl).render(data, function(html){
+				document.getElementById('view').innerHTML = html;
+			});
+			data.Data.forEach(function(value,index){
+				if(value.Note==null){		//不显示Note字段为空的标签
+					$(".advertisement_main_menu").eq(index).children(".advertisement_map").find("span").hide();
+					$(".distinguish_press_main .distinguish_press_map span").hide();
+				}
+				if(value.Status==0){
+					$(".followIn").show();
+					$(".followOut").hide();
+				}else{
+					$(".followOut").show();
+					$(".followIn").hide();
+				}
+			});
+	    }
+//	    function successfn2(response){
+//	    	
+//	    }
+    </script>
+</body>
+</html>

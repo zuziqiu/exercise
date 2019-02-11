@@ -1,0 +1,66 @@
+<ion-view class="orders_list Peripheral_orders">
+	<div class="bar bar-header">
+		<img id="return" src="img/nav_return.png" ng-click="nextgo('tab')"></img>
+		<div class="title">
+			快递订单列
+		</div>
+	</div>
+	<ion-view class="content has-header" >
+		<div class="row header_a_select">
+			<a class="col already_select" href="javascript:void(0)">全部</a>
+			<a class="col" href="javascript:void(0)">待揽收</a>
+			<a class="col" href="javascript:void(0)">待转出</a>
+			<a class="col" href="javascript:void(0)">已转出</a>
+		</div>
+		<ion-pane style="background-color:#eee;">
+			<ion-content style="padding-top:30px;">
+				<div class="list" ng-repeat="x in expressOrderList">
+					<div class="item" style="min-height:40px;padding:12px 16px;color:#666;" ng-switch="{{'1'+x.cost}}">{{x.dataTime}}
+						<span ng-switch-when="1"></span><span class="item-note" style="padding:12px 16px;font-size: 14px;color:#000;" ng-switch-default>{{'￥ '+x.cost}}</span></div>
+					<button class="item item-avatar Peripheral_orders_go" style="text-align:left;width:100%;" ng-click="expressOrderListDetail({{x.order_kind}})">
+						<img src="img/debang.png" alt="" />
+						<h2 ng-switch={{x.order_kind}}>{{x.area}} <span class="item-note yellow" ng-switch-when="1">悬赏</span><span class="item-note blue" ng-switch-when="2">预约</span></h2>
+						<p ng-switch={{x.status}}>{{x.area_detail}}<span class="item-note" ng-switch-when="1">待揽收</span><span class="item-note" ng-switch-when="2">待转出</span><span class="item-note" ng-switch-when="3">已转出</span></p>
+						<p style="color:#000;font-size: 13px;" ng-switch="{{'1'+x.cost}}"><span ng-switch-when="1"></span><span ng-switch-default>{{'运费:￥' +x.cost}}</span></p>
+						<div class="send_order" ng-switch={{x.send_order}}>
+							<div ng-switch-when="1" ng-click="send_order()">派单</div>
+						</div>
+					</button>
+				</div>
+				
+				
+				
+				<!--<div class="list">
+					<div class="item" style="min-height:40px;padding:12px 16px;color:#666;">今天<span class="item-note" style="padding:12px 16px;font-size: 14px;color:#000;">￥ 10</span></div>
+					<button class="item item-avatar Peripheral_orders_go" style="text-align:left;width:100%;">
+						<img src="img/debang.png" alt="" />
+						<h2 >广东省深圳市 <span class="item-note yellow">悬赏</span></h2>
+						<p>禅城区季华六路九鼎国4座1112<span class="item-note">待揽收</span></p>
+						<p style="color:#000;font-size: 13px;">运费:￥ 10</p>
+						<div class="send_order">
+							<div>派单</div>
+						</div>
+					</button>
+				</div>-->
+				
+				<!--<div class="list">
+					<div class="item" style="min-height:40px;height:40px;padding:12px 16px;">昨天</div>
+					<div class="item item-avatar">
+						<img src="img/list_shunfeng.png" alt="" />
+						<h2 >订单状态<span class="item-note">12:23</span></h2>
+						<p>您的订单264648464852246846已被签收，谢谢您使用顺丰快递.如有疑问请咨询客服</p>
+					</div>
+				</div>
+				<div class="list">
+					<div class="item" style="min-height:40px;height:40px;padding:12px 16px;">2016-09-23</div>
+					<div class="item item-avatar" ng-repeat="x in newt_list">
+						<img ng-src="{{x.imgUrl}}" alt="" />
+						<h2 >{{x.Name}}<span class="item-note">{{x.Time}}</span></h2>
+						<p>{{x.Content}}</p>
+					</div>
+				</div>-->
+				
+			</ion-content>
+		</ion-pane>
+	</ion-view>
+</ion-view>

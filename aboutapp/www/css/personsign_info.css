@@ -1,0 +1,468 @@
+/*文件原名person_info.css*/
+.personsign_info .bar-header{
+	height:48px;
+	background-color:#ffe500;
+	color:#181818 !important;
+}
+.personsign_info .platform-android .bar .title{
+	font-weight:bold;
+	top:2%;
+}
+.personsign_info #return{
+	/*width:0.8rem;
+	padding:4.444%;
+	box-sizing: content-box;
+	left:0;
+	z-index: 1;*/
+	box-sizing: border-box;
+	width:48px;
+	height:48px;
+	padding:15px 22px 15px 16px;
+	position: absolute;
+	left:0;
+	top:0;
+	z-index: 1;
+}
+.personsign_info #header_r{
+	width:13.3333%;
+	height:100%;
+	font-weight:bold;
+	right:4.444%;
+}
+.personsign_info .has-header{
+	top:49px;
+}
+.personsign_info .list-inset{
+	margin:0;
+	/*padding:4.3444% 4.4444% 3px;*/
+	padding:16px 16px 3px;
+	
+}
+.personsign_info .card .list-inset .item:last-child,.list-inset .item:first-child{
+	border-radius: 6px;
+	border-color:#d1d1d1;
+	height:48px;
+}
+.personsign_info input[type=text]{
+	padding:0;
+	height:auto;
+}
+.personsign_info .content>.list>.item>img{
+	width:11px;
+	margin-right:16px;
+}
+.personsign_info .content>.list>.item>.btn_clear{
+	width:20px;
+	padding:10px 0 10px 20px;
+	box-sizing: content-box;
+	display:none;
+}
+.personsign_info .content>.btn01{
+	width:91.2222%;
+	height:48px;
+	background-color:#ccc;
+	color:#fff;
+	border:none;
+	outline: none;
+	margin:4% 4.444%;
+	font-weight:bold;
+	border-radius: 6px;
+}
+.personsign_info .forget{
+	float:right;
+	margin-right:4.444%;
+	color:#333;
+	font-size: 0.8rem;
+
+}
+.personsign_info .tip{
+	width:100%;
+	position:absolute;
+	bottom:90px;
+	text-align: center;
+	display: none;
+	z-index: 20;
+}
+.personsign_info .tip>span{
+	font-size: 14px;
+	letter-spacing: 2px;
+	padding:3.444%;
+	border-radius: 0.3rem;
+	background-color:rgba(0,0,0,0.5);
+	color:#fff;
+	
+}
+.personsign_info .content .get01{
+	height:100%;
+	padding:0 3% 0 4.4444%;
+	border-left:1px solid #d1d1d1;
+	font-weight: bold;
+	box-sizing:content-box;
+}
+/*个人信息修改页面的p标签*/
+.personsign_info .numtip{
+	margin:4.4444% 4.4444% 0;
+	color:#666;
+}
+
+
+
+.release_order_good #return{
+	box-sizing: border-box;
+	width:48px;
+	height:48px;
+	padding:15px 22px 15px 16px;
+	position: absolute;
+	left:0;
+	top:0;
+	z-index: 1;
+}
+.release_order_good .content{
+	font-family: "微软雅黑";
+}
+
+
+
+
+/*.release_order_goodst .row{
+	text-align: center;
+	padding:0;
+	font-size:14px;
+	min-height:48px;
+	padding:8px;
+	color:#666;
+}
+.release_order_goodst .col{
+	padding:8px;
+}
+.release_order_goodst .col-demo{
+	border:1px solid #d1d1d1;
+	border-radius:4px;
+	padding:8px 0;
+}
+.release_order_goodst .list-inset{
+	padding:3px 16px;
+}
+.release_order_goodst .content>.other>.list>.item>.btn_clear,.release_order_goodsw .content>.other>.list>.item>.btn_clear{
+	width:20px;
+	padding:10px 0 10px 20px;
+	box-sizing: content-box;
+	display:none;
+}
+.release_order_goodst .content>.other>.btn01{
+	width:91.2222%;
+	height:48px;
+	background-color:#ccc;
+	color:#fff;
+	border:none;
+	outline: none;
+	margin:4% 4.444%;
+	font-weight:bold;
+	border-radius: 6px;
+}
+.release_order_goodst .other{
+	display: none;
+}*/
+
+
+
+
+
+
+
+
+.release_order_goodst .goodstcontent{
+	text-align: center;
+	padding:0;
+	font-size:14px;
+	min-height:48px;
+	padding:0 8px;
+	color:#666;
+	overflow: hidden;
+}
+.release_order_goodst .box1{
+	float:left;
+	width:33.3333%;
+	padding:16px 8px;
+}
+.release_order_goodst .box2{
+	border:1px solid #d1d1d1;
+	border-radius:4px;
+	padding:8px 0;
+}
+.release_order_goodst .list-inset{
+	padding:3px 16px;
+}
+.release_order_goodst .content>.other>.list>.item>.btn_clear,.release_order_goodsw .content>.other>.list>.item>.btn_clear{
+	width:20px;
+	padding:10px 16px 10px 10px;
+	box-sizing: content-box;
+	display:none;
+}
+.release_order_goodst .content>.other>.btn01{
+	width:91.2222%;
+	height:48px;
+	background-color:#ccc;
+	color:#fff;
+	border:none;
+	outline: none;
+	margin:4% 4.444%;
+	font-weight:bold;
+	border-radius: 6px;
+}
+.release_order_goodst .other{
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+.release_order_goodssize .row{
+	font-size:14px;
+	min-height:48px;
+	padding:16px;
+	color:#666;
+}
+.release_order_goodssize .col{
+	min-width:30% ;
+	padding:0;
+}
+.release_order_goodssize .col-demo{
+	width:100%;
+	height:48px !important;
+	border:1px solid #d1d1d1 !important;
+	border-radius:4px;
+	padding:0 16px !important;
+
+}
+
+.release_order_goodssize .content>.goods_btn{
+	padding:0 16px 16px;
+	
+}
+.release_order_goodssize .content>.goods_btn>.btn01,.release_order_goodsw .content>.goods_btn>.btn01,.release_order_remarks .content>.goods_btn>.btn01,.release_order_pay .content>.goods_btn>.btn01{
+	width:100%;
+	height:48px;
+	background-color:#ccc;
+	color:#fff;
+	border:none;
+	outline: none;
+	font-weight:bold;
+	border-radius: 6px;
+}
+
+
+.release_order_goodsw .list-inset{
+	padding:3px 16px;
+}
+
+.release_order_goodsw .content>.goods_btn,.release_order_remarks .content>.goods_btn{
+	padding:16px;
+	
+}
+
+
+
+.release_order_remarks .list-inset{
+	padding:16px 16px 0;
+}
+.release_order_remarks .list-inset>div{
+	padding:16px 8px;
+	border:1px solid #CCC;
+	border-radius: 6px;
+}
+
+.release_order_remarks .list .item-avatar{
+	font-family: "微软雅黑";
+	padding:12px 28px 12px 36px;
+	height:60px;
+	min-height:60px;
+	text-align: left;
+	border:none;
+	border-top:1px solid #ccc;
+	width:100%;
+	box-sizing: border-box;
+}
+
+.release_order_remarks .item-avatar>img:first-child{
+	
+	max-width:25px;
+	max-height:30px;
+	padding-bottom:5px;
+	top:0;
+	bottom:0;
+	margin: auto;
+	border-radius:0;
+	left:0;
+}
+.release_order_remarks .item>img:last-child{
+	width:9px;
+	right:0;
+}
+
+.release_order_remarks .content textarea{
+	width:100%;
+	height:84px;
+	padding:0 8px;
+	resize: none;
+}
+
+.release_order_remarks .remarks_img{
+	overflow: hidden;
+}
+.release_order_remarks .remarks_img>div{
+	width:60px;
+	height:60px;
+	float:left;
+	margin:16px 8px 0;
+}
+.release_order_remarks .remarks_img>div>input{
+	height:70%;
+	width:70%;
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	margin:auto;
+	z-index: 1;
+	opacity: 0;
+	filter:alpha(opacity=0) ;
+	padding:0;
+	font-size: 0;
+}
+.release_order_remarks .remarks_img>div>img{
+	width:100%;
+	height:100%;
+	border-radius: 6px;
+}
+.release_order_remarks .remarks_word_length{
+	position: absolute;
+	bottom:0;
+	right:8px;
+	color:#adadad;
+}
+.release_order_remarks .list .comment_star>span{
+	margin-right:12px;
+}
+.release_order_remarks .list .comment_star>img{
+	vertical-align: middle;
+	width:18px;
+	margin-bottom:3px;
+	margin-right:4px;
+}
+
+
+
+
+.release_order_pay ::-webkit-input-placeholder {
+	color:#181818 !important;
+}
+.release_order_pay :-moz-placeholder { 
+	color:#181818 !important;
+	opacity:1;
+}
+.release_order_pay ::-moz-placeholder { 
+	color:#181818 !important;
+	opacity:1;
+}
+.release_order_pay :-ms-input-placeholder {
+	color:#181818 !important;
+}
+
+.release_order_pay .list-inset{
+	padding:16px 16px 0;
+}
+.release_order_pay .list-inset>div{
+	padding:16px 16px 2px;
+	border:1px solid #CCC;
+	border-radius: 6px;
+}
+.release_order_pay .content .must_pay{
+	width:100%;
+	height:32px;
+	font-size:32px;
+	line-height: 32px;
+	margin:16px 0;
+	
+}
+
+.release_order_pay .list .item-avatar{
+	font-family: "微软雅黑";
+	padding:12px 28px 12px 36px;
+	min-height:60px;
+	text-align: left;
+	border:none;
+	border-top:1px solid #ccc;
+	width:100%;
+}
+
+.release_order_pay .item-avatar>img:first-child{
+	
+	max-width:25px;
+	max-height:30px;
+	padding-bottom:5px;
+	top:0;
+	bottom:0;
+	margin: auto;
+	border-radius:0;
+	left:0;
+}
+.release_order_pay .item>img:last-child{
+	width:9px;
+	right:0;
+}
+.release_order_pay .item p{
+	display: inline-block;
+	color:#181818;
+}
+
+.release_order_pay .content>.goods_btn{
+	padding:16px;
+	
+}
+.withdrawals .has-header .prompt{
+	margin:13px 16px 0;
+	color:#ff0000;
+	line-height:15px;
+}
+
+
+.withdrawals .has-header .list .item button{
+	height:48px;
+	min-width:68px;
+	padding-right:16px;
+	margin-right:16px;
+	color:#999;
+	border-right:1px solid #ccc;
+}
+
+.withdrawals input{
+	background-color:#fff !important;
+}
+.bank_card .list{
+	margin:0;
+}
+.bank_card .list .item{
+	padding-left:62px;
+	margin:16px 16px 2px;
+	border-radius: 6px;
+}
+.bank_card .content .item-avatar>img:first-child{
+	width:30px;
+	height:30px;
+}
+.bank_card .content .item-avatar>h2{
+	font-size:15px;
+	font-weight: bold;
+	color:#181818;
+}
+.bank_card .content .item-avatar>p{
+	font-size:13px;
+	margin:0;
+}

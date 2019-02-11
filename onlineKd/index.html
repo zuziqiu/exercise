@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1.0,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+	<link rel="stylesheet" href="content/fonts.css" />
+	<link rel="stylesheet" type="text/css" href="content/sldr.css">
+	<link rel="stylesheet" type="text/css" href="content/themes/default/default.css" />
+	<link rel="stylesheet/less" type="text/css" href="content/reflow.less" />
+	<!-- <link rel="stylesheet" href="content/reflow.css" /> -->
+
+	<!--[if lt IE 9]><link href="content/ie8.css" rel="stylesheet"><![endif]-->
+	<!--[if lt IE 8]><link href="content/ie7.css" rel="stylesheet"><![endif]-->
+	<script src="scripts/jquery.min.js" type="text/javascript"></script>
+	<script src="scripts/base.js" type="text/javascript"></script>
+	<script src="scripts/less.min.js" type="text/javascript"></script>
+	<script src="scripts/jquery.sldr.js"></script>
+
+	<title>可点在线教育OnlineKD</title>
+	<style type="text/css">
+	.userlogged .login {
+    	display:block; 
+    	max-width: 420px;
+    	margin-left: auto;
+    	margin-right: auto;
+	}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<div class="contain">
+			<div class="logo partLeft"><a href="index.html"><img src="images/logo.png" alt=""></a></div>
+			<div class="mainMenu partLeft">
+				<ul>
+					<li><a class="btn g_lightgray" href="expertlist.html">预约专家</a></li>
+					<li><a class="btn g_lightgray" href="moreinfo_help.html">学习答疑</a></li>
+					<li><a class="btn g_lightgray" href="workcomment.html">作品点评</a></li>
+				</ul>
+			</div>
+			<div class="searchBox partRight">
+				<input class="searchInput" type="text" value=""/>
+				<a href='javascript:void(0);' class="ic ic_search"></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="mb_header">
+		<span class="ic ic_menu pol"></span>
+		<div class="logo"><a href="index.html"><img src="images/logo.png" alt=""></a></div>
+		<span class="ic ic_share por" id='share'></span>
+		<div class="mb_menu">
+			<h2 class="slogan">可点提供书法美术科目的专家学习答疑和作品点评指导</h2>
+
+			<ul>
+				<li class="selection"><a href="javascript:void(0);">首页</a></li>
+				<li><a href="expertlist.html">预约专家</a></li>
+				<li><a href="moreinfo_help.html">学习答疑</a></li>
+				<li><a href="workcomment.html">作品点评</a></li>
+				<li><a href="javascript:void(0);">下载移动客户端</a></li>
+			</ul>
+
+			<div class="userPart userlogged"><!--userlogged控制登录显示隐藏-->
+				<div class="login">
+					<a href="signin.html" class="btn g_gray">登录</a>
+					<a href="signup.html" class="btn g_blue">注册</a>
+				</div>
+				<div class="loggedIn">
+					<a href="mykd.html" class="btn g_gray">我的可点</a>
+					<a href="javascript:void(0);" class="btn g_red">充值</a>
+					<a href="javascript:void(0);" class="link">退出账户</a>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="mainBody">
+
+		<div class="subBar">
+			<div class="contain">
+				<h2 class="partLeft slogan">可点提供书法美术科目的专家学习答疑和作品点评指导</h2>
+				<div class="partRight">
+					<div class="submenu">
+						<ul>
+							<li><a href="javascript:void(0)">了解可点服务</a></li>
+							<li><a href="javascript:void(0)">下载移动客户端</a></li>
+							<li><a href="javascript:void(0)">专家库</a></li>
+						</ul>
+					</div>
+					<div class="userPart "><!--userlogged控制登录显示隐藏-->
+						<div class="login" style="line-height: 50px;">
+							<a href="signin.html" class="btn g_gray">登录</a>
+							<a href="signup.html" class="btn g_blue">注册</a>
+						</div>
+						<div class="loggedIn" style="display: block;float: left;">
+							<a href="javascript:void(0);" class="link">退出账户</a>
+							<a href="mykd.html" class="btn g_gray">我的可点</a>
+							<a href="javascript:void(0);" class="btn g_red">充值</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- <div class="bigBanner" id="bigBanner">
+			<ul>
+				<li style="background-image:url(images/slide-1.jpg)"><a class="fullCover" href="javascript:void(0);"></a></li>
+				<li style="background-image:url(images/slide-2.jpg)"><a class="fullCover" href="javascript:void(0);"></a></li>
+				<li style="background-image:url(images/slide-3.jpg)"><a class="fullCover" href="javascript:void(0);"></a></li>
+				<li style="background-image:url(images/slide-4.jpg)"><a class="fullCover" href="javascript:void(0);"></a></li>
+				<li style="background-image:url(images/slide-5.jpg)"><a class="fullCover" href="javascript:void(0);"></a></li>
+			</ul>
+		</div> -->
+
+		<!-- <div class="bigBanner sangar-slideshow-container" id="bigBanner">
+			<div class='sangar-content-wrapper' style='display:none;'>			
+				<div class='sangar-content'><img src='images/slide-1.jpg' /></div>
+				<div class='sangar-content'><img src='images/slide-2.jpg' /></div>
+				<div class='sangar-content'><img src='images/slide-3.jpg' /></div>
+				<div class='sangar-content'><img src='images/slide-4.jpg' /></div>
+				<div class='sangar-content'><img src='images/slide-5.jpg' /></div>
+			</div>
+		</div> -->
+
+
+		<div class="bigBanner">
+			<div class="bannerContent">
+				<ul class="animate">
+					<li class="elmnt-one" style="background-image:url(images/slide-1.jpg)"><a class="fullCover" href="javascript:void(0);"></a></li>
+					<li class="elmnt-two" style="background-image:url(images/slide-2.jpg)"><a class="fullCover" href="javascript:void(0);"></a></li>
+					<li class="elmnt-three" style="background-image:url(images/slide-3.jpg)"><a class="fullCover" href="javascript:void(0);"></a></li>
+					<li class="elmnt-four" style="background-image:url(images/slide-4.jpg)"><a class="fullCover" href="javascript:void(0);"></a></li>
+				</ul>
+			</div>
+			<ul class="selectors">
+				<li class="focalPoint"><a href="javascript:void(0);"></a></li>
+				<li><a href="javascript:void(0);"></a></li>
+				<li><a href="javascript:void(0);"></a></li>
+				<li><a href="javascript:void(0);"></a></li>
+			</ul>
+
+			<p class="sldr-prv sldr-nav prev ic_bannerctr_prv"></p>
+			<p class="sldr-nxt sldr-nav next ic_bannerctr_nxt"></p>
+		</div>
+
+		<div class="subBanner">
+			<ul class="clear">
+				<li style="background-image:url(images/subbanner3.png)"><a href="javascript:void(0);" class="fullCover"></a></li>
+				<li style="background-image:url(images/subbanner2.png)"><a href="javascript:void(0);" class="fullCover"></a></li>
+				<li style="background-image:url(images/subbanner4.png)"><a href="javascript:void(0);" class="fullCover"></a></li>
+				<li style="background-image:url(images/subbanner1.png)"><a href="javascript:void(0);" class="fullCover"></a></li>
+			</ul>
+		</div>
+
+		<div class="bottom">
+			<div class="contain">
+				<div class="siteMap clear">
+	<dl>
+		<dt class="largeClass"><a href="javascript:void(0);">可点服务</a><span class="ic ic_downarrow"></span></dt>
+		<dd><a href="moreinfo_help.html">学习答疑</a></dd>
+		<dd><a href="workcomment.html">作品点评</a></dd>
+	</dl>
+	<dl>
+		<dt class="largeClass"><a href="javascript:void(0);">操作指南</a><span class="ic ic_downarrow"></span></dt>
+		<dd><a href="javascript:void(0);">操作指南</a></dd>
+	</dl>
+	<dl>
+		<dt class="largeClass"><a href="javascript:void(0);">关于可点</a><span class="ic ic_downarrow"></span></dt>
+		<dd><a href="javascript:void(0);">关于可点</a></dd>
+		<dd><a href="javascript:void(0);">可点创始人</a></dd>
+		<dd><a href="javascript:void(0);">联系我们</a></dd>
+	</dl>
+	<dl>
+		<dt class="largeClass"><a href="javascript:void(0);">可点思想</a><span class="ic ic_downarrow"></span></dt>
+		<dd><a href="javascript:void(0);">可点的思考方式</a></dd>
+		<dd><a href="javascript:void(0);">品牌诠释</a></dd>
+		<dd><a href="javascript:void(0);">价值观</a></dd>
+		<dd><a href="javascript:void(0);">教育主张</a></dd>
+		<dd><a href="javascript:void(0);">可点文化</a></dd>
+	</dl>
+	<dl>
+		<dt class="largeClass"><a href="javascript:void(0);">可点动态</a><span class="ic ic_downarrow"></span></dt>
+		<dd><a href="javascript:void(0);">社会责任</a></dd>
+	</dl>
+	<dl>
+		<dt class="largeClass"><a href="javascript:void(0);">加入可点</a><span class="ic ic_downarrow"></span></dt>
+		<dd><a href="javascript:void(0);">工作机会</a></dd>
+		<dd><a href="javascript:void(0);">专家加入可点</a></dd>
+	</dl>
+</div>
+				<div class="cooperation">
+					<dl class="clear">
+						<dt class="largeClass">合作单位</dt>
+						<dd><a href="javascript:void(0);"><img src="images/cp_广州美术学院.png" alt="广州美术学院"></a></dd>
+						<dd><a href="javascript:void(0);"><img src="images/cp_暨南大学.png" alt="暨南大学"></a></dd>
+						<dd><a href="javascript:void(0);"><img src="images/cp_华南师范大学.png" alt="华南师范大学"></a></dd>
+						<dd><a href="javascript:void(0);"><img src="images/cp_广东技术师范学院.png" alt="广东技术师范学院"></a></dd>
+						<dd><a href="javascript:void(0);"><img src="images/cp_香港书画报.png" alt="香港书画报"></a></dd>
+						<dd><a href="javascript:void(0);"><img src="images/cp_新快报.png" alt="新快报"></a></dd>
+					</dl>
+				</div>
+				<div class="footer">
+					<p class="copyright">Copyright © 可点国际教育科技有限公司版权所有</p>
+					<a class="link netRecord" href="javascript:void(0);">粤ICP证030173号</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<script type="text/javascript" src="http://openapi.baidu.com/widget/social/1.0/share.js"> </script>
+	<script type="text/javascript">
+		var config = {
+			"afterRender":function(){
+           //your code
+       },
+       "client_id":"ZVEpDSsmZ0qxa1gmgDAh1Fje",
+       "dom_id":"share",
+       "content":"可点在线教育OnlineKD,提供书法美术科目的专家学习答疑和作品点评指导",
+       "theme":"native"
+   };
+   baidu.socShare.init(config);
+</script>
+</body>
+</html>
+
+<script>
+
+	$( window ).load( function() {
+		$(".ic_menu").click(function(){
+			$(".mb_menu").show();
+		})
+		$(".slogan").click(function(){
+			$(".mb_menu").hide();
+		})
+		$( '.bannerContent' ).each( function() {
+			var th = $( this );
+			th.sldr({
+				focalClass    : 'focalPoint',
+				offset        : th.width() / 2,
+				sldrWidth     : 'responsive',
+				nextSlide     : th.nextAll( '.sldr-nav.next:first' ),
+				previousSlide : th.nextAll( '.sldr-nav.prev:first' ),
+				selectors     : th.nextAll( '.selectors:first' ).find( 'li' ),
+				toggle        : th.nextAll( '.captions:first' ).find( 'div' ),
+				sldrInit      : sliderInit,
+				sldrStart     : slideStart,
+				sldrComplete  : slideComplete,
+				sldrLoaded    : sliderLoaded,
+				sldrAuto      : true,
+				sldrTime      : 5000,
+				hasChange     : true
+			});
+		});
+
+/**
+* Sldr Callbacks
+*/
+
+/**
+* When the sldr is initiated, before the DOM is manipulated
+* @param {object} args the slides, callback, and config of the slider
+* @return null
+*/
+function sliderInit( args ) {
+
+}
+
+/**
+* When individual slides are loaded
+* @param {object} args the slides, callback, and config of the slider
+* @return null
+*/
+function slideLoaded( args ) {
+
+}
+
+/**
+* When the full slider is loaded, after the DOM is manipulated
+* @param {object} args the slides, callback, and config of the slider
+* @return null
+*/
+function sliderLoaded( args ) {
+
+}
+
+/**
+* Before the slides change focal points
+* @param {object} args the slides, callback, and config of the slider
+* @return null
+*/
+function slideStart( args ) {
+
+}
+
+/**
+* After the slides are done changing focal points
+* @param {object} args the slides, callback, and config of the slider
+* @return null
+*/
+function slideComplete( args ) {
+
+}
+});
+</script>

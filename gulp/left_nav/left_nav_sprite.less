@@ -1,0 +1,286 @@
+/*
+LESS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: @icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+@icon-home: x y offset_x offset_y width height total_width total_height image_path name;
+
+At the bottom of this section, we provide information about the spritesheet itself
+@spritesheet: width height image @spritesheet-sprites;
+*/
+@nav-class-center-name: 'nav_class center';
+@nav-class-center-x: 0px;
+@nav-class-center-y: 40px;
+@nav-class-center-offset-x: 0px;
+@nav-class-center-offset-y: -40px;
+@nav-class-center-width: 24px;
+@nav-class-center-height: 24px;
+@nav-class-center-total-width: 24px;
+@nav-class-center-total-height: 704px;
+@nav-class-center-image: 'left_nav_sprite.png';
+@nav-class-center: 0px 40px 0px -40px 24px 24px 24px 704px 'left_nav_sprite.png' 'nav_class center';
+@nav-class-center-click-name: 'nav_class center_click';
+@nav-class-center-click-x: 0px;
+@nav-class-center-click-y: 360px;
+@nav-class-center-click-offset-x: 0px;
+@nav-class-center-click-offset-y: -360px;
+@nav-class-center-click-width: 24px;
+@nav-class-center-click-height: 24px;
+@nav-class-center-click-total-width: 24px;
+@nav-class-center-click-total-height: 704px;
+@nav-class-center-click-image: 'left_nav_sprite.png';
+@nav-class-center-click: 0px 360px 0px -360px 24px 24px 24px 704px 'left_nav_sprite.png' 'nav_class center_click';
+@nav-financial-management-name: 'nav_financial management';
+@nav-financial-management-x: 0px;
+@nav-financial-management-y: 80px;
+@nav-financial-management-offset-x: 0px;
+@nav-financial-management-offset-y: -80px;
+@nav-financial-management-width: 24px;
+@nav-financial-management-height: 24px;
+@nav-financial-management-total-width: 24px;
+@nav-financial-management-total-height: 704px;
+@nav-financial-management-image: 'left_nav_sprite.png';
+@nav-financial-management: 0px 80px 0px -80px 24px 24px 24px 704px 'left_nav_sprite.png' 'nav_financial management';
+@nav-financial-management-click-name: 'nav_financial management_click';
+@nav-financial-management-click-x: 0px;
+@nav-financial-management-click-y: 120px;
+@nav-financial-management-click-offset-x: 0px;
+@nav-financial-management-click-offset-y: -120px;
+@nav-financial-management-click-width: 24px;
+@nav-financial-management-click-height: 24px;
+@nav-financial-management-click-total-width: 24px;
+@nav-financial-management-click-total-height: 704px;
+@nav-financial-management-click-image: 'left_nav_sprite.png';
+@nav-financial-management-click: 0px 120px 0px -120px 24px 24px 24px 704px 'left_nav_sprite.png' 'nav_financial management_click';
+@nav-guest-management-name: 'nav_guest management';
+@nav-guest-management-x: 0px;
+@nav-guest-management-y: 160px;
+@nav-guest-management-offset-x: 0px;
+@nav-guest-management-offset-y: -160px;
+@nav-guest-management-width: 24px;
+@nav-guest-management-height: 24px;
+@nav-guest-management-total-width: 24px;
+@nav-guest-management-total-height: 704px;
+@nav-guest-management-image: 'left_nav_sprite.png';
+@nav-guest-management: 0px 160px 0px -160px 24px 24px 24px 704px 'left_nav_sprite.png' 'nav_guest management';
+@nav-guest-management-click-name: 'nav_guest management_click';
+@nav-guest-management-click-x: 0px;
+@nav-guest-management-click-y: 200px;
+@nav-guest-management-click-offset-x: 0px;
+@nav-guest-management-click-offset-y: -200px;
+@nav-guest-management-click-width: 24px;
+@nav-guest-management-click-height: 24px;
+@nav-guest-management-click-total-width: 24px;
+@nav-guest-management-click-total-height: 704px;
+@nav-guest-management-click-image: 'left_nav_sprite.png';
+@nav-guest-management-click: 0px 200px 0px -200px 24px 24px 24px 704px 'left_nav_sprite.png' 'nav_guest management_click';
+@nav-home-name: 'nav_home';
+@nav-home-x: 0px;
+@nav-home-y: 240px;
+@nav-home-offset-x: 0px;
+@nav-home-offset-y: -240px;
+@nav-home-width: 24px;
+@nav-home-height: 24px;
+@nav-home-total-width: 24px;
+@nav-home-total-height: 704px;
+@nav-home-image: 'left_nav_sprite.png';
+@nav-home: 0px 240px 0px -240px 24px 24px 24px 704px 'left_nav_sprite.png' 'nav_home';
+@nav-home-click-name: 'nav_home_click';
+@nav-home-click-x: 0px;
+@nav-home-click-y: 280px;
+@nav-home-click-offset-x: 0px;
+@nav-home-click-offset-y: -280px;
+@nav-home-click-width: 24px;
+@nav-home-click-height: 24px;
+@nav-home-click-total-width: 24px;
+@nav-home-click-total-height: 704px;
+@nav-home-click-image: 'left_nav_sprite.png';
+@nav-home-click: 0px 280px 0px -280px 24px 24px 24px 704px 'left_nav_sprite.png' 'nav_home_click';
+@nav-live-name: 'nav_live';
+@nav-live-x: 0px;
+@nav-live-y: 320px;
+@nav-live-offset-x: 0px;
+@nav-live-offset-y: -320px;
+@nav-live-width: 24px;
+@nav-live-height: 24px;
+@nav-live-total-width: 24px;
+@nav-live-total-height: 704px;
+@nav-live-image: 'left_nav_sprite.png';
+@nav-live: 0px 320px 0px -320px 24px 24px 24px 704px 'left_nav_sprite.png' 'nav_live';
+@nav-live-click-name: 'nav_live_click';
+@nav-live-click-x: 0px;
+@nav-live-click-y: 0px;
+@nav-live-click-offset-x: 0px;
+@nav-live-click-offset-y: 0px;
+@nav-live-click-width: 24px;
+@nav-live-click-height: 24px;
+@nav-live-click-total-width: 24px;
+@nav-live-click-total-height: 704px;
+@nav-live-click-image: 'left_nav_sprite.png';
+@nav-live-click: 0px 0px 0px 0px 24px 24px 24px 704px 'left_nav_sprite.png' 'nav_live_click';
+@nav-official-accounts-1-name: 'nav_official accounts-1';
+@nav-official-accounts-1-x: 0px;
+@nav-official-accounts-1-y: 400px;
+@nav-official-accounts-1-offset-x: 0px;
+@nav-official-accounts-1-offset-y: -400px;
+@nav-official-accounts-1-width: 24px;
+@nav-official-accounts-1-height: 24px;
+@nav-official-accounts-1-total-width: 24px;
+@nav-official-accounts-1-total-height: 704px;
+@nav-official-accounts-1-image: 'left_nav_sprite.png';
+@nav-official-accounts-1: 0px 400px 0px -400px 24px 24px 24px 704px 'left_nav_sprite.png' 'nav_official accounts-1';
+@nav-official-accounts-name: 'nav_official accounts';
+@nav-official-accounts-x: 0px;
+@nav-official-accounts-y: 440px;
+@nav-official-accounts-offset-x: 0px;
+@nav-official-accounts-offset-y: -440px;
+@nav-official-accounts-width: 24px;
+@nav-official-accounts-height: 24px;
+@nav-official-accounts-total-width: 24px;
+@nav-official-accounts-total-height: 704px;
+@nav-official-accounts-image: 'left_nav_sprite.png';
+@nav-official-accounts: 0px 440px 0px -440px 24px 24px 24px 704px 'left_nav_sprite.png' 'nav_official accounts';
+@nav-personal-page-name: 'nav_personal page';
+@nav-personal-page-x: 0px;
+@nav-personal-page-y: 480px;
+@nav-personal-page-offset-x: 0px;
+@nav-personal-page-offset-y: -480px;
+@nav-personal-page-width: 24px;
+@nav-personal-page-height: 24px;
+@nav-personal-page-total-width: 24px;
+@nav-personal-page-total-height: 704px;
+@nav-personal-page-image: 'left_nav_sprite.png';
+@nav-personal-page: 0px 480px 0px -480px 24px 24px 24px 704px 'left_nav_sprite.png' 'nav_personal page';
+@nav-personal-page-click-name: 'nav_personal page_click';
+@nav-personal-page-click-x: 0px;
+@nav-personal-page-click-y: 520px;
+@nav-personal-page-click-offset-x: 0px;
+@nav-personal-page-click-offset-y: -520px;
+@nav-personal-page-click-width: 24px;
+@nav-personal-page-click-height: 24px;
+@nav-personal-page-click-total-width: 24px;
+@nav-personal-page-click-total-height: 704px;
+@nav-personal-page-click-image: 'left_nav_sprite.png';
+@nav-personal-page-click: 0px 520px 0px -520px 24px 24px 24px 704px 'left_nav_sprite.png' 'nav_personal page_click';
+@nav-sale-center-name: 'nav_sale center';
+@nav-sale-center-x: 0px;
+@nav-sale-center-y: 560px;
+@nav-sale-center-offset-x: 0px;
+@nav-sale-center-offset-y: -560px;
+@nav-sale-center-width: 24px;
+@nav-sale-center-height: 24px;
+@nav-sale-center-total-width: 24px;
+@nav-sale-center-total-height: 704px;
+@nav-sale-center-image: 'left_nav_sprite.png';
+@nav-sale-center: 0px 560px 0px -560px 24px 24px 24px 704px 'left_nav_sprite.png' 'nav_sale center';
+@nav-sale-center-click-name: 'nav_sale center_click';
+@nav-sale-center-click-x: 0px;
+@nav-sale-center-click-y: 600px;
+@nav-sale-center-click-offset-x: 0px;
+@nav-sale-center-click-offset-y: -600px;
+@nav-sale-center-click-width: 24px;
+@nav-sale-center-click-height: 24px;
+@nav-sale-center-click-total-width: 24px;
+@nav-sale-center-click-total-height: 704px;
+@nav-sale-center-click-image: 'left_nav_sprite.png';
+@nav-sale-center-click: 0px 600px 0px -600px 24px 24px 24px 704px 'left_nav_sprite.png' 'nav_sale center_click';
+@nav-user-management-name: 'nav_user management';
+@nav-user-management-x: 0px;
+@nav-user-management-y: 640px;
+@nav-user-management-offset-x: 0px;
+@nav-user-management-offset-y: -640px;
+@nav-user-management-width: 24px;
+@nav-user-management-height: 24px;
+@nav-user-management-total-width: 24px;
+@nav-user-management-total-height: 704px;
+@nav-user-management-image: 'left_nav_sprite.png';
+@nav-user-management: 0px 640px 0px -640px 24px 24px 24px 704px 'left_nav_sprite.png' 'nav_user management';
+@nav-user-management-click-name: 'nav_user management_click';
+@nav-user-management-click-x: 0px;
+@nav-user-management-click-y: 680px;
+@nav-user-management-click-offset-x: 0px;
+@nav-user-management-click-offset-y: -680px;
+@nav-user-management-click-width: 24px;
+@nav-user-management-click-height: 24px;
+@nav-user-management-click-total-width: 24px;
+@nav-user-management-click-total-height: 704px;
+@nav-user-management-click-image: 'left_nav_sprite.png';
+@nav-user-management-click: 0px 680px 0px -680px 24px 24px 24px 704px 'left_nav_sprite.png' 'nav_user management_click';
+@spritesheet-width: 24px;
+@spritesheet-height: 704px;
+@spritesheet-image: 'left_nav_sprite.png';
+@spritesheet-sprites: @nav-class-center @nav-class-center-click @nav-financial-management @nav-financial-management-click @nav-guest-management @nav-guest-management-click @nav-home @nav-home-click @nav-live @nav-live-click @nav-official-accounts-1 @nav-official-accounts @nav-personal-page @nav-personal-page-click @nav-sale-center @nav-sale-center-click @nav-user-management @nav-user-management-click;
+@spritesheet: 24px 704px 'left_nav_sprite.png' @spritesheet-sprites;
+
+/*
+The provided classes are intended to be used with the array-like variables
+
+.icon-home {
+  .sprite-width(@icon-home);
+}
+.icon-email {
+  .sprite(@icon-email);
+}
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+.sprite-width(@sprite) {
+  width: extract(@sprite, 5);
+}
+
+.sprite-height(@sprite) {
+  height: extract(@sprite, 6);
+}
+
+.sprite-position(@sprite) {
+  @sprite-offset-x: extract(@sprite, 3);
+  @sprite-offset-y: extract(@sprite, 4);
+  background-position: @sprite-offset-x @sprite-offset-y;
+}
+
+.sprite-image(@sprite) {
+  @sprite-image: extract(@sprite, 9);
+  @sprite-image-bare: ~`"@{sprite-image}".slice(1, -1)`;
+  background-image: url(@sprite-image-bare);
+}
+
+.sprite(@sprite) {
+  .sprite-image(@sprite);
+  .sprite-position(@sprite);
+  .sprite-width(@sprite);
+  .sprite-height(@sprite);
+}
+
+/*
+The `.sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of LESS
+
+This must be run when you have at least 2 sprites.
+  If run with a single sprite, then there will be reference errors.
+
+.sprites(@spritesheet-sprites);
+*/
+.sprites(@sprites, @i: 1) when (@i <= length(@sprites)) {
+  @sprite: extract(@sprites, @i);
+  @sprite-name: e(extract(@sprite, 10));
+  .@{sprite-name} {
+    .sprite(@sprite);
+  }
+  .sprites(@sprites, @i + 1);
+}

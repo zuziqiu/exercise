@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>按钮</button>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("button").click(function(){
+				$.ajax({
+					url:"login2.php",
+					type: "POST",
+					data:{
+						user:"abc",
+						"password":"123"
+					},
+					success:function(data){
+						console.log(data);
+						//数据解析
+						data=JSON.parse(data);
+						console.log(data);
+					}
+				});
+				return false;
+			})
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>代币销售</title>
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" href="css/buy.css" />
+		<style>
+			body,html,#main{
+				background-color:#fff;
+
+			}
+			.bfooter{
+				/*position:absolute;*/
+				/*width:91.1112%;*/
+				/*bottom:0;*/
+				border-top:8px solid #efeff4;
+			}
+			.price{
+				/*padding-bottom:62%;*/
+			}
+			.price>div>h2{
+				line-height:1.6rem;
+			}
+			@media screen and (min-width:410px){
+				.price>div{
+					padding:7% 0;
+				}
+			}
+			#main .buys {
+			    width: 100%;
+			    display: inline-block;
+			    background-color: #10aeff;
+			    color: #fff;
+			    font-size: 1.2rem;
+			    border-radius: 0.3rem;
+			    padding: 3% 5%;
+			    margin: 3.04878% 0 8.09756%;
+			}
+			.tnav~*:nth-child(2) {
+			    padding-top: 16%;
+			    background-color: #FFFFFF;
+			}
+			@media only screen and (min-width: 550px){
+				.tnav~*:nth-child(2){
+					padding-top: 10%;
+					background-color: #FFFFFF;
+				}
+			}
+			@media only screen and (min-width: 380px) and (max-width: 549px) {
+				.tnav~*:nth-child(2){
+					padding-top: 14%;
+					background-color: #FFFFFF;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main">
+			<div class="tnav col">
+				<b class="arrow"><span class="ic_leftarrow" data-url="index.html"></span> 代币销售</b>
+				<span class="backmain ic_home"></span>
+			</div>
+
+			<div class="price pad" id="view">
+
+				<!--新增↓-->
+				<script type="text/html" id="model">
+					<p class="fz">商品全称：<span class="col record">请选择商品</span></p>
+					{{# for(var i = 0, len = d.Data.length; i < len; i++){ }}
+					<div>
+						<h2><span >{{d.Data[i].PackageName}}</span></h2>
+						<span class="col">{{d.Data[i].PackageAmount}}元</span>
+					</div>
+
+					{{# } }}
+				</script>
+				<!--新增↑-->
+
+			</div>
+			<div class="bfooter pad">
+				<p class="fz">
+					更多充值
+					<div class="recharge">	
+						<button data-url="Csale.html">充值存款</button>
+						<button data-url="Psale.html">套票购买</button>	
+					</div>
+				</p>
+				<button class="buys">购买</button>
+				<p class="contact"><span data-url = "BalanceQuery.html">查询余额</span>|<span data-url = "zhangdanhoutai.html">我的充值记录</span></p>
+			</div>
+
+
+
+		</div>
+		<script src="js/jquery-1.12.2.min.js" type="text/javascript"></script>
+		<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/base.js" type="text/javascript"></script>
+		<script type="text/javascript">
+//			$(".price>div").click(function(){
+//				$(".record").html($(this).children().eq(0).html()+"("+$(this).children().eq(1).html()+")");
+//			})
+			$(".price").on('click','div',function(){
+				$(".record").html($(this).children().eq(0).html()+"("+$(this).children().eq(1).html()+")");
+			})
+			//新增↓
+			$(function(){
+				myajax({
+					'data':{
+						"UserId": "46E19176-D96C-45CD-A05D-3B777A25191F",
+    					"BranchId": "3D7775B5-33D1-4348-B3AA-4CFD9AEEC0D2",
+						"_api": "DepositPackage/GetCoinsPackage",
+					}
+				},'successfn1');
+			});
+			function successfn(response,action){
+				if(action=='successfn1'){
+					successfn1(response);
+				}
+				if(action=='successfn2'){
+					successfn2(response);
+				}
+
+				if(action=='successfn3'){
+					successfn3(response);
+				}
+			};
+			//获取地址列表
+			function successfn1(response){
+				var data = JSON.parse(response);
+				var gettpl = document.getElementById('model').innerHTML;
+				laytpl(gettpl).render(data, function(html){
+					document.getElementById('view').innerHTML = html;
+				});
+				$(".price div").click(function(){
+					$(this).css({"background-color":"#10aeff","color":"#fff"}).siblings().css({"background-color":"#fff","color":"#000000"})	;
+				var PackageId = data.Data[$(this).index()-1].PackageId;
+				var PackageAmount = data.Data[$(this).index()-1].PackageAmount;
+				var PackageName = encodeURI(data.Data[$(this).index()-1].PackageName);
+				var Csale_sign = 1;
+				$(".buys").click(function(){
+					location.href="Msake_1.html?"+"PackageId="+PackageId+";PackageAmount="+PackageAmount+";PackageName="+PackageName+";Csale_sign="+Csale_sign
+				});
+				});
+			}
+			//新增↑
+
+
+
+
+		</script>
+	</body>
+	
+</html>

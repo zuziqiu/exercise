@@ -1,0 +1,56 @@
+<ion-view class="release_order order_detail person_infosz person_infozl" ng-cloak>
+	<div class="bar bar-header">
+		<img id="return" class="posit" src="img/nav_return.png" ng-click="goback()"></img>	
+		<div class="title">修改个人资料</div>
+	</div>
+	<ion-view class="content has-header" >
+		<ion-pane style="background-color:#eee;">
+			<ion-content>
+				<div class="list detailed">
+					<button id="head_portrait" class="item item-avatar" style="height:78px;">
+						<span>头像</span>
+						<!--img/head_portrait01.png-->
+						<img id="header" class="posit" ng-src="{{list1.avatar}}" style="width:60px;height:60px;border-radius: 50%;" alt="" />
+					</button>
+				</div>
+				<div class="list detailed">
+					<button class="item item-avatar Person_infozl" ng-click="personInfozlcgo('#/person_infozlc?1')">
+						<span>昵称</span>
+						<!--粉红色的鸡叔-->
+						<p>{{list1.user_nicename}}</p>
+					</button>
+					<button class="item item-avatar">
+						<span>ID</span>
+						<p>{{list1.id}}</p>
+					</button>
+					<button class="item item-avatar Person_infozl" ng-click="personInfozlcgo('#/person_infozlc?2')">
+						<span>个人签名</span>
+						<p>{{list1.signature}}</p>
+					</button>
+				</div>		
+				<button class="btn01" >保存</button>
+			</ion-content>
+		</ion-pane>
+	</ion-view>
+	<div class="tip">
+		<span>保存成功</span>	
+	</div>
+	<div id="head_select">	
+		<div id="head_select_content" class="list">
+			<button class="item item-avatar" style="border-radius: 4px 4px 0 0;">
+				查看头像大图
+			</button>
+			<button class="item item-avatar" ng-click="loadImageUpload()">
+				拍照换头像
+			</button>
+			<button class="item item-avatar" ng-click="loadImageLocal()">
+				从相册选择新头像
+			</button>
+			<button id="cancle" class="item item-avatar" style="border-radius:0 0 4px 4px;">
+				取消
+			</button>
+		</div>
+	</div>
+</ion-view>
+
+

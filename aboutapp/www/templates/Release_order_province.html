@@ -1,0 +1,24 @@
+<ion-view class="release_order release_order_adddz release_order_province" ng-clock>
+	<div class="bar bar-header">
+		<img id="return" class="posit" src="img/nav_return.png" ng-click="goback()"></img>	
+		<div class="title">选择地址</div>
+	</div>
+	<ion-view class="content has-header" >
+		<ion-pane style="background-color:#eee;">
+			<ion-content>
+				<div class="list detailed" style="padding:0;">
+					<button style="border-bottom:1px solid #ccc !important;" id="ic_positioning" class="item" ng-click="threeGeo(1)">
+						<img src="img/ic_positioning.png" alt="" />
+						<b>定位当前位置</b>
+					</button>
+				</div>
+				<div class="list detailed" >
+					<label class="item item-avatar row row-center" ng-repeat="x in selectareadata.province" ng-click="three_level_linkage('{{x.id}}','#/release_order_city',1,'{{x.name}}')">
+						<span class='col'>{{x.name}}</span>
+						<img class="posit" src="img/list_right.png" alt="" />
+					</label>
+				</div>
+			</ion-content>
+		</ion-pane>
+	</ion-view>
+</ion-view>

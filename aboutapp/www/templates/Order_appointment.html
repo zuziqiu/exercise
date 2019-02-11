@@ -1,0 +1,139 @@
+<ion-view class="release_order chatinterface order_detail order_appointment">
+	<div class="bar bar-header">
+		<img id="return" class="posit" src="img/nav_return.png" ng-click="goback()"></img>	
+		<div class="title">预约订单详情</div>
+		<a id="tel_call" href="tel:15627236928"><img src="img/nav_call.png" alt="" /></a>
+	</div>
+	<ion-view class="content has-header" >
+		<ion-pane style="background-color:#eee;">
+			<ion-content id="detail_main" >
+				<div class="list">
+					<div class="item" style="min-height:40px;padding:12px 16px;">
+						基本信息
+					</div>
+					<div class="item item-avatar">
+						<button class="appointment posit" >预</button>
+						<div>
+							<h2 style="font-size: 14px;line-height:30px;margin-top:5px">2016-09-21(今天) 11:00</h2>
+						</div>
+					</div>
+					<div class="item item-avatar">
+						<img src="img/ic_send.png" alt="" />
+						<div>
+							<h2 >王尼玛 13579246810</h2>
+							<p>广东省 佛山市 禅城区</p><br />
+							<p>季华六路九鼎国际公寓4座1110阿啪啪信息科技</p>
+						</div>
+					</div>
+					<div class="item item-avatar">
+						<img src="img/ic_closed.png" alt="" />
+						<div>
+							<h2 >王尼玛 13579246810</h2>
+							<p>广东省 佛山市 禅城区</p><br />
+							<p>季华六路九鼎国际公寓4座1110阿啪啪信息科技</p>
+						</div>
+					</div>
+				</div>
+				<div class="list">
+					<div class="item" style="min-height:40px;padding:12px 16px;">
+						详细信息
+					</div>
+					<div class="list detailed">
+						<div class="item item-avatar">
+							<span>订单号</span><span>120414316629</span>
+						</div>
+						<div class="item item-avatar">
+							<span>下单时间</span><span>2016-09-25 10:48</span>
+						</div>
+						<div class="item item-avatar ">
+							<span>订单类型</span><span>预约订单</span>
+						</div>
+					</div>
+				</div>
+				<div class="goods_btn">
+					<button class="btn01 button order_patment">确认订单</button>
+				</div>
+			</ion-content>
+			<!--聊天界面-->
+			<div id="chat" style="display: none;" >
+				<div class="list chat_leave">
+					<div class="item item-avatar" href="###">
+						<img src="img/debang.png" alt="" />
+						<h2 >广东省深圳市 <span class="item-note blue">预约</span></h2>
+						<p>禅城区季华六路九鼎国4座1112<span class="item-note">已转出</span></p>
+					</div>
+					<p class="chat_below">
+						订单详情
+						<img src="img/list_below.png" alt="" />
+					</p>
+					<p class="add-check">
+						粉红色鸡叔不是你的好友，是否添加为好友<button class="add_friend posit">添加</button>
+					</p>
+				</div>
+				<ion-content style="top:110px">
+					<div class="chat_content">
+						<div class="chat_left">
+							<p>10:11</p>
+							<div><div></div>嗨，在吗?</div>
+						</div>
+						<div class="chat_right">
+							<p>10:22</p>
+							<div><div></div>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈</div>
+						</div>
+					</div>
+				</ion-content>
+			</div>
+			<!--ng-controller="chatInterface"-->
+			<div id="send" ng-click="scrollbottom()" ng-controller="chatInterface">
+				<ion-footer-bar class="send_top row row-bottom" keyboard-attach ng-click="sendtop()">
+					<img id="send_speak" class="col" src="img/ic_voice.png" style="left:0;" alt="" />
+					<label class="item-input-wrapper col">
+						<div class="row row-bottom">
+						 	<textarea focus-Input id="write" class="col" name="write_something" rows="1"></textarea>
+						  	<img class="col" src="img/ic_expression.png" alt="" />
+						</div>
+					</label>
+					<img id="send_add" class="col" ng-click="add_scrollbottom()" src="img/ic_evenmore.png" style="right:0" alt="" />
+					<button id="send_go" class="col" ng-click="scrollbottom()">发送</button>
+				</ion-footer-bar>
+				<div class="send_body1">
+					<div>
+						<img src="img/ic_taking.png" alt="" />
+						<p>拍照</p>
+					</div>
+					<div>
+						<img src="img/ic_photo.png" alt="" />
+						<p>图片</p>
+					</div>
+					<div>
+						<img src="img/ic_location.png" alt="" />
+						<p>定位</p>
+					</div>
+					<div>
+						<img src="img/ic_card.png" alt="" />
+						<p>付费</p>
+					</div>
+					<div>
+						<img src="img/ic_sendorder.png" alt="" />
+						<p>订单</p>
+					</div>
+					<div>
+						<img src="img/ic_senddraft.png" alt="" />
+						<p>草稿</p>
+					</div>
+					<div>
+						<img src="img/ic_businesscard.png" alt="" />
+						<p>名片</p>
+					</div>
+					
+				</div>
+			</div>
+			<div class="tip">
+				<span>确认订单成功</span>
+			</div>
+		</ion-pane>
+	</ion-view>
+</ion-view>
+
+
+

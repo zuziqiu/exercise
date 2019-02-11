@@ -1,0 +1,37 @@
+<ion-view class="orders_list Peripheral_orders">
+	<div class="bar bar-header">
+		<a href="#/tab" style="position:absolute;top:0;left:0;" nav-direction="back">
+			<img id="return" src="img/nav_return.png"  />
+		</a>
+		<!--<img id="return" src="img/nav_return.png" ng-click="nextgo('tab')"></img>-->
+		<div class="title">
+			我的订单
+		</div>
+	</div>
+	<ion-view class="content has-header" >
+		<div class="row header_a_select">
+			<a class="col already_select" href="javascript:void(0)">全部</a>
+			<a class="col" href="javascript:void(0)">待收件</a>
+			<a class="col" href="javascript:void(0)">已揽收</a>
+			<a class="col" href="javascript:void(0)">已寄出</a>
+			<a class="col" href="javascript:void(0)">待评价</a>
+		</div>
+		<ion-pane style="background-color:#eee;">
+			<ion-content style="padding-top:30px;">
+				<div class="list" ng-repeat="x in myorder">
+					<div class="item" style="min-height:40px;padding:12px 16px;color:#666;">{{x.date}}</div>
+					<button class="item item-avatar Peripheral_orders_go" style="text-align:left;width:100%;" ng-repeat="j in x.order" ng-click="nextgo('order_detail_main')">
+						<img src="img/list_shunfeng.png" alt="" />
+						<h2>订单号:{{j.code}} <!--<span class="item-note" ng-switch-when="1">待收件</span>--><span class="item-note">已揽收</span><!--<span class="item-note" ng-switch-when="3">已寄出</span>--></h2>
+						<p>{{j.sender_area_name.split(" ").join("")}}<img src="img/list_travel.png" alt="" />{{j.recipient_area_name.split(" ").join("")}}</p>
+						<p>{{x.goods_kind_name}}</p>
+						<div class="send_order" style="position:absolute;bottom:12px;right:16px;">
+							<div ng-click="evaluate()" style="background-color:#ffe500;margin:0;border-width:1px ;font-weight: normal;">评价</div>
+						</div>
+					</button>
+				</div>
+				
+			</ion-content>
+		</ion-pane>
+	</ion-view>
+</ion-view>

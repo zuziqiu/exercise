@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<img id="img" src="img/d043ad4bd11373f0581e4ed7a40f4bfbfbed0450.jpg" width="200" height="200"/>
+		<img id="image" hidden src="img/5d6b5543fbf2b2119ebeb5a3ca8065380dd78e19.jpg" width="200" height="200"/>
+		<canvas id="canvas" width="500" height="500"></canvas>
+		<script>
+		  	window.onload = function(){
+		  	drawimges("canvas");
+		  	drawimg("canvas");
+		  	draw("canvas");
+			function drawimges(id){
+				var canvas=document.getElementById(id);
+				var context=canvas.getContext("2d"); 
+				var img=document.getElementById("img");
+				context.beginPath();
+				context.drawImage(img,100,100,50,50);
+				context.fill();
+				context.closePath();
+			}
+			function drawimg(id){
+				var canvas=document.getElementById(id);
+				var ctx=canvas.getContext("2d");
+				var image=document.getElementById("image");
+				ctx.beginPath();
+				ctx.drawImage(image,150,150,100,100);
+				ctx.fill();
+				ctx.closePath();
+			}
+			function draw(id){
+				var canvas=document.getElementById(id);
+				var context=canvas.getContext("2d");
+				var oprtns=new Array(
+					"source-atop",			//0  新图形中与原有内容重叠的部分会被绘制，并覆盖于原有内容之上。 
+					"source-in",            //1  新图形会仅仅出现与原有内容重叠的部分。其它区域都变成透明的。 
+					"source-out",           //2  结果是只有新图形中与原有内容不重叠的部分会被绘制出来。 
+					"source-over",          //3  这是默认设置，新图形会覆盖在原有内容之上。
+					"destination-atop",     //4  原有内容中与新内容重叠的部分会被保留，并会在原有内容之下绘制新图形 
+					"destination-in",       //5  原有内容中与新图形重叠的部分会被保留，其它区域都变成透明的。 
+					"destination-out",      //6  原有内容中与新图形不重叠的部分会被保留。
+					"destination-over",     //7  会在原有内容之下绘制新图形。 
+					"lighter",				//8  两图形中重叠部分作加色处理。 
+					"copy",                 //9  只有新图形会被保留，其它都被清除掉。
+					"xor"                   //10 where else.重叠的部分会变成透明。 
+				); i=10;
+				context.fillStyle="blue";
+				context.fillRect(10,10,60,60);
+				context.globalCompositeOperation=oprtns[i];
+				context.fillStyle="red";
+				context.arc(60,60,30,0,Math.PI*2,false);
+				context.fill();
+			}
+		}
+		</script>
+	</body>
+</html>

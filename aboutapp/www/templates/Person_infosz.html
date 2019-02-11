@@ -1,0 +1,47 @@
+<ion-view class="release_order order_detail person_infosz">
+	<div class="bar bar-header">
+		<a href="#/tab" style="position:absolute;top:0;left:0;" nav-direction="back">
+			<img id="return" src="img/nav_return.png"  />
+		</a>
+		<!--<img id="return" class="posit" src="img/nav_return.png" ng-click="goback()"></img>-->
+		<div class="title">设置</div>
+	</div>
+	<ion-view class="content has-header" >
+		<ion-pane style="background-color:#eee;">
+			<ion-content>
+				<div class="list">
+					<div class="list detailed">
+						<button class="item item-avatar person_infosz" ng-click="nextgo('person_infozl')">
+							<span>修改个人信息</span>
+							<img class="posit" src="img/list_right.png" alt="" />
+						</button>
+						<button class="item item-avatar person_infosz" ng-click="nextgo('person_infoxm')">
+							<span>修改密码</span>
+							<img class="posit" src="img/list_right.png" alt="" />
+						</button>
+						<button class="item item-avatar person_infosz" ng-click="nextgo('person_infoxbp')">
+							<span>修改绑定手机</span>
+							<img class="posit" src="img/list_right.png" alt="" />
+						</button>
+					</div>
+				</div>
+				<div class="list">
+					<div class="list detailed">
+						<button class="item item-avatar">
+							<span>系统更新</span>
+							<p>当前版本V1.0.0</p]>
+						</button>
+						<button id="clear" class="item item-avatar">
+							<span>清除缓存</span>
+							<p>256KB</p>
+						</button>
+					</div>
+				</div>
+				<button class="btn01">退出登录</button>
+				<div class="tip">
+					<span>成功退出登录</span>
+				</div>
+			</ion-content>
+		</ion-pane>
+	</ion-view>
+</ion-view>

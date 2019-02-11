@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form>
+			<input type="text" name="user" id="user"/>
+			<input type="text" name="password" id="password"/>
+			<input type="submit" value="登录" id="btn"/>
+		</form>
+		<script type="text/javascript">
+			var btn = document.getElementById("btn");
+			btn.onclick = function(){
+				var user = document.getElementById("user").value;
+				var pass = document.getElementById("password").value;
+				//new AJAX对象
+				var ajax = new XMLHttpRequest();
+				//POST
+				ajax.open("POST","login2.php");
+				//发送请求
+				ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+				ajax.send("user="+user+"&password="+pass);
+				
+				//等待请求
+				ajax.onreadystatechange = function(){
+					//请求状态
+					if(this.readyState == 4){
+						//HTTP状态码
+						if(this.status>=200&&this.status<300||this.status ==304){
+							//请求成功
+							alert(this.responseText);
+						}else{
+							alert("请求失败");
+						}
+					}
+				}
+				return false;
+			}
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

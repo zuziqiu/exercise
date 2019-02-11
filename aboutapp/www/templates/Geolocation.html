@@ -1,0 +1,26 @@
+<ion-view class="release_order geolocation">
+	<div class="bar bar-header">
+		<img id="return" class="posit" src="img/nav_return.png" ng-click="goback()"></img>	
+		<div class="title">粉红色的鸡叔</div>
+	</div>
+	<ion-view class="content has-header" >
+		<ion-pane style="background-color:#eee;">
+			<div id="geomap" style="height:50%"></div>
+			<!--<button ng-click="btn()" style="height:48px;background-color:tomato;">点击定位</button>-->
+			<!--<div id="r-result"></div>-->
+			<ion-content style="top:50%">
+			<div class="list">
+				<button class="item" ng-repeat="x in address" ng-click="selectaddress(x.point)">
+					<h2>{{x.addressstr1}}</h2>
+					<img class="posit ic_radio_selected" src="img/ic_radio_selected.png" alt="" />
+				</button>
+				<button class="item" ng-repeat="x in releaseaddress" ng-click="selectaddress(x.point)">
+					<h2>{{x.title}}</h2>
+					<p>{{x.address}}</p>
+					<img class="posit ic_radio_selected" src="img/ic_radio_nomal.png" alt="" />
+				</button>
+			</div>
+			</ion-content>
+		</ion-pane>
+	</ion-view>
+</ion-view>

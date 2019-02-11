@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>菜鸟教程(runoob.com)</title> 
+<style>
+  #circle {
+  width: 200px;
+  height: 200px;
+  background-color: #efefef; /* Can be set to transparent */
+        border: 3px #a72525 solid;
+  -webkit-border-radius: 100px;
+    width: 200px;
+  height: 200px;
+  background-color: #a72525;
+  -webkit-border-radius: 200px 0 0 0;
+}
+</style>
+<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+	var b={};
+  $("p").on("click",function(){
+    b.call($(this));
+  });
+  $("button").click(function(){
+    $("p").off("click");
+  });
+  b={
+	  call: function(a){
+		  a.css({"color":"red"});
+	  }
+	}
+  var ad =new Date()
+  console.log(new Date().getTime())
+  // alert(('【?】').match(/[\?]/g));
+  // alert(('【?】').match(/[\?]/g).length);
+});
+</script>
+</head>
+<body>
+
+<p>点击这个段落修改它的背景颜色。</p>
+<p>点击一下按钮再点击这个段落( click 事件被移除 )。</p>
+
+<button>移除 click 事件句柄</button>
+<div id="circle"></div>
+</body>
+</html>

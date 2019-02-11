@@ -1,0 +1,61 @@
+<ion-view class="Peripheral_orders person_details">
+	<div class="bar bar-header">
+		<img id="return" src="img/nav_return.png" ng-click="goback()"></img>
+		<div class="title">
+			详细资料
+		</div>
+		<button style="position:absolute;top:0;right:0;padding:0 16px;height:48px;font-size: 13px;font-weight: bold;">举报</button>
+	</div>
+	<ion-view class="content has-header" >
+		<ion-pane style="background-color:#eee;">
+			<ion-content>
+				<div class="person_header">
+					<p>ID:9527</p>
+					<div class="person_title">
+							<!--img/head_portrait01.png-->
+							<img style="border-radius:50%;" ng-src="{{list1.avatar}}" alt="" />
+							<!--威猛的小老虎-->
+							<h2><b>{{list1.user_nicename}}</b></h2>
+							<p>昵称:粉红色的鸡叔</p>
+							<p>这是我独特有个性的个人签名</p>
+							<p>顺丰速运 | 343558</p>
+							<button style="margin:0 0 5px;padding:0 10px;box-sizing: content-box; height:28px;">已处理1680件快件</button>
+							<div>
+								<button>
+									<img src="img/ic_binding.png" alt="" />手机已绑定
+								</button><button>
+									<img src="img/ic_code .png" alt="" />二维码名片
+								</button>
+							</div>
+					</div>
+				</div>
+				<div class="list">
+					<button class="item button button-light">
+						<h2>公司地址:广东省佛山市禅城区季华六路18号顺丰速运</h2>
+						<p style="font-size: 14px;">电话:0757-81386344</p>
+					</button>
+					<button class="item button button-light"><img src="img/ic_iphone.png" alt="" style="height:20px;vertical-align: middle;margin:0 5px 4px 0;" /><h2 style="display: inline;">15627236928</h2> <img class="posit" src="img/list_right.png" alt="" style="height:16px;right:16px;margin: auto;"/></button>
+				</div>
+				<div class="list">
+					<button class="item button button-light" style="min-height:40px;padding:7px 16px"><p>收到的评论</p></button>
+					<div class="item item-avatar">
+						<img src="img/header.png" alt="" />
+						<h2 >
+							粉红色的鸡叔
+							<span class="item-note">
+								<img src="img/ic_star_selected.png" alt="" />
+								<img src="img/ic_star_selected.png" alt="" />
+								<img src="img/ic_star_selected.png" alt="" />
+								<img src="img/ic_star_selected.png" alt="" />
+							</span>
+						</h2>
+						<p>跟你交易次次都这么成功和开心的..希望我们以后有更多的交易吧...哈哈</p>
+					</div>
+					<div class="item">
+						<button style="background-color:#ffe500;height:44px;width:100%;border-radius:6px ;margin:0;">发送消息</button>
+					</div>
+				</div>
+			</ion-content>
+		</ion-pane>
+	</ion-view>
+</ion-view>

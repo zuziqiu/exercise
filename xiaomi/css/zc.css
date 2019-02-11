@@ -1,0 +1,88 @@
+body{
+	margin: 0px;
+	padding: 0px;
+	background-color: #F5F5F5;
+	color: #949292;
+}
+a{
+	text-decoration: none;
+}
+li{
+	list-style: none;
+}
+.zc_first{
+	width: 854px;
+	height: 500px;
+	margin:150px auto 0px auto;
+	background-color: white;
+	text-align: center;
+}
+span{
+	display: block;
+	margin-top: 20px;
+	margin-bottom: 30px;
+	font-size: 32px;
+	color: black;
+}
+.int{
+	width: 332px;
+	height: 42px;
+	margin-left: 260px;
+	margin-bottom: 40px;
+	border: 1px solid #C0C0C0;
+}
+.required{
+	margin-left: 20px;
+	border-style: none;
+	float: left;
+	width: 310px;
+	height: 40px;
+	line-height: 40px;
+}
+.accept{
+	width: 332px;
+	margin-top: 20px;
+	text-align: left;
+	margin-left: 261px;
+}
+.accept a{
+	color: black;
+}
+.zc_last{
+	width: 854px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	bottom: 0px;
+	margin-top:190px;
+}
+.zc_last{
+	width: 854px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}	
+.zc_last_top{
+	width: 854px;
+	height: 22px;
+	margin: 20px;
+}
+.zc_last_top li{
+	float: left;
+}
+.zc_last_footer{
+	margin-bottom: 30px;
+}
+.formtips{
+	color: red;
+	font-size: 22px;
+}
+.okname,.okemail,.okphone{
+	color: lawngreen;
+	height: 20px;
+	display: block;
+	padding-top: 45px;
+}
+.phcolor{
+	color: #949292;
+}

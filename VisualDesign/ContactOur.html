@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>联系我们</title>
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/base.css" />
+		<style type="text/css">
+			h2{
+				margin-bottom:5%;
+			}
+			html,body,#main{
+				background-color:#fff;
+			}
+			.sel{
+				margin-top:5%;
+				line-height:1.5rem;
+				
+			}
+			.sel2{
+				padding:4.44444% 6.44444%;
+			}
+			.sel2 li{
+				margin-bottom:0.5rem;
+				overflow: hidden;
+			}
+			.sel2 span{
+				font-size:1rem;
+				margin-right:2%;
+				line-height: 1.4rem;
+				float:left;
+			}
+			.sel2 div{
+				width:90%;
+				float:left;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main">
+			<div class="tnav col">
+				<b class="arrow"><span class="ic_leftarrow" data-url="index.html"></span> 联系我们</b>
+				<span class="backmain ic_home"></span>
+			</div>
+			<div id="bmap" style="height:60%"></div>
+			<ol class="sel">
+				<li class="sel2" style="border:none">
+					<ol>
+						<h2>环游嘉年华 天河城</h2>
+						<li class="col">
+							<span class="ic_phone"></span>
+							<div>
+								400-8123-882	
+							</div>
+						</li>
+						<li class="col">
+							<span class="ic_address"></span>
+							<div>
+								广州番禺区大道北1451号捷以产业园发展大厦6楼
+							</div>
+						</li>
+					</ol>
+				</li>
+			</ol>
+		</div>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+		<script src="js/jquery-1.12.2.min.js" type="text/javascript"></script>
+		<script src="js/touch-0.2.14.min.js" type="text/javascript"></script>
+		<script src="js/base.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			//创建和初始化地图函数
+			var charge=19;
+			function initMap(){
+				createMap();//创建地图
+				addMarker();//给地图添加标记
+				
+			}
+			//创建地图函数
+			function createMap(i){
+				var map = new BMap.Map("bmap",{enableDblclickZoom:false});//将百度地图放到id="bmap"的容器中
+				var point = new BMap.Point(113.400999,22.928596);//定义地图中心坐标
+				map.centerAndZoom(point,19);//设置地图地中心点和坐标并将地图显示在容器中
+				window.map = map;//将map变量存储为全局变量
+			}
+		    //创建InfoWindow
+		    function createInfoWindow(i){
+		        var json = markerArr[i];
+		        var iw = new BMap.InfoWindow("<h2 style='width:101%' class='iw_poi_title' title='" + json.title + "'>" + json.title + "</h2><div class='iw_poi_content' style='line-height:1.2rem'>"+json.content+"</div>");
+		        return iw;
+			}
+		    //创建一个Icon
+		    function createIcon(json){
+		        var icon = new BMap.Icon("img01/location.svg", new BMap.Size(json.w,json.h),{imageOffset: new BMap.Size(-json.l,-json.t),infoWindowOffset:new BMap.Size(json.lb+5,1),offset:new BMap.Size(json.x,json.h)})
+		    	return icon;
+			}
+		     //标注点数组
+		    var markerArr = [{
+		    					title:"环游嘉年华 天河城",
+		    					content:"广州番禺区大道北1451号捷以产业园发展大厦6楼<br/>400-8888-888",
+		    					point:"113.400999|22.928596",
+		    					isOpen:0,
+		    					icon:{w:0,h:0,l:0,t:0,x:25,lb:10}
+		    				}];
+		   //创建marker
+		    function addMarker(){
+		        for(var i=0;i<markerArr.length;i++){
+		            var json = markerArr[i];
+		           
+		            var p0 = json.point.split("|")[0];
+		            var p1 = json.point.split("|")[1];
+		            var point = new BMap.Point(p0,p1);
+					var iconImg = createIcon(json.icon);
+		            var marker = new BMap.Marker(point,{icon:iconImg});
+					var iw = createInfoWindow(i);
+					var label = new BMap.Label("",{"offset":new BMap.Size(json.icon.lb-json.icon.x,-30)});
+					marker.setLabel(label);
+		            map.addOverlay(marker);
+		            label.setStyle({
+		               	width:"30px",
+		               	height:"30px",
+		                cursor:"pointer",
+		                background:"url(img01/location.svg) 0 0 no-repeat",
+		                backgroundSize:"100%",
+		                border:"none"
+		           	});
+					(function(){
+						var _iw = createInfoWindow(i);
+						var _marker = marker;
+						_iw.addEventListener("open",function(){
+							_marker.getLabel().hide();
+						})
+						_iw.addEventListener("close",function(){
+							_marker.getLabel().show();
+						})
+						label.addEventListener("click",function(){
+							 _marker.openInfoWindow(_iw);
+						})
+						touch.on(window,"pinchin",function(){
+							if(charge>5){
+								map.centerAndZoom(new BMap.Point(113.400999,22.928596),charge--);
+							}
+						})
+						touch.on(window,"pinchout",function(){
+							if(charge<19){
+								map.centerAndZoom(new BMap.Point(113.400999,22.928596),charge++);
+							}
+						})
+						
+					})()
+		        }
+		    }
+		   
+			
+			initMap()
+		</script>
+	</body>
+</html>

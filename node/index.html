@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.12.2.min.js" ></script>
+		<script type="text/javascript" src="js/laytpl.js" ></script>
+		<script type="text/javascript" src="js/layui.js" ></script>
+		<script type="text/javascript" src="js/hook.js" ></script>
+	</head>
+	<body>
+		<p>wocacacacac</p>
+		<div id="view"></div>
+		<span>fdsafsdafsdfsa</span>
+		
+		<script id="demo" type="text/java">
+			
+			<h1>{{ d.title }}</h1>
+			<ul>
+			{{# for(var i = 0, len = d.list.length; i < len; i++){ }}
+			  <li>
+			    <span>姓名：{{ d.list[i].name }}</span>
+			    <span>城市：{{ d.list[i].city }}</span>
+			  </li>
+			{{# } }}
+			</ul>
+			
+			<!--<li class="sel2" data-url="Gift02.html">
+					<img src="img/m01.png" alt="" />
+					<ol>
+						<h2>{{ d.title }}</h2>
+						<li class="col">
+							<span class="ic_token"></span>
+							积分: 20
+						</li>
+						<li class="col">
+							<span class="ic_lotterytickets"></span>
+							彩票: 20
+						</li>
+					</ol>
+				</li>-->
+			
+		</script>
+	</body>
+
+</html>

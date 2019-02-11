@@ -1,0 +1,93 @@
+a{
+    text-decoration: none;
+}
+.style{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+*{
+    position: relative;
+}
+body{
+    &:extend(.style);
+    background-image: url(../img/cloud_main.png);
+    background-repeat: no-repeat;
+    background-color: #5bc2f7;
+    .launch-client-main{
+        width: 100%;
+        height: 1000px;
+        position: absolute;
+        top: 0;
+        background-image: url(../img/bottom.png);
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: 100% 110px;
+        .launch-client{
+            box-shadow:0px 0px 12px rgba(73,126,173,0.9) ;
+            width: 360px;
+            height: 410px;
+            background-color: #ffffff;
+            margin: 245px auto 0;
+            text-align: center;
+            border-radius: 5px;
+            .launch-client-content{
+                background-image:url(../img/n_1.png);
+                background-repeat: no-repeat;
+                background-size: 90% 40%;
+                background-position: center 10%;
+                width: 100%;
+                height: 100%;
+                h4{
+                    jjj
+                    margin: 0;
+                        top: 220px;
+                        text-align: center;
+                }
+                a{
+                    top: 280px;
+                    padding: 17px 85px;
+                    background-color: #56acf5;
+                    border-radius: 5px;
+                    color: #FFFFFF;
+                }
+                .tips{
+                    top: 320px;
+                    font-size: 14px;
+                    a{
+                        color: #56ACF5;
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+        .launch-client-contact{
+            width: 100%;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            margin-bottom: 30px;
+            font-size: 16px;
+            span{
+                display: inline-block;
+                color: #FFFFFF;
+                font-weight: 600;
+            }
+            a{
+                background-color: #FFFFFF;
+                background-image: url(../img/qq.png);
+                background-repeat: no-repeat;
+                background-position: 8px 6px;
+                padding-left: 30px;
+                padding-right: 10px;
+                height: 32px;
+                line-height: 32px;
+                border-radius: 5px;
+                display: inline-block;
+                font-weight: 600;
+                color: #555;
+            }
+        }
+    }
+}    

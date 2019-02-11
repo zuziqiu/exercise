@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>video</title>
+</head>
+<body>
+	<video controls="" volume="50%" id="video" src="video_data/走进前端工程师的世界.mp4"></video>
+	<script type="text/javascript">
+		window.onload = function(){
+			var video123 ={
+				data:{
+					flag: false
+				},
+
+				bindevents: function(){
+					var that = this;
+					var video_elment = document.getElementById("video");
+
+					// 全屏兼容性
+					if (video_elment.requestFullscreen) {
+					  	video_elment.requestFullscreen();
+					}
+					else if (video_elment.mozRequestFullScreen) {
+					 	video_elment.mozRequestFullScreen();
+					}
+					else if (video_elment.webkitRequestFullscreen) {
+					  	video_elment.webkitRequestFullscreen();
+					}
+
+					video_elment.onclick = function(){
+						that.data.flag = !that.data.flag;
+						that.play(video_elment,that.data.flag);
+					};
+				},
+
+				play: function(video_elment,flag){
+					// video.onclick = function
+					if(flag == true){
+						video_elment.play();
+						console.log(video.startDate)
+					}
+					else{
+						video_elment.pause();
+					}
+				},
+
+				init: function(){
+					this.bindevents();
+				}
+			}
+			video123.init();
+		}
+	</script>
+</body>
+</html>

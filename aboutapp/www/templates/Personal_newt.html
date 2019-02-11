@@ -1,0 +1,47 @@
+<ion-view class="comunication_list Peripheral_orders personal_newt">
+	<div class="bar bar-header">
+		<a href="#/tab" nav-direction="back">
+			<!--ng-click="nextgo('tab')"-->
+			<img id="return" src="img/nav_return.png"  />
+		</a>
+		<div class="title">
+			个人消息
+		</div>
+		
+	</div>
+	<ion-view class="content has-header" >
+		<div class="row header_a_select">
+			<a class="col" href="#/personal_newt" nav-transition="none" style="border-bottom:3px solid #000">通知</a>
+			<a class="col" href="#/personal_newf" nav-transition="none">好友申请</a>
+		</div>
+		<ion-pane style="background-color:#eee;">
+			<ion-content style="padding-top:30px;">
+				<div class="list">
+					<div class="item" style="min-height:40px;padding:12px 16px;">今天</div>
+					<div class="item item-avatar">
+						<img src="img/list_shunfeng.png" alt="" />
+						<h2 >订单状态<span class="item-note">12:23</span></h2>
+						<p>您的订单264648464852246846已被签收，谢谢您使用顺丰快递.如有疑问请咨询客服</p>
+					</div>
+				</div>
+				<div class="list">
+					<div class="item" style="min-height:40px;height:40px;padding:12px 16px;">昨天</div>
+					<div class="item item-avatar">
+						<img src="img/list_shunfeng.png" alt="" />
+						<h2 >订单状态<span class="item-note">12:23</span></h2>
+						<p>您的订单264648464852246846已被签收，谢谢您使用顺丰快递.如有疑问请咨询客服</p>
+					</div>
+				</div>
+				<div class="list">
+					<div class="item" style="min-height:40px;height:40px;padding:12px 16px;">2016-09-23</div>
+					<div class="item item-avatar" ng-repeat="x in newt_list">
+						<img ng-src="{{x.imgUrl}}" alt="" />
+						<h2 >{{x.Name}}<span class="item-note">{{x.Time}}</span></h2>
+						<p>{{x.Content}}</p>
+					</div>
+				</div>
+				
+			</ion-content>
+		</ion-pane>
+	</ion-view>
+</ion-view>

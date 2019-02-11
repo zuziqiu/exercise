@@ -1,0 +1,156 @@
+/*整体样式*/
+
+ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#arrows{
+	height: 1.8rem;
+    word-spacing: 2rem;
+    font-size: 1.2rem;
+}
+/*bill_query_main样式开始*/
+.bill_query,.bill_query_main{
+	width: 100%;
+	background-color: #FFFFFF;
+}
+
+.bill_query_menu{
+	overflow: hidden;
+	background-color: #fbfafc;
+	text-align: center;
+	border-bottom: 1px solid #e6e6e6;
+}
+
+.bill_query_menu > span{
+	font-weight: bold;
+	color: #000000;
+	width: 13%;
+	float: left;
+	padding-top: 4%;
+	padding-bottom: 3%;
+	margin-left: 6%;
+	margin-right: 6%;
+	border-bottom: 2px solid #10aeff;
+}
+
+
+
+/*充值样式*/
+
+
+
+
+.bill_query_list{
+	border-bottom:1px solid #f0f0f0;
+	overflow: hidden;
+	padding: 4% 4.444%;
+}
+
+/*.bill_query_list:first-child{
+	border-top: 2px solid #e6e6e6;
+}*/
+.bill_query_list > span ,.ic_packagetickets{
+	float: left;
+	display: block;
+}
+
+.bill_query_list > span{
+	color: #b5b5b5;
+	font-size: 14px;
+}
+.bill_query_list > span:first-child{
+	position: absolute;
+	top: 50%;
+	margin-top: -15px;
+	width: 75px;
+}
+.money_num{
+	font-size:18px;
+	color: #000000;
+	font-weight: bold;
+}
+
+.font_icon_chongzhi{
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	background-color: #ffbe00;
+	float: left;
+	border-radius: 25px 25px;
+	margin-left: 30%;
+}
+
+
+.money_db{
+	float: left;
+	position: absolute;
+	top:50%;
+	margin-left: 44%;
+	margin-top: -19px;
+}
+
+.db_cz{
+	color: #adadad;
+	font-size: 12px;
+	margin-top: 1%;
+}
+
+.ic_rightarrow{
+		border: none;
+		text-align: right;
+		float: right;
+		font-size: 18px;
+		color:#10aeff ;
+		position: absolute;
+		right: 4.444%;
+		top: 50%;
+		margin-top: -9px;
+	}
+
+
+/*公共字体图标样式*/
+.ic_deposit,.ic_packagetickets,.ic_hardware,.ic_token,.ic_lotterytickets,.ic_integral,.ic_gift{
+	padding: 11px;
+	font-size: 30px;
+	color: #FFFFFF;
+}
+
+
+
+
+
+/*机台样式*/
+.font_icon_jitai{
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    background-color: #09bb07;
+    float: left;
+    border-radius: 25px 25px;
+    margin-left: 30%;
+}
+
+
+/*自助样式*/
+.font_icon_zizhu{
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    background-color: #ffbe00;
+    float: left;
+    border-radius: 25px 25px;
+    margin-left: 30%;
+}
+
+.font_icon_duihuan{
+	width: 50px;
+    height: 50px;
+    text-align: center;
+    background-color: #ff8f40;
+    float: left;
+    border-radius: 25px 25px;
+    margin-left: 30%;
+}

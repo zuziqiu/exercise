@@ -1,0 +1,95 @@
+<ion-view class="personsign_info">
+	<div class="bar bar-header">
+		<img id="return" class="posit" src="img/nav_return.png" ng-click="goback()"></img>	
+		<div class="title">设置新密码</div>
+	</div>
+	<div class="content has-header">
+		<div class="list list-inset">
+			<label class="item item-input">
+				<img style="width:15px;top:2px;" src="img/ic_password.png" alt="" />
+				<input class="password" type="password" maxlength="20" name="password" placeholder="请填写密码" />
+				<img class="btn_clear" src="img/ic_clear.png" alt="" />
+			</label>
+		</div>
+		<button class="btn01 button" data-url="#/tab">完成</button>
+	</div>
+	<div class="tip">
+		<span>修改成功</span>	
+	</div>
+</ion-view>
+
+
+<!--<!DOCTYPE html>
+<html ng-app="ionicApp">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>忘记密码-填写密码</title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link href="lib/ionic/css/ionic.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/person_info.css"/>
+ 	</head>
+	<body>
+		<div class="bar bar-header">
+			<img id="return" class="posit" src="img/nav_return.png" data-url="-1"></img>	
+			<div class="title">设置新密码</div>
+		</div>
+		<div class="content has-header">
+			<div class="list list-inset">
+				<label class="item item-input">
+					<img style="width:15px;top:2px;" src="img/ic_password.png" alt="" />
+					<input class="password" type="password" maxlength="20" name="password" placeholder="请填写密码" />
+					<img class="btn_clear" src="img/ic_clear.png" alt="" />
+				</label>
+			</div>
+			<button class="btn01 button" data-url="index.html">完成</button>
+		</div>
+		<div class="tip">
+			<span>修改成功</span>	
+		</div>
+		<script src="lib/ionic/js/ionic.bundle.min.js"></script>
+		<script src="js/jquery-1.12.2.min.js" type="text/javascript"></script>
+		<script src="js/base.js" type="text/javascript"></script>
+		<script type="text/javascript">
+      	 	angular.module('ionicApp', ['ionic']);
+        </script>
+		<script type="text/javascript">
+			$("input").keyup(function(){
+				$(this).next().css("display","inline-block").on("touchstart",function(){
+					$(this).prev().val("").end().css("display","none");
+					$(".btn01").css({"background-color":"#ccc","color":"#fff"});
+				});
+				if($(this).val()==""){
+					$(this).next().css("display","none");
+				}
+				if($(".password").val()!=""){
+					$(".btn01").css({"background-color":"#ffe500","color":"#181818"});
+				}else{
+					$(".btn01").css({"background-color":"#ccc","color":"#fff"});
+				}
+			}).blur(function(){
+				$(".btn_clear").css("display","none");
+			}).focus(function(){
+				if($(this).val()!=""){
+					$(this).next().css("display","block");
+				}
+			});
+			$(".btn01").on("touchstart",function(){
+				var reg_pass=/^\S{6,20}$/;
+//				console.log($(".password").val());
+				var w_url=$(this).attr("data-url");
+				if(reg_pass.test($(".password").val())){
+					$(".tip").fadeIn().fadeOut(function(){
+						location=w_url;
+					});
+				}else if($(".password").val()==""){
+					return false;
+				}else{
+					alert("请输入非空格，6到20位的密码");
+				}
+			})
+		</script>
+		<script src="cordova.js"></script>
+	</body>
+</html>-->

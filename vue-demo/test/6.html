@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../file/vue.js"></script>
+</head>
+<style>
+    *{
+        margin:0; padding:0;
+    }
+    #all{
+        width:1000px; height:1000px; margin:0 auto; overflow: hidden;
+        background-color: #ccc;
+    }
+
+    #name{
+        width:120px;
+        height:30px;
+    }
+</style>
+<body>
+<div id="all">
+    <template v-for="(val,key) in list">
+        {{val}} &nbsp;
+    </template>
+    <button v-on:click="changeList()">chang list</button>
+</div>
+
+<script>
+
+   var vm = new Vue({
+       el : '#all',
+       data : {
+           list : [
+                   'a','b','c'
+           ]
+       },
+       methods : {
+           changeList : function(){
+               this.list = [1,2,3,4];
+           }
+       }
+   });
+</script>
+</body>
+</html>

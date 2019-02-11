@@ -1,0 +1,108 @@
+<ion-view class="my_change Peripheral_orders">
+	<div class="bar bar-header">
+		<img id="return" src="img/nav_return.png" ng-click="goback()"></img>
+		<div class="title">
+			账单
+		</div>
+		<div class="select_list" ng-click="select_listfn()">	
+			<img src="img/nav_date.png" style="height:100%;" alt="" />
+			<div class="select_show" ng-click="select_listfn()">
+				<button>全部</button>
+				<button ng-click="nextgo('Choose_express_company_bill')">快递公司</button>
+				<button ng-click="date_show()">起始时间</button>
+				<button>结束时间</button>
+			</div>
+		</div>
+	</div>
+	<ion-view class="content has-header" >
+		<div class="mychangeheader">
+			<div class="mychangeheader_view">
+				<div class="row">
+					<div class="col" style="border-right:1px solid #000">
+						<p>总消费(元)</p>
+						<h2>25555.00</h2>
+					</div>
+					<div class="col">
+						<p>总收入(元)</p>
+						<h2>45555.00</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		<ion-pane style="background-color:#eee;">
+			<ion-content style="padding-top:140px;">
+				<div class="list cargo_info">
+					<div class="item button button-light" ng-click="select()" style="min-height:40px;padding:12px 16px;">
+						交易记录
+					</div>
+					<div class="list detailed">
+						<button class="item button button-light" >
+							<p style="font-size: 14px;color:#181818;">充值</p>
+							<p>今天 15:30</p>
+							<div>
+								<span style="color:#0182e1">+19.00元</span>
+								<!--<span style="color:#ff0000">-19.00元</span>-->
+							</div>
+						</button>
+						<button class="item button button-light"  >
+							<p style="font-size: 14px;color:#181818;">付款</p>
+							<p>今天 15:30</p>
+							<div>
+								<!--<span style="color:#0182e1">+19.00元</span>-->
+								<span style="color:#ff0000">-19.00元</span>
+							</div>
+						</button>
+						<button class="item button button-light"  >
+							<p style="font-size: 14px;color:#181818;">充值</p>
+							<p>2016-09-23 15:30</p>
+							<div>
+								<span style="color:#0182e1">+19.00元</span>
+								<!--<span style="color:#ff0000">-19.00元</span>-->
+							</div>
+						</button>
+						<button class="item button button-light"  >
+							<p style="font-size: 14px;color:#181818;">付款</p>
+							<p>2016-09-23 15:30</p>
+							<div>
+								<!--<span style="color:#0182e1">+19.00元</span>-->
+								<span style="color:#ff0000">-19.00元</span>
+							</div>
+						</button>
+						<button class="item button button-light"  >
+							<p style="font-size: 14px;color:#181818;">充值</p>
+							<p>2016-09-23 15:30</p>
+							<div>
+								<span style="color:#0182e1">+19.00元</span>
+								<!--<span style="color:#ff0000">-19.00元</span>-->
+							</div>
+						</button>
+						<button class="item button button-light"  >
+							<p style="font-size: 14px;color:#181818;">悬赏金</p>
+							<p>2016-09-23 15:30</p>
+							<div>
+								<!--<span style="color:#0182e1">+19.00元</span>-->
+								<span style="color:#ff0000">-19.00元</span>
+							</div>
+						</button>
+						<button class="item button button-light"  >
+							<p style="font-size: 14px;color:#181818;">充值</p>
+							<p>2016-09-23 15:30</p>
+							<div>
+								<span style="color:#0182e1">+19.00元</span>
+								<!--<span style="color:#ff0000">-19.00元</span>-->
+							</div>
+						</button>
+						<button class="item button button-light"  >
+							<p style="font-size: 14px;color:#181818;">付款</p>
+							<p>2016-09-23 15:30</p>
+							<div>
+								<!--<span style="color:#0182e1">+19.00元</span>-->
+								<span style="color:#ff0000">-19.00元</span>
+							</div>
+						</button>
+					</div>
+				</div>
+			</ion-content>
+		</ion-pane>
+	</ion-view>
+</ion-view>

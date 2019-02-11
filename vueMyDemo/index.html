@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			[v-cloak] {
+			  	display: none;
+			}
+			/*CSS过渡*/
+			.red{
+				color: red;
+			}
+			.blue{
+				color: blue;
+			}
+			.fades-enter-active, .fades-leave-active {
+			  transition: opacity .5s
+			}
+			.fades-enter, .fades-leave-active {
+			  opacity: 0
+			}
+			/*CSS动画*/
+			.bounce-enter-active {
+			  animation: bounce-in 2s;
+			}
+			.bounce-leave-active {
+			  animation: bounce-out 2s;
+			}
+			@keyframes bounce-in {
+			  0% {
+			    transform: scale(0);
+			  }
+			  50% {
+			    transform: scale(1.5);
+			  }
+			  100% {
+			    transform: scale(1);
+			  }
+			}
+			@keyframes bounce-out {
+			  0% {
+			    transform: scale(1);
+			  }
+			  50% {
+			    transform: scale(1.5);
+			  }
+			  100% {
+			    transform: scale(0);
+			  }
+			}
+		</style>
+	</head>
+	<body>
+		<!--声明式渲染-->
+		<div id="app" v-cloak>
+		  	{{ message }}
+		</div>
+		<div id="app-2">
+		  <span v-bind:title="message">
+		    Hover your mouse over me for a few seconds to see my dynamically bound title!
+		  </span>
+		</div>
+		<!--声明式渲染end-->
+
+		<!--条件与循环-->
+		<div class="app-3">
+			<p v-if="seen">Now you see me</p>			
+		</div>
+		<div class="app-4">
+			<ol>
+				<li v-for="todo in todos">
+					{{todo.text}}
+				</li>
+			</ol>
+		</div>
+		<!--条件与循环end-->
+
+		<!--处理用户输入-->
+		<div class="app_5">
+			<p>{{message}}</p>
+			<button v-on:click="reverseMessage">Reverse Message</button>
+		</div>
+		<div id="app-6" v-cloak>
+			<p>{{message}}</p>
+			<input type="text" v-model="message" />
+			<span v-text="message"></span>
+		</div>
+		<!--处理用户输入-->
+		<!--用组件构建（应用）-->
+
+		<div class="app-7">
+			<ol id="nulijiayou">
+				<!-- <todo-item v-for="item in groceryList" v-bind:todo="item"></todo-item> -->
+			</ol>
+		</div>
+		<!--用组件构建（应用end）-->
+
+		<!--观察Watchers-->
+		<div class="watch-example" v-cloak>
+			<p>
+				输入
+				<input type="text" v-model="question" />
+			</p>
+			<p>{{answer}}</p>
+		</div>
+		<!--观察Watchers end-->
+
+<!--事件处理器-->
+		<!--监听事件-->
+		<div class="example-1">
+			<button v-on:click="counter+=1">增加1</button>
+			<p>这个按钮被点击了{{counter}}</p>
+		</div>
+		<!--监听事件end-->
+
+		<!--方法事件处理器-->
+		<div class="example-2">
+			<button v-on:click="greet">greet</button>
+		</div>
+		<!--方法事件处理器end-->
+
+		<!--内联处理器方法-->
+		<div class="example-3">
+			<button v-on:click="say('hi')">say hi</button>
+			<button v-on:click="say('what')">say what</button>
+			<button v-on:click="warn('Form cannot be submitted yet.', $event)">Submit</button>
+		</div>
+		<!--内联处理器方法end-->
+
+		<!--复选框-->
+		<div class="checkeds">
+			<input type="checkbox" id="checkbox" v-model="checked">
+			<label for="checkbox">{{ checked }}</label>
+		</div>
+		<!--复选框end-->
+
+		<!--单选框按钮-->
+		<div class="radios">
+			<input type="radio" name="" id="one" value="One" v-model="picked"/>
+			<label for="one">123</label>
+			<br />
+			<input type="radio" name="" id="two" value="Two" v-model="picked" />
+			<label for="two">465</label>
+			<br />
+			<span>Picked:{{picked}}</span>
+		</div>
+		<!--单选框按钮end-->
+
+		<!--单选列表-->
+		<div class="selected">
+			<select v-model="selected" >
+			  <option>A</option>
+			  <option>B</option>
+			  <option>C</option>
+			</select>
+			<span>Selected: {{ selected }}</span>
+		</div>
+		<!--单选列表end-->
+
+<!--组件-->		
+		<!--组件局部注册-->
+		<div class="example-4">
+			<simple-one></simple-one>
+		</div>
+		<!--组件局部注册end-->
+
+		<!--组件中data必须为函数-->
+		<div id="example-5">
+			<simple-counter></simple-counter>
+			<simple-counter></simple-counter>
+			<simple-counter></simple-counter>
+		</div>
+		<!--组件中data必须为函数end-->
+
+		<!--动态Prop，把父组件数据传给子组件-->
+		<div class="example-6">
+			<input type="text" v-model="message" />	
+			<div class="">
+				<child :message="message"></child>
+			</div>
+		</div>
+		<!--动态Prop，把父组件数据传给子组件end-->
+
+		<!--使用v-on绑定自定义事件-->
+		<div id="counter-event-example">
+			<p>{{ total }}</p>
+			<button-counter v-on:increment ="incrementTotal"></button-counter>
+			<button-counter v-on:increment ="incrementTotal"></button-counter>
+		</div>
+		<!--使用v-on绑定自定义事件end-->
+		<script type="text/javascript" src="js/vue.js"></script>
+		<script type="text/javascript" src="js/vue-resource.js" ></script>
+		<script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+		<script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
+		<script type="text/javascript">
+		window.onload=function(){
+			//声明式渲染
+			var app = new Vue({
+			    el: '#app',
+			    data: {
+			    	message: 'Hello Vue!'
+			    }
+			});
+			var app2 = new Vue({
+				el: '#app-2',
+				data: {
+				    message: 'You loaded this page on ' + new Date()
+				}
+			})
+			//声明式渲染end
+			
+			//条件与循环
+			var app3 = new Vue({
+				el:".app-3",
+				data:{
+					seen:true
+				}
+			})
+			var app4 = new Vue({
+				el:".app-4",
+				data:{
+					todos:[
+						{text : "努"},
+						{text : "力"},
+					]
+				}
+			})
+			app4.todos.push({ text: '加油' })
+			//条件与循环end
+			
+			//处理用户输入
+			var app5 = new Vue({
+				el:".app_5",
+				data:{
+					message:"hello Vue.js"
+				},
+				methods:{
+					reverseMessage:function(){
+						this.message = this.message.split("").reverse().join("")
+						console.log(123)
+					}
+				}
+			})
+			var app6 = new Vue({
+				el:"#app-6",			
+				data:{
+					message:"坚持"
+				}
+			})
+			//处理用户输入end
+			
+			//用组件构建（应用）
+// <todo-item v-for="item in groceryList" v-bind:todo="item"></todo-item>
+
+
+			var app7 = new Vue({
+				el:".app-7",
+				data:{
+					"groceryList": [
+						{
+							"text" : "啦啦啦",
+							"status" : 0
+						},
+						{
+							"text" : "gfdgf",
+							"status" : 20
+						},
+						{	
+							"text" : "gfdgf",
+							"status" : 10
+						},
+					]
+				},
+				beforeCreate: function() {
+					document.getElementById("nulijiayou").innerHTML=
+					`<todo-item v-for="item in groceryList" v-bind:todo="item" :class='[ item.status==0 ? "red" : "blue"]'></todo-item>`;
+					// 挂载数据之前注册组件
+		    		Vue.component("todo-item",{
+						props: ['todo'],
+						template:"<li>{{todo.text}}</li>"
+					});
+				},
+				mounted:function(){
+					this.$nextTick(function(){        //保证vue实例插入文档
+						this.init();
+					})
+				},
+				methods:{
+					bindEvent: function(){
+						var that = this;
+						document.onclick=function(){
+
+							that.groceryList.push({	
+								"text" : "yayayaya",
+								"status" : 0
+							})
+						}
+					},
+					append_element: function(callback){
+						
+						if(typeof callback === "function"){
+							callback();
+						}
+					},
+					init: function(){
+						this.bindEvent();
+						this.append_element(function(){
+
+						});
+						// document.click();
+						// Vue.component("todo-item",{
+						// 	props:["todo"],
+						// 	template:"<li>{{todo.text}}</li>"
+						// })
+					}
+				}
+			})
+			//用组件构建（应用）end
+			
+			//观察Watchers
+			var watchExampleVM = new Vue({
+				el:".watch-example",
+				data:{
+					question:"",
+					answer: 'I cannot give you an answer until you ask a question!',
+				},
+				watch:{
+					question:function(newQuestion){
+						this.answer = 'Waiting for you to stop typing...'
+						this.getAnswer()
+					}
+				},
+				methods: {
+				    // _.debounce 是一个通过 lodash 限制操作频率的函数。
+				    // 在这个例子中，我们希望限制访问yesno.wtf/api的频率
+				    // ajax请求直到用户输入完毕才会发出
+				    // 学习更多关于 _.debounce function (and its cousin
+				    // _.throttle), 参考: https://lodash.com/docs#debounce
+				    getAnswer: _.debounce(
+				        function () {
+					        if (this.question.indexOf('?') === -1) {
+					          this.answer = 'Questions usually contain a question mark. ;-)'
+					          return
+					        }
+					        this.answer = 'Thinking...'
+					        var vm = this
+					        axios.get('https://yesno.wtf/api')
+					          	.then(function (response) {
+					            vm.answer = _.capitalize(response.data.answer)
+					        })
+					        .catch(function (error) {
+					            vm.answer = 'Error! Could not reach the API. ' + error
+					        })
+					    },
+					      // 这是我们为用户停止输入等待的毫秒数
+					500
+					)
+			  	}
+			})
+			//观察Watchers end
+			
+//事件处理器			
+			//监听事件			
+			var example1 = new Vue({
+				el:".example-1",
+				data:{
+					counter:0
+				}
+			})
+			//监听事件end	
+			
+			//方法事件处理器
+			var example2 = new Vue({
+				el:".example-2",
+				data:{
+					name:"Vue.js"
+				},
+				methods:{
+					greet:function(event){
+						alert('Hello ' + this.name + '!')
+						if (event) {
+					        alert(event.target.tagName)
+					    }
+					}
+				}
+			})
+			//example2.greet()//弹出
+			//方法事件处理器end
+			
+			//内联处理器方法
+			var example3 = new Vue({
+				el:".example-3",
+				methods:{
+					say:function(message){
+						alert(message)
+					},
+					warn: function (message, event) {
+					    // 现在我们可以访问原生事件对象
+					    if (event) event.preventDefault()
+					    alert(message)
+					}
+				}
+			})
+			//内联处理器方法end
+//表单控件绑定
+			//复选框
+			new Vue({
+			  	el: '.checkeds',
+			 	data: {
+			   	 	checked:"true"
+			  	}
+			})
+			//复选框end
+			//单选按钮
+			new Vue({
+				el:".radios",
+				data:{
+					picked:""
+				}
+			})
+			//单选按钮end
+			new Vue({
+				el:".selected",
+				data:{
+					selected:""
+				}
+			})
+//组件			
+   			//组件局部注册
+   			var child = {template:"<div>这是局部注册组件插入</div>"}
+   			new Vue({
+   				el:".example-4",
+   				components:{
+   					"simple-one":child,
+   				}
+   			})
+   			//组件局部注册end
+			//组件中data必须为函数
+			var data = { counter:0}
+			Vue.component("simple-counter",{
+				template:"<button v-on:click='counter +=1'>{{counter}}</button>",
+				// data 是一个函数，因此 Vue 不会警告，
+  				// 但是我们为每一个组件返回了同一个对象引用
+  				data:function(){
+  					return { counter:0 }
+  				}
+			})
+			new Vue({
+				el:"#example-5"
+			})
+			//组件中data必须为函数end
+			//动态Prop，把父组件数据 传给子组件
+			Vue.component('child', {
+			  // 声明 props
+			  props: ['message'],
+			  // 就像 data 一样，prop 可以用在模板内
+			  // 同样也可以在 vm 实例中像 “this.message” 这样使用
+			  template: '<span>{{message}}</span>'
+			})
+			new Vue({
+				el:".example-6",
+				data:{
+					message:"多谢鼓励"
+				}
+			})
+			//动态Prop，把父组件数据 传给子组件end
+			//使用v-on绑定定义事件
+			Vue.component('button-counter', {
+			  	template: '<button v-on:click="increment">{{ counter }}</button>',
+			  	data: function () {
+			    	return {
+			      	counter: 0
+			    	}
+			  	},
+			  	methods: {
+				    increment: function () {
+				      	this.counter += 1,
+				      	this.$emit('increment')
+				    }
+			 	},
+			})
+			new Vue({
+			  el: '#counter-event-example',
+			  data: {
+			    total: 0
+			  },
+			  methods: {
+			    incrementTotal: function () {
+			      	this.total += 1
+			    }
+			  }
+			})
+			//使用v-on绑定定义事件end
+			new Vue({
+			  el: '#demo',
+			  data: {
+			    show: true
+			  }
+			})
+			
+			
+			new Vue({
+			  el: '#example-2',
+			  data: {
+			    show: true
+			  }
+			})
+		};
+		</script>
+		<div id="demo">
+		  <button v-on:click="show = !show">
+		    Toggle
+		  </button>
+		  <transition name="fades">
+		    <p v-if="show">hello</p>
+		  </transition>
+		</div>
+		
+		
+		
+		<div id="example-2" style="margin-left: 50%;">
+		  <button @click="show = !show">Toggle show</button>
+		  <transition name="bounce">
+		    <p v-if="show">Look at me!</p>
+		  </transition>
+		</div>
+	</body>
+</html>

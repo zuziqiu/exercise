@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../file/vue.js"></script>
+</head>
+<style>
+    *{
+        margin:0; padding:0;
+    }
+    #all{
+        width:1000px; height:1000px; margin:0 auto; overflow: hidden;
+        background-color: #ccc;
+    }
+
+    #name{
+        width:120px;
+        height:30px;
+    }
+</style>
+<body>
+<div id="all">
+    <ul>
+        <li v-for="name in names">name is{{name}}</li>
+    </ul>
+    <ul>
+        <li v-for="(val,index) in names">index:{{index}},name is {{val}}</li>
+    </ul>
+    <ul>
+        <li v-for="(val,key,index) in obj">
+            <div>key : {{key}}</div>
+            <div>val : {{val}}</div>
+            <div>index : {{index}}</div>
+        </li>
+    </ul>
+    <div>
+        <template v-for="n in 10">
+            <span>{{n}}</span>
+            <span v-if="n < 10">,</span>
+        </template>
+    </div>
+</div>
+
+<script>
+
+   var vm = new Vue({
+       el : '#all',
+       data : {
+           names : [
+                   'a',
+                   'b',
+                   'c'
+           ],
+           obj : {
+               name : 'wang',
+               age : 17
+           }
+       }
+   });
+</script>
+</body>
+</html>

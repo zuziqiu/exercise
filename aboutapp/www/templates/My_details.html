@@ -1,0 +1,39 @@
+<ion-view class="Peripheral_orders person_details">
+	<div class="bar bar-header">
+		<img id="return" src="img/nav_return.png" ng-click="goback()"></img>
+		<div class="title">
+			详细资料
+		</div>
+	</div>
+	<ion-view class="content has-header" >
+		<ion-pane style="background-color:#eee;">
+			<ion-content>
+				<div class="person_header">
+					<p>ID:9527</p>
+					<div class="person_title">
+							<!--img/head_portrait01.png-->
+							<img style="border-radius:50%;" ng-src="{{list1.avatar}}" alt="" />
+							<!--威猛的小老虎-->
+							<h2><b>{{list1.user_nicename}}</b></h2>
+							<p>这是我独特有个性的个人签名</p>
+							<div>
+								<button>
+									<img src="img/ic_binding.png" alt="" />手机已绑定
+								</button><button>
+									<img src="img/ic_code .png" alt="" />二维码名片
+								</button>
+							</div>
+					</div>
+				</div>
+				<div class="list">
+					<button class="item button button-light">
+						<h2><span style="max-width:58px;display:inline-block;text-overflow:ellipsis;overflow: hidden;vertical-align: bottom;">王尼玛</span> 15627236928</h2>
+						<p>广东省 佛山市 禅城区</p>
+						<p>季华六路九鼎国际公寓4座1110阿啪啪信息科技</p>
+					</button>
+					<button class="item button button-light"><img src="img/ic_iphone.png" alt="" style="height:20px;vertical-align: middle;margin:0 5px 4px 0;" /><h2 style="display: inline;">15627236928</h2> <img class="posit" src="img/list_right.png" alt="" style="height:16px;right:16px;margin: auto;"/></button>
+				</div>
+			</ion-content>
+		</ion-pane>
+	</ion-view>
+</ion-view>

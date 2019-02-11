@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../file/vue.js"></script>
+</head>
+<style>
+    *{
+        margin:0; padding:0;
+    }
+    #all{
+        width:1000px; height:1000px; margin:0 auto; overflow: hidden;
+        background-color: #ccc;
+    }
+
+    #name{
+        width:120px;
+        height:30px;
+    }
+</style>
+<body>
+<div id="all">
+    <input type="text" v-on:keyup.enter="func"/>
+    <input type="text" v-on:click.ctrl="say"/>
+</div>
+
+<script>
+
+   var vm = new Vue({
+       el : '#all',
+       methods : {
+           func : function( event ){
+               console.log('按下了回车');
+               console.log( event );
+           },
+           say : function(){
+               console.log(arguments);
+           }
+       }
+   });
+</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../file/vue.js"></script>
+</head>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#all {
+    width: 1000px;
+    height: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #ccc;
+}
+
+#name {
+    width: 120px;
+    height: 30px;
+}
+
+select {
+    width: 120px;
+    height: 30px;
+}
+
+input {
+    width: 120px;
+    height: 30px;
+}
+</style>
+
+<body>
+    <div id="all">
+        <div id="app1">
+            <div>
+                <component v-bind:is="currentComponent">
+                    <!-- 组件在 vm.currentview 变化时改变！ -->
+                </component>
+            </div>
+            <div>
+                <label for="a">a</label>
+                <input type="radio" id="a" value="aa" name="componentType" v-model="currentComponent" />
+                <label for="b">b</label>
+                <input type="radio" id="b" value="bb" name="componentType" v-model="currentComponent" />
+                <label for="c">c</label>
+                <input type="radio" id="c" value="cc" name="componentType" v-model="currentComponent" />
+            </div>
+        </div>
+        <div id="app2">
+            <div>
+                <component v-bind:is="currentComponent">
+                    <!-- 组件在 vm.currentview 变化时改变！ -->
+                </component>
+            </div>
+            <div>
+                <label for="d">a</label>
+                <input type="radio" id="d" value="aa" name="current" v-model="current" />
+                <label for="e">b</label>
+                <input type="radio" id="e" value="bb" name="current" v-model="current" />
+                <label for="f">c</label>
+                <input type="radio" id="f" value="cc" name="current" v-model="current" />
+            </div>
+        </div>
+    </div>
+    <script>
+    var vm = new Vue({
+
+        el: '#app1',
+
+        data: {
+            currentComponent: 'aa'
+        },
+
+        components: {
+            aa: {
+                template: '<div>this is a</div>'
+            },
+            bb: {
+                template: '<div>this is b</div>'
+            },
+            cc: {
+                template: '<div>this is c</div>'
+            },
+        }
+
+    });
+
+    var app2 = new Vue({
+
+        el: '#app2',
+
+        data: {
+            currentComponent: getComponent('aa'),
+            current: 'aa'
+        },
+        watch: {
+            current: function(newVal) {
+                this.currentComponent = getComponent(newVal);
+            }
+        }
+
+
+
+    });
+
+    function getComponent(name) {
+        var components = {
+            aa: {
+                template: "<div>this is aa</div>"
+            },
+            bb: {
+                template: "<div>this is bb</div>"
+            },
+            cc: {
+                template: "<div>this is cc</div>"
+            }
+        };
+
+        var ret = components[name];
+
+        return ret ||
+            {
+                template: "<div>没有找到对应的组件</div>"
+            };
+    }
+    </script>
+</body>
+
+</html>

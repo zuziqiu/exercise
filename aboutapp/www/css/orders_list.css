@@ -1,0 +1,112 @@
+.orders_list .bar{
+	background-size:0;
+}
+.orders_list .bar-header{
+	padding:0;
+	height:48px;
+	background-color:#ffe500;
+	color:#181818 !important;
+}
+.orders_list .platform-android .bar .title{
+	font-weight:bold;
+	top:2%;
+}
+.orders_list .has-header .header_a_select{
+	height:30px;
+	background-color: #ffe500;
+	text-align: center;
+	padding:0;
+	font-weight: bold;
+	position:fixed;
+	top:0;
+	z-index:10;
+}
+.orders_list .has-header .header_a_select .col{
+	color:#181818;
+	padding:0;
+}
+/*.orders_list .list .item-avatar{
+	padding-left:88px;
+}*/
+.orders_list .item-avatar>img:first-child{
+	max-width:60px;
+	max-height:60px;
+	top:10px;
+	left:16px;
+}
+.orders_list .item-avatar>:nth-child(n+2){
+	padding-right:50px;
+}
+.orders_list .item{
+	width:100%;
+	height:auto;
+	min-height:88px;
+	padding:10px 16px;
+	border:none;
+	margin: 0;
+	line-height:15px;
+	font-size:12px;
+	color:#333;
+	text-align:left;
+	font-family: "黑体";
+}
+.orders_list .item>h2{
+	margin-bottom:6px;
+	font-weight:bold;
+	font-size: 14px;
+	color:#181818;
+	line-height: 20px;
+	
+}
+.orders_list h2>.item-note{
+	line-height: 20px;
+	font-weight: normal;
+}
+.orders_list .item-note{
+	font-size: 12px;
+	color:#999;
+	text-align: center;
+	position:absolute;
+	right:0;
+	top:0;
+}
+
+
+.orders_list .has-header,.platform-ios .orders_list .has-header{
+	top:48px;
+	margin-bottom:0;
+	padding-bottom:0;
+	height:auto;
+	background-color:#eee;
+}
+.platform-ios .orders_list .has-header{
+	top:43px;
+}
+.orders_list .list{
+	margin:0 0 10px;
+}
+.orders_list .item>p{
+	line-height:18px;
+	/*white-space: normal;
+	text-align: justify;
+	word-wrap: break-word;
+	word-break: break-all;*/
+}
+.orders_list .list .item .send_order{
+	padding:0;
+}
+.orders_list .list .item .send_order>div{
+	line-height:24px;
+	border:2px solid #000;
+	float:right;
+	padding:0 10px;
+	border-radius:4px;
+	margin-right:-7px;
+	color:#000;
+	font-weight:bold;
+	font-size: 14px;
+}
+
+.orders_list .header_a_select .already_select{
+	border-bottom:3px solid #000
+}

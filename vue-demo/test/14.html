@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../file/vue.js"></script>
+</head>
+<style>
+    *{
+        margin:0; padding:0;
+    }
+    #all{
+        width:1000px; height:1000px; margin:0 auto; overflow: hidden;
+        background-color: #ccc;
+    }
+
+    #name{
+        width:120px;
+        height:30px;
+    }
+    select{
+        width:120px;
+        height:30px;
+    }
+    input{
+        width:120px;
+        height:30px;
+    }
+</style>
+<body>
+<div id="all">
+    <div>
+        <template v-for="(val,key) in obj">
+            <div>key : {{key}}; val :　{{val}}</div>
+        </template>
+    </div>
+    <button @click="changeObj">change obj</button>
+</div>
+
+<script>
+
+    var vm = new Vue({
+        el : '#all',
+        data : {
+            obj  : {
+                name : 'wang',
+                age : 18
+            },
+            arr : [
+                    'a','b'
+            ]
+        },
+
+        methods : {
+            changeObj : function(){
+//                this.obj = {
+//                    name : '老王',
+//                    age : 25,
+//                    text : 'hahaha'
+//                }
+
+               // this.obj.text = "hahaha";
+
+                this.$set(this.obj,'text','hahaha')
+
+                console.log(this.arr);
+
+            }
+        }
+    });
+
+
+</script>
+
+</body>
+</html>

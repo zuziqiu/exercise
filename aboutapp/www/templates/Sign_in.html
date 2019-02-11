@@ -1,0 +1,30 @@
+<!--style="transition:none;"-->
+<ion-view class="personsign_info" >
+	<div class="bar bar-header">
+		<img id="return" class="posit" src="img/nav_return.png" ng-click="nextgo('tab')"></img>	
+		<div class="title">登录</div>
+		<button id="header_r" class="button button-clear button-dark posit" ng-click="nextgo('register')">注册</button>
+	</div>
+	<div class="content has-header">
+		<div class="list list-inset">
+			<label class="item item-input">
+				<img src="img/ic_iphone.png" alt="" />
+				<input class="user" type="text" name="user" maxlength="11" placeholder="手机号"/>
+				<img class="btn_clear" src="img/ic_clear.png" alt="" />
+			</label>
+		</div>
+		<div class="list list-inset">
+			<label class="item item-input">
+				<img style="width:15px;top:2px;" src="img/ic_password.png" alt="" />
+				<input class="password" type="password" maxlength="20" name="password" placeholder="密码"/>
+				<img class="btn_clear" src="img/ic_clear.png" alt="" />
+			</label>
+		</div>
+		<button id="sign" class="btn01 button" data-url="#/tab">登录</button>
+		<a class="forget" href="#/retrieverpassword">忘记密码?</a>
+	</div>
+	<div class="tip">
+		<span>登陆成功</span>	
+	</div>
+	<!--<div id="allmap"></div>-->
+</ion-view>

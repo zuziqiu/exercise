@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>京东移动端首页</title>
+    <link rel="stylesheet" type="text/css" href="css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+</head>
+<body>
+	<!--京东首页-->
+	<div class="jd_layout">
+		<!--头部搜索-->
+		<header class="jd_header">
+			<div class="jd_header_box">
+				<a class="icon_logo" href="#"></a>
+				<form action="#">
+					<span class="icon_search"></span>
+					<input type="search" placeholder="提示"/> <!--在手机上调出搜索按钮的方式才能调出小键盘的搜索需要定义search-->
+				</form>
+				<a class="login" href="#">登录</a>
+			</div>
+		</header>
+		<!--轮播图-->
+		<div class="jd_banner">
+			<ul>
+				<li><img src="images/l8.jpg"/></li>
+				<li><img src="images/l1.jpg"/></li>
+				<li><img src="images/l2.jpg"/></li>
+				<li><img src="images/l3.jpg"/></li>
+				<li><img src="images/l4.jpg"/></li>
+				<li><img src="images/l5.jpg"/></li>
+				<li><img src="images/l6.jpg"/></li>
+				<li><img src="images/l7.jpg"/></li>
+				<li><img src="images/l8.jpg"/></li>
+				<li><img src="images/l1.jpg"/></li>
+			</ul>
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<!--导航栏-->
+		<nav class="jd_nav">
+			<ul>
+				<li><a href="">
+						<img src="images/nav0.png"/>					
+						<p>分类查询</p>
+					</a>
+				</li>
+				<li><a href="">
+						<img src="images/nav1.png"/>					
+						<p>物流查询</p>
+					</a>
+				</li>
+				<li><a href="">
+						<img src="images/nav2.png"/>					
+						<p>购物车</p>
+					</a>
+				</li>
+				<li><a href="">
+						<img src="images/nav3.png"/>					
+						<p>我的京东</p>
+					</a>
+				</li>
+				<li><a href="">
+						<img src="images/nav4.png"/>					
+						<p>充值</p>
+					</a>
+				</li>
+				<li><a href="">
+						<img src="images/nav5.png"/>					
+						<p>领券中心</p>
+					</a>
+				</li>
+				<li><a href="">
+						<img src="images/nav6.png"/>					
+						<p>京东超市</p>
+					</a>
+				</li>
+				<li><a href="">
+						<img src="images/nav7.png"/>					
+						<p>我的关注</p>
+					</a>
+				</li>
+			</ul>
+		</nav>
+		<!--主要商品-->
+		<main class="jd_product">
+			<!--掌上秒杀-->
+			<section class="jd_product_box jd_secondkill">
+				<div class="product_top no_bor">
+					<div class="jd_secondkill_left">
+						<span class="sk_icon"></span>
+						<h4 class="sk_name">掌上秒杀</h4>
+						<div class="sk_time">
+							<span class="num">0</span>
+							<span class="num">0</span>
+							<span class="str">:</span>
+							<span class="num">0</span>
+							<span class="num">0</span>
+							<span class="str">:</span>
+							<span class="num">0</span>
+							<span class="num">0</span>
+						</div>
+					</div>
+					<div class="jd_seconkill_right">
+						<a href="">更多</a>
+					</div>
+				</div>
+				<div class="product_bot">
+					<ul class="clearfix">
+						<li>
+							<a href="">
+								<div class="img_box"><img src="images/detail02.jpg"/></div>
+								<p class="now_price">￥20.00</p>
+								<p class="old_price">￥200.00</p>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<div class="img_box"><img src="images/detail02.jpg"/></div>
+								<p class="now_price">￥20.00</p>
+								<p class="old_price">￥200.00</p>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<div class="img_box"><img src="images/detail02.jpg"/></div>
+								<p class="now_price">￥20.00</p>
+								<p class="old_price">￥200.00</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<!--超值购-->
+			<section class="jd_product_box jd_pd">
+				<div class="product_top">
+					<h3>超值购</h3>
+				</div>
+				<div class="product_bot clearfix">
+					<a href="" class="p_left b_right">
+						<img src="images/cp1.jpg"/>
+					</a>
+					<a href="" class="p_right b_bottom">
+						<img src="images/cp2.jpg"/>
+					</a>
+					<a href="" class="p_right">
+						<img src="images/cp3.jpg"/>
+					</a>
+				</div>
+			</section>
+			<!--热门活动-->
+			<section class="jd_product_box jd_pd">
+				<div class="product_top">
+					<h3>热门活动</h3>
+				</div>
+				<div class="product_bot clearfix">
+					<a href="" class="p_right b_right">
+						<img src="images/cp4.jpg"/>
+					</a>
+					<a href="" class="p_left b_bottom">
+						<img src="images/cp5.jpg"/>
+					</a>
+					<a href="" class="p_left">
+						<img src="images/cp6.jpg"/>
+					</a>
+				</div>
+			</section>
+		</main>
+	</div>
+	<script type="text/javascript" src="js/index.js" ></script>
+</body>
+</html>

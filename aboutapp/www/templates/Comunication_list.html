@@ -1,0 +1,28 @@
+<ion-view class="comunication_list Peripheral_orders">
+	<div class="bar bar-header">
+		<div class="title">
+			通信列表
+		</div>
+		<img id="nav_release" src="img/nav_add.png" ng-click="nextgo('comunication_list_addfriends')" alt="" />
+		
+	</div>
+	<ion-view class="content has-header" >
+		
+		<div class="row header_a_select">
+			<a class="col" href="#/tab/Comunication_list" style="border-bottom:3px solid #000" nav-transition="none">聊天</a>
+			<a class="col" href="#/tab/Friends_list" nav-transition="none">好友</a>
+		</div>
+		<ion-pane style="background-color:#eee;">
+			<ion-content style="padding-top:30px;">
+				<!--ng-controller="chatList"-->
+				<div class="list" >
+					<a class="item item-avatar" ng-repeat="x in list" ng-href="{{x.dataUrl}}" ng-cloak>
+						<img ng-src="{{x.imgUrl}}" alt="" />
+						<h2 >{{x.Name}}<span class="item-note">{{x.Time}}</span></h2>
+						<p>{{x.Content}}</p>
+					</a>
+				</div>
+			</ion-content>
+		</ion-pane>
+	</ion-view>
+</ion-view>

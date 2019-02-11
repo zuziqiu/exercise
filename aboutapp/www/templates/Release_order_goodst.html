@@ -1,0 +1,224 @@
+<ion-view class="personsign_info release_order_good release_order_goodst">
+	<div class="bar bar-header">
+		<img id="return" class="posit" src="img/nav_return.png" ng-click="goback()"></img>	
+		<div class="title">货物类型</div>
+	</div>
+	<div class="content has-header">
+		<p class="numtip" style="margin:16px 16px 0;color:#adadad;font-size: 12px;">请选择物品类型</p>
+		<div class="goodstcontent">
+			<div class="box1" ng-repeat="x in list1">
+				<div class="box2" ng-click="choose_goodst($event)">{{x.name}}</div>
+			</div>
+			<div class="box1">
+				<div class="box2 other_come">其他</div>
+			</div>
+		</div>
+		
+		
+		
+		
+		
+		<div class="other">
+			<div class="list list-inset">
+				<label class="item item-input">
+					<input class="goods_style" type="text" maxlength="20" placeholder="请选择物品类型" />
+					<img class="btn_clear" src="img/ic_clear.png" alt="" />
+				</label>
+			</div>
+			<button class="btn01 button">确定</button>
+		</div>
+	</div>
+	<div class="tip">
+		<span>成功保存</span>	
+	</div>
+</ion-view>
+
+
+<!--<!DOCTYPE html>
+<html ng-app="ionicApp">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>货物类型</title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link href="lib/ionic/css/ionic.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/person_info.css"/>
+		<style >
+			#return{
+				width:0.8rem;
+				padding:16px;
+				box-sizing: content-box;
+				left:0;
+				z-index: 1;
+			}
+			#return{
+				width:48px;
+				height:48px;
+				padding:15px 22px 15px 16px;
+				position: absolute;
+				left:0;
+				top:0;
+				z-index: 1;
+			}
+			.content{
+				font-family: "微软雅黑";
+			}
+			.row{
+				text-align: center;
+				padding:0;
+				font-size:14px;
+				min-height:48px;
+				padding:8px;
+				color:#666;
+			}
+			.col{
+				padding:8px;
+			}
+			.col-demo{
+				border:1px solid #d1d1d1;
+				border-radius:4px;
+				padding:8px 0;
+			}
+			.list-inset{
+				padding:3px 16px;
+			}
+			.content>.other>.list>.item>.btn_clear{
+				width:20px;
+				padding:10px 0 10px 20px;
+				box-sizing: content-box;
+				display:none;
+			}
+			.content>.other>.btn01{
+				width:91.2222%;
+				height:48px;
+				background-color:#ccc;
+				color:#fff;
+				border:none;
+				outline: none;
+				margin:4% 4.444%;
+				font-weight:bold;
+				border-radius: 6px;
+			}
+			.other{
+				display: none;
+			}
+			
+		</style>
+ 	</head>
+	<body>
+		<div class="bar bar-header">
+			<img id="return" src="img/nav_return.png" data-url="-1"></img>	
+			<div class="title">货物类型</div>
+		</div>
+		<div class="content has-header">
+			<p class="numtip" style="margin:16px 16px 0;color:#adadad;font-size: 12px;">请选择物品类型</p>
+			<div class="row">
+				<div class="col col-33">
+					<div class="col-demo">
+						文件
+					</div>
+				</div>
+				<div class="col col-33">
+					<div class="col-demo">
+						日用品
+					</div>
+				</div>
+				<div class="col col-33">
+					<div class="col-demo">
+						食品
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col col-33">
+					<div class="col-demo">
+						衣物
+					</div>
+				</div>
+				<div class="col col-33">
+					<div class="col-demo">
+						数码产品
+					</div>
+				</div>
+				<div class="col col-33">
+					<div class="col-demo">
+						家电
+					</div>
+				</div>
+			</div>
+			<div class="row other_come">
+				<div class="col col-33">
+					<div class="col-demo">
+						其他
+					</div>
+				</div>
+			</div>
+			<div class="other">
+				<div class="list list-inset">
+					<label class="item item-input">
+						<input class="YZ" type="text" maxlength="20" placeholder="请选择物品类型" />
+						<img class="btn_clear" src="img/ic_clear.png" alt="" />
+					</label>
+				</div>
+				<button class="btn01 button">保存</button>
+			</div>
+		</div>
+		<div class="tip">
+			<span>成功保存</span>	
+		</div>
+		<script src="lib/ionic/js/ionic.bundle.min.js"></script>
+		<script src="js/jquery-1.12.2.min.js" type="text/javascript"></script>
+		<script src="js/base.js" type="text/javascript"></script>
+		<script src="js/controller.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$("input").keyup(function(){	
+				$(this).next().css("display","inline-block").on("touchstart",function(){
+					$(this).prev().val("").end().css("display","none");
+					$(".btn01").css({"background-color":"#ccc","color":"#fff"});
+				});
+				if($(this).val()==""){
+					$(this).next().css("display","none");
+				}
+				if($(this).val()!=""){
+					$(".btn01").css({"background-color":"#ffe500","color":"#181818"});
+				}else{
+					$(".btn01").css({"background-color":"#ccc","color":"#fff"});
+				}
+			}).blur(function(){
+				$(".btn_clear").css("display","none");
+			}).focus(function(){
+				if($(this).val()!=""){
+					$(this).next().css("display","block");
+				}
+			}).on('change',function(){
+				$(this).val($(this).val().split(15))
+			});
+			
+			$(".btn01").on("touchstart",function(){
+				if($(".YZ").val()==""){
+					return false;
+				}else{
+					$(".tip").fadeIn().fadeOut(function(){
+						localStorage.setItem("type_of_goods",$(".YZ").val());
+						history.go(-1);
+					});
+				}
+			})
+			$(".other_come").children().children().on("touchstart",function(){
+				$(".other_come").fadeOut(function(){
+					$(".other").slideDown();
+				});
+			})
+			$(".row").not(".other").children().children().on("touchstart",function(){
+				var txt=$(this).html().match(/[\u4e00-\u9fa5]+/)[0];
+				if(txt!="其他"){
+					localStorage.setItem("type_of_goods",txt);
+					//console.log(localStorage.getItem("type_of_goods"));
+					history.go(-1);
+				}
+			})
+		</script>
+		<script src="cordova.js"></script>
+	</body>
+</html>-->

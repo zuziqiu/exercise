@@ -1,0 +1,160 @@
+<ion-view class="personsign_info release_order_good release_order_goodsw">
+	<div class="bar bar-header">
+		<img id="return" class="posit" src="img/nav_return.png" ng-click="goback()"></img>	
+		<div class="title">货物重量</div>
+	</div>
+	<div class="content has-header">
+		<p class="numtip" style="margin:16px 16px;color:#adadad;font-size: 12px;">请填写货物重量，单位(kg)</p>
+		<div class="list list-inset">
+			<label class="item item-input">
+				<input class="goods_weight" type="text" maxlength="3" placeholder="请填写物品重量" />
+				<img class="btn_clear" src="img/ic_clear.png" alt="" />
+			</label>
+		</div>
+		<div class="goods_btn">
+			<button class="btn01 button">确定</button>
+		</div>
+	</div>
+	<div class="tip">
+		<span>成功保存</span>	
+	</div>
+</ion-view>
+
+<!--<!DOCTYPE html>
+<html ng-app="ionicApp">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>货物重量</title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link href="lib/ionic/css/ionic.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/person_info.css"/>
+		<style >
+			#return{
+				width:0.8rem;
+				padding:16px;
+				box-sizing: content-box;
+				left:0;
+				z-index: 1;
+			}
+			.content{
+				font-family: "微软雅黑";
+			}
+			.list-inset{
+				padding:3px 16px;
+			}
+			.content>.other>.list>.item>.btn_clear{
+				width:20px;
+				padding:10px 0 10px 20px;
+				box-sizing: content-box;
+				display:none;
+			}
+			.content>.goods_btn{
+				padding:16px;
+				
+			}
+			.content>.goods_btn>.btn01{
+				width:100%;
+				height:48px;
+				background-color:#ccc;
+				color:#fff;
+				border:none;
+				outline: none;
+				font-weight:bold;
+				border-radius: 6px;
+			}
+			.tip{
+				width:100%;
+				position:absolute;
+				bottom:90px;
+				text-align: center;
+				display: none;
+			}
+			.tip>span{
+				font-size: 14px;
+				letter-spacing: 2px;
+				padding:3.444%;
+				border-radius: 0.3rem;
+				background-color:rgba(0,0,0,0.5);
+				color:#fff;
+				
+			}
+		</style>
+ 	</head>
+	<body>
+		<div class="bar bar-header">
+			<img id="return" class="posit" src="img/nav_return.png" data-url="-1"></img>	
+			<div class="title">货物重量</div>
+		</div>
+		<div class="content has-header">
+			<p class="numtip" style="margin:16px 16px;color:#adadad;font-size: 12px;">请填写货物重量，单位(kg)</p>
+			<div class="list list-inset">
+				<label class="item item-input">
+					<input class="YZ" type="text" maxlength="3" placeholder="请填写物品重量" />
+					<img class="btn_clear" src="img/ic_clear.png" alt="" />
+				</label>
+			</div>
+			<div class="goods_btn">
+				<button class="btn01 button">确定</button>
+			</div>
+		</div>
+		<div class="tip">
+			<span>成功保存</span>	
+		</div>
+		<script src="lib/ionic/js/ionic.bundle.min.js"></script>
+		<script src="js/jquery-1.12.2.min.js" type="text/javascript"></script>
+		<script src="js/base.js" type="text/javascript"></script>
+		<script src="js/controller.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			var goods_val;
+			var reg_userup=/^\d*$/,placeholder_val;
+			var goods_btn_sw=true;
+			$("input").keydown(function(){
+				if(reg_userup.test($(this).val())){	
+					goods_val=$(this).val();
+				}
+			})
+			$("input").keyup(function(){	
+				$(this).next().css("display","inline-block").on("touchstart",function(){
+					$(this).prev().val("").end().css("display","none");
+					$(".btn01").css({"background-color":"#ccc","color":"#fff"});
+				});
+				if(!reg_userup.test($(this).val())){
+					$(this).val(goods_val);
+				}
+				if($(this).val()!=""){
+					$(".btn01").css({"background-color":"#ffe500","color":"#181818"});
+				}else{
+					$(this).next().css("display","none");
+					$(".btn01").css({"background-color":"#ccc","color":"#fff"});
+				}
+			}).blur(function(){
+				$(this).attr("placeholder",placeholder_val);
+				$(".btn_clear").css("display","none");
+			}).focus(function(){
+				placeholder_val=$(this).attr("placeholder");
+				$(this).attr("placeholder","");
+				if($(this).val()!=""){
+					$(this).next().css("display","block");
+				}
+			})
+			$(".btn01").on("touchstart",function(){
+				if($(".YZ").val()==""){
+					return false;
+				}else{
+					if(goods_btn_sw){
+						goods_btn_sw=false;
+						$(".tip").fadeIn().fadeOut(function(){
+							localStorage.setItem("weight_of_goods",$(".YZ").val()+"kg");
+							history.go(-1);
+						});
+					}
+					
+				}
+			})
+			
+		</script>
+		<script src="cordova.js"></script>
+	</body>
+</html>-->

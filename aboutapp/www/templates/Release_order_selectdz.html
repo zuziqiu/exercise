@@ -1,0 +1,47 @@
+<ion-view class="release_order release_order_selectdz" ng-clock>
+	<div class="bar bar-header">
+		<img id="return" class="posit" src="img/nav_return.png" ng-click="nextgo('releaseordermain')"></img>	
+		<div class="title">选择地址</div>
+		<img id="add"class="posit Release_ordergo" src="img/nav_add.png" alt="" ng-click="clearAdddz('release_order_selectdz')" />
+	</div>
+	<ion-view class="content has-header" >
+		<ion-pane style="background-color:#eee;">
+			<ion-content>
+				<div class="list">
+					<button id="ic_positioning" class="item" ng-click="selectdzGeo('release_order_selectdz')">
+						<img src="img/ic_positioning.png" alt="" />
+						<b >定位当前位置</b>
+					</button>
+					<div class="item" ng-repeat="x in insertaddress">
+						<div class="Release_ordergo" ng-click="Maindz_insert('{{$index}}')">
+							<h2 ng-switch={{x.status}}><span style="max-width:58px;display:inline-block;text-overflow:ellipsis;overflow: hidden;vertical-align: bottom;">{{x.name}}</span> {{x.mobile}} <span class="blue" ng-switch-when="2">默认</span></h2>
+							<p>{{x.area}}</p><br />
+							<p>{{x.detail}}</p>
+						</div>
+						<!--ng-click="gomodifydz({id_data:{{$index}},aid:{{x.id}}})"-->
+						<img class="posit Release_ordergo" src="img/ic_editor.png" alt="" ng-click="gomodifydz({{x.id}},'release_order_selectdz')" />
+					</div>
+
+
+
+					<!--<div class="item">
+						<div class="Release_ordergo" ng-click="goback()">
+							<h2 >王尼玛 13579246810 <span class="blue">默认</span></h2>
+							<p>广东省 佛山市 禅城区</p><br />
+							<p>季华六路九鼎国际公寓4座1110阿啪啪信息科技</p>
+						</div>
+						<img class="posit Release_ordergo" src="img/ic_editor.png" alt="" ng-click="nextgo('release_order_modifydz')" />
+					</div>
+					<div class="item">
+						<div class="Release_ordergo" ng-click="goback()">
+							<h2>王尼玛 13579246810</h2>
+							<p>广东省 佛山市 禅城区</p><br />
+							<p>季华六路九鼎国际公寓4座1110阿啪啪信息科技</p>
+						</div>
+						<img class="posit Release_ordergo" src="img/ic_editor.png" alt="" ng-click="nextgo('release_order_modifydz')" />
+					</div>-->
+				</div>
+			</ion-content>
+		</ion-pane>
+	</ion-view>
+</ion-view>

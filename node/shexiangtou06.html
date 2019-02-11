@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" id="openCamera" name="" value="开启摄像头">
+    <div id="containor">
+         
+        <video id="webcam" style="width:400px;height:300px;"></video>
+    </div>
+ 
+ 
+ 
+ <script>
+ 
+var openCa = document.getElementById('openCamera');
+ 
+navigator.mediaDevices = navigator.mediaDevices || ((navigator.mozGetUserMedia || navigator.webkitGetUserMedia) ? {
+   getUserMedia: function(c) {
+     return new Promise(function(y, n) {
+       (navigator.mozGetUserMedia ||
+        navigator.webkitGetUserMedia).call(navigator, c, y, n);
+     });
+   }
+} : null);
+ 
+// console.log(navigator.mediaDevices.getUserMedia);
+// if (!navigator.mediaDevices) {
+//   console.log("getUserMedia() not supported.");
+//   return;
+// }
+openCa.onclick = startStream;
+ 
+function startStream(e){
+    var constraints = { audio: true, video: true };
+ 
+ 
+    navigator.mediaDevices.getUserMedia(constraints)
+    .then(function(stream) {
+        var video = document.getElementById('webcam');
+        console.log(video);
+        if(window.URL){
+            video.src = window.URL.createObjectURL(stream);
+        }else{
+            video.src = stream;
+        }
+        // video.paly();
+        video.autoplay = true;
+      // video.src = window.URL.createObjectURL(stream);
+      // video.onloadedmetadata = function(e) {
+      //   video.play();
+      }
+    )
+    .catch(function(err) {
+      console.log(err.name + ": " + err.message);
+    });
+}
+ 
+</script>
+		
+	</body>
+</html>

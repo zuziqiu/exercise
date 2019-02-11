@@ -1,0 +1,583 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"add",
+				"addClass\t.addClass()"
+			],
+			[
+				"ver",
+				"overflow"
+			],
+			[
+				"inle",
+				"inline-block"
+			],
+			[
+				"al",
+				"alert"
+			],
+			[
+				"call",
+				"callFlashMethod"
+			],
+			[
+				"vie",
+				"view_id"
+			],
+			[
+				"di",
+				"direction"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"im",
+				"import_password"
+			],
+			[
+				"si",
+				"siblings\t.siblings()"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"padding",
+				"padding"
+			],
+			[
+				"remove",
+				"removeEventListener"
+			],
+			[
+				"mouse",
+				"mousedown\t.mousedown()"
+			],
+			[
+				"bing",
+				"binding_move"
+			],
+			[
+				"bin",
+				"binding_move"
+			],
+			[
+				"event",
+				"event_obj"
+			],
+			[
+				"de",
+				"defaults"
+			],
+			[
+				"class",
+				"className"
+			],
+			[
+				"mou",
+				"mousedown\t.mousedown()"
+			],
+			[
+				"remo",
+				"removeEventListener"
+			],
+			[
+				"marlef",
+				"marginLeft"
+			],
+			[
+				"marto",
+				"marginTop"
+			],
+			[
+				"clien",
+				"clientWidth"
+			],
+			[
+				"win",
+				"window"
+			],
+			[
+				"dis",
+				"disX"
+			],
+			[
+				"boxs",
+				"_boxs"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"getelement",
+				"getElementsByClassName"
+			],
+			[
+				"st",
+				"style"
+			],
+			[
+				"fir",
+				"firstChild"
+			],
+			[
+				"move",
+				"move_flag"
+			],
+			[
+				"box",
+				"boxs"
+			],
+			[
+				"o",
+				"oDiv"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"textal",
+				"text-align"
+			],
+			[
+				"onmou",
+				"onmousedown"
+			],
+			[
+				"css",
+				"classState"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 219.0,
+		"last_filter": "view",
+		"selected_items":
+		[
+			[
+				"view",
+				"View: Toggle Menu"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"presetuser",
+				"Preferences: Package Control Settings – User"
+			],
+			[
+				"pcakin",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"contr",
+				"Package Control: Install Package"
+			],
+			[
+				"color",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				" ",
+				"Install Package Control"
+			],
+			[
+				"install ",
+				"Install Package Control"
+			]
+		],
+		"width": 464.0
+	},
+	"console":
+	{
+		"height": 153.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/houseSvn/talkFunSvn/cms v2/js/common.js",
+		"/D/houseSvn/talkFunSvn/cms v2/js/add_room_click.js",
+		"/C/Users/Administrator/Desktop/move/index.html",
+		"/D/houseSvn/talkFunSvn/cms v2/edit_room_v2.html",
+		"/D/houseSvn/talkFunSvn/cms v2/css/editor_type.less",
+		"/D/houseSvn/talkFunSvn/cms v2/css/edit_course.less",
+		"/D/houseSvn/talkFunSvn/cms v2/course_config.html",
+		"/C/Users/Administrator/Desktop/move/a.html",
+		"/D/houseSvn/talkFunSvn/cms v2/zhubo_list_v2.html",
+		"/D/houseSvn/talkFunSvn/cms v2/js/edit_manager_v2.js",
+		"/D/houseSvn/talkFunSvn/cms v2/js/add_room_upload_v2.js",
+		"/D/houseSvn/talkFunSvn/cms v2/js/edit_course.js",
+		"/C/Users/Administrator/Desktop/uploadify/fdasfdsa.html",
+		"/D/houseSvn/talkFunSvn/cms v2/js/course_manage.js",
+		"/D/houseSvn/talkFunSvn/cms v2/js/common_v2.js",
+		"/D/houseSvn/talkFunSvn/cms v2/js/lib/swfobject.js",
+		"/C/Users/Administrator/Desktop/uploadify/index.php",
+		"/C/Users/Administrator/Desktop/uploadify/uploadify.html",
+		"/C/Users/Administrator/Desktop/room.md",
+		"/D/houseSvn/talkFunSvn/cms v2/js/anchor.js",
+		"/D/houseSvn/talkFunSvn/cms v2/js/lib/jquery-1.9.0.min.js",
+		"/D/houseSvn/talkFunSvn/cms v2/js/upload_v2.js",
+		"/D/houseSvn/talkFunSvn/cms v2/js/upload.js",
+		"/C/Users/Administrator/Desktop/uploadify/jquery.uploadify.js",
+		"/C/Users/Administrator/Desktop/uploadify/uploadify.css",
+		"/D/houseSvn/talkFunSvn/cms v2/js/validate.js",
+		"/D/houseSvn/talkFunSvn/cms v2/css/editor_type.css",
+		"/D/houseSvn/talkFunSvn/cms v2/css/add_room_main.less",
+		"/D/houseSvn/talkFunSvn/cms v2/room_list_v2.html",
+		"/D/houseSvn/talkFunSvn/cms v2/course_detail.html",
+		"/D/houseSvn/talkFunSvn/cms v2/course_list.html",
+		"/D/houseSvn/talkFunSvn/cms v2/chart_detail_v3.html",
+		"/D/houseSvn/talkFunSvn/cms v2/reward_list.html",
+		"/D/houseSvn/talkFunSvn/cooperation/common/tpls/tpl_mod_admin.html",
+		"/C/Users/Administrator/Desktop/gTest/js/some.js",
+		"/C/Users/Administrator/Desktop/gTest/gulpfile.js",
+		"/D/houseSvn/talkFunSvn/cooperation/demos/live-pc/js/sdk.live.call.js",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User/SublimeTmpl.sublime-settings",
+		"/C/Users/Administrator/Desktop/欢拓工资资料/sdk.live.call.js",
+		"/D/houseSvn/talkFunSvn/cooperation/demos/live-pc/live.html",
+		"/D/houseSvn/talkFunSvn/cooperation/demos/live-pc/tpl/modules.html",
+		"/C/Users/Administrator/Desktop/欢拓工资资料/sdk.live.cmd.js",
+		"/D/houseSvn/talkFunSvn/cooperation/default/live-pc/live.html",
+		"/D/houseSvn/talkFunSvn/cms v2/css/edit_course.css",
+		"/C/Users/Administrator/Desktop/gTest/build/all.min.js",
+		"/C/Users/Administrator/Desktop/gulptest/js/index.js",
+		"/C/Users/Administrator/Desktop/sdk.live.call.js",
+		"/C/Users/Administrator/Desktop/sdk.live.cmd.js",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/View In Browser/View In Browser.sublime-settings",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User/View In Browser.sublime-settings",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/Browser Refresh/Default (Windows).sublime-keymap",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User/LiveReload.sublime-settings",
+		"/D/houseSvn/talkFunSvn/maituo/img/style_v3.less",
+		"/C/Users/Administrator/Desktop/tmodjs/test/index.html",
+		"/D/houseSvn/talkFunSvn/maituo/img/style_v3.css",
+		"/D/houseSvn/talkFunSvn/maituo/mobile/css/common/common.css",
+		"/D/houseSvn/talkFunSvn/maituo/mobile/css/common/common.less",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User/Colorsublime.sublime-settings",
+		"/C/Users/Administrator/Desktop/tmodjs/a.html",
+		"/C/Users/Administrator/Desktop/tmodjs/b.html",
+		"/C/Users/Administrator/Desktop/tmodjs/bin/tmod",
+		"/C/Users/Administrator/Desktop/tmodjs/test/tpl/index.html",
+		"/C/Users/Administrator/Desktop/tmodjs/test/tpl/build/template.js",
+		"/C/Users/Administrator/Desktop/tmodjs/test/templatejs.html",
+		"/C/Users/Administrator/Desktop/tmodjs/package.json",
+		"/C/Users/Administrator/Desktop/tmodjs/test/test-all/cmd/build/index.js",
+		"/C/Users/Administrator/Desktop/tmodjs/test/test-all/combo-off/build/index.js",
+		"/C/Users/Administrator/Desktop/tmodjs/test/test-all/escape-off/build/index.js",
+		"/C/Users/Administrator/Desktop/tmodjs/test/test-all/helper/build/index.js",
+		"/C/Users/Administrator/Desktop/tmodjs/test/tpl/public/footer.html",
+		"/C/Users/Administrator/Desktop/tmodjs/test/tpl/package.json",
+		"/C/Users/Administrator/Desktop/tmodjs/test/test-all/cmd-alias/build/indexs.js",
+		"/C/Users/Administrator/Desktop/tmodjs/test/requirejs.html",
+		"/C/Users/Administrator/Desktop/tmodjs/test/seajs.html",
+		"/C/Users/Administrator/Desktop/gTest/index.html",
+		"/C/Users/Administrator/Desktop/gTest/jh.css",
+		"/C/Users/Administrator/Desktop/gTest/js/other.js",
+		"/C/Users/Administrator/Desktop/gTest/node_modules/gulp-uglify/node_modules/lodash/fp/takeLastWhile.js",
+		"/C/Users/Administrator/Desktop/gulptest/gulpfile.js",
+		"/C/Users/Administrator/Desktop/gTest/builder/all.min.js",
+		"/C/Users/Administrator/Desktop/gTest/builder/other.js",
+		"/C/Users/Administrator/Desktop/gTest/package.json",
+		"/C/Users/Administrator/Desktop/gTest/builder/some.js",
+		"/C/Users/Administrator/Desktop/gulptest/abc.js",
+		"/C/Users/Administrator/Desktop/gulptest/index.html",
+		"/C/Users/Administrator/Desktop/gulptest/js/main.js",
+		"/C/Users/Administrator/Desktop/gulptest/builder/builder.js",
+		"/C/Users/Administrator/Desktop/gulptest/package.json",
+		"/C/Users/Administrator/Desktop/gulptest/bulid",
+		"/C/Users/Administrator/Desktop/gulptest/js"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"C:\\Users\\Administrator\\Desktop\\gTest\\node_modules"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"否",
+			"limit_block",
+			"account_password",
+			"edit_manager_form",
+			"userKey",
+			"name",
+			"thirdAccount",
+			"form",
+			"urlData",
+			"urlCombine",
+			"robotNumber",
+			"barrage",
+			"pptDisplay",
+			"isPublic",
+			"isPublic ",
+			"doMainSearch",
+			"adminNotShow",
+			"adminNotShow ",
+			"submit_form",
+			"submit_btn",
+			"submit_form",
+			"view_link",
+			"view_link_change",
+			"http://open.talk-fun.com/?action=room&sub=temporary",
+			"generate_btn",
+			"view_import_time",
+			"view_id",
+			"console.log",
+			"view_export_time",
+			"view_export_id",
+			"view_import_time",
+			"view_import_id",
+			"generate_btnimport",
+			"generate_btn",
+			"time",
+			"view_account_password",
+			"view_password",
+			"action=room&sub=save",
+			"zb_link_copy",
+			"复制",
+			"script",
+			"复制",
+			"view_",
+			"file_upload",
+			"settings",
+			"setUploadType",
+			"onDialogOpen",
+			"setUploadType",
+			"upload",
+			"uploader",
+			"popbox",
+			"callFlashMethod",
+			"setUploadType",
+			"callFlashMethod",
+			"url",
+			"common",
+			"uploadCallback",
+			"success",
+			"flashInitSuccess",
+			"setParam",
+			"callFlashMethod",
+			"flashInitSuccess",
+			"setParam",
+			"callFlashMethod",
+			"baseSwfUrl",
+			"creatSwf",
+			"setUploadTypeSetting",
+			"upPic",
+			"swfVersionStr",
+			"attributes",
+			"baseSwfUrl",
+			"uploader",
+			"width",
+			"xiSwfUrlStr",
+			"swfVersionStr",
+			"opts",
+			"swfUrl",
+			"vodPlayer",
+			"embedSWF",
+			"xuploader",
+			"Uploader",
+			"swfVersionStr",
+			"expressinstall",
+			"xiSwfUrlStr",
+			"swf",
+			"STATIC_HOST",
+			"zeroSwf",
+			"zclip",
+			"file_upload",
+			"creatSwf",
+			"set",
+			"swfobject",
+			"vodPlayer",
+			"swfUrl",
+			"swfobject",
+			"creatSwf",
+			"width",
+			"embedSWF",
+			"creatSwf",
+			"setUploadTypeSetting",
+			"upPic",
+			"common",
+			"uploadCallback",
+			"success",
+			"doSelectKey",
+			"input",
+			"flashInitSuccess",
+			"typeid",
+			"upPic",
+			"setParam",
+			"tg",
+			"generate_btn",
+			"limit",
+			"siblings(\"",
+			"siblings()",
+			"siblings(\")",
+			"siblings",
+			"ajax",
+			"init(",
+			"init",
+			"bindRadio",
+			"account_password",
+			"limit",
+			"#",
+			"420px",
+			"600px",
+			"limit",
+			"600"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 32.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "a.html",
+	"replace":
+	{
+		"height": 60.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 272.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

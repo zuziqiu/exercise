@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+    <style type="text/css">  
+        #test{
+            background: red;
+            transition:  2s;
+            -moz-transition:  2s; /* Firefox 4 */
+            -webkit-transition:  2s; /* Safari 和 Chrome */
+            -o-transition:  2s; /* Opera */
+            width: 100px;
+            height: 100px;
+        }
+        #test:hover{
+            margin-left: 200px;
+        }
+        .class{
+            background-color: blue;
+        }
+        div.testClass{  
+
+            background-color:gray;  
+        }  
+        .dfsfds{
+            color: red;
+        }
+        .abcdef{
+            font-size: 30px;
+        }
+    </style>  
+</head>
+<body>
+    <span class="dfsfds fdsfds" id = "test" style="display: block">  
+        sssssssssssss  
+    </span>  
+    <input type = "button" value = "toggleClassTest" onclick = "abc(this.type);" />  
+    
+    <script type="text/javascript">  
+    var count = 1; 
+    window.onload = function(){
+    },
+    function abc(ev){
+        // function hasClass(obj, cls) {  
+        //     return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));  
+        // }  
+          
+        // function addClass(obj, cls) {  
+        //     if (!hasClass(obj, cls)) obj.className += " " + cls;  
+        // }  
+          
+        // function removeClass(obj, cls) {  
+        //     if (hasClass(obj, cls)) {  
+        //         var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');  
+        //         obj.className = obj.className.replace(reg, ' ');  
+        //     }  
+        // }  
+          
+        // function toggleClass(obj,cls){  
+        //     if(hasClass(obj,cls)){  
+        //         removeClass(obj, cls);  
+        //     }else{  
+        //         addClass(obj, cls);  
+        //     }  
+        // }  
+          
+        // function toggleClassTest(){  
+        //     var obj = document. getElementById('test');  
+        //     toggleClass(obj,"testClass");  
+        //     console.log(0)
+        // }  
+        // toggleClassTest();
+        // document.getElementById("test").addEventListener("click",toggleClassTest)
+        // document.getElementById("test").setAttribute("className","abcdef");
+        // document.getElementById("test").getAttribute("class");
+        // document.getElementById("test").className="456";
+        var a="10s";
+        document.getElementById("test").setAttribute("style","transition:"+a+";display:block");
+        document.getElementById("test").setAttribute("class","class");
+        // document.getElementById("test").setAttribute("style","display:block");
+    }
+    </script>
+    <iframe src="myFram.html"> </iframe>
+</body>
+</html>

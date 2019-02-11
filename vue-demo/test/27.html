@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../file/vue.js"></script>
+
+</head>
+<style>
+    *{
+        margin:0; padding:0;
+        box-sizing: border-box;
+    }
+
+    #all{
+        width:1000px; height:1000px; background-color: #ccc; margin:0 auto; overflow: hidden;
+    }
+
+</style>
+<body>
+   <div id="all">
+       <div v-for="block in list">
+           <select name="" v-model="block.selectModel1DefaultVal">
+               <option v-for="item in block.selectModel1" :value="item.val">{{item.name}}</option>
+           </select>
+       </div>
+   </div>
+   <script>
+       var vm = new Vue({
+           el : '#all',
+           data : {
+               list : [
+                   {
+                       selectModel1 : [  //假设这是是否特价票
+                           {
+                               name : '是',
+                               val : 1
+                           },
+                           {
+                               name : '否',
+                               val : 0
+                           }
+                       ],
+                       //selectModel1 默认选项
+                       selectModel1DefaultVal : 1,
+
+                       selectModel2 : [  //假设这是是否可退
+                           {
+                               name : '是',
+                               val : 1
+                           },
+                           {
+                               name : '否',
+                               val : 0
+                           }
+                       ],
+                       //selectModel1 默认选项
+                       selectModel2DefaultVal : 1,
+                   }
+               ]
+           },
+
+           methods : {
+
+
+               //添加班次
+               addBanci : function(){
+                   this.list.push( {
+                       selectModel1 : [  //假设这是是否特价票
+                           {
+                               name : '是',
+                               val : 1
+                           },
+                           {
+                               name : '否',
+                               val : 0
+                           }
+                       ],
+                       //selectModel1 默认选项
+                       selectModel1DefaultVal : 1,
+
+                       selectModel2 : [  //假设这是是否可退
+                           {
+                               name : '是',
+                               val : 1
+                           },
+                           {
+                               name : '否',
+                               val : 0
+                           }
+                       ],
+                       //selectModel1 默认选项
+                       selectModel2DefaultVal : 1,
+                   });
+               }
+           }
+       });
+   </script>
+</body>
+</html>

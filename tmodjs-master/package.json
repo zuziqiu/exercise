@@ -1,0 +1,37 @@
+{
+    "name": "tmodjs",
+    "version": "1.0.4",
+    "readmeFilename": "README.md",
+    "description": "Template Compiler",
+    "homepage": "https://github.com/aui/tmodjs",
+    "keywords": [
+        "template",
+        "artTemplate",
+        "TemplateJS",
+        "CommonJS",
+        "RequireJS",
+        "SeaJS",
+        "AMD",
+        "CMD"
+    ],
+    "author": "aui",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/aui/tmodjs.git"
+    },
+    "main": "./src/tmod.js",
+    "bin": {
+        "tmod": "./bin/tmod",
+        "tmodjs": "./bin/tmod"
+    },
+    "scripts": {
+        "test": "tmod ./test/tpl",
+        "test2": "tmod ./test/test-all/*"
+    },
+    "dependencies": {
+        "art-template": "3.0.x",
+        "uglify-js": "2.4.0",
+        "semver": "2.3.0"
+    },
+    "license": "BSD"
+}

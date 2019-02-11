@@ -1,0 +1,27 @@
+<ion-view class="release_order release_order_adddz release_order_province">
+	<div class="bar bar-header">
+		<img id="return" class="posit" src="img/nav_return.png" ng-click="goback()"></img>	
+		<div class="title">选择地址</div>
+	</div>
+	<ion-view class="content has-header" >
+		<ion-pane style="background-color:#eee;">
+			<ion-content>
+				<div class="list detailed" style="padding:0;">
+					<button style="border:none !important;" id="ic_positioning" class="item" ng-click="threeGeo(3)">
+						<img src="img/ic_positioning.png" alt="" />
+						<b>定位当前位置</b>
+					</button>
+					<label  class="item item-avatar row row-center"  style="padding:12px 16px;background-color:#eee;border:none;">
+						<span class='col'>{{already_selectarr1[2]}}</span>
+					</label>
+				</div>
+				<div class="list detailed" >
+					<label class="item item-avatar row row-center" ng-repeat="x in selectareadata.area1" ng-click="three_level_linkage('{{x.id}}','',3,'{{x.name}}')">
+						<span class='col'>{{x.name}}</span>
+						<img class="posit" src="img/list_right.png" alt="" />
+					</label>
+				</div>
+			</ion-content>
+		</ion-pane>
+	</ion-view>
+</ion-view>

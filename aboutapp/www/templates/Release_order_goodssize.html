@@ -1,0 +1,187 @@
+<ion-view class="personsign_info release_order_good release_order_goodssize">
+	<div class="bar bar-header">
+		<img id="return" class="posit" src="img/nav_return.png" ng-click="goback()"></img>	
+		<div class="title">货物大小</div>
+	</div>
+	<div class="content has-header">
+		<p class="numtip" style="margin:16px 16px 0;color:#adadad;font-size: 12px;">请填写货物的大小，单位(cm)</p>
+		<div class="row">
+			<div class="col">
+				<input class="col-demo goods_length" type="text" maxlength="5" placeholder="长度" />
+			</div>
+			<div class="col" style="min-width: 5%">
+				<input class="col-demo" style="text-align: center;padding:5px 0 0 !important;border: none !important;" type="text" placeholder="*" disabled="disabled" />
+			</div>
+			<div class="col">
+				<input class="col-demo goods_width" type="text" maxlength="5" placeholder="宽度" />
+			</div>
+			<div class="col" style="min-width: 5%">
+				<input class="col-demo" style="text-align: center;padding:5px 0 0 !important;border: none !important;" type="text" placeholder="*" disabled="disabled" />
+			</div>
+			<div class="col col-25">
+				<input class="col-demo goods_height" type="text" maxlength="5" placeholder="高度" />
+			</div>
+		</div>
+		<div class="goods_btn">
+			<button class="btn01 button">确定</button>
+		</div>
+	</div>
+	<div class="tip">
+		<span>成功保存</span>	
+	</div>
+</ion-view>
+
+
+
+
+
+<!--<!DOCTYPE html>
+<html ng-app="ionicApp">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>货物大小</title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link href="lib/ionic/css/ionic.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/person_info.css"/>
+		<style >
+			#return{
+				width:0.8rem;
+				padding:16px;
+				box-sizing: content-box;
+				left:0;
+				z-index: 1;
+			}
+			.content{
+				font-family: "微软雅黑";
+			}
+			.row{
+				font-size:14px;
+				min-height:48px;
+				padding:16px;
+				color:#666;
+			}
+			.col{
+				min-width:30% ;
+				padding:0;
+			}
+			.col-demo{
+				width:100%;
+				height:48px !important;
+				border:1px solid #d1d1d1 !important;
+				border-radius:4px;
+				padding:0 16px !important;
+
+			}
+
+			.content>.goods_btn{
+				padding:0 16px 16px;
+				
+			}
+			.content>.goods_btn>.btn01{
+				width:100%;
+				height:48px;
+				background-color:#ccc;
+				color:#fff;
+				border:none;
+				outline: none;
+				font-weight:bold;
+				border-radius: 6px;
+			}
+			.tip{
+				width:100%;
+				position:absolute;
+				bottom:90px;
+				text-align: center;
+				display: none;
+			}
+			.tip>span{
+				font-size: 14px;
+				letter-spacing: 2px;
+				padding:3.444%;
+				border-radius: 0.3rem;
+				background-color:rgba(0,0,0,0.5);
+				color:#fff;
+				
+			}
+		</style>
+ 	</head>
+	<body>
+		<div class="bar bar-header">
+			<img id="return" class="posit" src="img/nav_return.png" data-url="-1"></img>	
+			<div class="title">货物大小</div>
+		</div>
+		<div class="content has-header">
+			<p class="numtip" style="margin:16px 16px 0;color:#adadad;font-size: 12px;">请填写货物的大小，单位(cm)</p>
+			<div class="row">
+				<div class="col">
+					<input class="col-demo goods_length" type="text" maxlength="5" placeholder="长度" />
+				</div>
+				<div class="col" style="min-width: 5%">
+					<input class="col-demo" style="text-align: center;padding:5px 0 0 !important;border: none !important;" type="text" placeholder="*" disabled="disabled" />
+				</div>
+				<div class="col">
+					<input class="col-demo goods_width" type="text" maxlength="5" placeholder="宽度" />
+				</div>
+				<div class="col" style="min-width: 5%">
+					<input class="col-demo" style="text-align: center;padding:5px 0 0 !important;border: none !important;" type="text" placeholder="*" disabled="disabled" />
+				</div>
+				<div class="col col-25">
+					<input class="col-demo goods_height" type="text" maxlength="5" placeholder="高度" />
+				</div>
+			</div>
+			<div class="goods_btn">
+				<button class="btn01 button">确定</button>
+			</div>
+		</div>
+		<div class="tip">
+			<span>成功保存</span>	
+		</div>
+		<script src="lib/ionic/js/ionic.bundle.min.js"></script>
+		<script src="js/jquery-1.12.2.min.js" type="text/javascript"></script>
+		<script src="js/base.js" type="text/javascript"></script>
+		<script src="js/controller.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			var goods_val;
+			var reg_userup=/^\d*$/,placeholder_val;
+			var goods_btn_sw=true;
+			$("input").keydown(function(){
+				if(reg_userup.test($(this).val())){	
+					goods_val=$(this).val();
+				}
+			})
+			$("input").keyup(function(){	
+				if(!reg_userup.test($(this).val())){
+					$(this).val(goods_val);
+				}
+				if($(".goods_length").val()!=""&&$(".goods_width").val()!=""&&$(".goods_height").val()!=""){
+					$(".btn01").css({"background-color":"#ffe500","color":"#181818"});
+				}else{
+					$(".btn01").css({"background-color":"#ccc","color":"#fff"});
+				}
+			}).blur(function(){
+				$(this).attr("placeholder",placeholder_val);
+			}).focus(function(){
+				placeholder_val=$(this).attr("placeholder");
+				$(this).attr("placeholder","");
+			})
+			$(".btn01").on("touchstart",function(){
+				if($(".goods_length").val()==""||$(".goods_width").val()==""||$(".goods_height").val()==""){
+					return false;
+				}else{
+					if(goods_btn_sw){
+						goods_btn_sw=false;
+						$(".tip").fadeIn().fadeOut(function(){
+							localStorage.setItem("size_of_goods",$(".goods_length").val()+"cm*"+$(".goods_width").val()+"cm*"+$(".goods_height").val()+"cm");
+							history.go(-1);
+						});
+					}
+					
+				}
+			})
+			
+		</script>
+		<script src="cordova.js"></script>
+	</body>
+</html>-->

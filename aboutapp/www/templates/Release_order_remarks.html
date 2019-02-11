@@ -1,0 +1,29 @@
+<ion-view class="personsign_info release_order_good release_order_remarks">
+	<div class="bar bar-header">
+		<img id="return" class="posit" src="img/nav_return.png" ng-click="goback()"></img>	
+		<div class="title">添加备注</div>
+	</div>
+	<div class="content has-header">
+		<div class="list list-inset">
+			<p class="numtip" style="margin:0 0 16px;color:#adadad;font-size: 12px;">请填写备注和添加图片</p>
+			<div>
+				<textarea name="" id="remarks_word" maxlength="140" placeholder="有什么想对快递员说..."></textarea>
+				<div class="remarks_img">
+					<div>
+						<input type="file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" />
+						<img type="file" src="img/ic_add.png" alt="" />
+					</div>
+					<span class="remarks_word_length">0/140</span>
+				</div>
+				
+			</div>
+		</div>
+		<div class="goods_btn">
+			<button class="btn01 button">确定</button>
+		</div>
+	</div>
+	<div class="tip">
+		<span>成功保存</span>	
+	</div>
+</ion-view>
+

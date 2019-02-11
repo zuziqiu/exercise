@@ -1,0 +1,36 @@
+<ion-view id="comunication_list_addfriends" class="comunication_list Peripheral_orders comunication_list_addfriends">
+	<div class="bar bar-header item-input-inset">
+		<a href="#/tab" style="position:absolute;top:0;left:0;" nav-direction="back">
+			<img id="return" src="img/nav_return.png"  />
+		</a>
+		<!--<img id="return" class="posit" src="img/nav_return.png" ng-click="goback()"></img>-->
+		<label class="item-input-wrapper">
+			<img src="img/nav_search.png" alt="" />
+			<input type="text" placeholder="输入用户ID/手机号添加好友"/>
+		</label>
+		<button class="friend_search" ng-click="friendSearch()">
+			搜索
+		</button>
+	</div>
+	<ion-view class="content has-header" style="padding:0;margin:0;">
+		<ion-pane style="background-color:#eee;">
+			<ion-content>
+				<div class="list friend_list">
+					<!--<div class="item item-avatar" style="display:none;">
+						<img src="img/header.png" alt="" />
+						<h2 >KOFFING</h2>
+						<p>这是我独特有个性的个人签名</p>
+						<button class="add_friend posit">添加</button>
+					</div>-->
+					<div class="item item-avatar" ng-repeat="x in friendSearchList">
+						<img ng-src="{{x.avatar}}" alt="" />
+						<h2 >{{x.user_nicename}}</h2>
+						<p>{{x.signature}}</p>
+						<button class="add_friend posit" ng-if=!has_add ng-click="addFriend({{x.id}})">添加</button>
+						<button class="add_friend posit" style="background-color:#d1d1d1;" ng-if=has_add><img src='img/list_finish.png' style='width:30%;' alt='' /></button>
+					</div>
+				</div>
+			</ion-content>
+		</ion-pane>
+	</ion-view>
+</ion-view>

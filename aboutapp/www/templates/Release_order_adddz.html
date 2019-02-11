@@ -1,0 +1,41 @@
+<ion-view class="release_order release_order_adddz">
+	<div class="bar bar-header">
+		<img id="return" class="posit" src="img/nav_return.png" ng-click="returnselectdz()"></img>	
+		<div class="title">添加地址</div>
+	</div>
+	<ion-view class="content has-header" >
+		<ion-pane style="background-color:#eee;">
+			<ion-content>
+				<div class="list detailed">
+					<label class="item item-avatar row row-center">
+						<span class='col col-25'>联系人</span>
+						<textarea class="col col-75" name="" rows="1" placeholder="请输入姓名" ng-model="addpersonaddress.name">{{addpersonaddress.name}}</textarea>
+					</label>
+					<label class="item item-avatar row row-center">
+						<span class='col col-25'>联系电话</span>
+						<textarea class="col col-75" name="" rows="1"  placeholder="请输入手机号" ng-model="addpersonaddress.mobile">{{addpersonaddress.mobile}}</textarea>
+					</label>
+					<label id="sender_area" class="item item-avatar row row-center" ng-click="three_level_linkage('','#/release_order_province',0,'')">
+						<span class='col col-20'>所在区域</span>
+						<textarea class="col col-75" name="" rows="1" placeholder="请选择省市区" readonly="readonly">{{already_selectstr1}}</textarea>
+						<img class="posit" src="img/list_right.png" alt="" />
+					</label>
+					<label class="item item-avatar row row-center">
+						<span class='col col-25'>详细地址</span>
+						<textarea class="col col-75" name="" rows="1" placeholder="请输入详细地址" ng-model="addpersonaddress.detail">{{addpersonaddress.detail}}</textarea>
+					</label>
+				</div>
+				<div class="list">
+					<div id="release" class="list detailed">
+						<div class="item item-avatar row row-center">
+							<span>设为默认地址</span>
+							<img class="posit ic_radio_selected" src="img/ic_radio_selected.png" alt="" />
+						</div>
+					</div>
+				</div>
+				
+				<button class="btn01" ng-click="release_order_adddzsave()">保存</button>
+			</ion-content>
+		</ion-pane>
+	</ion-view>
+</ion-view>

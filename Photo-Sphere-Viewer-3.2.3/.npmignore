@@ -1,0 +1,7 @@
+.*
+build
+doc
+example
+bower_components
+Gruntfile.js
+bower.json

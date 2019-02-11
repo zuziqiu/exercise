@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form>
+			<input type="text" />
+			<input type="submit" value=""/>
+		</form>
+		<script src="js/ajaxfn.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var method = "GET";
+			var url_ = "login.php";
+			var str= "user=abc&password=123";
+			function sucFn(data){
+				alert(data);
+			}
+			function errFn(data){
+				alert("登录失败");
+			}
+			ajaxfn(method,url_,str,sucFn,errFn);
+			
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

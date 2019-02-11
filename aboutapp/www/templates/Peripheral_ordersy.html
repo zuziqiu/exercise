@@ -1,0 +1,149 @@
+<!--style="transition:none;"-->
+<ion-view class="Peripheral_orders"  ng-click="indexfn()" >
+	<div class="bar bar-header">
+		<div class="title">周边订单</div>
+		<img id="nav_scan" src="img/nav_scan.png" alt="" />
+		<img id="nav_release" src="img/nav_release.png"  alt="" />
+	</div>
+	<div class="list state">
+		<div class="item row" style="padding:0;border-bottom:1px solid #adadad;" >
+			<div class="col">
+				<div class="col-demo">
+					类型
+				</div>
+				<img src="img/ic_classification.png" alt="" />
+			</div>
+			<div class="col" style="border-left:1px solid #adadad;border-right:1px solid #adadad;">
+				<div class="col-demo">
+					状态
+				</div>
+				<img src="img/ic_classification.png" alt="" />
+			</div>
+			<div class="col">
+				<div class="col-demo">
+					快递公司
+				</div>
+				<img src="img/ic_classification.png" alt="" />
+			</div>
+			<div class="list">
+				
+			</div>
+		</div>
+		<div class="item state_content" style="display: block;">
+			<p>全部 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_selected.png" alt="" /></span></p>
+			<p>悬赏订单 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_nomal.png" alt="" /></span></p>
+			<p>预约订单 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_nomal.png" alt="" /></span></p>
+			<p>普通订单 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_nomal.png" alt="" /></span></p>
+		</div>
+		<div class="item state_content">
+			<p>全部 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_selected.png" alt="" /></span></p>
+			<p>未确认 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_nomal.png" alt="" /></span></p>
+			<p>待收件 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_nomal.png" alt="" /></span></p>
+			<p>已寄出 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_nomal.png" alt="" /></span></p>
+			<p>已筛选 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_nomal.png" alt="" /></span></p>
+		</div>
+		<div class="item state_content">
+			<p>德邦快递 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_selected.png" alt="" /></span></p>
+			<p>百世汇通 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_nomal.png" alt="" /></span></p>
+			<p>EMS <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_nomal.png" alt="" /></span></p>
+			<p>申通快递 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_nomal.png" alt="" /></span></p>
+			<p>顺丰快递 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_nomal.png" alt="" /></span></p>
+		</div>
+	</div>
+	<ion-view class="content has-header">
+		<ion-pane style="background-color:#eee;">
+			<ion-content>
+				<ion-refresher pulling-text="刷新" on-refresh="doRefresh()"></ion-refresher>
+				<div class="tab" animation="slide-left-right-ios7"  style="">
+					<ion-slide-box on-slide-changed="slideHasChanged($index)" style="text-align: center;" active-slide="myActiveSlide" delegate-handle="slideimgs" does-continue="true" auto-play="true" slide-interval=2000 >
+						<ion-slide ng-repeat="x in imgcarousel">
+							<img class="tab_bg" ng-src="{{x.slide_pic}}" alt="暂无图片" />
+						</ion-slide>
+					</ion-slide-box>
+				</div>
+				<div class="list">
+
+					<div class="item item-button-right" style="height:40px;padding:12px 16px;">
+						周边订单
+						<a class="button">
+							附近快递员
+							<img class="posit" src="img/list_more.png" alt="" />
+						</a>
+					</div>
+					
+					<div class="item row" style="padding:0;color:#666;" >
+						<div class="col">
+							<div class="col-demo">
+								类型
+							</div>
+							<img src="img/ic_classification.png" alt="" />
+						</div>
+						<div class="col" style="border-left:1px solid #adadad;border-right:1px solid #adadad;">
+							<div class="col-demo">
+								状态
+							</div>
+							<img src="img/ic_classification.png" alt="" />
+						</div>
+						<div class="col">
+							<div class="col-demo">
+								快递公司
+							</div>
+							<img src="img/ic_classification.png" alt="" />
+						</div>
+						<div class="list">
+							
+						</div>
+					</div>
+
+					<a class="item item-avatar" href="javascript:void(0)">
+						<img src="img/debang.png" alt="" />
+						<h2 >广东省深圳市 <span class="item-note yellow">悬赏</span></h2>
+						<p>禅城区季华六路九鼎国4座1112<span class="item-note">1.2km</span></p>
+					</a>
+					<a class="item item-avatar" href="javascript:void(0)">
+						<img src="img/list_photo.png" alt="" />
+						<h2 >广东省深圳市 <span class="item-note blue">预约</span></h2>
+						<p>禅城区季华六路九鼎国4座1112<span class="item-note">1.2km</span></p>
+					</a>
+					<a class="item item-avatar" href="javascript:void(0)">
+						<img src="img/list_photo.png" alt="" />
+						<h2 >广东省深圳市 <span class="item-note blue">预约</span></h2>
+						<p>禅城区季华六路九鼎国4座1112<span class="item-note">1.2km</span></p>
+					</a>
+					<a class="item item-avatar" href="javascript:void(0)">
+						<img src="img/list_photo.png" alt="" />
+						<h2 >广东省深圳市 <span class="item-note blue">预约</span></h2>
+						<p>禅城区季华六路九鼎国4座1112<span class="item-note">1.2km</span></p>
+					</a>
+					<a class="item item-avatar" href="javascript:void(0)">
+						<img src="img/list_photo.png" alt="" />
+						<h2 >广东省深圳市 <span class="item-note blue">预约</span></h2>
+						<p>禅城区季华六路九鼎国4座1112<span class="item-note">1.2km</span></p>
+					</a>
+					<a class="item item-avatar" href="javascript:void(0)">
+						<img src="img/list_photo.png" alt="" />
+						<h2 >广东省深圳市 <span class="item-note blue">预约</span></h2>
+						<p>禅城区季华六路九鼎国4座1112<span class="item-note">1.2km</span></p>
+					</a>
+					<a class="item item-avatar" href="javascript:void(0)">
+						<img src="img/list_photo.png" alt="" />
+						<h2 >广东省深圳市 <span class="item-note blue">预约</span></h2>
+						<p>禅城区季华六路九鼎国4座1112<span class="item-note">1.2km</span></p>
+					</a>
+					<a class="item item-avatar" href="javascript:void(0)">
+						<img src="img/list_photo.png" alt="" />
+						<h2 >广东省深圳市 <span class="item-note blue">预约</span></h2>
+						<p>禅城区季华六路九鼎国4座1112<span class="item-note">1.2km</span></p>
+					</a>
+					<a class="item item-avatar" href="javascript:void(0)">
+						<img src="img/list_photo.png" alt="" />
+						<h2 >广东省深圳市 <span class="item-note blue">预约</span></h2>
+						<p>禅城区季华六路九鼎国4座1112<span class="item-note">1.2km</span></p>
+					</a>
+				</div>
+			</ion-content>
+		</ion-pane>
+	</ion-view>
+</ion-view>
+
+<!--<script src="js/base.js" type="text/javascript"></script>-->

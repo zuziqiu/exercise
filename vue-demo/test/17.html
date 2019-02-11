@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../file/vue.js"></script>
+</head>
+<style>
+    *{
+        margin:0; padding:0;
+    }
+    #all{
+        width:1000px; height:1000px; margin:0 auto; overflow: hidden;
+        background-color: #ccc;
+    }
+
+    #name{
+        width:120px;
+        height:30px;
+    }
+    select{
+        width:120px;
+        height:30px;
+    }
+    input{
+        width:120px;
+        height:30px;
+    }
+    .bounce-enter-active {
+        animation: bounce-in 5s;
+    }
+    .bounce-leave-active {
+        animation: bounce-out 5s;
+    }
+    @keyframes bounce-in {
+        0% {
+            transform: scale(0);
+        }
+        50% {
+            transform: scale(1.5);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    @keyframes bounce-out {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.5);
+        }
+        100% {
+            transform: scale(0);
+        }
+    }
+</style>
+<body>
+<div id="all">
+
+    <div id="example-2">
+        <button @click="show = !show">Toggle show</button>
+        <transition name="bounce">
+            <p v-if="show">Look at me!</p>
+        </transition>
+        <transition name="bounce">
+            <div>this is other</div>
+        </transition>
+    </div>
+
+</div>
+
+
+
+<script>
+    new Vue({
+        el: '#example-2',
+        data: {
+            show: true
+        }
+    })
+</script>
+
+</body>
+</html>

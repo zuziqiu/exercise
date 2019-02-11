@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{background-color: black;}
+		</style>
+	</head>
+	<body>
+		<canvas id="diyige" width="60" height="80"></canvas>
+		<canvas id="dierge" width="60" height="80"></canvas>
+		<canvas id="disange" width="60" height="80"></canvas>
+		<script>
+		  	window.onload = function(){
+				var canvas=document.getElementById("diyige");
+				var context=canvas.getContext("2d");
+				context.fillStyle="white";
+				context.fillRect(0,0,60,60);
+				context.fillStyle="orange";
+				context.fillRect(0,60,60,20);
+				context.fillStyle="black"
+				context.font="20px Arial";
+				context.fillText("一",20,50);
+				
+				
+				var canvas=document.getElementById("dierge");
+				var context=canvas.getContext("2d");
+				context.fillStyle="white";
+				context.fillRect(0,0,60,60);
+				context.fillStyle="blue";
+				context.fillRect(0,40,60,60);
+				context.fillStyle="black"
+				context.font="20px Arial";
+				context.fillText("二",20,50);
+				
+				
+				var canvas=document.getElementById("disange");
+				var context=canvas.getContext("2d");
+				context.fillStyle="white";
+				context.fillRect(0,0,60,60);
+				context.fillStyle="red";
+				context.fillRect(0,20,60,60);
+				context.fillStyle="black"
+				context.font="20px Arial";
+				context.fillText("三",20,50);
+		}
+		</script>
+	</body>
+</html>

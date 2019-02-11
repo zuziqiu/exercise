@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>当当网首页</title>
+		<link rel="stylesheet" type="text/css" href="css/quanjuziti.css" />
+		<script type="text/javascript" src="js/jquery-3.1.0.min.js" ></script>
+		<script type="text/javascript" src="js/kongzhi.js" ></script>
+	</head>
+
+	<body>
+		<!--广告图片-->
+		<div class="right" id="right">
+			<div class="dd_close" id="dd_close">
+				<a href="javascript:void(0);">关闭</a>
+			</div>
+			<img src="img/dd_scroll.jpg"/>
+		</div>
+		<!--头部-->
+		<div id="header">
+			<div class="header_top">
+				<!--登录-->
+				<div class="header_left">
+					您好！欢迎光临当当网[
+					<a href="#" target="_parent">登录</a> |
+					<a href="#" target="_parent">注册</a>]
+				</div>
+				<!--购物车-->
+				<div class="header_right">
+					<ul>
+						<li>
+							<a href="#" target="_self">帮助</a>
+						</li>
+						<li>|</li>
+						<li id="menu_one">
+							<a href="#" target="_self">我的当当</a><img src="img/dd_arrow_down.gif" alt="arrow" />
+							<div id="dd_menu_down">
+								<a href="#" target="_self">我的订单</a>
+								<br />
+								<a href="#" target="_self">账户余额</a>
+								<br />
+								<a href="#" target="_self">购物礼券</a>
+								<br />
+								<a href="#" target="_self">我的会员积分</a>	
+							</div>
+						</li>
+						<li>|</li>
+						<li>
+							<a href="#" target="_self">团购</a>
+						</li>
+						<li>|</li>
+						<li>
+							<a href="#" target="_self">礼品卡</a>
+						</li>
+						<li>|</li>
+						<li>
+							<a href="#" target="_self">个性化推荐</a>
+						</li>
+						<li>|</li>
+						<li>
+							<a href="#" target="_self">购物车</a>
+						</li>
+						<li><img src="img/dd_header_shop.gif" /></li>
+					</ul>
+				</div>
+				<!--首页-->
+				<div class="header_middle">
+					<div class="logo">
+						<img src="img/dd_logo.gif" />
+					</div>
+					<div class="menu_left">
+						<dl>
+							<dd class="menu_left_first"></dd>
+						</dl>
+						<div id="menu_left_bold">
+							<ul>
+								<li>
+									<a calss="blod" href="#" target="_parent">首页</a>
+								</li>
+								<li>|</li>
+								<li>
+									<a calss="blod" href="#" target="_parent">图书</a>
+								</li>
+								<li>|</li>
+								<li>
+									<a calss="blod" href="#" target="_parent">音乐</a>
+								</li>
+								<li>|</li>
+								<li>
+									<a calss="blod" href="#" target="_parent">影视</a>
+								</li>
+								<li>|</li>
+								<li>
+									<a calss="blod" href="#" target="_parent">运动</a>
+								</li>
+								<li>|</li>
+								<li>
+									<a calss="blod" href="#" target="_parent">服饰</a>
+								</li>
+								<li>|</li>
+								<li>
+									<a calss="blod" href="#" target="_parent">家具</a>
+								</li>
+								<li>|</li>
+								<li>
+									<a calss="blod" href="#" target="_parent">美妆</a>
+								</li>
+								<li>|</li>
+								<li>
+									<a calss="blod" href="#" target="_parent">母婴</a>
+								</li>
+								<li>|</li>
+								<li>
+									<a calss="blod" href="#" target="_parent">食品</a>
+								</li>
+								<li>|</li>
+								<li>
+									<a calss="blod" href="#" target="_parent">数码家电</a>
+								</li>
+							</ul>
+
+						</div>
+						<dl>
+							<dd class="menu_left_end"></dd>
+						</dl>
+					</div>
+					<div id="menu_dull_red" class="menu_right">
+						<ul>
+							<li class="menu_right_1">
+								<a href="#" target="_self">商店街</a>
+							</li>
+							<li class="menu_right_2">
+								<a href="#" target="_self">促销</a>
+							</li>
+							<li class="menu_right_3">
+								<a href="#" target="_self">当当<img src="img/dd_header_top.png" /></a>
+							</li>
+							<li class="menu_right_4">
+								<a href="#" target="_self">社区</a>
+							</li>
+							<li class="menu_right_5">
+								<a href="#" target="_self">在线读书</a>
+							</li>
+						</ul>
+					</div>
+					<div id="menu">
+						<div class="menu_first"></div>
+						<div id="menu_white">
+							<a href="#" target="_self">小说</a>|
+							<a href="#" target="_self">青春</a>|
+							<a href="#" target="_self">历史</a>|
+							<a href="#" target="_self">保健</a>|
+							<a href="#" target="_self">少儿</a>|
+							<a href="#" target="_self">旅游</a>|
+							<a href="#" target="_self">期刊</a>|
+							<a href="#" target="_self">图书畅销榜</a>|
+							<a href="#" target="_self">新书热卖榜</a>|
+							<a href="#" target="_self">小特价书</a>|
+							<a href="#" target="_self">图书促销</a>|
+							<a href="#" target="_self">所有图书分类</a>
+						</div>
+						
+						<div class="menu_end"></div>
+					</div>
+				</div>
+				<!--查找-->
+				<div class="header_search">
+					<div class="header_search_left"></div>
+					<div class="header_search_mid">
+						<ul>
+							<li><input type="text" id="header_seacch_input" class="header_seach_input" /></li>
+							<li><img src="img/dd_header_search_btn.jpg" /></li>
+							<li><img src="img/dd_arrow_right.gif" />
+								<a calss="header_seach_hi" target="_self">高级搜索</a>
+							</li>
+							<li>|</li>
+							<li><img src="img/dd_header_search_top.jpg" /></li>
+							<li>
+								<a href="#" target="_self">雅思</a>
+							</li>
+							<li>|</li>
+							<li>
+								<a href="#" target="_self">建造师</a>
+							</li>
+							<li>|</li>
+							<li>
+								<a href="#" target="_self">中里巴人</a>
+							</li>
+							<li>|</li>
+							<li>
+								<a href="#" target="_self">注会</a>
+							</li>
+							<li>|</li>
+							<li>
+								<a href="#" target="_self">新概念英语</a>
+							</li>
+							<li>|</li>
+							<li>
+								<a href="#" target="_self">更多&gt&gt</a>
+							</li>
+						</ul>
+					</div>
+					<div class="header_search_right"></div>
+				</div>
+			</div>
+		</div>
+		<!--中间部分-->
+		<div id="main">
+			<div class="main_top"><img src="img/dd_index_top_adver.jpg" /></div>
+			<div id="main_left">
+				<div id="main_left_top">
+					<div class="top_menu">
+						推荐分类
+					</div>
+					<div id="bottom_menu_1" class="bottom_menu">
+						<a href="#" target="_self">外语</a> |
+						<a href="#" target="_self">中小学教辅</a> |
+					</div>
+				</div>
+				<div id="main_left_bottom">
+					<div class="top_menu">
+						<img src="img/dd_book_cate_icon.gif" class="top_menu_pic" />图书商品分类
+					</div>
+					<div id="bottom_menu">
+						<a href="#" target="_self">[小说]</a>
+					</div>
+					<div class="bottom_menu">
+						<a href="#" target="_self">悬疑</a> |
+						<a href="#" target="_self">言情</a> |
+						<a href="#" target="_self">职场</a> |
+						<a href="#" target="_self">财经</a>
+					</div>
+					<div id="bottom_menu">
+						<a href="#" target="_self">[文艺]</a>
+					</div>
+					<div class="bottom_menu">
+						<a href="#" target="_self">文学</a> |
+						<a href="#" target="_self">传记</a> |
+						<a href="#" target="_self">艺术</a> |
+						<a href="#" target="_self">摄影</a>
+					</div>
+					<div id="bottom_menu">
+						<a href="#" target="_self">[青春]</a>
+					</div>
+					<div class="bottom_menu">
+						<a href="#" target="_self">青春文学</a> |
+						<a href="#" target="_self">动漫</a> |
+						<a href="#" target="_self">幽默</a> |
+					</div>
+					<div id="bottom_menu">
+						<a href="#" target="_self">[励志/成功]</a>
+					</div>
+					<div class="bottom_menu">
+						<a href="#" target="_self">修养</a> |
+						<a href="#" target="_self">成功</a> |
+						<a href="#" target="_self">职场</a> |
+						<a href="#" target="_self">沟通</a>
+					</div>
+					<div id="bottom_menu">
+						<a href="#" target="_self">[少儿]</a>
+					</div>
+					<div class="bottom_menu">
+						<a href="#" target="_self">文学</a> |
+						<a href="#" target="_self">科普</a> |
+						<a href="#" target="_self">图画书</a> |
+					</div>
+					<div id="bottom_menu">
+						<a href="#" target="_self">[生活]</a>
+					</div>
+					<div class="bottom_menu">
+						<a href="#" target="_self">保健</a> |
+						<a href="#" target="_self">家教</a> |
+						<a href="#" target="_self">美丽装扮</a> |
+						<a href="#" target="_self">育儿</a> |<br />
+						<a href="#" target="_self">美食</a> |
+						<a href="#" target="_self">旅游</a> |
+						<a href="#" target="_self">收藏</a> |
+						<a href="#" target="_self">生活</a> |
+						<a href="#" target="_self">体育</a><br /> |
+						<a href="#" target="_self">地图</a> |
+						<a href="#" target="_self">个人理财</a>
+					</div>
+					<div id="bottom_menu">
+						<a href="#" target="_self">[个人社科]</a>
+					</div>
+					<div class="bottom_menu">
+						<a href="#" target="_self">文化</a> |
+						<a href="#" target="_self">历史</a> |
+						<a href="#" target="_self">哲学/宗教</a> |
+						<a href="#" target="_self">古籍</a> |<br />
+						<a href="#" target="_self">政治/历史</a> |
+						<a href="#" target="_self">法律</a> |
+						<a href="#" target="_self">经济</a> |
+						<a href="#" target="_self">社会</a><br /> |
+						<a href="#" target="_self">科学</a> |
+						<a href="#" target="_self">心理学</a>
+					</div>
+					<div id="bottom_menu">
+						<a href="#" target="_self">[管理]</a>
+					</div>
+					<div class="bottom_menu">
+						<a href="#" target="_self">管理</a> |
+						<a href="#" target="_self">金融</a> |
+						<a href="#" target="_self">营销</a> |
+						<a href="#" target="_self">会计</a>
+					</div>
+					<div id="bottom_menu">
+						<a href="#" target="_self">[科技]</a>
+					</div>
+					<div class="bottom_menu">
+						<a href="#" target="_self">科普</a> |
+						<a href="#" target="_self">建筑</a> |
+						<a href="#" target="_self">医学</a> |
+						<a href="#" target="_self">计算机</a>|
+						<a href="#" target="_self">农林</a> |<br />
+						<a href="#" target="_self">自然科学</a> |
+						<a href="#" target="_self">工业</a> |
+						<a href="#" target="_self">通信</a> |
+					</div>
+					<div id="bottom_menu">
+						<a href="#" target="_self">[教育]</a>
+					</div>
+					<div class="bottom_menu">
+						<a href="#" target="_self">教材</a> |
+						<a href="#" target="_self">中小学教辅</a> |
+						<a href="#" target="_self">外语</a>
+					</div>
+					<div id="bottom_menu">
+						<a href="#" target="_self">[工具书]</a>
+					</div>
+					<div id="bottom_menu">
+						<a href="#" target="_self">[图外原版书]</a>
+					</div>
+					<div id="bottom_menu">
+						<a href="#" target="_self">[期刊]</a>
+					</div>
+				</div>
+			</div>
+			<div id="main_mid">
+				<div class="main_mid_top"></div>
+				<div id="main_mid_top_start" class="main_mid_top_start">
+					<div class="main_mid_top_pic">
+						<ul id="main_mid_top_pic">
+							<li><img src="img/dd_scroll_1.jpg"/></li>
+							<li><img src="img/dd_scroll_2.jpg"/></li>
+							<li><img src="img/dd_scroll_3.jpg"/></li>
+							<li><img src="img/dd_scroll_4.jpg"/></li>
+							<li><img src="img/dd_scroll_5.jpg"/></li>
+							<li><img src="img/dd_scroll_6.jpg"/></li>
+						</ul>
+					</div>
+					<div class="main_mid_top_num">
+						<ul id="main_mid_top_num">
+							<li>1</li>
+							<li>2</li>
+							<li>3</li>
+							<li>4</li>
+							<li>5</li>
+							<li>6</li>
+						</ul>
+					</div>
+				</div>
+				<div class="main_mid_top_footer"></div>
+				<div class="book_tab">
+					<div class="book_new">
+						<div class="book_left">最新上架</div>
+						<div id="class" class="h">历史</div>
+						<div id="f" class="f">家庭</div>
+						<div id="w" class="w">文化</div>
+						<div id="x" class="x">小说</div>
+						<div id="x" class="m">更多&gt&gt</div>
+					</div>
+					<div id="wocao">
+						<!--历史-->
+						<dl id="book_class" style="display: block">
+							<dt class="book_h"><img src="img/dd_history_1.jpg"/></dt>
+								<dd>
+									<font class="book_tittle">《中国时代》（上）</font>
+									<br />
+									作者：师永刚，邹明  主编
+									<br />
+									出版社：作家出版社
+									<br />
+									<font class="book_time">出版时间：2009年10月</font>
+									<br />
+									定价：39.00
+									<br />
+									当当定价：27.00
+								</dd>
+							<dt class="book_h"><img src="img/dd_history_2.jpg"/></dt>
+								<dd>
+									<font class="book_tittle">中国历史的耻辱</font>
+									<br />
+									作者：师永刚，邹明  主编
+									<br />
+									出版社：作家出版社
+									<br />
+									<font class="book_time">出版时间：2009年10月</font>
+									<br />
+									定价：39.00
+									<br />
+									当当定价：27.00
+								</dd>
+							<dt class="book_h"><img src="img/dd_history_3.jpg"/></dt>
+							<dd>
+								<font class="book_tittle">《中国时代》（下）</font>
+								<br />
+								作者：师永刚，邹明  主编
+								<br />
+								出版社：作家出版社
+								<br />
+								<font class="book_time">出版时间：2009年10月</font>
+								<br />
+								定价：39.00
+								<br />
+								当当定价：27.00
+							</dd>
+							<dt class="book_h"><img src="img/dd_history_4.jpg"/></dt>
+							<dd>
+								<font class="book_tittle">大家国学十六讲</font>
+								<br />
+								作者：师永刚，邹明  主编
+								<br />
+								出版社：作家出版社
+								<br />
+								<font class="book_time">出版时间：2009年10月</font>
+								<br />
+								定价：39.00
+								<br />
+								当当定价：27.00
+							</dd>
+						</dl>
+					
+						<!--家庭-->
+						<dl id="book_f" style="display: none;">
+							<dt class="book_h"><img src="img/dd_history_1.jpg"/></dt>
+								<dd>
+									<font class="book_tittle">家庭（上）</font>
+									<br />
+									作者：师永刚，邹明  主编
+									<br />
+									出版社：作家出版社
+									<br />
+									<font class="book_time">出版时间：2009年10月</font>
+									<br />
+									定价：39.00
+									<br />
+									当当定价：27.00
+								</dd>
+							<dt class="book_h"><img src="img/dd_history_2.jpg"/></dt>
+								<dd>
+									<font class="book_tittle">家庭</font>
+									<br />
+									作者：师永刚，邹明  主编
+									<br />
+									出版社：作家出版社
+									<br />
+									<font class="book_time">出版时间：2009年10月</font>
+									<br />
+									定价：39.00
+									<br />
+									当当定价：27.00
+								</dd>
+							<dt class="book_h"><img src="img/dd_history_3.jpg"/></dt>
+							<dd>
+								<font class="book_tittle">《家庭（下）</font>
+								<br />
+								作者：师永刚，邹明  主编
+								<br />
+								出版社：作家出版社
+								<br />
+								<font class="book_time">出版时间：2009年10月</font>
+								<br />
+								定价：39.00
+								<br />
+								当当定价：27.00
+							</dd>
+							<dt class="book_h"><img src="img/dd_history_4.jpg"/></dt>
+							<dd>
+								<font class="book_tittle">家庭</font>
+								<br />
+								作者：师永刚，邹明  主编
+								<br />
+								出版社：作家出版社
+								<br />
+								<font class="book_time">出版时间：2009年10月</font>
+								<br />
+								定价：39.00
+								<br />
+								当当定价：27.00
+							</dd>
+						</dl>
+						<!--文化-->
+						<dl id="book_w" style="display: none;">
+							<dt class="book_h"><img src="img/dd_history_1.jpg"/></dt>
+								<dd>
+									<font class="book_tittle">文化（上）</font>
+									<br />
+									作者：师永刚，邹明  主编
+									<br />
+									出版社：作家出版社
+									<br />
+									<font class="book_time">出版时间：2009年10月</font>
+									<br />
+									定价：39.00
+									<br />
+									当当定价：27.00
+								</dd>
+							<dt class="book_h"><img src="img/dd_history_2.jpg"/></dt>
+								<dd>
+									<font class="book_tittle">文化</font>
+									<br />
+									作者：师永刚，邹明  主编
+									<br />
+									出版社：作家出版社
+									<br />
+									<font class="book_time">出版时间：2009年10月</font>
+									<br />
+									定价：39.00
+									<br />
+									当当定价：27.00
+								</dd>
+							<dt class="book_h"><img src="img/dd_history_3.jpg"/></dt>
+							<dd>
+								<font class="book_tittle">文化（下）</font>
+								<br />
+								作者：师永刚，邹明  主编
+								<br />
+								出版社：作家出版社
+								<br />
+								<font class="book_time">出版时间：2009年10月</font>
+								<br />
+								定价：39.00
+								<br />
+								当当定价：27.00
+							</dd>
+							<dt class="book_h"><img src="img/dd_history_4.jpg"/></dt>
+							<dd>
+								<font class="book_tittle">文化</font>
+								<br />
+								作者：师永刚，邹明  主编
+								<br />
+								出版社：作家出版社
+								<br />
+								<font class="book_time">出版时间：2009年10月</font>
+								<br />
+								定价：39.00
+								<br />
+								当当定价：27.00
+							</dd>
+						</dl>
+						<!--小说-->
+						<dl id="book_x" style="display: none;">
+							<dt class="book_h"><img src="img/dd_history_1.jpg"/></dt>
+								<dd>
+									<font class="book_tittle">小说（上）</font>
+									<br />
+									作者：师永刚，邹明  主编
+									<br />
+									出版社：作家出版社
+									<br />
+									<font class="book_time">出版时间：2009年10月</font>
+									<br />
+									定价：39.00
+									<br />
+									当当定价：27.00
+								</dd>
+							<dt class="book_h"><img src="img/dd_history_2.jpg"/></dt>
+								<dd>
+									<font class="book_tittle">小说</font>
+									<br />
+									作者：师永刚，邹明  主编
+									<br />
+									出版社：作家出版社
+									<br />
+									<font class="book_time">出版时间：2009年10月</font>
+									<br />
+									定价：39.00
+									<br />
+									当当定价：27.00
+								</dd>
+							<dt class="book_h"><img src="img/dd_history_3.jpg"/></dt>
+							<dd>
+								<font class="book_tittle">《小说（下）</font>
+								<br />
+								作者：师永刚，邹明  主编
+								<br />
+								出版社：作家出版社
+								<br />
+								<font class="book_time">出版时间：2009年10月</font>
+								<br />
+								定价：39.00
+								<br />
+								当当定价：27.00
+							</dd>
+							<dt class="book_h"><img src="img/dd_history_4.jpg"/></dt>
+							<dd>
+								<font class="book_tittle">小说</font>
+								<br />
+								作者：师永刚，邹明  主编
+								<br />
+								出版社：作家出版社
+								<br />
+								<font class="book_time">出版时间：2009年10月</font>
+								<br />
+								定价：39.00
+								<br />
+								当当定价：27.00
+							</dd>
+						</dl>
+					</div>	
+				</div>
+				<div class="main_mid_footer">
+					<div class="main_mid_footer_important">
+						<div class="book_left">重点关注</div>
+					</div>
+					<div class="main_mid_footer_attention">
+						<dl class="attention_mid">
+							<dt><img src="img/dd_focus_1.jpg"/></dt>
+							<dt><img src="img/dd_focus_2.jpg"/></dt>
+							<dt><img src="img/dd_focus_3.jpg"/></dt>
+							<dt><img src="img/dd_focus_4.jpg"/></dt>
+							<dd><a class="blue" href="#" target="_self">郑玉巧育儿经·幼儿卷</a></dd>
+							<dd><a class="blue" href="#" target="_self">蹦蹦和跳跳的故事(全10册)</a></dd>
+							<dd><a class="blue" href="#" target="_self">人体自有大药(让每一个人都能变成...</a></dd>
+							<dd><a class="blue" href="#" target="_self">特效穴位使用手册</a></dd>
+							<dd>定价：￥49.80
+								<br />当当价：￥32.00</dd>
+							<dd>定价：￥50.00
+								<br />当当价：￥33.00</dd>
+							<dd>定价：￥29.00
+								<br />当当价：￥19.40</dd>
+							<dd>定价：￥29.00
+								<br />当当价：￥19.40</dd>
+							<dt><img src="img/dd_focus_5.jpg"/></dt>
+							<dt><img src="img/dd_focus_6.jpg"/></dt>
+							<dt><img src="img/dd_focus_7.jpg"/></dt>
+							<dt><img src="img/dd_focus_8.jpg"/></dt>
+							<dd><a class="blue" href="#" target="_self">《猫武士系列》（全6册）</a></dd>
+							<dd><a class="blue" href="#" target="_self">求医不如求己养生救命大宝典</a></dd>
+							<dd><a class="blue" href="#" target="_self">雅思词汇词根+联想记忆法</a></dd>
+							<dd><a class="blue" href="#" target="_self">等待Nemo的日子</a></dd>
+							<dd>定价：￥120.00
+								<br />当当价：￥79.20</dd>
+							<dd>定价：￥198.00
+								<br />当当价：￥116.90</dd>
+							<dd>定价：￥28.00
+								<br />当当价：￥18.70</dd>
+							<dd>定价：￥26.00
+								<br />当当价：￥17.90</dd>
+						<dl/>		
+					</div>
+				</div>
+			</div>
+			<div id="main_right">
+				<div class="main_right_top">
+					<div class="book_express"><img src="img/dd_book_mess.gif" class="book_pic_three"/>书讯快递</div>
+					<div class="book_roll">
+						<ul class="book_roll_one">
+							<li>・2010考研英语大纲到货75折...</li>
+                            <li>・权威定本四大名著（人民文...</li>
+                            <li>・口述历史权威唐德刚先生国...</li>
+                            <li>・袁伟民与体坛风云：实话实...</li>
+                            <li>・我们台湾这些年：轰动两岸...</li>
+                            <li>・畅销教辅推荐：精品套书50...</li>
+                            <li>・2010版法律硕士联考大纲75...</li>
+                            <li>・计算机新书畅销书75折抢购</li>
+                            <li>・2009年孩子最喜欢的书&gt;&gt;</li>
+                            <li>・弗洛伊德作品精选集59折</li>
+                            <li>・2010考研英语大纲到货75折...</li>
+                            <li>・权威定本四大名著（人民文...</li>
+                            <li>・口述历史权威唐德刚先生国...</li>
+                            <li>・袁伟民与体坛风云：实话实...</li>
+                            <li>・我们台湾这些年：轰动两岸...</li>
+                            <li>・畅销教辅推荐：精品套书50...</li>
+                            <li>・2010版法律硕士联考大纲75...</li>
+                            <li>・计算机新书畅销书75折抢购</li>
+                            <li>・2009年孩子最喜欢的书&gt;&gt;</li>
+                            <li>・弗洛伊德作品精选集59折</li>
+						</ul>
+					</div>
+					<div class="book_pic_one"><img src="img/dd_book_right_adver1.jpg"/></div>
+					<div class="book_pic_two"><img src="img/dd_book_right_adver2.gif"/></div>
+				</div>
+				<div class="main_right_footer">
+					<div class="seven_day">近7天畅销榜 <img src="img/dd_bang.gif" style="vertical-align: text-bottom;"/></div>
+					<div class="main_right_footer_menu">
+						<ul>
+							<li class="right_mid_menu">励志</li>
+							<li class="right_mid_menu">旅游</li>
+							<li class="right_mid_menu">外语</li>
+							<li class="right_mid_menu">小说</li>
+							<li class="right_mid_menu">动漫 </li>
+						</ul>
+					</div>
+					<div class="main_right_footer_last">
+						<div class="book_seven_num">
+							<dl>
+								<dt class="seven_num_start"><img src="img/dd_book_no_01.gif"/></dt>
+								<dt class="seven_num_start"><img src="img/dd_book_no_02.gif"/></dt>
+								<dt class="seven_num_start"><img src="img/dd_book_no_03.gif"/></dt>
+								<dd class="seven_num_end"><img src="img/dd_book_no_04.gif"/></dd>
+								<dd class="seven_num_end"><img src="img/dd_book_no_05.gif"/></dd>
+								<dd class="seven_num_end"><img src="img/dd_book_no_06.gif"/></dd>
+								<dd class="seven_num_end"><img src="img/dd_book_no_07.gif"/></dd>
+							</dl>							
+						</div>
+						<div class="book_seven_pic">
+							<dl>
+								<dt><img src="img/dd_seven_hearten_01.jpg"/></dt>
+								<dd><a href="#" target="_self">不抱怨的世界</a><br />
+									作者：（美）鲍温<br />
+									出版社：陕西师范<br />
+									出版时间：2009年4月
+								</dd>
+								<dt><img src="img/dd_seven_hearten_02.jpg"/></dt>
+								<dd><a href="#" target="_self">遇见未知的自己</a><br />
+									作者：张德芬<br />
+									出版社：华夏出版<br />
+									出版时间：2008年1月
+								</dd>
+								<dt><img src="img/dd_seven_hearten_03.jpg"/></dt>
+								<dd><a href="#" target="_self">活着</a><br />
+									作者：（日）稻盛<br />
+									出版社：东方出版<br />
+									出版时间：2005年3月
+								</dd>
+							</dl>
+							<ul>
+								<li><a href="#" target="_self">高效能人士的七个习惯</a></li>
+								<li><a href="#" target="_self">被迫强大</a></li>
+								<li><a href="#" target="_self">遇见心想事成的自己</a></li>
+								<li><a href="#" target="_self">世界上最伟大的推销员</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--下部-->
+		<div id="footer"></div>
+	</body>
+
+</html>

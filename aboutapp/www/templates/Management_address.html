@@ -1,0 +1,59 @@
+<ion-view class="release_order management_address" ng-clock>
+	<div class="bar bar-header">
+		<a href="#/tab" style="position:absolute;top:0;left:0;" nav-direction="back">
+			<img id="return" src="img/nav_return.png"  />
+		</a>
+		<!--<img id="return" class="posit" src="img/nav_return.png" ng-click="nextgo('tab')"></img>-->	
+		<div class="title">管理地址</div>
+		<img id="add"class="posit Release_ordergo" src="img/nav_add.png" alt="" ng-click="clearAdddz('Management_address')" />
+	</div>
+	<ion-view class="content has-header" >
+		<ion-pane style="background-color:#eee;">
+			<ion-content>
+			    <div class="list">
+					<div class="item" ng-repeat="x in insertaddress">
+						<div class="Release_ordergo" ng-click="gomodifydz({{x.id}},'Management_address')">
+							<h2><span style="max-width:58px;display:inline-block;text-overflow:ellipsis;overflow: hidden;vertical-align: bottom;">{{x.name}}</span> {{x.mobile}}</h2>
+							<p>{{x.area}}</p><br />
+							<p>{{x.detail}}</p>
+						</div>
+						<div class="fun_management" ng-switch={{x.status}}>
+							<div ng-switch-when="2">
+								<img src="img/ic_radio_selected.png" alt="" /> 默认地址
+							</div>
+							<div ng-switch-when="1">
+								<img src="img/ic_radio_nomal.png" alt="" /> 设置为默认地址
+							</div>
+							<div ng-click="onItemDelete_address(x)">
+								<img src="img/ic_delete.png" alt=""  /> 删除
+							</div>
+							<div ng-click="gomodifydz({{x.id}},'Management_address')">
+								<img src="img/ic_editor.png" alt="" /> 编辑
+							</div>
+						</div>
+						
+						<!--<div class="Release_ordergo" ng-click="goback()">
+							<h2><span style="max-width:58px;display:inline-block;text-overflow:ellipsis;overflow: hidden;vertical-align: bottom;">王尼玛</span> 13579246810</h2>
+							<p>广东省 佛山市 禅城区</p><br />
+							<p>季华六路九鼎国际公寓4座1110阿啪啪信息科技</p>
+						</div>
+						<div class="fun_management" ng-switch>
+							<div>
+								<img src="img/ic_radio_selected.png" alt="" /> 默认地址
+							</div>
+							<div>
+								<img src="img/ic_radio_nomal.png" alt="" /> 设置为默认地址
+							</div>
+							<div ng-click="onItemDelete(item,{{this.$index}})">
+								<img src="img/ic_delete.png" alt=""  /> 删除
+							</div>
+							<div>
+								<img src="img/ic_editor.png" alt="" /> 编辑
+							</div>
+						</div>-->
+					</div>
+				</div>
+			</ion-content>
+		</ion-pane>
+	</ion-view>
+</ion-view>

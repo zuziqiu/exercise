@@ -1,0 +1,173 @@
+<!--style="transition:none;"-->
+<ion-view class="Peripheral_orders Peripheral_ordersp">
+	<div class="bar bar-header" >
+		<div class="title">周边订单</div>
+		<img id="nav_scan" src="img/nav_scan.png" ng-click="scanBarcode()" alt=""/>
+		<img id="nav_release" src="img/nav_release.png" alt=""  ng-click="nav_release()" />
+	</div>	
+		
+	<div class="list state" >
+		<div class="item row" style="padding:0;border-bottom:1px solid #adadad;border-top:1px solid #adadad;" >
+			<div class="col">
+				<div class="col-demo">
+					类型
+				</div>
+				<img src="img/ic_classification.png" alt="" />
+			</div>
+			<div class="col" style="border-left:1px solid #adadad;border-right:1px solid #adadad;">
+				<div class="col-demo">
+					状态
+				</div>
+				<img src="img/ic_classification.png" alt="" />
+			</div>
+			<div class="col">
+				<div class="col-demo">
+					快递公司
+				</div>
+				<img src="img/ic_classification.png" alt="" />
+			</div>
+		</div>
+		<ion-scroll style="height:300px;">
+			<div class="item state_content" style="display: block;">
+				<p>全部 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_selected.png" alt="" /></span></p>
+				<p>悬赏订单 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_nomal.png" alt="" /></span></p>
+				<p>预约订单 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_nomal.png" alt="" /></span></p>
+				<p>普通订单 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_nomal.png" alt="" /></span></p>
+			</div>
+			<div class="item state_content">
+				<p>全部 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_selected.png" alt="" /></span></p>
+				<p>未确认 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_nomal.png" alt="" /></span></p>
+				<p>待收件 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_nomal.png" alt="" /></span></p>
+				<p>已寄出 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_nomal.png" alt="" /></span></p>
+				<p>已签收 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_nomal.png" alt="" /></span></p>
+			</div>
+			<div class="item state_content state_content_sp">
+				<p>德邦快递 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_selected.png" alt="" /></span></p>
+				<p>百世汇通 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_nomal.png" alt="" /></span></p>
+				<p>EMS <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_nomal.png" alt="" /></span></p>
+				<p>申通快递 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_nomal.png" alt="" /></span></p>
+				<p>顺丰快递 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_nomal.png" alt="" /></span></p>
+				<p>韵达快递 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_nomal.png" alt="" /></span></p>
+				<p>圆通快递 <span class="item-note"><img class="ic_radio_selected" src="img/ic_radio_nomal.png" alt="" /></span></p>
+			</div>
+		</ion-scroll>
+	</div>
+	<ion-view class="content has-header" >
+		<ion-pane style="background-color:#eee;">	
+			<ion-content>
+				<ion-refresher pulling-text="刷新" on-refresh="doRefresh()"></ion-refresher>
+				<div class="tab" animation="slide-left-right-ios7"  style="">
+					<ion-slide-box on-slide-changed="slideHasChanged($index)" style="text-align: center;" active-slide="myActiveSlide" delegate-handle="slideimgs" does-continue="true" auto-play="true" slide-interval=2000 >
+						<ion-slide ng-repeat="x in imgcarousel">
+							<img class="tab_bg" ng-src="{{x.slide_pic}}" alt="暂无图片" />
+						</ion-slide>
+					</ion-slide-box>
+				</div>
+				<div class="list" ng-if="myorderif">
+					<div class="item item-button-right" style="height:40px;padding:12px 16px;">
+						我的订单
+						<a class="button">
+							更多
+							<img  class="posit" src="img/list_more.png" alt="" />
+						</a>
+					</div>
+					<a class="item item-avatar Peripheral_orders_go" href="#/order_detail_main">
+						<img src="img/list_shunfeng.png" alt="" />
+						<h2 >订单号:{{newmyorder.code}} <span class="item-note">未付款</span></h2>
+						<p>{{newmyorder.sender_area_name.split(" ").join("")}}<img src="img/list_travel.png" alt="" />{{newmyorder.recipient_area_name.split(" ").join("")}}</p>
+						<p>{{newmyorder.goods_kind_name}}<span class="item-note">{{newmyordertime}}</span></p>
+					</a>
+				</div>
+				<div class="list">
+
+					<div class="item item-button-right" style="height:40px;padding:12px 16px;">
+						周边订单
+						<a class="button">
+							附近快递员
+							<img class="posit" src="img/list_more.png" alt="" />
+						</a>
+					</div>
+					
+					<div class="item row row_list" ng-click="fn()" style="padding:0;color:#666;" >
+						<div class="col">
+							<div class="col-demo">
+								类型
+							</div>
+							<img src="img/ic_classification.png" alt="" />
+						</div>
+						<div class="col" style="border-left:1px solid #adadad;border-right:1px solid #adadad;">
+							<div class="col-demo">
+								状态
+							</div>
+							<img src="img/ic_classification.png" alt="" />
+						</div>
+						<div class="col">
+							<div class="col-demo">
+								快递公司
+							</div>
+							<img src="img/ic_classification.png" alt="" />
+						</div>
+						<div class="list">
+							
+						</div>
+					</div>
+
+					<a class="item item-avatar" href="###">
+						<img src="img/people01.png" alt="" />
+						<h2>粉红色的鸡叔</h2>
+						<p>广东省佛上市<img src="img/list_travel.png" alt="" />湖北省武汉市</p>
+						<p>家用电器</p>
+					</a>
+					<a class="item item-avatar" href="###">
+						<img src="img/people01.png" alt="" />
+						<h2>粉红色的鸡叔</h2>
+						<p>广东省佛上市<img src="img/list_travel.png" alt="" />湖北省武汉市</p>
+						<p>家用电器</p>
+					</a>
+					<a class="item item-avatar" href="###">
+						<img src="img/people01.png" alt="" />
+						<h2>粉红色的鸡叔</h2>
+						<p>广东省佛上市<img src="img/list_travel.png" alt="" />湖北省武汉市</p>
+						<p>家用电器</p>
+					</a>
+					<a class="item item-avatar" href="###">
+						<img src="img/people01.png" alt="" />
+						<h2>粉红色的鸡叔</h2>
+						<p>广东省佛上市<img src="img/list_travel.png" alt="" />湖北省武汉市</p>
+						<p>家用电器</p>
+					</a>
+					<a class="item item-avatar" href="###">
+						<img src="img/people01.png" alt="" />
+						<h2>粉红色的鸡叔</h2>
+						<p>广东省佛上市<img src="img/list_travel.png" alt="" />湖北省武汉市</p>
+						<p>家用电器</p>
+					</a>
+					<a class="item item-avatar" href="###">
+						<img src="img/people01.png" alt="" />
+						<h2>粉红色的鸡叔</h2>
+						<p>广东省佛上市<img src="img/list_travel.png" alt="" />湖北省武汉市</p>
+						<p>家用电器</p>
+					</a>
+					<a class="item item-avatar" href="###">
+						<img src="img/people01.png" alt="" />
+						<h2>粉红色的鸡叔</h2>
+						<p>广东省佛上市<img src="img/list_travel.png" alt="" />湖北省武汉市</p>
+						<p>家用电器</p>
+					</a>
+					<a class="item item-avatar" href="###">
+						<img src="img/people01.png" alt="" />
+						<h2>粉红色的鸡叔</h2>
+						<p>广东省佛上市<img src="img/list_travel.png" alt="" />湖北省武汉市</p>
+						<p>家用电器</p>
+					</a>
+					<a class="item item-avatar" href="###">
+						<img src="img/people01.png" alt="" />
+						<h2>粉红色的鸡叔</h2>
+						<p>广东省佛上市<img src="img/list_travel.png" alt="" />湖北省武汉市</p>
+						<p>家用电器</p>
+					</a>
+				</div>
+			</ion-content>
+		</ion-pane>
+	</ion-view>
+</ion-view>

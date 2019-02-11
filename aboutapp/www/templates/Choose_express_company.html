@@ -1,0 +1,263 @@
+<ion-view class="release_order choose_express_company" ng-clock>
+	<div class="bar bar-header">
+		<img id="return" class="posit" src="img/nav_return.png" ng-click="goback()"></img>	
+		<div class="title">选择快递公司</div>
+		<div class="choose_express_save posit">确定</div>
+	</div>
+	<ion-view class="content has-header" >
+		<ion-pane style="background-color:#eee;">
+			<ion-content>
+				<div class="list detailed choose_express">
+					<button class="item item-avatar" ng-repeat="x in list1" ng-click="choose_express($event)">
+						<img src="" alt="暂无图片" />
+						<p>{{x.name}}</p>
+						<img class="posit" src="img/ic_ checkbox _nomal.png" alt="" />
+					</button>
+				</div>
+			</ion-content>
+			<div class="location_marker">
+				<div>A</div>
+				<div>B</div>
+				<div>C</div>
+				<div>D</div>
+				<div>E</div>
+				<div>F</div>
+				<div>G</div>
+				<div>H</div>
+				<div>I</div>
+				<div>J</div>
+				<div>K</div>
+				<div>L</div>
+				<div>M</div>
+				<div>N</div>
+				<div>O</div>
+				<div>P</div>
+				<div>Q</div>
+				<div>R</div>
+				<div>S</div>
+				<div>T</div>
+				<div>U</div>
+				<div>V</div>
+				<div>W</div>
+				<div>X</div>
+				<div>Y</div>
+				<div>Z</div>
+			</div>
+		</ion-pane>
+	</ion-view>
+</ion-view>
+
+
+<!--<!DOCTYPE html>
+<html ng-app="ionicApp">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>选择快递公司</title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link href="lib/ionic/css/ionic.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/Release_order.css"/>
+		<script src="lib/ionic/js/ionic.bundle.min.js"></script>
+		<script src="js/iscroll.js" type="text/javascript"></script>
+		<script src="js/jquery-1.12.2.min.js" type="text/javascript"></script>
+		<script src="js/controller.js" type="text/javascript"></script>
+		<style>
+			#return{
+				width:0.8rem;
+				padding:16px;
+				box-sizing: content-box;
+				left:0;
+				z-index: 1;
+			}
+			.detailed{
+				padding:0 30px 0 16px;
+				
+			}
+			.item p {
+			    color: #181818;
+			}
+			.detailed .item-avatar{
+				padding:14px 28px 10px 54px;
+				text-align: left;
+			}
+			.item-avatar>img:first-child{
+				max-width:40px;
+				max-height:40px;
+				left:0;
+			}
+			.item>img:last-child{
+				width:16px;
+				right:16px;
+			}
+			.location_marker{
+				position:fixed;
+				right:7px;
+				width:12px;
+				top:5%;
+			}
+			.location_marker>div{
+				width:15px;
+				height:15px;
+				margin:5px 0;
+				font-size: 8px;
+				line-height:15px;
+				/*background-color:midnightblue;*/
+				color:#333;
+				border-radius:50%;
+				text-align: center;
+			}
+			.location_marker .location_marker_choose{
+				background-color:midnightblue;
+				color:#fff;
+			}
+			 .choose_express_save{
+				height:30px;
+				right:16px;
+				padding:0 10px;
+				background-color:#ffe500;
+				border:1px solid #181818;
+				border-radius: 4px;
+				line-height: 30px;
+				font-weight: bold;
+			
+			}
+			@media screen and (max-width:320px){
+				.platform-ios .location_marker{
+					top:0;
+				}
+			}
+		</style>
+ 	</head>
+	<body id="main">
+		<div class="bar bar-header">
+			<img id="return" class="posit" src="img/nav_return.png" data-url="-1"></img>	
+			<div class="title">选择快递公司</div>
+			<div class="choose_express_save posit">确定</div>
+		</div>
+		<ion-view class="content has-header" >
+			<ion-pane style="background-color:#eee;">
+				<ion-content>
+					<div class="list detailed choose_express">
+						<button class="item item-avatar" >
+							<img src="img/list_baogou.png" alt="" />
+							<p>包裹信件</p>
+							<img class="posit" src="img/ic_ checkbox _nomal.png" alt="" />
+						</button>
+						<button class="item item-avatar">
+							<img src="img/list_huitong.png" alt="" />
+							<p>百世汇通</p>
+							<img class="posit" src="img/ic_ checkbox _nomal.png" alt="" />
+						</button>
+						<button class="item item-avatar">
+							<img src="img/list_debang.png" alt="" />
+							<p>德邦</p>
+							<img class="posit" src="img/ic_ checkbox _nomal.png" alt="" />
+						</button>
+						<button class="item item-avatar">
+							<img src="img/list_ems.png" alt="" />
+							<p>EMS</p>
+							<img class="posit" src="img/ic_ checkbox _nomal.png" alt="" />
+						</button>
+						<button class="item item-avatar">
+							<img src="img/list_shengtong.png" alt="" />
+							<p>申通快递</p>
+							<img class="posit" src="img/ic_ checkbox _nomal.png" alt="" />
+						</button>
+						<button class="item item-avatar">
+							<img src="img/list_shunfeng.png" alt="" />
+							<p>顺丰快递</p>
+							<img class="posit" src="img/ic_ checkbox _nomal.png" alt="" />
+						</button>
+						<button class="item item-avatar">
+							<img src="img/list_yunda.png" alt="" />
+							<p>韵达快递</p>
+							<img class="posit" src="img/ic_ checkbox _nomal.png" alt="" />
+						</button>
+						<button class="item item-avatar">
+							<img src="img/list_yuantong.png" alt="" />
+							<p>圆通快递</p>
+							<img class="posit" src="img/ic_ checkbox _nomal.png" alt="" />
+						</button>
+						<button class="item item-avatar">
+							<img src="img/list_zhongtong.png" alt="" />
+							<p>中通快递</p>
+							<img class="posit" src="img/ic_ checkbox _nomal.png" alt="" />
+						</button>
+						<button class="item item-avatar">
+							<img src="img/list_zhongtong.png" alt="" />
+							<p>中通快递</p>
+							<img class="posit" src="img/ic_ checkbox _nomal.png" alt="" />
+						</button>
+						<button class="item item-avatar">
+							<img src="img/list_zhongtong.png" alt="" />
+							<p>中通快递</p>
+							<img class="posit" src="img/ic_ checkbox _nomal.png" alt="" />
+						</button>
+						<button class="item item-avatar">
+							<img src="img/list_zhongtong.png" alt="" />
+							<p>中通快递</p>
+							<img class="posit" src="img/ic_ checkbox _nomal.png" alt="" />
+						</button>
+					</div>
+				</ion-content>
+				<div class="location_marker">
+					<div>A</div>
+					<div>B</div>
+					<div>C</div>
+					<div>D</div>
+					<div>E</div>
+					<div>F</div>
+					<div>G</div>
+					<div>H</div>
+					<div>I</div>
+					<div>J</div>
+					<div>K</div>
+					<div>L</div>
+					<div>M</div>
+					<div>N</div>
+					<div>O</div>
+					<div>P</div>
+					<div>Q</div>
+					<div>R</div>
+					<div>S</div>
+					<div>T</div>
+					<div>U</div>
+					<div>V</div>
+					<div>W</div>
+					<div>X</div>
+					<div>Y</div>
+					<div>Z</div>
+				</div>
+			</ion-pane>
+		</ion-view>
+		<script src="js/base.js" type="text/javascript"></script>
+		<script src="js/Release_order.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			
+			$(".choose_express>button").click(function(){
+				if($(this).children().eq(2).attr("src")=="img/ic_ checkbox _nomal.png"){
+					$(this).children().eq(2).attr("src","img/ic_ checkbox _selecte.png").parent().addClass("already_choose");
+				}else{
+					$(this).children().eq(2).attr("src","img/ic_ checkbox _nomal.png").parent().removeClass("already_choose");
+				}
+			})
+			$(".choose_express_save").click(function(){
+				var str="";
+				for(var i=0; i<$(".already_choose").length;i++){
+					str += $(".already_choose").eq(i).find("p").html() + " ";
+					if(i==$(".already_choose").length-1){
+						localStorage.setItem("already_choose_express",str);
+						history.go(-1);
+					}
+				}
+			})
+			$(".location_marker>div").click(function(){
+				$(".location_marker").find("div").removeClass("location_marker_choose")
+				$(this).addClass("location_marker_choose");
+			})
+			
+		</script>
+		<script src="cordova.js"></script>
+	</body>
+</html>-->
