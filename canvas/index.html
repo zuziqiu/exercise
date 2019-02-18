@@ -5,14 +5,17 @@
 		<title></title>
 	</head>
 	<body>
-		<img id="img" src="img/d043ad4bd11373f0581e4ed7a40f4bfbfbed0450.jpg" width="200" height="200"/>
-		<img id="image" hidden src="img/5d6b5543fbf2b2119ebeb5a3ca8065380dd78e19.jpg" width="200" height="200"/>
-		<canvas id="canvas" width="500" height="500"></canvas>
+		<!-- <img id="img" src="img/d043ad4bd11373f0581e4ed7a40f4bfbfbed0450.jpg" width="200" height="200"/>
+		<img id="image" hidden src="img/5d6b5543fbf2b2119ebeb5a3ca8065380dd78e19.jpg" width="200" height="200"/> -->
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script src="./js/canvasManager.js"></script>
 		<script>
 		  	window.onload = function(){
-		  	drawimges("canvas");
-		  	drawimg("canvas");
-		  	draw("canvas");
+		  	// drawimges("canvas");
+		  	// drawimg("canvas");
+        // draw("canvas");
+        // demo1('canvas');
+        drawPath('canvas');
 			function drawimges(id){
 				var canvas=document.getElementById(id);
 				var context=canvas.getContext("2d"); 
@@ -53,8 +56,21 @@
 				context.fillStyle="red";
 				context.arc(60,60,30,0,Math.PI*2,false);
 				context.fill();
-			}
-		}
+      }
+      function demo1(id){
+        var canvas = document.getElementById(id);
+        var context = canvas.getContext("2d");
+        　　    
+        context.strokeStyle = "#ff0000";
+
+        context.moveTo(20, 20);
+        context.lineTo(20, 70);
+        context.moveTo(70, 70);
+        context.lineTo(20, 20);
+        context.stroke();
+        }
+      }
+
 		</script>
 	</body>
 </html>
