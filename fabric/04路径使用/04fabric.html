@@ -1,106 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>04fabric.js</title>
-    <script src="./../js/fabric.min.js"></script>
-    <style type="text/css">
-        /* body{
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>04fabric.js</title>
+  <script src="./../js/fabric.min.js"></script>
+  <style type="text/css">
+    /* body{
             background: #ccc;
         } */
-        canvas{
-            border: 2px solid #dddddd;
-        }
-        #live_img{
-            display: none;
-        }
-    </style>
+    canvas {
+      border: 2px solid #dddddd;
+    }
+
+    #live_img {
+      display: none;
+    }
+  </style>
 </head>
+
 <body>
-    <canvas id="canvas" width="800" height="800"></canvas>
-    <img src="./../img/live.png" id="live_img" alt="">
-    <script type="text/javascript">
+  <canvas id="canvas" width="800" height="800"></canvas>
+  <img src="./../img/live.png" id="live_img" alt="">
+  <script type="text/javascript">
     var ab = {
-        init: function(){
+      init: function () {
 
-            var canvas = new fabric.Canvas('canvas');
+        var canvas = new fabric.Canvas('canvas');
 
-            // var path = new fabric.Path('M 0 0 L 200 100 L 170 200  Z');
-            //                          //第一点   第二点    第三点     闭合
-            // path.set({
-            //     left: 120,
-            //     top: 120,
-            //     fill: 'red'
-            // })
-            // canvas.add(path);
-            canvas.on('mouse:down', (data) => {
-                mouseDown(data)
-            })
-            // Move
-            canvas.on('mouse:move', (data) => {
-                mouseMove(data)
-            })
-            canvas.on('mouse:up', (data) => {
-                mouseUp()
-            })
+        // var path = new fabric.Path('M 0 0 L 200 100 L 170 200  Z');
+        //                          //第一点   第二点    第三点     闭合
+        // path.set({
+        //     left: 120,
+        //     top: 120,
+        //     fill: 'red'
+        // })
+        // canvas.add(path);
+        canvas.on('mouse:down', (data) => {
+          mouseDown(data)
+        })
+        // Move
+        canvas.on('mouse:move', (data) => {
+          mouseMove(data)
+        })
+        canvas.on('mouse:up', (data) => {
+          mouseUp()
+        })
 
-            this.onPress = false
-            function mouseUp () {
-                this.onPress = false
-                canvas.renderAll()
-            }
-            function mouseDown (data) {
-                console.error('down',data)
-                if (!this.onPress) {
-                    this.onPress = true
-                    // this._drawPath = 'M ' + data.e.offsetX + ' ' + data.e.offsetY + ' '
-                    this.interimPath = []
-                    this._drawPath = []
-                    this._drawPath.push('M')
-                    this._drawPath.push(data.e.offsetX)
-                    this._drawPath.push(data.e.offsetY)
-                    //起始点
-                    // this.point = {x: data.e.offsetX * 2, y: data.e.offsetY * 2};
-                    // this.beginPoint = this.previousPoint = this.point;
-                //   this._Path = new fabric.Path(this._drawPath.toString().replace(/\,/g, ' '))
-                //   canvas.add(this._Path)
-                // canvas.freeDrawingBrush.opacity = 0.5
-                // canvas.renderAll()
-                }
-            }
-            // move
-            function mouseMove (data) {
-                // if (document.querySelector('.upper-canvas')) {
-                //     document.querySelector('.upper-canvas').style.cursor = cursor.draw
-                // }
-                if (this.onPress) {
-                    this.interimPath.push({x: data.e.offsetX, y: data.e.offsetY})
-                    if (this.interimPath.length >= 2) {
-                        this._drawPath.push('L')
-                        this._drawPath.push(Math.ceil((this.interimPath[0].x + this.interimPath[1].x) / 2))
-                        this._drawPath.push(Math.ceil((this.interimPath[0].y + this.interimPath[1].y) / 2))
-                        this.interimPath.splice(0, 2)
-                    }
-                    console.error(this._drawPath.toString().replace(/\,/g, ' '))
+        this.onPress = false
 
-                    this._Path = new fabric.Path(this._drawPath.toString().replace(/\,/g, ' '))
-                    this._Path.set({
-                        fill: false,
-                        stroke: '#000000',
-                        strokeWidth: 4
-                    })
-                    canvas.add(this._Path)
-                    // this._Path = new fabric.Path('M 100 100 L 200 200 L 220 300 Z')
-                    // todo...
-                    canvas.renderAll()
-                }
-            }
-                        
+        function mouseUp() {
+          this.onPress = false
+          canvas.renderAll()
         }
+
+        function mouseDown(data) {
+          console.error('down', data)
+          if (!this.onPress) {
+            this.onPress = true
+            // this._drawPath = 'M ' + data.e.offsetX + ' ' + data.e.offsetY + ' '
+            this.interimPath = []
+            this._drawPath = []
+            this._drawPath.push('M')
+            this._drawPath.push(data.e.offsetX)
+            this._drawPath.push(data.e.offsetY)
+            //起始点
+            // this.point = {x: data.e.offsetX * 2, y: data.e.offsetY * 2};
+            // this.beginPoint = this.previousPoint = this.point;
+            //   this._Path = new fabric.Path(this._drawPath.toString().replace(/\,/g, ' '))
+            //   canvas.add(this._Path)
+            // canvas.freeDrawingBrush.opacity = 0.5
+            // canvas.renderAll()
+          }
+        }
+        // move
+        function mouseMove(data) {
+          // if (document.querySelector('.upper-canvas')) {
+          //     document.querySelector('.upper-canvas').style.cursor = cursor.draw
+          // }
+          if (this.onPress) {
+            this.interimPath.push({
+              x: data.e.offsetX,
+              y: data.e.offsetY
+            })
+            if (this.interimPath.length >= 2) {
+              this._drawPath.push('L')
+              this._drawPath.push(Math.ceil((this.interimPath[0].x + this.interimPath[1].x) / 2))
+              this._drawPath.push(Math.ceil((this.interimPath[0].y + this.interimPath[1].y) / 2))
+              this.interimPath.splice(0, 2)
+            }
+            console.error(this._drawPath.toString().replace(/\,/g, ' '))
+
+            this._Path = new fabric.Path(this._drawPath.toString().replace(/\,/g, ' '))
+            this._Path.set({
+              fill: false,
+              stroke: '#000000',
+              strokeWidth: 4
+            })
+            canvas.add(this._Path)
+            // this._Path = new fabric.Path('M 100 100 L 200 200 L 220 300 Z')
+            // todo...
+            canvas.renderAll()
+          }
+        }
+
+      }
     }
     ab.init()
-    </script>
+  </script>
 </body>
+
 </html>

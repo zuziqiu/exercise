@@ -1,40 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>02fabric.js</title>
-    <script src="./../js/fabric.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>02fabric.js</title>
+  <script src="./../js/fabric.min.js"></script>
 </head>
+
 <body>
-    <canvas id="canvas" width="800" height="800"></canvas>
-    <script type="text/javascript">
-        var canvas = new fabric.Canvas("canvas");
-        var rect = new fabric.Rect({
-            left: 100,
-            top: 100,
-            fill: "red",
-            width: 30,
-            height: 30
-        })
-        var cricle = new fabric.Circle({
-            radius:50,
-            fill:"green",
-            left: 300,
-            top:300,
-            top:200,
-        });
-        var triangle = new fabric.Triangle({
-            width: 100,
-            height: 100,
-            fill: "blue",
-            left:150,
-            top:150,
-        });
-        canvas.add(rect);
-        canvas.add(cricle);
-        canvas.add(triangle);
-    </script>
+  <canvas id="canvas" width="800" height="800"></canvas>
+  <script type="text/javascript">
+    var canvas = new fabric.Canvas("canvas");
+    canvas.set({
+      selectable: false,
+      selection: false,
+      hasControls: false,
+      hasRotatingPoint: false,
+      hasBorders: false
+    })
+    canvas.on('selection:created', (data) => {
+      // if (!this.curBrushObject) return      
+      setTimeout(() => {
+        // canvas.discardActiveObject(data.target) //?
+        data.target.selectable = false
+        data.target.selection = false
+      }, 0);
+      console.log(data)
+    })
+    var rect = new fabric.Rect({
+      left: 100,
+      top: 100,
+      fill: "red",
+      width: 30,
+      height: 30,
+      selectable: true,
+      selection: true
+    })
+    var cricle = new fabric.Circle({
+      radius: 50,
+      fill: "green",
+      left: 300,
+      top: 300,
+      top: 200,
+      selectable: true,
+      selection: true
+    });
+    var triangle = new fabric.Triangle({
+      width: 100,
+      height: 100,
+      fill: "blue",
+      left: 150,
+      top: 150,
+      selectable: false,
+      selection: false
+    });
+    canvas.add(rect);
+    canvas.add(cricle);
+    canvas.add(triangle);
+    // let klss = canvas.getObjects()
+    // let klssObj = new fabric.ActiveSelection(klss, {
+    //   canvas: canvas
+    // })
+    canvas.setActiveObject(triangle) //?
+    console.log(triangle)
+    // canvas.discardActiveObject(klssObj) //?
+  </script>
 </body>
+
 </html>

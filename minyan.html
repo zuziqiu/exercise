@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .girl,
+    .man {
+      height: 150px;
+      position: relative;
+      margin-top: 40%;
+      left: 50%;
+      transform: translate(-50%);
+    }
+
+    .girl,
+    .man {
+      display: none;
+    }
+
+    .g_a,
+    .m_a {
+      display: none;
+    }
+
+    p {
+      text-align: center;
+      margin: 0px auto;
+      width: 100px;
+      height: 30px;
+      background: #FF66CC;
+      border-radius: 15px;
+      color: #fff;
+      font-size: 20px;
+      line-height: 30px;
+    }
+
+    .g_q,
+    .m_q,
+    .g_a,
+    .m_a {
+      position: absolute;
+      top: 0px;
+      left: 50%;
+      transform: translate(-50%)
+    }
+    .m_a_b, .g_a_b {
+      position: absolute;
+      bottom: 0px;
+      left: 50%;
+      transform: translate(-50%)
+    }
+  </style>
+</head>
+
+<body>
+  <div class="girl">
+    <div class="g_q">魔镜啊，魔镜。世界上最漂亮的女人是谁</div>
+    <div class="g_a">刘敏艳</div>
+    <p class="g_a_b">答案</p>
+  </div>
+  <div class="man">
+    <div class="m_q">那么世界上最帅的男人是谁</div>
+    <div class="m_a">刘敏艳她爸爸，居然生了她</div>
+    <p class="m_a_b">答案</p>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script>
+    window.onload = function () {
+      $('.girl').fadeIn(500, function () {
+        $('.g_a_b').on('click', function () {
+          $('.g_q').css({
+            'display': 'none'
+          });
+          $('.g_a').fadeIn(1200, function () {
+            $('.girl').fadeOut(500, function(){
+              $('.man').css('display', 'block');
+            })
+          });
+        })
+        $('.m_a_b').on('click', function () {
+          $('.m_q').css({
+            'display': 'none'
+          });
+          $('.m_a').fadeIn(2000)
+        })
+      })
+    }
+  </script>
+</body>
+
+</html>

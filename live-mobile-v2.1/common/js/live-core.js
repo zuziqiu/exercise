@@ -19,7 +19,7 @@ seajs.resPath = "static-1.talk-fun.com";
  * H5-SDK包配置
  */
 var getSdkPack = function(){
-    var urlPath = '//' + seajs.resPath + '/open/maituo_v2/dist/live/mobile/h5/sdk-mobile.' + defaultVersion + '.min';
+    var urlPath = '//' + seajs.resPath + '/open/TalkFun_SDK_Pack/v2.0/sdk-mobile.pack.min';
     return urlPath;
 };
 
