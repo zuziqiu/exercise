@@ -8,9 +8,9 @@ module.exports = {
   watch: true,
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: 'whiteboard.pack.js',
+    filename: 'privateRedux.js',
     libraryTarget: 'umd',
-    library: 'whiteBoard'
+    library: 'privateRedux'
   },
   resolve: {
     alias: {
@@ -22,19 +22,15 @@ module.exports = {
   },
   module: {
     rules: [
-      // {
-      //   test: /.js/,
-      //   enforce: 'pre',
-      //   exclude: /node_modules/,
-      //   use: {
-      //     loader: `jshint-loader`
-      //   }
-      //   // use: 'jshint-loader'
-      // },
       {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        use: 'babel-loader'
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
       }
     ]
   },
@@ -45,13 +41,13 @@ module.exports = {
       template: './../src/redux.html',
       inject: 'head',
       xhtml: true,
-      chunks:['main'],
+      chunks: ['main'],
       minify: {
-          keepClosingSlash: true,
-          removeComments: true,
-          collapseWhitespace: true,
-          removeAttributeQuotes: false
+        keepClosingSlash: true,
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: false
       }
-  }),
+    }),
   ]
 };
