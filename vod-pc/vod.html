@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="cn-zh">
+
+<head>
+  <title>欢拓云点播</title>
+  <meta charset="utf-8" />
+  <meta name="renderer" content="webkit" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+  <link rel="shortcut icon" href="./css/img/favicon.ico" />
+  <link rel="stylesheet" href="./css/nouislider.css" />
+  <link rel="stylesheet" href="./css/main_v2.css" />
+  <link rel="stylesheet" href="./css/jquery-ui.css" />
+  <link rel="stylesheet" href="./css/skin/default/default.css" />
+  <link rel="stylesheet" href="./css/base.css" />
+
+  <style type="text/css">
+    .hidden {
+      display: none;
+    }
+  </style>
+
+  <script type="text/javascript">
+    var access_token = "";
+
+    window.__vod__ = true;
+    window.album = '0';
+  </script>
+</head>
+
+<body>
+  <!-- #logs -->
+  <div id="seekAmount"></div>
+  <!-- section_wrap #房间容器-->
+  <div id="room" class="section_wrap">
+    <!-- section_main #主容器-->
+    <div class="section_main">
+      <!-- col_left_side #左侧-->
+      <div id="mod_col_left" class="col_left_side has_position">
+
+        <!-- section_header #头部 -->
+        <div id="header" class="section_header">
+          <div class="head headbg">
+            <a class="logo" href="http://www.talk-fun.com"><img
+                src="http://static-1.talk-fun.com/open/cms_v2/css/manager_v2/ht_icon.png"></a>
+          </div>
+        </div>
+
+        <!-- 摄像头区 #视频区域-->
+        <div id="camera_play" class="camera_play camerabg">
+          <div class="video_state hidden">
+            <span>加载中</span>
+            <span class="ani_dot"><i></i></span>
+          </div>
+          <div id="mod_camera_player"></div>
+        </div>
+
+        <!-- 章节&专辑 -->
+        <div class="mod_section_album_list" id="album_and_chapter">
+          <span id="tab_chapter" class="tab_chapter nav">章节</span>
+          <!-- 章节列表-->
+          <div id="chapter_list" class="mod_chapter_list tab">
+            <div class="chapter_list">
+              <ul id="chapter_listli">
+
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- col_main #主要部分-->
+      <div id="mod_col_main" class="col_main">
+
+        <!-- 主信息(房间title) -->
+        <div class="mod_main_header">
+          <div class="live_info">
+            <i id="lv_state" class="lv_state palayend_state"></i>
+            <h2 id="live_title">加载中...</h2>
+          </div>
+          <div class="live_uinfo">
+            <span class="nickname">用户名称</span>
+            <span class="line">|</span>
+            <i id="quit" class="quit quit_icon"></i>
+          </div>
+        </div>
+
+        <!-- 主播放器(PPT) -->
+        <div class="mod_main_player_wp" id="mod_player_wrap">
+          <div class="mask_background">
+            <span id="loader" class="loader">
+
+            </span>
+            <div class="load_state">
+              <p>正在加载，请稍候...</p>
+              <p id="load_speed" class="load_speed">(已下载<span id="precent"></span>，速度<span id="speed"></span>)</p>
+            </div>
+          </div>
+          <!-- 继续播放  -->
+          <div class="continue_play"></div>
+
+          <!--  快进，后退 -->
+          <div class="keydown_play"></div>
+
+          <!-- 重播 -->
+          <div class="repeat">
+            <span class="repeat_play"></span>
+            <!-- <span class="next"></span> -->
+          </div>
+          <div id="loading" class="loading_mask"></div>
+          <!--主播放器显示区域(PPT)-->
+          <div id="mod_ppt_player" class="mod_ppt_main_player">
+            <div class="mod_main_player" id="mod_main_player"></div>
+          </div>
+        </div>
+
+        <!-- 左右工具栏  #carousel_left-->
+        <div class="carousel left">
+          <i id="left_arrow" class="arrow ln_arrow"></i>
+        </div>
+        <div class="carousel right">
+          <i id="right_arrow" class="arrow rn_arrow"></i>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- col_right_side #右侧-->
+    <div id="mod_col_right" class="col_right_side">
+      <!-- 提问与聊天的切换 #tab_change -->
+      <div class="tab_change">
+        <ul id="chat_nav">
+          <li class="tab_n1 current two">
+            <span class="chat">聊天</span>
+          </li>
+          <li class="tab_n2 two">
+            <span>提问</span>
+          </li>
+        </ul>
+      </div>
+      <!--聊天列表-->
+      <div id="chat_list" class="mod_chat_list tab">
+        <div class="list_chat tab_chat">
+          <ul id="chat_listli"></ul>
+          <div id="chat_operation" class="chat_operation">
+            <div class="hide_flower comm">
+              <i></i>
+              <span>不看鲜花和表情</span>
+            </div>
+            <div class="stop_chat_scroll comm">
+              <i></i>
+              <span>停止滚动</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 提问列表-->
+      <div id="question_list" class="mod_question_list tab">
+        <div class="question_chat tab_chat list_question">
+          <ul id="qustions_listli"></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer #底部 -->
+    <div id="footer" class="section_footer">
+      <!-- 切换源选项 -->
+      <div class="switch_warp">
+        <ul id="switch_list">
+
+        </ul>
+      </div>
+      <!-- 移动某个点显示时间点 -->
+      <div class="current_time">
+        <span class="point_time"></span>
+        <div class="triangle-down">
+
+        </div>
+      </div>
+      <!-- 主区域底部 #mod_footer -->
+      <div class="mod_footer pabsolute">
+        <div class="mod_ctrs">
+          <!-- == seek == -->
+          <div id="mod_seek" class="seek_con">
+            <div id="seek_range"></div>
+          </div>
+        </div>
+        <!-- 按钮区域 -->
+        <div class="footer_btn">
+          <div class="footer_left">
+            <i class="paly_state pause" id="btn_pp"></i>
+            <i class="close_play" id="close_play"></i>
+            <div class="video_time">
+              <span id="cur_time" class="ctr_cur_time">00:00:00</span>
+              <span class="ctr_cur_time">/</span>
+              <span id="totle_time" class="ctr_cur_time">00:00:00</span>
+            </div>
+            <span class="suona"></span>
+            <span class="player">
+              <span class="pla_icon"></span>
+            </span>
+            <span class="shift">
+              <i class="pla_icon"></i>
+            </span>
+          </div>
+          <div class="footer_right">
+            <!--  切换源 -->
+            <i title="网络源选择" class="switch_source" id="switch_source"></i>
+            <!-- 视频切换 -->
+            <i class="video_location" id="lca_change"></i>
+            <!-- 声音图标 -->
+            <i id="vioce_contorl" class="voice enable"></i>
+            <!-- 音频滑块 -->
+            <div id="void_range">
+            </div>
+            <!-- 全屏图标 -->
+            <i class="full_screen s_screen" id="full_screen"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ### Room End ### -->
+  </div>
+  <!-- @模版加载 -->
+  <div id="template_loader">
+    <!-- @章节列表 -->
+    <script type="text/html" id="chapters_list">
+      <li id="{{chapters.sn}}" data-time="{{chapters.starttime}}">
+          <a>
+            <div class="chapter">
+              <span class="circle">{{chapters.page}}</span>
+              
+              {{if chapters.index != 1}}
+              <i class="line"></i>
+              {{/if}}
+
+              {{if chapters.course == "null"}}
+              <span title="黑板" class="title">黑板</span> 
+              {{else}}
+              <span title="{{chapters.course}}" class="title">{{chapters.course}}</span> 
+              {{/if}}
+
+              {{if chapters.time.length < 6}}
+              <span class="chapter_time">{{chapters.time}}</span>
+              {{else if chapters.time.length > 5}}
+              <span class="chapter_time time">{{chapters.time}}</span> 
+              {{/if}}
+              <!-- <i class="p_state"></i> -->
+              <div class="hover_img">
+                  <img src="//open.talk-fun.com/open/cooperation/shangde/vod-mobile/css/img/s.png" data-osrc="{{chapters.thumb}}" onerror="notFind(this)" />
+              </div>
+            </div>  
+        </a>
+      </li>
+    </script>
+
+    <!-- Flash覆盖 -->
+    <script id="mod_swf_cover" type="text/html">
+      <div id="mod_swf_holder" class="mod_swf_placehoder">
+        <object id="mod_flash_check_cover" name="tf_swf_checker" align="middle" width="100%" height="100%" type="application/x-shockwave-flash" data="//static-1.talk-fun.com/open/maituo/static/swf/BlankStage.swf">
+            <param name="quality" value="high"/>
+            <param name="allowscriptaccess" value="always"/>
+            <param name="allowfullscreen" value="true"/>
+            <param name="wmode" value="transparent"/>
+            <param name="flashvars" value=""/>
+        </object>
+        <div class="flash_fullScreen"></div>
+        <!-- 主区域底部 #mod_footer -->
+        <div class="full_mod_footer hidden" id="full_mod_footer">
+          <div class="mod_ctrs">
+            <!-- == seek == -->
+            <div id="full_mod_seek" class="full_seek_con">
+              <div id="full_seek_range"></div>
+            </div>
+          </div>
+          <!-- 按钮区域 -->
+          <div class="footer_btn">
+            <div class="footer_left">
+              <i class="paly_state pause" id="full_btn_pp"></i>
+              <i class="close_play" id="full_close_play"></i>
+              <div class="video_time">
+                <span id="full_cur_time" class="ctr_cur_time">00:00:00</span>
+                <span class="ctr_cur_time">/</span>
+                <span id="full_totle_time" class="ctr_cur_time">00:00:00</span>
+              </div>
+              <span class="suona"></span>
+              <span class="player">
+                <span class="pla_icon"></span>
+              </span>
+              <span class="shift">
+                <i class="pla_icon"></i>
+              </span>
+            </div>
+            <div class="footer_right">
+              <!--  切换源 -->
+              <!-- 视频切换 -->
+              <!-- 声音图标 -->
+              <i id="full_vioce_contorl" class="voice enable"></i>
+              <!-- 音频滑块 -->
+              <div id="full_void_range">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </script>
+
+    <!-- #右侧 -->
+    <!--@聊天列表-->
+    <script id="chat_msg_list" type="text/html">
+
+      <li class="chat_at_{{msg.chatpoint}} message_{{msg.content}} {{msg.isShow}}" >
+      <div class="chat_hd">
+      {{if msg.role == "spadmin"}}
+        <i class="cur_use user_icon"></i>    
+      {{else if msg.role == "admin"}}
+        <i class="cur_use admin_icon"></i>    
+      {{else if msg.role == "user"}}
+        <i class="cur_use user_icon"></i>    
+      {{/if}}
+        <span title="{{msg.nickname}}" class="use_names">{{msg.nickname}}</span>
+        <span class="time">{{msg.starttime}}</span>
+      </div>
+
+      <p>{{#msg.message}}</p>
+      </li>
+      </script>
+
+    <!--@提问列表 -->
+    <script id="chat_question_list" type="text/html">
+      <li class="dash_line">
+        <a>
+          <div class="chat_hd">
+            <i class="cur_use"></i>
+            <span class="use_names q_name">{{questions.nickname}}</span>
+            <span class="time">{{questions.startTime}}</span>
+          </div>
+          <p>{{questions.content}}</p>
+        </a>  
+      </li>
+
+      {{if answers!=""}} 
+      <li class="solid_line">
+        <a>
+          <div class="chat_hd">
+            <div class="enter_arrow"></div>
+            <i class="cur_use t_role"></i>
+            <span class="use_names a_name">{{answers.nickname}}</span>
+            <span class="time">{{answers.startTime}}</span>
+          </div>
+          <p>{{answers.content}}</p>
+        </a>
+      </li>
+      {{/if}}
+    </script>
+
+
+    <!-- h5 player 倍速功能 -->
+    <script id="player_speed" type="text/template">
+      <div class="player_speed">
+        <span class="player_now_speed">
+          倍速
+        </span>
+        <ul class="player_speed_type">
+          <li class="player_speed_normal" data-speed="1">正常播放</li>
+          <li data-speed="0.75">0.75x</li>
+          <li data-speed="1.2">1.2x</li>
+          <li data-speed="1.5">1.5x</li>
+          <li data-speed="1.8">1.8x</li>
+          <li data-speed="2">2x</li>
+        </ul>
+    </div>
+    </script>
+
+    <script type="text/template" id="playback_mask">
+      <div class="playback_mask_outer">
+      <div class="playback_mask_inner">
+        <img class="playback_icon" src="./img/playback_btn.png" />
+        回放生成中，请稍后重试...
+      </div>
+      </div>
+    </script>
+
+    <script id="camera_fullScreen" type="text/template">
+      <div class="camera_fullScreen hidden fullScreen_btn"></div>
+      </script>
+    <script id="ppt_fullScreen" type="text/template">
+      <div class="ppt_fullScreen hidden fullScreen_btn"></div>
+      </script>
+    <script id="teaser" type="text/template">
+      <div class="teaser-container">
+        <span class="play_icon"></span>
+        <div class="teaser">
+          <div class="tips">
+            <span class="duration">60</span>S
+            <span class="skip">跳过片头</span>
+          </div>
+          <span class="video_fullscreen"></span>
+        </div>
+      </div>
+    </script>
+  </div>
+</body>
+<script src="./js/libs.min.js"></script>
+<script src="./js/jquery.scrollTo.min.js"></script>
+<script src="./js/nouislider.min.js"></script>
+<script src="./js/sdk-vod.4.3.min.js"></script>
+<script src="./js/mod-camera.js"></script>
+<script src="./js/module_setting.js"></script>
+<script src="./js/modules.js"></script>
+<script src="./js/vod.pc.call_v2.js"></script>
+
+</html>

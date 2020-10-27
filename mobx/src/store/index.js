@@ -1,5 +1,8 @@
-import {counter} from './counter';
+import { computed, observable } from 'mobx';
+import { counter } from './counter';
+import { haha } from './haha';
 
 export const store = {
-  counter: new counter
+  haha: new haha,
+  counter: new counter,
 }

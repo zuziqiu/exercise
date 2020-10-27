@@ -1,0 +1,7 @@
+// 编写js代码时去除vscode遇到@装饰符会出现红色波浪下划线报错
+{
+  "compilerOptions": {
+      "experimentalDecorators": true,
+      "allowJs": true
+  }
+}

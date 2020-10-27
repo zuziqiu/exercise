@@ -2,12 +2,13 @@ import { observable, action } from 'mobx';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import {observer} from 'mobx-react';
+import { observer } from 'mobx-react';
 
 class Store {
   @observable cache = {
-    queue: []
+    queue: [],
   }
+  @observable bbb = 2
   @action.bound refresh() {
     this.cache.queue.push(1)
   }
@@ -34,13 +35,15 @@ class Foo extends Component {
     const cache = this.props.cache;
     return (<div>
       <button onClick={this.props.refresh}>Refresh</button>
-      <Bar queue={cache.queue}/>
+      {null && <Bar  queue={cache.queue} />}
     </div>);
   }
 }
 
-ReactDOM.render(<Foo cache={store.cache} refresh = {store.refresh}/>, document.querySelector('#root'));
-
+ReactDOM.render(<Foo cache={store.cache} refresh={store.refresh} />, document.querySelector('#root'));
+setTimeout(() => {
+  store.cache.queue.push(1)
+}, 5000);
 // @name
 // class hao {
 //   sayHi() {

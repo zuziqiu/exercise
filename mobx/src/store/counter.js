@@ -1,4 +1,4 @@
-import { observable } from 'mobx';
+import { computed, observable } from 'mobx';
 export class counter {
   @observable counter = 0;
 }

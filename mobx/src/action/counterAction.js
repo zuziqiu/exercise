@@ -4,6 +4,6 @@ export class counterAction {
     this.counter = counter
   }
   @action add = () => {
-    this.counter.counter++;
+    this.counter.counter ++;
   }
 }
