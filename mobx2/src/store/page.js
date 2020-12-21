@@ -1,4 +1,4 @@
 // import { computed, observable } from 'mobx';
-export const counters = {
-  counter: 111
+export const pages = {
+  page: 111
 }

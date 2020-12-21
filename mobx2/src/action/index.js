@@ -1,5 +1,5 @@
 import { action } from 'mobx';
-// import { counterAction } from './counterAction';
+// import { pageAction } from './pageAction';
 // import { hahaAction } from './hahaAction';
 import { store } from './../store/index';
 
@@ -9,8 +9,8 @@ export class Action {
     store.haha++;
   }
 
-  @action counterAction = () => {
-    store.counter++;
+  @action pageAction = () => {
+    store.page++;
   }
 }
 
