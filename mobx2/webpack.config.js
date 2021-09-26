@@ -4,7 +4,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/main.jsx',
   watch: true,
-  devtool: 'eval',
+  devtool: 'source-map',
   mode: 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),

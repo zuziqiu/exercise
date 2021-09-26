@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" / kk>
+  <title>TalkFun Vod QuickStart</title>
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      font-family: "Microsoft YaHei", "STHeiti";
+    }
+
+    .flash-wran {
+      display: none;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      padding: 5px 0;
+      text-align: center;
+      background: #fff6a2;
+      border: 1px solid #ffd913;
+    }
+
+    #controls {
+      padding: 20px;
+    }
+
+    #controls span {
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 5px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    #vodInfo {
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+
+    #vodInfo em {
+      padding-right: 5px;
+      font-size: 14px;
+    }
+
+    #vodInfo em i {
+      font-weight: bold;
+      color: red;
+    }
+
+    .flash-wran a {
+      color: red;
+    }
+
+    .wrapper {
+      display: flex;
+    }
+
+    #cameraPlayer,
+    #pptplayer-loader {
+      padding: 20px;
+      width: 100%;
+      height: 300px;
+      flex: 1;
+      text-align: center;
+      font-size: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #pptplayer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .chat-wrap {
+      padding: 5px;
+      margin: 20px;
+      border: 2px solid #cccccc;
+      background: #f1f1f1
+    }
+
+    .mod-chat-list {
+      margin: 20px 0;
+      border: 1px solid #CCCCCC;
+      min-height: 100px;
+      font-size: 12px;
+      background: #FFFFFF;
+      padding: 5px;
+      max-height: 200px;
+      overflow-y: scroll;
+    }
+
+    .mod-chat-list li {
+      padding: 2px 0;
+      margin-bottom: 5px;
+      border-bottom: 1px dotted #CCCCCC;
+    }
+
+    input {
+      display: inline-block;
+      width: 200px;
+      padding: 5px;
+    }
+
+    button {
+      display: inline-block;
+      padding: 5px;
+      margin-left: 5px;
+    }
+
+    #slider {
+      /* width: 90%; */
+      margin: 20px;
+    }
+
+    #toast {
+      padding: 20px;
+      position: absolute;
+      z-index: 100;
+      display: none;
+      background: rgba(212, 28, 28, 0.8);
+      left: 50%;
+      top: 30%;
+      border-radius: 50em;
+      font-size: 14px;
+      color: #FFFFFF;
+      box-shadow: 0 0 6px 0px #bb2d2d;
+    }
+  </style>
+  <!-- #SDK包 -->
+  <!-- <script type="text/javascript" src="https://static-1.talk-fun.com/open/maituo_v2/dist/debug/sdk-pc.test.js"></script> -->
+  <script type="text/javascript" src="https://static-1.talk-fun.com/open/maituo_v2/dist/vod/sdk-vod.4.5.min.js"></script>
+  <script src="https://cdn.bootcss.com/noUiSlider/13.1.4/nouislider.js"></script>
+  <link href="https://cdn.bootcss.com/noUiSlider/13.1.4/nouislider.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- #Flash Tip -->
+  <div id="flashTip" class="flash-wran">
+    <p>Flash插件异常 <a href="https://get.adobe.com/cn/flashplayer/">请安装/允许Flash插件</a></p>
+    <p>Chrome 启用 Flash Player 方法: <a target="_blank" href="https://www.flash.cn/help/article/article.php?id=45">查看方法</a>
+    </p>
+  </div>
+  <!-- #toast -->
+  <div id="toast"></div>
+  <!-- #wrap -->
+  <div class="wrapper">
+    <!-- #ppt -->
+    <div id="pptplayer-loader"><i>播放器 Loading...</i>
+      <div id="pptplayer"></div>
+    </div>
+    <!-- #camera -->
+    <div id="cameraPlayer"><i>摄像头 Loading...</i></div>
+  </div>
+  <!-- #slider -->
+  <div id="controls">
+    <span id="vplay" onclick="HT.play()">播放</span>
+    <span id="vpause" onclick="HT.pause()">暂停</span>
+  </div>
+  <div id="slider"></div>
+  <div id="vodInfo">
+    <em>总时长: <i id="duration">00:00:00</i></em>
+    <em>已播放: <i id="curDuration">00:00:00</i></em>
+  </div>
+  <!-- #chat -->
+  <div class="chat-wrap">
+    <h4>点播聊天数据</h4>
+    <ul id="chat-list" class="mod-chat-list">Loading...</ul>
+  </div>
+  <script>
+    // [第一步] 传入 `access_token` => http://open.talk-fun.com/docs/js/access_token.html
+    // [点播问题] 传入 `access_token` => http://open.talk-fun.com/docs/js/sdk.js.vod.html
+    var HT = new MT.SDK.main('xgTNzYDN4QzNkFDNxQTY5MTM3AzY2EjMlJTZwUmN5YGf8xXfikzX3ITMwIjNy8VNwMzM5ETMiojIl1WYuJnIsEjOiEmIsICMiojIkl2ZiwSXbpjIyRHdhJCL1YjNzYDOxMjNxojIl1Wa0dWZyJCLiEDMzQzNwkTO0IiOiQWa4JCLxQjMyMjOiQWawJCLiAXUpF2cndkSnF0QJlzZ6BlI6IyclR2bjJCL3ITMwIjNyojIkl2XlNnc192YiwiIiojIyFGdhZXYiwCM6IiclRmbldmIsUjNwATN5EzM2EjOiUmcpBHelJCL1AzMzkTMxojIklWbv9mciwiIiljM1UHXxYzY4UHXzYGM2UHX0gjN3UHXxEjM2UHX2gTZ0UHX2MjM1UHXwUjN5UHX3cTY3UHXiJDZ4UHXiojIl1WYut2Yp5mIsIiclNXdiojIlx2byJCLiITOlZzN4MGNmFjNjNWMkJWN5MDN0gTZxYzNjVWOxAzYiojIklWdiwSM0IjMzojIkl2XyVmb0JXYwJye', data => {console.log(12345678)})
+    // 进度条操作
+    var slider = document.getElementById('slider');
+    var sliderLock = false
+    var slierInit = function (slider) {
+      console.log('on slier event init.')
+      document.querySelector('.noUi-touch-area').addEventListener('mousemove', (e) => {
+        sliderLock = true
+      }, false)
+      // slier事件
+      slider.noUiSlider.on('start', function (value) {
+        // field.innerHTML = value;
+        // console.warn(value)
+        sliderLock = true
+      });
+      slider.noUiSlider.on('end', function (value) {
+        HT.seek(value)
+        sliderLock = false
+      });
+      slider.noUiSlider.on('update', function (value) {
+        // field.innerHTML = value;
+      });
+    }
+
+    // 课件播放器
+    HT.mainPlayer('pptplayer', 'pptplayer2', () => {
+      console.log('课件播放器 => 初始化成功')
+      document.querySelector('#pptplayer-loader i').innerHTML = ''
+    })
+    // 摄像头播放器
+    HT.camera('cameraPlayer', 'cameraPlayer2', () => {
+      console.log('摄像头播放器 => 初始化成功')
+      document.querySelector('#cameraPlayer i').innerHTML = ''
+    })
+    // 视频加载完成
+    HT.on('live:video:loaded', () => {
+      console.log('video => loaded')
+    })
+    // seek完成
+    HT.on('live:seek:finish', () => {
+      sliderLock = false
+    })
+    // 点播信息
+    HT.on('live:info', (info) => {
+      var maxDuration = Number(info.duration)
+      noUiSlider.create(slider, {
+        start: [0],
+        connect: [true, false],
+        behaviour: 'snap',
+        range: {
+          'min': 0,
+          'max': maxDuration
+        }
+      });
+      slierInit(slider)
+    })
+    // 时间轴处理
+    HT.on('live:duration', (curDuration, duration) => {
+      var curTime = MT.SDK.tools.second2HMS(Number(curDuration))
+      var durationTime = MT.SDK.tools.second2HMS(Number(duration))
+      var _curDom = document.querySelector('#curDuration')
+      var _duDom = document.querySelector('#duration')
+      _curDom.innerHTML = curTime
+      _duDom.innerHTML = durationTime
+      console.warn(sliderLock)
+      if (!sliderLock) {
+        slider.noUiSlider.set(curDuration)
+      }
+    })
+    // 接收聊天
+    var receivedChat = function (chat) {
+      var tpl = chat.nickname + ': ' + chat.message
+      var chatItem = document.createElement('li')
+      chatItem.innerHTML = tpl
+      chatItem.className = 'chat-' + chat.xid
+      document.querySelector('#chat-list').appendChild(chatItem)
+    }
+    // 聊天分段信息处理
+    HT.on('live:message:append', (chatlist) => {
+      document.querySelector('#chat-list').innerHTML = ''
+      if (chatlist && chatlist.length > 0) {
+        chatlist.forEach(chat => {
+          receivedChat(chat)
+        });
+      }
+    })
+
+    // Flash插件异常
+    HT.on('flash:load:error', function (obj) {
+      console.error(obj)
+      if (!obj.flash) {
+        document.querySelector('#flashTip').style.display = 'block'
+      }
+    })
+    // 课程错误信息
+    HT.on('live:course:access:error', function (res) {
+      console.error(res)
+    })
+    // 课程错误信息
+    HT.on('system:room:error', function (res) {
+      var toast = document.querySelector('#toast')
+      if (typeof res === 'string') {
+        toast.innerHTML = res.msg
+      } else if (res.msg) {
+        toast.innerHTML = res.msg
+      }
+      toast.style.display = 'block'
+      var _left = toast.clientWidth / 2
+      toast.style.marginLeft = -_left + 'px'
+    })
+  </script>
+</body>
+
+</html>

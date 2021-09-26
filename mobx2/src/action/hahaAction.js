@@ -1,9 +1,9 @@
 import { action } from 'mobx';
 export class hahaAction {
-  constructor( {haha} ) {
-    this.haha = haha
+  constructor( store ) {
+    this.store = store
   }
   @action add = () => {
-    this.haha ++;
+    this.store.haha ++;
   }
 }
