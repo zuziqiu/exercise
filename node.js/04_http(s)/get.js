@@ -3,15 +3,6 @@ const https = require('https')
 const myChunk = require('05_custom_zuziqiu') // 动态发布的npm包加载回来这里作为例子
 const querystring = require('querystring')
 var server = http.createServer((request, response) => {
-  // let url = request.url
-  // response.writeHead(200, {
-  //   'content-type': 'text/html' // html格式
-  //   // 'content-type': 'application/json;charset=utf-8' // json格式
-  // })
-  // response.write(`<div>${'hello'}</div>`) // 往前端写数据
-  // // response.write(`{url: ${url}}`) // 往前端写数据
-  // response.end() // 没有end ,前端就一直等
-
   https.get('https://www.xiaomiyoupin.com/mtop/mf/cat/list', (result) => {
     let data = ''
     result.on('data', (chunk) => {
