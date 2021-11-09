@@ -36,6 +36,3 @@ console.log(url)
 const urlParams = new URLSearchParams(url.search)
 logger.debug(urlParams)
 logger.debug(urlParams.get('id'))
-
-
-// console.log(new URL(urlString))
