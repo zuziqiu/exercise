@@ -7,7 +7,7 @@ fs.rmdir('./log', () => { console.log('文件夹删除成功') })
 fs.rename('./logs', './log', () => { console.log('文件夹修改成功') })
 // 读取文件夹
 fs.readdir('./logs', (error, result) => {
-  console.log(result) // 文件夹没有文件时输出的是空数组
+  console.log(result) // 文件夹没有文件时输出的是空数组[]
   result.forEach((value, index) => {
     // stat是可以读到文件信息
     fs.stat(`./${value}`, (err, stats) => {
