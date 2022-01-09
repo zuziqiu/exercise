@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/lagou-admin', { useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost/lagou-admin', { useNewUrlParser: true, useUnifiedTopology: true });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
@@ -13,10 +13,22 @@ usersSchema.methods.speak = function () {
     : "I don't have a password";
   console.log(greeting);
 }
+
 /**
  * 创建集合users，都相当于sql的表table。
- * usersSchema是行号document的class，这里应该是全部行号，因为method和findOne已经在Users中可以调用给每一个行号document
+ * usersSchema是行号document(sql的row)的class，因为已经可以调用methods和findOne
  */
 var Users = mongoose.model('users', usersSchema);
 
+var positionsSchema = mongoose.Schema({
+  companyName: String,
+  positionsName: String,
+  city: String,
+  createTime: String,
+  salary: String
+});
+var Positions = mongoose.model('positions', positionsSchema);
+
+
 exports.Users = Users
+exports.Positions = Positions

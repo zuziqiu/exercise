@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var cookieSession = require('cookie-session')
 // var cors = require('cors')
 
 // var indexRouter = require('./routes/index');
@@ -11,6 +12,7 @@ var logger = require('morgan');
 var app = express();
 
 const userRouter = require('./routes/users')
+const postionsRouter = require('./routes/postions')
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -22,7 +24,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // app.use(cors); // 加上跨域之后所有路由都不跑了，不知道为什么
 
+// 设置cookie-session
+// app.use(cookieSession({
+//   name: 'username',
+//   keys: ['key1']
+// }))
+
 app.use('/api/users', userRouter)
+app.use('/api/positions', postionsRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,6 +1,6 @@
 const { application, json } = require('express')
 const usersModel = require('../models/users')
-const { hash, compare } = require('../utils/tools')
+const { hash, compare, sign, verify } = require('../utils/tools')
 const randomstring = require('randomstring')
 // 判断用户是否存在
 // 注册用户
@@ -55,6 +55,7 @@ const remove = async (req, res, next) => {
   }
 }
 
+// 登录
 const signin = async (req, res, next) => {
   const { username, password } = req.body
   let resulte = await usersModel.findUser(username)
@@ -64,8 +65,11 @@ const signin = async (req, res, next) => {
     // 对比密码成功
     if (compareResulte) {
       // 在http请求中后端可以利用写一个cookies到前端
-      const sessionId = randomstring.generate()
-      res.set('Set-cookie', `sessionId=${sessionId}; Path=/; HttpOnly`)
+      // const sessionId = randomstring.generate()
+      // res.set('Set-cookie', `sessionId=${sessionId}; Path=/; HttpOnly`)
+      // req.session.username = username
+      const token = sign(username)
+      res.set('X-Access-Token', token)
       res.render('success', {
         data: JSON.stringify({
           username
@@ -88,7 +92,36 @@ const signin = async (req, res, next) => {
     })
   }
 }
+
+const isAuth = async (req, res, next) => {
+  const token = req.get('X-Access-Token')
+  try {
+    let result = verify(token)
+    res.render('success', {
+      data: JSON.stringify({
+        username: result.username
+      })
+    })
+  } catch {
+    res.render('fail', {
+      data: JSON.stringify({
+        message: '请登录'
+      })
+    })
+  }
+}
+// 退出
+const signout = async (req, res, next) => {
+  req.session = null
+  res.render('success', {
+    data: JSON.stringify({
+      message: '退出成功'
+    })
+  })
+}
 exports.signup = signup
 exports.list = list
 exports.remove = remove
 exports.signin = signin
+exports.signout = signout
+exports.isAuth = isAuth
