@@ -216,7 +216,7 @@
   
       <!-- Main content -->
       <section class="content" id="content">
-        {{subRouter}}
+        // {{subRouter}}
       </section>
       <!-- /.content -->
     </div>

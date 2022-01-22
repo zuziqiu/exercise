@@ -50,7 +50,7 @@ const listUsers = (router) => {
     let result = await authModel()
     if(result.ret) {
       // 填充用户列表
-      next()
+      // next()
       res.render(usersTpl({}))
 
       $('#add-user-btn').on('click', addUser)

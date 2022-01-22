@@ -13,6 +13,7 @@ var app = express();
 
 const userRouter = require('./routes/users')
 const postionsRouter = require('./routes/postions')
+const mobileRouter = require('./routes/mobile.js')
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -32,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/users', userRouter)
 app.use('/api/positions', postionsRouter)
+app.use('/mobile', mobileRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

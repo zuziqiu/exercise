@@ -53,7 +53,7 @@ const listPositions = (router) => {
   return async (req, res, next) => {
     let result = await authModel()
     if(result.ret) {
-      next()
+      // next()
       res.render(positionsTpl())
 
       // 初次渲染list
