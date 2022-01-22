@@ -8,6 +8,7 @@ exports.add = async (req, res, next) => {
     createTime: moment().format('YYYY年MM月DD日 HH:mm')
   });
   if (result) {
+    process.socket.emit('message', 'ok')
     res.render('success', {
       data: JSON.stringify({
         message: '职位添加成功！'

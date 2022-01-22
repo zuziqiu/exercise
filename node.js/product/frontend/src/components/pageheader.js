@@ -3,6 +3,10 @@ import indexPageHeaderTpl from '../views/index-pageheader.art'
 
 const pageHeader = () => {
   const nav = {
+    '#/index': {
+      mainNav: '用户管理',
+      subNav: '用户列表'
+    },
     '#/index/users': {
       mainNav: '用户管理',
       subNav: '用户列表'
