@@ -18,6 +18,7 @@ const session = require('koa-session-minimal')
 const MysqlSession = require('koa-mysql-session')
 
 koa.use(bodyParser())
+// koa-static 是暴露静态资源路径的。访问时不需要加上static,即 http://127.0.0.1:4200/文件名 这种形式即可访问
 koa.use(static('./public', {
   index: 'app.html'
 }))
