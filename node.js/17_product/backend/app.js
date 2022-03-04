@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cookieSession = require('cookie-session')
+var session = require('express-session')
 // var cors = require('cors')
 
 // var indexRouter = require('./routes/index');
@@ -30,7 +31,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 //   name: 'username',
 //   keys: ['key1']
 // }))
-
+// 全局使用session
+app.use(
+  session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+  })
+)
 app.use('/api/users', userRouter)
 app.use('/api/positions', postionsRouter)
 app.use('/mobile', mobileRouter)

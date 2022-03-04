@@ -26,18 +26,18 @@ router.post('/signin', async (ctx, next) => {
 
 router.get('/list', async (ctx, next) => {
   // ctx.req是koa封装过的，ctx.request才是node原生的。
-  let query = ctx.request.query // 获取参数是对象的形式
-  let queryString = ctx.request.querystring // 获取参数是字符串的形式
-  ctx.body = queryString
+  // let query = ctx.request.query // 获取参数是对象的形式
+  // let queryString = ctx.request.querystring // 获取参数是字符串的形式
+  // ctx.body = queryString
   // ctx.session.username = 'abc'
 
-  // let result = await query('select * from users where id=?', [2])
-  // ctx.body = result
+  let result = await query('select * from page where id=?', [2])
+  ctx.body = result
 })
 
 router.post('/signup', async (ctx, next) => {
   const body = ctx.request.body
-  let result = await query('insert into users set ?', body)
+  let result = await query('insert into page set ?', body)
 
   ctx.session = body
   ctx.body = result

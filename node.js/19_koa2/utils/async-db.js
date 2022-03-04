@@ -1,10 +1,10 @@
 const mysql = require('mysql')
 
-const pool = mysql.createPool({
+const pool = mysql.createPool({ // 创建一个连接池
   host     :  'localhost',
   user     :  'root',
-  password :  '11111111',
-  database :  'gp21'
+  password :  '123456',
+  database :  'pages'
 })
 
 let query = function( sql, values ) {

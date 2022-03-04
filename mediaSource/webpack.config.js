@@ -6,18 +6,18 @@ module.exports = {
     app: ['./src/index.js']
   },
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/dist',
     filename: 'index.js'
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index2.html",
-    }),
+      template: './src/vodQuickToStart.html'
+    })
   ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
-    port: 9001,
-  },
+    port: 9001
+  }
 }

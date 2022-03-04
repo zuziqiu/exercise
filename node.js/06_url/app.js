@@ -7,7 +7,6 @@ var logger = log4js.getLogger('cheese')
 logger.level = 'debug'
 
 // const url = require('url')
-
 // const urlString = 'https://www.baidu.cim:443/path/index.html?id=2#tag=3'
 // logger.debug(url.parse(urlString))
 
@@ -27,7 +26,7 @@ logger.level = 'debug'
 // }
 // logger.debug(url.format(urlObj))
 
-// logger.debug(url.resolve('http://www.abc.com/a', '../'))
+// logger.debug(url.resolve('http://www.abc.com/a', '../')) // resolve可以解析路径
 // logger.debug(url.resolve('http://www.abc.com/a', '/b'))
 const urlString = 'https://www.baidu.cim:443/path/index.html?id=2#tag=3'
 

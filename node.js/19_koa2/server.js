@@ -13,7 +13,7 @@ const koa = new Koa()
 const router = require('./routes/koa-router/index')
 const bodyParser = require('koa-bodyparser') // 获取post请求的body内容，返回json格式到body
 const static = require('koa-static')
-const views = require('koa-views')
+const views = require('koa-views') // 模板引擎
 const session = require('koa-session-minimal')
 const MysqlSession = require('koa-mysql-session')
 
@@ -30,17 +30,17 @@ koa.use(views('./views', {
 }))
 
 // 配置存储session信息的mysql
-// let store = new MysqlSession({
-//   user: 'root',
-//   password: '11111111',
-//   database: 'gp21',
-//   host: '127.0.0.1',
-// })
-// // 使用session中间件
-// koa.use(session({
-//   key: 'SESSION_ID',
-//   store: store
-// }))
+let store = new MysqlSession({
+  user: 'root',
+  password: '123456',
+  database: 'pages',
+  host: '127.0.0.1',
+})
+// 使用session中间件
+koa.use(session({
+  key: 'SESSION_ID',
+  store: store
+}))
 
 koa
   .use(router.routes())
