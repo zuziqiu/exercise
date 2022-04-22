@@ -5,3 +5,6 @@
 echo 1
 
 echo2
+
+
+第二次 echo 1
