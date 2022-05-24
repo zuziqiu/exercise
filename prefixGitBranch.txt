@@ -7,7 +7,6 @@ function executeGitCommand(command) {
     .toString("utf8")
     .replace(/[\n\r\s]+$/, "");
 }
-
 const commitREG = /etp-\d+$/i;
 // 获取当前分支名
 const branchName = executeGitCommand("git rev-parse --abbrev-ref HEAD");
