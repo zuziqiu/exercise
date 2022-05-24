@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+
+const fs = require("fs");
+const { execSync } = require("child_process");
+function executeGitCommand(command) {
+  return execSync(command)
+    .toString("utf8")
+    .replace(/[\n\r\s]+$/, "");
+}
+
+const commitREG = /etp-\d+$/i;
+// 获取当前分支名
+const branchName = executeGitCommand("git rev-parse --abbrev-ref HEAD");
+// 正则匹配出ETP前缀
+const branchPrefix = branchName.match(commitREG)?.[0];
+if (branchPrefix) {
+  // 获取索引 2 对应的 commit 消息文件
+  const COMMIT_EDITMSG = process.argv[2];
+  // 获取消息文件中的commit信息
+  const msg = fs.readFileSync(COMMIT_EDITMSG, "utf-8").trim();
+  // 自定义commit信息
+  commitMessage = `[${branchPrefix.toUpperCase()}] ${msg}`;
+  // 重新写入commit信息
+  fs.writeFileSync(COMMIT_EDITMSG, commitMessage);
+} else {
+  console.log("branchPrefix error");
+  process.exit(1);
+}
