@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <style>
+    #mod-talkfun-whiteboard {
+      width: 100%;
+      height: 100%;
+      user-select: none;
+      position: absolute;
+      background: #dcdcdc;
+      background-size: 100%;
+      overflow: hidden;
+    }
+
+    /* .renderFix1 {
+      width: 0px;
+      height: 1px;
+      margin: 0;
+      padding: 0;
+      animation: renderFix 2s linear 0s infinite alternate;
+    }
+    .renderFix2 {
+      width: 0px;
+      height: 1px;
+      margin: 0;
+      padding: 0;
+      animation: renderFix 2s linear 0s infinite alternate-reverse;
+    }
+    @keyframes renderFix {
+      0% {
+        width: 0px;
+      }
+
+      100% {
+        width: 100%;
+
+      }
+    }
+
+    @-webkit-keyframes renderFix {
+      0% {
+        width: 0px;
+      }
+
+      100% {
+        width: 100px;
+
+      }
+    } */
+  </style>
+</head>
+
+<body>
+  <!-- <div class="renderFix1"></div> -->
+  <!-- <img id="renderFix" src="./img/render.gif" alt="" /> -->
+  <!-- #画板外部容器必须要设置实际宽高 100% 占满 -->
+  <!-- ##此项目独立抽离whiteboard模块## -->
+  <div id="mod-talkfun-whiteboard"></div>
+  <!-- <div class="renderFix2"></div> -->
+  <script>
+    window.onload = function () {
+      // 传参option=> {id: 容器id@String, powerEnable: 涂鸦权限@Boolean, isAdmin: 是否管理员@Boolean, hostGroup: 资源重试域名组@Array[Array]}
+      window.WB = new window.WhiteBoard({
+        id: 'mod-talkfun-whiteboard', powerEnable: true, hostGroup:
+          [["lp2-4.talk-fun.com", "lp2-3.talk-fun.com", "lp2.talk-fun.com"], ["lp3-4.talk-fun.com", "lp3-3.talk-fun.com", "lp3.talk-fun.com"], ["lp4-3.talk-fun.com", "lp4.talk-fun.com"], ["lp5-3.talk-fun.com", "lp5.talk-fun.com"], ["lp7-13.talk-fun.com", "lp7-4.talk-fun.com"], ["lp8-4.talk-fun.com", "lp8-13.talk-fun.com"], ["lp1-3.talk-fun.com", "lp1.talk-fun.com"], ["log.talk-fun.com", "log-1.talk-fun.com"], ["s2.talk-fun.com", "s3.talk-fun.com", "s1.talk-fun.com"]]
+      })
+      window.reciveFromCommand = function (data) {
+        WB.WebCommandApi.reciveFromCommand(data)
+      }
+    }
+  </script>
+</body>
+
+</html>

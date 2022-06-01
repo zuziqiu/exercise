@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://open.talk-fun.com/docs/js/gitbook/style.css"
+    />
+    <style>
+      body {
+        padding: 50px;
+        box-sizing: border-box;
+      }
+      .markdown-section {
+        font-size: 1.6rem;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="normal markdown-section">
+      <h2 id="快速接入🚀">快速接入🚀</h2>
+      <h4 id="对接前先读">对接前先读</h4>
+      <ul>
+        <li>
+          为了让您深入了解欢拓对接流程,我们制作了一个流程图,带您了解其
+          <a href="https://open.talk-fun.com/docs/js/sdkbase.html">核心概念</a>
+        </li>
+        <li>
+          <a href="https://open.talk-fun.com/docs/js/browser-support.html">
+            浏览器兼容及注意事项
+          </a>
+        </li>
+        <li>
+          <a href="https://open.talk-fun.com/docs/js/download.html">
+            Web-Demo工程下载
+          </a>
+        </li>
+      </ul>
+      <h5 id="1、引入-js-sdk-最新版本">1、引入 JS-SDK 最新版本</h5>
+      <pre>
+        <code>
+        &lt;!--@ SDK包文件，用于 Web 端使用(PC/H5)公用 --&gt;
+        https://static-1.talk-fun.com/open/maituo_v2/dist/live/sdk/TalkFunWebSDK-7.0.min.js
+        </code>
+      </pre>
+      <h5
+        id="2、定义html结构且在-head-标签定义-accesstoken-变量如何获取accesstoken"
+      >
+        2、定义HTML结构且在
+        <code>&lt;head&gt;</code>
+        标签定义
+        <code>access_token</code>
+        变量(
+        <a
+          href="https://open.talk-fun.com/docs/getstartV2/access_token.html"
+          target="_blank"
+        >
+          如何获取access_token?
+        </a>
+        )
+      </h5>
+      <pre>
+        <code>
+        &lt;!-- 定义 access_token 变量 --&gt;
+        &lt;head&gt;
+          &lt;script&gt;
+            var access_token = "${access_token}";
+          &lt;/script&gt;
+        &lt;/head&gt;
+        &lt;!-- #容器DOM --&gt;
+        &lt;body&gt;
+          &lt;div id="courseWareWrap"&gt;课件播放器容器&lt;/div&gt;
+          &lt;div id="cameraWrap"&gt;摄像头播放器容器&lt;/div&gt;
+          &lt;div id="videoWrap"&gt;视频播放器容器&lt;/div&gt;
+        &lt;/body&gt;
+        </code>
+      </pre>
+      <h5 id="初始化--配置项">初始化 &amp; 配置项</h5>
+      <pre>
+        <code>
+        /**
+         * @constructs TFSDK
+         * @param {string} access_token token（建议请求后端接口获取，必填）
+         * @param {object} config 初始化配置（可选）
+         * @param {function} callback 回调（可选）
+         * @description sdk构造函数
+         */
+        var TF = new TFSDK(access_token, {
+          config: {
+            techOrder: 'FLV' || 'HLS' || 'FLASH', // 流媒体格式
+            controls: true // 播放器的控件（全屏等）
+          },
+          video: {
+            autoplay: true, // 自动播放
+            controls: false, // 媒体原生控件
+            preload: 'auto', // 预加载
+            poster: false, // 海报
+          }
+        }, function (initData) {
+          todo(...)
+        });
+        </code>
+      </pre>
+      <h5 id="3、监听事件--调用方法">3、监听事件 &amp; 调用方法</h5>
+      <pre>
+        <code>
+        /**
+         * 课件播放器(whiteboad)
+         * @function whiteboardPlayer 课件播放器
+         * @param {sting} courseWareWrap 页面中已渲染的容器的id，将在该容器内创建课件播放器
+         * @param {sting} playerId 创建的画板播放器会被赋予该id（自定义）
+         * @param {callbak} callbak 播放器回调函数
+         */
+        TF.whiteboardPlayer('courseWareWrap', 'playerId', function (player) {
+          ('课件播放器 =&gt; 初始化成功')
+        })
+
+        /**
+         * 摄像头播放器
+         * @function camera 摄像头播放器
+         * @param {sting} cameraWrap 页面中已渲染的容器的id，将在该容器内创建摄像头播放器
+         * @param {sting} playerId 创建的摄像头播放器会被赋予该id（自定义）
+         * @param {callbak} callbak 播放器回调函数
+         */
+        TF.camera('cameraWrap', 'playerId', function () {
+          ('摄像头播放器 =&gt; 初始化成功')
+        })
+
+        /**
+         * 视频播放 & 桌面分享的播放器
+         * @function videoPlayer 视频播放器
+         * @param {sting} videoWrap 页面中已渲染的容器的id，将在该容器内创建视频播放器
+         * @param {sting} playerId 创建的media播放器会被赋予该id（自定义）
+         * @param {callbak} callbak 播放器回调函数
+         */
+        TF.videoPlayer('videoWrap', 'playerId', function () {
+          ('视频播放器 =&gt; 初始化成功')
+        })
+
+        // 监听事件 `on`
+        TF.on('connect', function () {
+          // 成功连接
+          ('TalkFun通信 =&gt; 连接成功...')
+        })
+        // 接收聊天
+        TF.on("chat:send", function(chat){
+          // 在dom指定位置插入一条聊天信息
+          var li = document.createElement('li');
+          li.innerHTML = chat.msg;
+          // 把 `li` 元素插入到 `#chat_dom` 内
+          document.querySelector("#chat_dom").appendChild(li);
+        });
+        // 模式切换
+        TF.on("live:mode:change", function(modeObj) {
+          if (modeObj.currentMode == 2) {
+            // 视频模式
+            todo:
+              show videoPlayer 显示视频播放器
+              hide whiteboadPlayer 隐藏课件播放器
+              hide camera 隐藏摄像头播放器
+          } else {
+            // 课件、摄像头模式
+            todo:
+              hide videoPlayer 隐藏视频播放器
+              show whiteboadPlayer 显示课件播放器
+              show camera 显示摄像头播放器
+          }
+        })
+        </code>
+      </pre>
+    </section>
+  </body>
+</html>

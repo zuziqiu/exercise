@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <!-- <script src="https://cdn.bootcss.com/vConsole/3.2.2/vconsole.min.js"></script> -->
+  <script>
+      // var vConsole = new VConsole();
+      // tools.log('hello world')
+  </script>
+  <link rel="stylesheet" type="text/css" href="./assets/main.css" />
+  <style>
+    .wrap {
+      /* max-width: 400px; */
+      height: calc(100vh - 4px);
+      /* position: relative; */
+      border: 2px solid red;
+      margin: auto;
+      background: #c5ff00;
+      display: flex;
+    }
+
+    .n2 {
+      position: relative;
+      flex: 1;
+    }
+
+    .n1 {
+      width: 20px;
+      flex: none;
+      background: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- #画板外部容器必须要设置实际宽高 100% 占满 -->
+  <!-- ##此项目独立抽离whiteboard模块## -->
+  <script src="./dist/whiteboard.pack.js"></script>
+  <div class="wrap">
+    <!-- #弹性布局demo -->
+    <div class="n1">left</div>
+    <div class="n2">
+      <div id="mod-talkfun-whiteboard"></div>
+    </div>
+    <div class="n1">right</div>
+  </div>
+  <script>
+    window.onload = function() {
+      // 传参option=> {id: 容器id@String, powerEnable: 涂鸦权限@Boolean, isAdmin: 是否管理员@Boolean, hostGroup: 资源重试域名组@Array}
+      window.WB = new window.WhiteBoard({ id: 'mod-talkfun-whiteboard', powerEnable: true, hostGroup:
+          [["lp2-4.talk-fun.com", "lp2-3.talk-fun.com", "lp2.talk-fun.com"], ["lp3-4.talk-fun.com", "lp3-3.talk-fun.com", "lp3.talk-fun.com"], ["lp4-3.talk-fun.com", "lp4.talk-fun.com"], ["lp5-3.talk-fun.com", "lp5.talk-fun.com"], ["lp7-13.talk-fun.com", "lp7-4.talk-fun.com"], ["lp8-4.talk-fun.com", "lp8-13.talk-fun.com"], ["lp1-3.talk-fun.com", "lp1.talk-fun.com"], ["log.talk-fun.com", "log-1.talk-fun.com"], ["s2.talk-fun.com", "s3.talk-fun.com", "s1.talk-fun.com"]] })
+      window.reciveFromCommand = function(data) {
+        WB.WebCommandApi.reciveFromCommand(data)
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test</title>
+</head>
+<body>
+  <div id="test" class="">Test</div>
+  <script>
+    var t = null
+    var MARKO_OBJECT = []
+    var a = (function () {
+      t = setInterval(() => {
+        var x = document.createElement('div')
+          x.innerHTML = '<div test><img src="https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3363295869,2467511306&fm=26&gp=0.jpg">'+Math.random()+'</div>'
+          document.querySelector('#test').appendChild(x)
+          MARKO_OBJECT.push(x)
+        }, 100);
+      })
+    a();
+    setTimeout(() => {
+      a = null
+      clearInterval(t)
+    }, 5000);
+  </script>
+</body>
+</html>

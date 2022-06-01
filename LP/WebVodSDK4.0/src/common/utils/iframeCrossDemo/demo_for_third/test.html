@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>TalkFun-Iframe Cross Demo</title>
+    <style>
+        html,body {
+            width:100%;
+            height:100%;
+            padding: 0;
+            margin: 0;
+        }
+        #target {
+            width: 100%;
+            height: 100%;
+        }
+        iframe{
+            width: 100%;
+            height: 100%;
+            border: 0 none;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        iframe{
+            margin: 1000px 0;
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!--引入-->
+    <div id="send">fsend</div>
+    <div id="target"></div>
+    <!--<script src="./iframeCross_client_min_umd_v1.0.js"></script>-->
+    <!--<script src="iframe_client.js"></script>-->
+    <script src="//static-1.talk-fun.com/open/maituo_v2/dist/iframe_bridge/iframeCross-client-v1.0.js"></script>
+    <script>
+        var talkfunConnector = new IframePostMessage({
+            targetUrl : 'http://192.168.10.87:8084/', //点播地址
+            insert :document.getElementById('cross_iframe_target'),
+            load :function(){
+                console.log('加载完成...')
+            }
+            
+        })
+
+        // 父 ==> 子(发送)
+        document.body.onclick = function(){
+            console.info(this)
+            talkfunConnector.sendMessage('fsend', {a:111})
+        }
+
+        // 子 ==> 父(接收)
+        talkfunConnector.receiveMessage(function(e){
+            console.warn(e)
+        })
+    //     var talkfunreceiver = function(data) {
+    //         /**
+    //         * @用于接收 #talkfun_parent_iframe 回调数据
+    //         * =======================================
+    //         * @data 数据结构
+    //         * @String => data.cmd
+    //         * @Object => data.msg
+    //         * @String => data.type
+    //         */
+    //         if(window.console){
+    //             console.log(data)
+    //         }
+    //    }
+    </script>
+</body>
+</html>

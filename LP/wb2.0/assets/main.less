@@ -1,0 +1,243 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+
+  body {
+    width: 100%;
+    height: 100%;
+    background-color: #dcdcdc;
+    overflow: hidden;
+    user-select: none;
+    font-family: 'Helvetica Neue', 'Helvetica', 'Microsoft Yahei', sans-serif;
+    // position: absolute;
+    // width: 100%;
+    // height: 100%;
+    // top: 0;
+    // left: 0;
+  }
+}
+
+.vtest {
+  display: flex;
+}
+
+.vtest aside {
+  flex: 2;
+  // border: 2px dotted #FFA500;
+  background: #87CEEB;
+  // min-width: 100px;
+  // min-height: 100px;
+}
+
+.vtest main {
+  flex: 1;
+  border: 2px dotted #87CEEB;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#mod-talkfun-whiteboard {
+  // border: 2px solid #FFA500;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+// .test {
+// display: none !important;
+// }
+
+.canvas-container {
+  #brush_pointer {
+    width: 10px;
+    height: 10px;
+    background-image: url("./img/10x10.png");
+    position: absolute;
+    z-index: 10;
+    transition: 0.4s;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -ms-perspective: 1000;
+    perspective: 1000;
+
+    &.brush_pointer_hidden {
+      display: none;
+    }
+  }
+}
+
+.test {
+  max-width: 66%;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 1em;
+
+  color: #ffffff;
+  z-index: 200;
+
+  .version,
+  .gotoTest,
+  .extendTest {
+    text-align: right;
+  }
+
+  #reload {
+    width: 40%;
+    border: 2px solid #dcdcdc;
+    cursor: pointer;
+    background: greenyellow;
+    color: #000000;
+    border-radius: 5px;
+  }
+
+  .test_shell {
+    &>div {
+      padding: 10px;
+
+      span {
+        padding: 3px;
+        background-color: bisque;
+        margin: 0 2px;
+        // color: #000000;
+        color: #808080;
+        cursor: pointer;
+      }
+
+      .ban_backward,
+      .ban_forward {
+        color: #fff;
+        background-color: #999;
+        cursor: auto;
+      }
+    }
+  }
+
+  #qt-msg {
+    font-size: 10px;
+    white-space: normal;
+    word-break: break-word;
+  }
+}
+
+.ppt-img-loader {
+  // position: absolute;
+  // right: 10px;
+  // top: 10px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  p {
+    position: absolute;
+    width: 80%;
+    height: 20px;
+    background: rgba(9, 0, 35, 0.9);
+    text-align: center;
+    color: #ffffff;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  img {
+    // width: 300px;
+    // height: 300 * 0.625px;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.c-loader {
+  white-space: normal;
+  position: fixed;
+  z-index: 500;
+  top: 50%;
+  left: 50%;
+  width: 190px;
+  color: #FFFFFF;
+}
+
+.hidden {
+  display: none;
+}
+
+.scroll_button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 200;
+  top: 50%;
+  margin-top: -20px;
+  right: 20px;
+  // box-sizing: border-box;
+  border: 4px solid #2196F3;
+
+  &::after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #2196F3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -3px;
+    margin-left: -3px;
+  }
+
+  &>div {
+    width: 0;
+    height: 0;
+    background-color: none;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    left: 50%;
+    margin-left: -10px;
+    position: absolute;
+  }
+
+  .scroll_up {
+    border-bottom: 12px solid #87CEEB;
+    top: 4px;
+
+    &.scroll_direction {
+      cursor: pointer;
+      border-bottom: 12px solid #2196F3;
+
+      &:hover {
+        border-bottom: 12px solid #FFA500;
+      }
+    }
+  }
+
+  .scroll_down {
+    border-top: 12px solid #87CEEB;
+    bottom: 4px;
+
+    &.scroll_direction {
+      cursor: pointer;
+      border-top: 12px solid #2196F3;
+
+      &:hover {
+        border-top: 12px solid #FFA500;
+      }
+    }
+  }
+}

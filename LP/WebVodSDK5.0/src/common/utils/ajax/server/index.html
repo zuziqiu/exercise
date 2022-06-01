@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box {
+      border-top: 1px solid red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.js"></script>
+  <button id="btn">get请求</button>
+  <button id="btn3">post请求</button>
+  <button id="btn4">jsonp</button>
+  <button id="btn5">本地JSON文件</button>
+  <button id="btn55">本地JSON文件XML</button>
+  <button id="btn6">本地XML文件</button>
+  <button id="btn66">本地XML文件JSON</button>
+  <button id="btn7">jquery请求js文件</button>
+  <button id="btn8">封装请求js文件</button>
+  <div class="box" id="box2">
+    <pre id="box">
+
+    </pre>
+  </div>
+  <!-- <button id="btn7">本地JSON2文件</button> -->
+  <script src="./ajax.js"></script>
+  <script>
+    var btn = document.getElementById('btn')
+    var btn2 = document.getElementById('btn2')
+    var btn3 = document.getElementById('btn3')
+    var btn4 = document.getElementById('btn4')
+    var btn5 = document.getElementById('btn5')
+    var btn55 = document.getElementById('btn55')
+    var btn6 = document.getElementById('btn6')
+    var btn66 = document.getElementById('btn66')
+    var btn7 = document.getElementById('btn7')
+    var btn8 = document.getElementById('btn8')
+    var box = document.getElementById('box')
+    
+    btn.onclick = function() {
+      ajaxs({
+      url: 'https://cnodejs.org/api/v1/topics',
+      type: 'get',
+      dataType: 'json',
+      cache: true,
+      data: {
+        page: 1,
+        tab: 'good',
+        limit: 5,
+      },
+      beforeSend: function(xhr) {
+        console.log(xhr)
+        // return false
+      },
+      success: function(data) {
+        // var data = JSON.parse(data)
+        console.log(data)
+        // console.log(data.toString())
+        box.innerHTML = data
+      }
+      })
+    }
+    // btn2.onclick = function() {
+    //   ajaxs({
+    //     url: 'https://cnodejs.org/api/v1/topics',
+    //     type: 'POST',
+    //     data: {
+    //       accesstoken: 'dc047a60-d35f-4e11-94a4-775a562f83ed',
+    //       title: '测试新建主题',
+    //       tab: 'dev',
+    //       content: '测试测试，主题内容'
+    //     },
+    //     success: function(data) {
+    //       console.log(data)
+    //     },
+    //     error: function(err) {
+    //       throw new Error('error:' + err)
+    //     }
+    //   })
+    // }
+    btn3.onclick = function() {
+      ajaxs({
+        url: 'https://cnodejs.org/api/v1/accesstoken',
+        type: 'post',
+        contentType: 'application/json; charset=utf-8',
+        data: {
+          'accesstoken': 'dc047a60-d35f-4e11-94a4-775a562f83ed'
+        },
+        timeout: '200',
+        success: function(data) {
+          console.log(data)
+        },
+        error: function(err) {
+          throw new Error('error:' + err)
+        }
+      })
+    }
+    btn4.onclick = function() {
+      ajaxs({
+        url: 'http://open.talk-fun.com/live/init.php',
+        dataType: 'jsonp',
+        cache: false,
+        data: {
+          access_token: 'QMzEDOmR2MkZTN3UDNxMzYlVWN1IjYzcjMxImN1UWMkxHf81nI2kDO2UzX1EDO0QjNiojIl1WYuJnIsAjOiEmIsAjOiQWanJCL2kDO2UjOiQWafV2cyV3bjJCLiIiOiIXY0FmdhJCLwojIyVGZuV2ZiwSM4AjM2YzMwUTM6ISZylGc4VmIsEDO0ADN2MDM1EjOiUWbpR3ZlJnIs01W6Iic0RXYiwiIyV2c1JiOiUGbvJnIsADM4UTOxQTM6ICZphnIsICduVGZ1R3ciojIl1WYut2Yp5mIsAjOiQWaiJCLiETO2MDMwAzNfVnI6ICZpVnIsUTM4QDN2ojIklWbv9mciwCMyojIklGciwCMyojIkl2XyVmb0JXYwJye',
+        },
+        jsonpCallback: 'jqueryhahah',
+        success: function(data) {
+          console.log(data)
+        },
+        error: function(err) {
+          throw new Error('error:' + err)
+        }
+      })
+    }
+    btn5.onclick = function() {
+      ajaxs({
+        url: './json.js',
+        dataType: 'json',
+        data: {},
+        success: function(data) {
+          console.log(data)
+        },
+        error: function(err) {
+          throw new Error('error:' + err)
+        }
+      })
+    }
+    btn55.onclick = function() {
+      ajaxs({
+        url: './json.js',
+        dataType: 'xml',
+        data: {},
+        success: function(data) {
+          console.log(data)
+        },
+        error: function(err) {
+          throw new Error('error:' + err)
+        }
+      })
+    }
+    btn6.onclick = function() {
+      ajaxs({
+        url: './test.xml',
+        dataType: 'xml',
+        data: {},
+        success: function(data) {
+          console.log(data)
+        },
+        error: function(err) {
+          throw new Error('error:' + err)
+        }
+      })
+    }
+    btn66.onclick = function() {
+      ajaxs({
+        url: './test.xml',
+        dataType: 'json',
+        data: {},
+        success: function(data) {
+          console.log(data)
+        },
+        error: function(err) {
+          throw new Error('error:' + err)
+        }
+      })
+    }
+    btn7.onclick = function() {
+      $.ajax({
+        url: './test.js',
+        data: {},
+        success: function(data) {
+          console.log(data)
+        }
+      })
+    }
+    btn8.onclick = function() {
+      ajaxs({
+        url: './test.js',
+        dataType: 'script',
+        cache: true,
+        data: {
+          a: '123',
+          b: '456'
+        },
+        success: function(data) {
+          console.log(data)
+        }
+      })
+    }
+  </script>
+</body>
+</html>

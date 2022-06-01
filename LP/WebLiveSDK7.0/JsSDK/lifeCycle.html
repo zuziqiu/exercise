@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>欢拓直播SDK文档 Namespace: lifeCycle</title>
+
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/sunlight.default.css" />
+
+    <link type="text/css" rel="stylesheet" href="styles/site.cosmo.css" />
+  </head>
+
+  <body>
+    <div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">欢拓直播SDK文档</a>
+          <button
+            class="navbar-toggle"
+            type="button"
+            data-toggle="collapse"
+            data-target="#topNavigation"
+          >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="topNavigation">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a
+                href="namespaces.list.html"
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+              >
+                Namespaces
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="lifeCycle.html">lifeCycle</a></li>
+                <li><a href="player.html">player</a></li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a
+                href="classes.list.html"
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+              >
+                Classes
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="TFSDK.html">TFSDK</a></li>
+                <li><a href="MT.SDK.main.html">MT.SDK.main</a></li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a
+                href="events.list.html"
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+              >
+                Events
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    href="global.html#event:connect%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E8%25BF%259E%25E6%258E%25A5%25E6%2588%2590%25E5%258A%259F"
+                  >
+                    event:connect 服务器连接成功
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:connect_failed%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E8%25BF%259E%25E6%258E%25A5%25E5%25A4%25B1%25E8%25B4%25A5"
+                  >
+                    event:connect_failed 服务器连接失败
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:connect_error%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E8%25BF%259E%25E6%258E%25A5%25E9%2594%2599%25E8%25AF%25AF"
+                  >
+                    event:connect_error 服务器连接错误
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:disconnect%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E8%25BF%259E%25E6%258E%25A5%25E6%2596%25AD%25E5%25BC%2580"
+                  >
+                    event:disconnect 服务器连接断开
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:reconnect%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E9%2587%258D%25E8%25BF%259E"
+                  >
+                    event:reconnect 服务器重连
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:reconnecting%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E9%2587%258D%25E6%2596%25B0%25E8%25BF%259E%25E6%258E%25A5%25E4%25B8%25AD"
+                  >
+                    event:reconnecting 服务器重新连接中
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:reconnect_error%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E9%2587%258D%25E8%25BF%259E%25E9%2594%2599%25E8%25AF%25AF"
+                  >
+                    event:reconnect_error 服务器重连错误
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:reconnect_failed%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E9%2587%258D%25E8%25BF%259E%25E5%25A4%25B1%25E8%25B4%25A5"
+                  >
+                    event:reconnect_failed 服务器重连失败
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:system:room:error%25E7%25B3%25BB%25E7%25BB%259F%25E9%2594%2599%25E8%25AF%25AF%25E4%25BF%25A1%25E6%2581%25AF%25E5%25A4%2584%25E7%2590%2586%25EF%25BC%2588token%25E9%2594%2599%25E8%25AF%25AF%25E3%2580%2581%25E8%25A2%25AB%25E8%25B8%25A2%25E5%2587%25BA%25E3%2580%2581%25E6%2588%25BF%25E9%2597%25B4%25E5%25B7%25B2%25E6%25BB%25A1%25E7%25AD%2589%25EF%25BC%2589"
+                  >
+                    system:room:error
+                    系统错误信息处理（token错误、被踢出、房间已满等）
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:system:socket:error%25E6%25B3%25A8%25E5%2586%258Csocket%25E7%259B%2591%25E5%2590%25AC%25E4%25BA%258B%25E4%25BB%25B6%25E5%25A4%25B1%25E8%25B4%25A5%25E6%2588%2596%25E8%2580%2585socket%25E5%25AF%25B9%25E8%25B1%25A1%25E4%25B8%258D%25E5%25AD%2598%25E5%259C%25A8"
+                  >
+                    system:socket:error
+                    注册socket监听事件失败或者socket对象不存在
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:start%25E7%259B%25B4%25E6%2592%25AD%25E5%25BC%2580%25E5%25A7%258B"
+                  >
+                    live:start 直播开始
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:stop%25E7%259B%25B4%25E6%2592%25AD%25E5%2581%259C%25E6%25AD%25A2"
+                  >
+                    live:stop 直播停止
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:wait%25E6%259C%25AA%25E5%25BC%2580%25E6%2592%25AD"
+                  >
+                    live:wait 未开播
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:onplay%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591%25E6%2592%25AD%25E6%2594%25BE%25E4%25B8%25AD"
+                  >
+                    live:video:onplay 桌面分享/视频播放中
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:camera:play%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4%25E6%2592%25AD%25E6%2594%25BE%25E4%25B8%25AD"
+                  >
+                    live:camera:play 摄像头播放中
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:camera:pause%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4%25E6%259A%2582%25E5%2581%259C"
+                  >
+                    live:camera:pause 摄像头暂停
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:pause%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591%25E6%259A%2582%25E5%2581%259C"
+                  >
+                    live:video:pause 桌面分享/视频暂停
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:set:page%25E8%25AF%25BE%25E4%25BB%25B6%25E7%25BF%25BB%25E9%25A1%25B5"
+                  >
+                    live:set:page 课件翻页
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:has:whiteboard%25E5%2588%259D%25E5%25A7%258B%25E5%258C%2596%25E6%2598%25AF%25E5%2590%25A6%25E5%25AD%2598%25E5%259C%25A8%25E7%2594%25BB%25E6%259D%25BF"
+                  >
+                    live:has:whiteboard 初始化是否存在画板
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:room:configs%25E6%2588%25BF%25E9%2597%25B4%25E8%25AF%25BE%25E7%25A8%258B%25E8%25AE%25BE%25E7%25BD%25AE%25E4%25BF%25A1%25E6%2581%25AF"
+                  >
+                    live:room:configs 房间课程设置信息
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:robots:users%25E7%2589%25B9%25E6%25AE%258A%25E7%2594%25A8%25E6%2588%25B7%25EF%25BC%2588%25E6%259C%25BA%25E5%2599%25A8%25E4%25BA%25BA%25EF%25BC%2589"
+                  >
+                    live:robots:users 特殊用户（机器人）
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:data:update%25E7%259B%25B4%25E6%2592%25AD%25E7%259B%25B8%25E5%2585%25B3%25E4%25BF%25A1%25E6%2581%25AF"
+                  >
+                    live:data:update 直播相关信息
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:tech:order%25E5%2588%2587%25E6%258D%25A2%25E5%25AA%2592%25E4%25BD%2593%25E6%25A0%25BC%25E5%25BC%258F"
+                  >
+                    live:tech:order 切换媒体格式
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:media:play%25E6%2592%25AD%25E6%2594%25BE%25E6%25A8%25A1%25E5%25BC%258F"
+                  >
+                    live:media:play 播放模式
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:network:list%25E8%258E%25B7%25E5%258F%2596%25E7%25BA%25BF%25E8%25B7%25AF"
+                  >
+                    live:network:list 获取线路
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:mode:change%25E6%25A8%25A1%25E5%25BC%258F%25E5%2588%2587%25E6%258D%25A2"
+                  >
+                    live:mode:change 模式切换
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:power:change%25E6%259D%2583%25E9%2599%2590%25E5%2588%2587%25E6%258D%25A2"
+                  >
+                    live:power:change 权限切换
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:course%25E8%25AF%25BE%25E7%25A8%258B%25E4%25BF%25A1%25E6%2581%25AF"
+                  >
+                    live:course 课程信息
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:room:modules%25E6%25A8%25A1%25E5%259D%2597%25E8%25AE%25BE%25E7%25BD%25AE%25E4%25BF%25A1%25E6%2581%25AF"
+                  >
+                    live:room:modules 模块设置信息
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:course:access:error%25E4%25BF%25A1%25E6%2581%25AF%25E9%2594%2599%25E8%25AF%25AF%25E6%259C%25AA%25E5%2585%2581%25E8%25AE%25B8%25E8%25BF%259B%25E5%2585%25A5"
+                  >
+                    live:course:access:error 信息错误未允许进入
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:definition%25E7%259B%2591%25E5%2590%25AC%25E6%25B8%2585%25E6%2599%25B0%25E5%25BA%25A6%25E9%2580%2589%25E6%258B%25A9"
+                  >
+                    live:definition 监听清晰度选择
+                  </a>
+                </li>
+                <li>
+                  <a href="global.html#event:livePlayerCallback">
+                    event:livePlayerCallback
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:camera:error%25E8%25A7%2586%25E9%25A2%2591/%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4%25E6%2592%25AD%25E6%2594%25BE%25E9%2594%2599%25E8%25AF%25AF"
+                  >
+                    live:camera:error 视频/摄像头播放错误
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:fail%25E5%25AA%2592%25E4%25BD%2593%25E6%2596%25AD%25E6%25B5%2581%25E8%25B6%2585%25E6%2597%25B6"
+                  >
+                    live:video:fail 媒体断流超时
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:desktop:start%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591%25E5%25BC%2580%25E5%2590%25AF"
+                  >
+                    live:desktop:start 桌面分享/视频开启
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:timeout%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591%25E6%2592%25AD%25E6%2594%25BE%25E8%25B6%2585%25E6%2597%25B6"
+                  >
+                    live:video:timeout 桌面分享/视频播放超时
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:desktop:play%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591%25E6%2592%25AD%25E6%2594%25BE"
+                  >
+                    live:desktop:play 桌面分享/视频播放
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:desktop:pause%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591%25E6%259A%2582%25E5%2581%259C"
+                  >
+                    live:desktop:pause 桌面分享/视频暂停
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:desktop:stop%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591%25E5%2581%259C%25E6%25AD%25A2"
+                  >
+                    live:desktop:stop 桌面分享/视频停止
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:ratio%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591%25E6%25AF%2594%25E4%25BE%258Bor%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4%25E6%25AF%2594%25E4%25BE%258B"
+                  >
+                    live:video:ratio 桌面分享/视频比例 or 摄像头比例
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:camera:loadeddata%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4loadeddata%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:camera:loadeddata 摄像头loadeddata事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:camera:abort%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4abort%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:camera:abort 摄像头abort事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:abort%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591abort%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:video:abort 桌面分享/视频abort事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:error%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591error%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:video:error 桌面分享/视频error事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:camera:ended%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4ended%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:camera:ended 摄像头ended事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:ended%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591ended%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:video:ended 桌面分享/视频ended事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:camera:suspend%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4suspend%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:camera:suspend 摄像头suspend事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:suspend%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591suspend%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:video:suspend 桌面分享/视频suspend事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:stalled%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591stalled%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:video:stalled 桌面分享/视频stalled事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:camera:waiting%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4%25E7%25AD%2589%25E5%25BE%2585"
+                  >
+                    live:camera:waiting 摄像头等待
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:waiting%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591%25E7%25AD%2589%25E5%25BE%2585"
+                  >
+                    live:video:waiting 桌面分享/视频等待
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:camera:timeupdate%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4%25E6%259B%25B4%25E6%2596%25B0%25E6%2597%25B6%25E9%2597%25B4"
+                  >
+                    live:camera:timeupdate 摄像头更新时间
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:timeupdate%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591%25E6%259B%25B4%25E6%2596%25B0%25E6%2597%25B6%25E9%2597%25B4"
+                  >
+                    live:video:timeupdate 桌面分享/视频更新时间
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:camera:timeout%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591%25E8%25B6%2585%25E6%2597%25B6"
+                  >
+                    live:camera:timeout 桌面分享/视频超时
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:media:timeout%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591%25E8%25B6%2585%25E6%2597%25B6"
+                  >
+                    live:media:timeout 桌面分享/视频超时
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:question:error%25E8%258E%25B7%25E5%258F%2596%25E9%2597%25AE%25E7%25AD%2594%25E5%2588%2597%25E8%25A1%25A8%25E5%25A4%25B1%25E8%25B4%25A5"
+                  >
+                    live:question:error 获取问答列表失败
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:init:success%25E8%25AF%25B7%25E6%25B1%2582init%25E6%258E%25A5%25E5%258F%25A3%25E6%2588%2590%25E5%258A%259F"
+                  >
+                    live:init:success 请求init接口成功
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:loaded%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591loaded%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:video:loaded 桌面分享/视频loaded事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:loadeddata%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591loadeddata%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:video:loadeddata 桌面分享/视频loadeddata事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:metadata%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591metadata%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:video:metadata 桌面分享/视频metadata事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:loadstart%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591loadstart%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:video:loadstart 桌面分享/视频loadstart事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:play%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591playing%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:video:play 桌面分享/视频playing事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:player:size%25E7%259B%2591%25E5%2590%25ACplayer%25E5%25B0%25BA%25E5%25AF%25B8%25E5%258F%2598%25E5%258C%2596"
+                  >
+                    live:player:size 监听player尺寸变化
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:camera:start%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4%25E5%25BC%2580%25E5%2590%25AF"
+                  >
+                    camera:start 摄像头开启
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:camera:stop%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4%25E5%2581%259C%25E6%25AD%25A2"
+                  >
+                    camera:stop 摄像头停止
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:whiteboard:close%25E8%25AF%25BE%25E4%25BB%25B6%25E5%2585%25B3%25E9%2597%25AD"
+                  >
+                    whiteboard:close 课件关闭
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:whiteboard:open%25E8%25AF%25BE%25E4%25BB%25B6%25E6%2589%2593%25E5%25BC%2580"
+                  >
+                    whiteboard:open 课件打开
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:member:list%25E8%258E%25B7%25E5%258F%2596%25E5%2588%259D%25E5%25A7%258B%25E5%258C%2596%25E5%259C%25A8%25E7%25BA%25BF%25E7%2594%25A8%25E6%2588%25B7%25E5%2588%2597%25E8%25A1%25A8"
+                  >
+                    member:list 获取初始化在线用户列表
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:member:total%25E7%259B%2591%25E5%2590%25AC%25E5%259C%25A8%25E7%25BA%25BF%25E7%2594%25A8%25E6%2588%25B7%25E4%25BA%25BA%25E6%2595%25B0"
+                  >
+                    member:total 监听在线用户人数
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:member:voice:power%25E6%2594%25B9%25E5%258F%2598%25E7%2594%25A8%25E6%2588%25B7%25E8%25AF%25AD%25E9%259F%25B3%25E6%259D%2583%25E9%2599%2590"
+                  >
+                    member:voice:power 改变用户语音权限
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:member:robots%25E5%25B9%25BF%25E6%2592%25AD%25E8%25AE%25BE%25E7%25BD%25AE%25E7%2589%25B9%25E6%25AE%258A%25E7%2594%25A8%25E6%2588%25B7"
+                  >
+                    member:robots 广播设置特殊用户
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:member:join:other%25E5%2585%25B6%25E4%25BB%2596%25E7%2594%25A8%25E6%2588%25B7%25E5%258A%25A0%25E5%2585%25A5"
+                  >
+                    member:join:other 其他用户加入
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:member:leave%25E5%2585%25B6%25E4%25BB%2596%25E7%2594%25A8%25E6%2588%25B7%25E7%25A6%25BB%25E5%25BC%2580"
+                  >
+                    member:leave 其他用户离开
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:member:forceout%25E6%259F%2590%25E7%2594%25A8%25E6%2588%25B7%25E5%25BC%25BA%25E5%2588%25B6%25E9%2580%2580%25E5%2587%25BA%25EF%25BC%2588%25E9%2587%258D%25E5%25A4%258D%25E7%2599%25BB%25E5%25BD%2595%25E7%25AD%2589%25EF%25BC%2589"
+                  >
+                    member:forceout 某用户强制退出（重复登录等）
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:member:kick%25E7%2594%25A8%25E6%2588%25B7%25E8%25B8%25A2%25E5%2587%25BA"
+                  >
+                    member:kick 用户踢出
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:chat:send%25E6%258E%25A5%25E6%2594%25B6%25E8%2581%258A%25E5%25A4%25A9"
+                  >
+                    chat:send 接收聊天
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:chat:private%25E6%258E%25A5%25E6%2594%25B6%25E7%25A7%2581%25E8%2581%258A"
+                  >
+                    chat:private 接收私聊
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:chat:del%25E5%2588%25A0%25E9%2599%25A4%25E8%2581%258A%25E5%25A4%25A9"
+                  >
+                    chat:del 删除聊天
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:chat:reply%25E8%2581%258A%25E5%25A4%25A9%25E5%259B%259E%25E5%25A4%258D"
+                  >
+                    chat:reply 聊天回复
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:chat:disable%25E7%25A6%2581%25E6%25AD%25A2%25E8%2581%258A%25E5%25A4%25A9"
+                  >
+                    chat:disable 禁止聊天
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:chat:enable%25E5%2585%2581%25E8%25AE%25B8%25E8%2581%258A%25E5%25A4%25A9"
+                  >
+                    chat:enable 允许聊天
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:chat:disable:all%25E7%25A6%2581%25E6%25AD%25A2%25E5%2585%25A8%25E4%25BD%2593%25E8%2581%258A%25E5%25A4%25A9"
+                  >
+                    chat:disable:all 禁止全体聊天
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:chat:list%25E5%2588%259D%25E5%25A7%258B%25E5%258C%2596%25E8%2581%258A%25E5%25A4%25A9%25E5%2588%2597%25E8%25A1%25A8"
+                  >
+                    chat:list 初始化聊天列表
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:sign:new%25E5%2588%259D%25E5%25A7%258B%25E5%258C%2596%25E7%25AD%25BE%25E5%2588%25B0%25E5%2588%2597%25E8%25A1%25A8"
+                  >
+                    sign:new 初始化签到列表
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:sign:end%25E7%25AD%25BE%25E5%2588%25B0%25E7%25BB%2593%25E6%259D%259F"
+                  >
+                    sign:end 签到结束
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:flower:get:init%25E8%258E%25B7%25E5%258F%2596%25E9%25B2%259C%25E8%258A%25B1%25E5%2588%259D%25E5%25A7%258B%25E5%258C%2596%25E7%258A%25B6%25E6%2580%2581"
+                  >
+                    flower:get:init 获取鲜花初始化状态
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:flower:send%25E9%2580%2581%25E8%258A%25B1"
+                  >
+                    flower:send 送花
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:flower:total%25E9%25B2%259C%25E8%258A%25B1%25E6%2580%25BB%25E6%2595%25B0"
+                  >
+                    flower:total 鲜花总数
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:flower:time:left%25E8%258E%25B7%25E5%258F%2596%25E7%25AC%25AC%25E4%25B8%2580%25E6%259C%25B5%25E9%25B2%259C%25E8%258A%25B1%25E6%2597%25B6%25E9%2597%25B4"
+                  >
+                    flower:time:left 获取第一朵鲜花时间
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:lottery:start%25E5%25BC%2580%25E5%25A7%258B%25E6%258A%25BD%25E5%25A5%2596"
+                  >
+                    lottery:start 开始抽奖
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:lottery:stop%25E7%25BB%2593%25E6%259D%259F%25E6%258A%25BD%25E5%25A5%2596"
+                  >
+                    lottery:stop 结束抽奖
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:announce:notice%25E5%2585%25AC%25E5%2591%258A"
+                  >
+                    announce:notice 公告
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:announce:roll%25E6%25BB%259A%25E5%258A%25A8%25E9%2580%259A%25E7%259F%25A5"
+                  >
+                    announce:roll 滚动通知
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:effect:send%25E5%258A%25A8%25E6%2595%2588"
+                  >
+                    effect:send 动效
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:question:ask%25E6%258E%25A5%25E6%2594%25B6%25E6%258F%2590%25E9%2597%25AE"
+                  >
+                    question:ask 接收提问
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:question:reply%25E6%258E%25A5%25E6%2594%25B6%25E6%258F%2590%25E9%2597%25AE%25E7%259A%2584%25E5%259B%259E%25E5%25A4%258D"
+                  >
+                    question:reply 接收提问的回复
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:question:delete%25E5%2588%25A0%25E9%2599%25A4%25E6%258F%2590%25E9%2597%25AE"
+                  >
+                    question:delete 删除提问
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:question:update%25E6%259B%25B4%25E6%2596%25B0%25E5%259B%259E%25E7%25AD%2594%25E4%25B8%25AD%25E7%258A%25B6%25E6%2580%2581"
+                  >
+                    question:update 更新回答中状态
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:question:audit%25E9%2580%259A%25E8%25BF%2587%25E6%258F%2590%25E9%2597%25AE"
+                  >
+                    question:audit 通过提问
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:vote:new%25E5%258F%2591%25E8%25B5%25B7%25E6%258A%2595%25E7%25A5%25A8"
+                  >
+                    vote:new 发起投票
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:vote:pub%25E5%2585%25AC%25E5%25B8%2583%25E6%258A%2595%25E7%25A5%25A8%25E7%25BB%2593%25E6%259E%259C"
+                  >
+                    vote:pub 公布投票结果
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:connect:success%25E8%25AF%25AD%25E9%259F%25B3%25E4%25BA%2591%25E5%2590%25AF%25E5%258A%25A8%25E6%2588%2590%25E5%258A%259F"
+                  >
+                    voice:connect:success 语音云启动成功
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:disconnent%25E8%25AF%25AD%25E9%259F%25B3%25E4%25BA%2591%25E6%259C%25AA%25E5%25BC%2580%25E5%2590%25AF%25E6%2588%2596%25E4%25B8%25AD%25E6%2596%25AD"
+                  >
+                    voice:disconnent 语音云未开启或中断
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:power%25E8%25AF%25AD%25E9%259F%25B3%25E4%25BA%2591%25E9%259F%25B3%25E9%2587%258F"
+                  >
+                    voice:power 语音云音量
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:unlaunch%25E8%25AF%25AD%25E9%259F%25B3%25E4%25BA%2591%25E6%259C%25AA%25E5%2590%25AF%25E5%258A%25A8"
+                  >
+                    voice:unlaunch 语音云未启动
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:mode:change%25E8%25AF%25AD%25E9%259F%25B3%25E4%25BA%2591%25E6%25A8%25A1%25E5%25BC%258F%25E5%2588%2587%25E6%258D%25A2%25E7%259B%2591%25E5%2590%25AC"
+                  >
+                    voice:mode:change 语音云模式切换监听
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:model:init%25E8%25AF%25AD%25E9%259F%25B3%25E6%25A8%25A1%25E5%25BC%258F%25E5%2588%259D%25E5%25A7%258B%25E5%258C%2596"
+                  >
+                    voice:model:init 语音模式初始化
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:volume:output%25E8%25BE%2593%25E5%2587%25BA%25E7%259A%2584%25E8%25AE%25BE%25E5%25A4%2587%25E9%259F%25B3%25E9%2587%258F"
+                  >
+                    voice:volume:output 输出的设备音量
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:volume:input%25E8%25BE%2593%25E5%2585%25A5%25E7%259A%2584%25E8%25AE%25BE%25E5%25A4%2587%25E7%259A%2584%25E9%259F%25B3%25E9%2587%258F"
+                  >
+                    voice:volume:input 输入的设备的音量
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:power:forbid%25E7%25A6%2581%25E6%25AD%25A2%25E8%25AF%25AD%25E9%259F%25B3%25E8%25AF%25B4%25E8%25AF%259D"
+                  >
+                    voice:power:forbid 禁止语音说话
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:power:allow%25E5%2585%2581%25E8%25AE%25B8%25E8%25AF%25AD%25E9%259F%25B3%25E8%25AF%25B4%25E8%25AF%259D"
+                  >
+                    voice:power:allow 允许语音说话
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:chairman:list%25E4%25B8%25BB%25E5%25B8%25AD%25E7%2594%25A8%25E6%2588%25B7%25E5%2588%2597%25E8%25A1%25A8"
+                  >
+                    voice:chairman:list 主席用户列表
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:queue:init%25E9%25BA%25A6%25E5%25BA%258F%25E5%2588%259D%25E5%25A7%258B%25E5%258C%2596"
+                  >
+                    voice:queue:init 麦序初始化
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:queue:vlist%25E9%25BA%25A6%25E5%25BA%258F%25E5%2588%2597%25E8%25A1%25A8"
+                  >
+                    voice:queue:vlist 麦序列表
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:queue:control%25E9%25BA%25A6%25E5%25BA%258F%25E5%2588%2597%25E8%25A1%25A8%25E6%258E%25A7%25E5%2588%25B6"
+                  >
+                    voice:queue:control 麦序列表控制
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:queue:change%25E9%25BA%25A6%25E5%25BA%258F%25E5%2588%2597%25E8%25A1%25A8%25E5%258F%2598%25E5%258C%2596"
+                  >
+                    voice:queue:change 麦序列表变化
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:queue:leave%25E7%25A6%25BB%25E5%25BC%2580"
+                  >
+                    voice:queue:leave 离开
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:queue:clear%25E6%25B8%2585%25E7%25A9%25BA"
+                  >
+                    voice:queue:clear 清空
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:queue:join%25E5%258A%25A0%25E5%2585%25A5%25E9%2598%259F%25E5%2588%2597"
+                  >
+                    voice:queue:join 加入队列
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:queue:reset%25E9%25BA%25A6%25E5%25BA%258F%25E9%2587%258D%25E8%25AE%25BE"
+                  >
+                    voice:queue:reset 麦序重设
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:queue:countdown%25E5%2580%2592%25E8%25AE%25A1%25E6%2597%25B6"
+                  >
+                    voice:queue:countdown 倒计时
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:hand:up%25E4%25B8%25BE%25E6%2589%258B%25E4%25BA%258B%25E4%25BB%25B6%25EF%25BC%259A%25E4%25B8%25BE%25E6%2589%258B"
+                  >
+                    voice:hand:up 举手事件：举手
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:hand:leave%25E4%25B8%25BE%25E6%2589%258B%25E4%25BA%258B%25E4%25BB%25B6%25EF%25BC%259A%25E7%25A6%25BB%25E5%25BC%2580"
+                  >
+                    voice:hand:leave 举手事件：离开
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:hand:remove%25E4%25B8%25BE%25E6%2589%258B%25E4%25BA%258B%25E4%25BB%25B6%25EF%25BC%259A%25E7%25A7%25BB%25E9%2599%25A4"
+                  >
+                    voice:hand:remove 举手事件：移除
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:hand:clear%25E4%25B8%25BE%25E6%2589%258B%25E4%25BA%258B%25E4%25BB%25B6%25EF%25BC%259A%25E6%25B8%2585%25E7%25A9%25BA"
+                  >
+                    voice:hand:clear 举手事件：清空
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:hand:reset%25E4%25B8%25BE%25E6%2589%258B%25E5%2588%2597%25E8%25A1%25A8%25E5%2588%259D%25E5%25A7%258B%25E5%258C%2596"
+                  >
+                    voice:hand:reset 举手列表初始化
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:hand:allow%25E4%25B8%25BE%25E6%2589%258B%25E4%25BA%258B%25E4%25BB%25B6%25EF%25BC%259A%25E5%2585%2581%25E8%25AE%25B8"
+                  >
+                    voice:hand:allow 举手事件：允许
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:hand:forbid%25E4%25B8%25BE%25E6%2589%258B%25E4%25BA%258B%25E4%25BB%25B6%25EF%25BC%259A%25E7%25A6%2581%25E6%25AD%25A2"
+                  >
+                    voice:hand:forbid 举手事件：禁止
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:hand:change%25E4%25B8%25BE%25E6%2589%258B%25E5%2588%2597%25E8%25A1%25A8%25E6%259B%25B4%25E6%2594%25B9"
+                  >
+                    voice:hand:change 举手列表更改
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:room:mode:type%25E6%2588%25BF%25E9%2597%25B4%25E7%259A%2584%25E6%25A8%25A1%25E5%25BC%258F"
+                  >
+                    room:mode:type 房间的模式
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:room:init%25E6%2588%25BF%25E9%2597%25B4%25E5%2588%259D%25E5%25A7%258B%25E5%258C%2596%25E5%25AE%258C%25E6%2588%2590"
+                  >
+                    room:init 房间初始化完成
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:broadcast%25E5%25B9%25BF%25E6%2592%25AD"
+                  >
+                    event:broadcast 广播
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:network:status%25E7%25BD%2591%25E7%25BB%259C%25E7%258A%25B6%25E6%2580%2581"
+                  >
+                    network:status 网络状态
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:video:player%25E5%2588%2587%25E6%258D%25A2%25E5%2588%25B0%25E4%25BA%2586%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB"
+                  >
+                    video:player 切换到了桌面分享
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="emit_error%2520_HT.html#.event:emit%25E6%2597%25B6%25E6%25A3%2580%25E6%259F%25A5%25E5%2588%25B0socket%25E9%2594%2599%25E8%25AF%25AF%25E6%2597%25B6"
+                  >
+                    emit:error _HT.event:emit时检查到socket错误时
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:ppt:ratio%25E7%259B%2591%25E5%2590%25AC%25E6%259D%25A5%25E8%2587%25AA%25E8%25AF%25BE%25E4%25BB%25B6%25E7%259A%2584ratio%25E5%258F%2598%25E5%258C%2596"
+                  >
+                    ppt:ratio 监听来自课件的ratio变化
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:socket:on:errorsocket=%253E%25E9%2594%2599%25E8%25AF%25AF"
+                  >
+                    socket:on:error socket => 错误
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:third:broadcast%25E7%25AC%25AC%25E4%25B8%2589%25E6%2596%25B9%25E5%25B9%25BF%25E6%2592%25AD"
+                  >
+                    third:broadcast 第三方广播
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:goods:put%25E6%259B%25B4%25E6%2596%25B0%25E4%25B8%258A%25E6%259E%25B6%25E5%2595%2586%25E5%2593%2581"
+                  >
+                    goods:put 更新上架商品
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:shopping:put%25E8%25B4%25AD%25E4%25B9%25B0%25E6%258F%2590%25E7%25A4%25BA"
+                  >
+                    shopping:put 购买提示
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:wx:enter:fullscreen%25E7%259B%2591%25E5%2590%25AC%25E5%25BE%25AE%25E4%25BF%25A1%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4%25E8%25BF%259B%25E5%2585%25A5%25E5%2585%25A8%25E5%25B1%258F"
+                  >
+                    wx:enter:fullscreen 监听微信摄像头进入全屏
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:wx:exit:fullscreen%25E7%259B%2591%25E5%2590%25AC%25E5%25BE%25AE%25E4%25BF%25A1%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4%25E9%2580%2580%25E5%2587%25BA%25E5%2585%25A8%25E5%25B1%258F"
+                  >
+                    wx:exit:fullscreen 监听微信摄像头退出全屏
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a
+                href="global.html"
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+              >
+                Global
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    href="global.html#TFSDK%25E5%2585%25A8%25E5%25B1%2580%25E5%25AE%259A%25E4%25B9%2589"
+                  >
+                    TFSDK 全局定义
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#MT%25E5%2585%25A8%25E5%25B1%2580%25E5%25AF%25B9%25E8%25B1%25A1"
+                  >
+                    MT 全局对象
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <div class="col-sm-3 col-md-3">
+            <form class="navbar-form" role="search">
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Search"
+                  name="q"
+                  id="search-input"
+                />
+                <div class="input-group-btn">
+                  <button class="btn btn-default" id="search-submit">
+                    <i class="glyphicon glyphicon-search"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="toc-content">
+      <div class="row">
+        <div class="col-md-8">
+          <div id="main">
+            <h1 class="page-title">Namespace: lifeCycle</h1>
+            <section>
+              <header>
+                <h2>lifeCycle</h2>
+              </header>
+
+              <article>
+                <div class="container-overview">
+                  <div class="description"><p>生命周期函数</p></div>
+
+                  <dl class="details"></dl>
+                </div>
+
+                <h3 class="subsection-title">Methods</h3>
+
+                <dl>
+                  <hr />
+                  <dt>
+                    <h4 class="name" id="finishInterface">
+                      <span class="type-signature"></span>
+                      finishInterface
+                      <span class="signature">(callback)</span>
+                      <span class="type-signature"></span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    <div class="description">
+                      <p>生命周期函数：初始化接口之后</p>
+                    </div>
+
+                    <h5>Parameters:</h5>
+
+                    <table class="params table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+
+                          <th>Type</th>
+
+                          <th class="last">Description</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr>
+                          <td class="name"><code>callback</code></td>
+
+                          <td class="type">
+                            <span class="param-type">function</span>
+                          </td>
+
+                          <td class="description last"><p>回调</p></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.finishInterface(function(data) {
+   todo(...)
+ });</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4 class="name" id="beforeSocket">
+                      <span class="type-signature"></span>
+                      beforeSocket
+                      <span class="signature">(callback)</span>
+                      <span class="type-signature"></span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    <div class="description">
+                      <p>生命周期函数：初始化socket之前</p>
+                    </div>
+
+                    <h5>Parameters:</h5>
+
+                    <table class="params table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+
+                          <th>Type</th>
+
+                          <th class="last">Description</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr>
+                          <td class="name"><code>callback</code></td>
+
+                          <td class="type">
+                            <span class="param-type">function</span>
+                          </td>
+
+                          <td class="description last"><p>回调</p></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.beforeSocket(function(data) {
+   todo(...)
+ })</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4 class="name" id="finishSocket">
+                      <span class="type-signature"></span>
+                      finishSocket
+                      <span class="signature">(callback)</span>
+                      <span class="type-signature"></span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    <div class="description">
+                      <p>生命周期函数：初始化socket之后</p>
+                    </div>
+
+                    <h5>Parameters:</h5>
+
+                    <table class="params table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+
+                          <th>Type</th>
+
+                          <th class="last">Description</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr>
+                          <td class="name"><code>callback</code></td>
+
+                          <td class="type">
+                            <span class="param-type">function</span>
+                          </td>
+
+                          <td class="description last"><p>回调</p></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.finishSocket(function(data) {
+   todo(...)
+ })</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4 class="name" id="createdCameraPlayer">
+                      <span class="type-signature"></span>
+                      createdCameraPlayer
+                      <span class="signature">(callback)</span>
+                      <span class="type-signature"></span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    <div class="description">
+                      <p>生命周期函数：初始化socket之后</p>
+                    </div>
+
+                    <h5>Parameters:</h5>
+
+                    <table class="params table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+
+                          <th>Type</th>
+
+                          <th class="last">Description</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr>
+                          <td class="name"><code>callback</code></td>
+
+                          <td class="type">
+                            <span class="param-type">function</span>
+                          </td>
+
+                          <td class="description last"><p>回调</p></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.createdCameraPlayer(function(data) {
+   todo(...)
+ })</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4 class="name" id="createdVideoPlayer">
+                      <span class="type-signature"></span>
+                      createdVideoPlayer
+                      <span class="signature">(callback)</span>
+                      <span class="type-signature"></span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    <div class="description">
+                      <p>生命周期函数：初始化socket之后</p>
+                    </div>
+
+                    <h5>Parameters:</h5>
+
+                    <table class="params table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+
+                          <th>Type</th>
+
+                          <th class="last">Description</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr>
+                          <td class="name"><code>callback</code></td>
+
+                          <td class="type">
+                            <span class="param-type">function</span>
+                          </td>
+
+                          <td class="description last"><p>回调</p></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.createdVideoPlayer(function(data) {
+   todo(...)
+ })</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4 class="name" id="createdCoursewarePlayer">
+                      <span class="type-signature"></span>
+                      createdCoursewarePlayer
+                      <span class="signature">(callback)</span>
+                      <span class="type-signature"></span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    <div class="description">
+                      <p>生命周期函数：初始化socket之后</p>
+                    </div>
+
+                    <h5>Parameters:</h5>
+
+                    <table class="params table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+
+                          <th>Type</th>
+
+                          <th class="last">Description</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr>
+                          <td class="name"><code>callback</code></td>
+
+                          <td class="type">
+                            <span class="param-type">function</span>
+                          </td>
+
+                          <td class="description last"><p>回调</p></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.createdCoursewarePlayer(function(data) {
+   todo(...)
+ })</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4 class="name" id="mounted">
+                      <span class="type-signature"></span>
+                      mounted
+                      <span class="signature">(callback)</span>
+                      <span class="type-signature"></span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    <div class="description">
+                      <p>生命周期函数：初始化接口请求成功和socket完成连接</p>
+                    </div>
+
+                    <h5>Parameters:</h5>
+
+                    <table class="params table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+
+                          <th>Type</th>
+
+                          <th class="last">Description</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr>
+                          <td class="name"><code>callback</code></td>
+
+                          <td class="type">
+                            <span class="param-type">function</span>
+                          </td>
+
+                          <td class="description last"><p>回调</p></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.mounted(function(data) {
+   todo(...)
+ })</pre
+                    >
+                  </dd>
+                </dl>
+              </article>
+            </section>
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="col-md-3">
+          <div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+
+    <footer>
+      <span class="jsdoc-message">
+        Documentation generated by
+        <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a>
+
+        on Mon Jan 17th 2022 using the
+        <a href="https://github.com/docstrap/docstrap">DocStrap template</a>
+        .
+      </span>
+    </footer>
+
+    <script src="scripts/docstrap.lib.js"></script>
+    <script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+    <script>
+      $(function () {
+        $("[id*='$']").each(function () {
+          var $this = $(this);
+
+          $this.attr('id', $this.attr('id').replace('$', '__'));
+        });
+
+        $(
+          '.tutorial-section pre, .readme-section pre, pre.prettyprint.source'
+        ).each(function () {
+          var $this = $(this);
+
+          var example = $this.find('code');
+          exampleText = example.html();
+          var lang = /{@lang (.*?)}/.exec(exampleText);
+          if (lang && lang[1]) {
+            exampleText = exampleText.replace(lang[0], '');
+            example.html(exampleText);
+            lang = lang[1];
+          } else {
+            var langClassMatch = example
+              .parent()[0]
+              .className.match(/lang\-(\S+)/);
+            lang = langClassMatch ? langClassMatch[1] : 'javascript';
+          }
+
+          if (lang) {
+            $this
+              .addClass('sunlight-highlight-' + lang)
+              .addClass('linenums')
+              .html(example.html());
+          }
+        });
+
+        Sunlight.highlightAll({
+          lineNumbers: true,
+          showMenu: true,
+          enableDoclinks: true
+        });
+
+        $.catchAnchorLinks({
+          navbarOffset: 10
+        });
+        $('#toc').toc({
+          anchorName: function (i, heading, prefix) {
+            return $(heading).attr('id') || prefix + i;
+          },
+          selectors:
+            '#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4',
+          showAndHide: false,
+          smoothScrolling: true
+        });
+
+        $("#main span[id^='toc']").addClass('toc-shim');
+        $('.dropdown-toggle').dropdown();
+
+        $('table').each(function () {
+          var $this = $(this);
+          $this.addClass('table');
+        });
+      });
+    </script>
+
+    <!--Navigation and Symbol Display-->
+
+    <!--Google Analytics-->
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        SearcherDisplay.init();
+      });
+    </script>
+  </body>
+</html>

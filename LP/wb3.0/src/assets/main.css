@@ -1,0 +1,156 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+html {
+  width: 100%;
+  height: 100%;
+}
+html body {
+  width: 100%;
+  height: 100%;
+  background-color: #dcdcdc;
+  overflow: hidden;
+  user-select: none;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Microsoft Yahei', sans-serif;
+}
+.canvas-container #brush_pointer {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  z-index: 10;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+}
+.canvas-container #brush_pointer.brush_pointer_hidden {
+  display: none;
+}
+.ppt-img-loader {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.ppt-img-loader img {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0;
+}
+.ppt-img-loader img.transition {
+  transition: opacity 1s linear;
+}
+.ppt-img-loader img.fade-in {
+  opacity: 1;
+}
+.reload {
+  width: 24px;
+  height: 24px;
+  right: 10px;
+  bottom: 10px;
+  cursor: pointer;
+  position: absolute;
+  z-Index: 100;
+}
+.reload.reloading {
+  animation: turn 1s linear infinite;
+}
+@keyframes turn {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(90deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+  75% {
+    -webkit-transform: rotate(270deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+.reload:before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border: 2px solid #b7b7b7;
+  border-top: 2px solid transparent;
+  border-radius: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -8px;
+  margin-left: -8px;
+  -webkit-transform: rotate(45deg);
+}
+.reload:after {
+  content: "";
+  position: absolute;
+  border: 4px solid transparent;
+  border-left: 4px solid #b7b7b7;
+  right: 5px;
+  top: 1px;
+}
+.scroll_button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 200;
+  top: 50%;
+  margin-top: -20px;
+  right: 20px;
+  border: 4px solid #2196F3;
+}
+.scroll_button::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #2196F3;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -3px;
+  margin-left: -3px;
+}
+.scroll_button > div {
+  width: 0;
+  height: 0;
+  background-color: none;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  left: 50%;
+  margin-left: -10px;
+  position: absolute;
+}
+.scroll_button .scroll_up {
+  border-bottom: 12px solid #87CEEB;
+  top: 4px;
+}
+.scroll_button .scroll_up.scroll_direction {
+  cursor: pointer;
+  border-bottom: 12px solid #2196F3;
+}
+.scroll_button .scroll_up.scroll_direction:hover {
+  border-bottom: 12px solid #FFA500;
+}
+.scroll_button .scroll_down {
+  border-top: 12px solid #87CEEB;
+  bottom: 4px;
+}
+.scroll_button .scroll_down.scroll_direction {
+  cursor: pointer;
+  border-top: 12px solid #2196F3;
+}
+.scroll_button .scroll_down.scroll_direction:hover {
+  border-top: 12px solid #FFA500;
+}

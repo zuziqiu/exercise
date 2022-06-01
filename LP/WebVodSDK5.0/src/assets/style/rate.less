@@ -1,0 +1,29 @@
+.rateBox {
+  position: relative;
+  background-image: url(../img/rateButton.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+  cursor: pointer;
+  .rangeBox {
+    position: absolute;
+    bottom: 40px;
+    right: 0px;
+    border-radius: 4px;
+    background-color: #333333;
+    height: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 4px;
+    li {
+      color: #ecdfdf;
+      text-align: center;
+      padding: 6px;
+      cursor: pointer;
+      &:hover {
+        color: #ffffff;
+      }
+    }
+  }
+}

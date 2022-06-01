@@ -1,0 +1,4060 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>欢拓直播SDK文档 Classes</title>
+
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/sunlight.default.css" />
+
+    <link type="text/css" rel="stylesheet" href="styles/site.cosmo.css" />
+  </head>
+
+  <body>
+    <div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">欢拓直播SDK文档</a>
+          <button
+            class="navbar-toggle"
+            type="button"
+            data-toggle="collapse"
+            data-target="#topNavigation"
+          >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="topNavigation">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a
+                href="namespaces.list.html"
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+              >
+                Namespaces
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="lifeCycle.html">lifeCycle</a></li>
+                <li><a href="player.html">player</a></li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a
+                href="classes.list.html"
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+              >
+                Classes
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="TFSDK.html">TFSDK</a></li>
+                <li><a href="MT.SDK.main.html">MT.SDK.main</a></li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a
+                href="events.list.html"
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+              >
+                Events
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    href="global.html#event:connect%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E8%25BF%259E%25E6%258E%25A5%25E6%2588%2590%25E5%258A%259F"
+                  >
+                    event:connect 服务器连接成功
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:connect_failed%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E8%25BF%259E%25E6%258E%25A5%25E5%25A4%25B1%25E8%25B4%25A5"
+                  >
+                    event:connect_failed 服务器连接失败
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:connect_error%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E8%25BF%259E%25E6%258E%25A5%25E9%2594%2599%25E8%25AF%25AF"
+                  >
+                    event:connect_error 服务器连接错误
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:disconnect%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E8%25BF%259E%25E6%258E%25A5%25E6%2596%25AD%25E5%25BC%2580"
+                  >
+                    event:disconnect 服务器连接断开
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:reconnect%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E9%2587%258D%25E8%25BF%259E"
+                  >
+                    event:reconnect 服务器重连
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:reconnecting%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E9%2587%258D%25E6%2596%25B0%25E8%25BF%259E%25E6%258E%25A5%25E4%25B8%25AD"
+                  >
+                    event:reconnecting 服务器重新连接中
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:reconnect_error%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E9%2587%258D%25E8%25BF%259E%25E9%2594%2599%25E8%25AF%25AF"
+                  >
+                    event:reconnect_error 服务器重连错误
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:reconnect_failed%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E9%2587%258D%25E8%25BF%259E%25E5%25A4%25B1%25E8%25B4%25A5"
+                  >
+                    event:reconnect_failed 服务器重连失败
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:system:room:error%25E7%25B3%25BB%25E7%25BB%259F%25E9%2594%2599%25E8%25AF%25AF%25E4%25BF%25A1%25E6%2581%25AF%25E5%25A4%2584%25E7%2590%2586%25EF%25BC%2588token%25E9%2594%2599%25E8%25AF%25AF%25E3%2580%2581%25E8%25A2%25AB%25E8%25B8%25A2%25E5%2587%25BA%25E3%2580%2581%25E6%2588%25BF%25E9%2597%25B4%25E5%25B7%25B2%25E6%25BB%25A1%25E7%25AD%2589%25EF%25BC%2589"
+                  >
+                    system:room:error
+                    系统错误信息处理（token错误、被踢出、房间已满等）
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:system:socket:error%25E6%25B3%25A8%25E5%2586%258Csocket%25E7%259B%2591%25E5%2590%25AC%25E4%25BA%258B%25E4%25BB%25B6%25E5%25A4%25B1%25E8%25B4%25A5%25E6%2588%2596%25E8%2580%2585socket%25E5%25AF%25B9%25E8%25B1%25A1%25E4%25B8%258D%25E5%25AD%2598%25E5%259C%25A8"
+                  >
+                    system:socket:error
+                    注册socket监听事件失败或者socket对象不存在
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:start%25E7%259B%25B4%25E6%2592%25AD%25E5%25BC%2580%25E5%25A7%258B"
+                  >
+                    live:start 直播开始
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:stop%25E7%259B%25B4%25E6%2592%25AD%25E5%2581%259C%25E6%25AD%25A2"
+                  >
+                    live:stop 直播停止
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:wait%25E6%259C%25AA%25E5%25BC%2580%25E6%2592%25AD"
+                  >
+                    live:wait 未开播
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:onplay%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591%25E6%2592%25AD%25E6%2594%25BE%25E4%25B8%25AD"
+                  >
+                    live:video:onplay 桌面分享/视频播放中
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:camera:play%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4%25E6%2592%25AD%25E6%2594%25BE%25E4%25B8%25AD"
+                  >
+                    live:camera:play 摄像头播放中
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:camera:pause%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4%25E6%259A%2582%25E5%2581%259C"
+                  >
+                    live:camera:pause 摄像头暂停
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:pause%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591%25E6%259A%2582%25E5%2581%259C"
+                  >
+                    live:video:pause 桌面分享/视频暂停
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:set:page%25E8%25AF%25BE%25E4%25BB%25B6%25E7%25BF%25BB%25E9%25A1%25B5"
+                  >
+                    live:set:page 课件翻页
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:has:whiteboard%25E5%2588%259D%25E5%25A7%258B%25E5%258C%2596%25E6%2598%25AF%25E5%2590%25A6%25E5%25AD%2598%25E5%259C%25A8%25E7%2594%25BB%25E6%259D%25BF"
+                  >
+                    live:has:whiteboard 初始化是否存在画板
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:room:configs%25E6%2588%25BF%25E9%2597%25B4%25E8%25AF%25BE%25E7%25A8%258B%25E8%25AE%25BE%25E7%25BD%25AE%25E4%25BF%25A1%25E6%2581%25AF"
+                  >
+                    live:room:configs 房间课程设置信息
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:robots:users%25E7%2589%25B9%25E6%25AE%258A%25E7%2594%25A8%25E6%2588%25B7%25EF%25BC%2588%25E6%259C%25BA%25E5%2599%25A8%25E4%25BA%25BA%25EF%25BC%2589"
+                  >
+                    live:robots:users 特殊用户（机器人）
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:data:update%25E7%259B%25B4%25E6%2592%25AD%25E7%259B%25B8%25E5%2585%25B3%25E4%25BF%25A1%25E6%2581%25AF"
+                  >
+                    live:data:update 直播相关信息
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:tech:order%25E5%2588%2587%25E6%258D%25A2%25E5%25AA%2592%25E4%25BD%2593%25E6%25A0%25BC%25E5%25BC%258F"
+                  >
+                    live:tech:order 切换媒体格式
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:media:play%25E6%2592%25AD%25E6%2594%25BE%25E6%25A8%25A1%25E5%25BC%258F"
+                  >
+                    live:media:play 播放模式
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:network:list%25E8%258E%25B7%25E5%258F%2596%25E7%25BA%25BF%25E8%25B7%25AF"
+                  >
+                    live:network:list 获取线路
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:mode:change%25E6%25A8%25A1%25E5%25BC%258F%25E5%2588%2587%25E6%258D%25A2"
+                  >
+                    live:mode:change 模式切换
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:power:change%25E6%259D%2583%25E9%2599%2590%25E5%2588%2587%25E6%258D%25A2"
+                  >
+                    live:power:change 权限切换
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:course%25E8%25AF%25BE%25E7%25A8%258B%25E4%25BF%25A1%25E6%2581%25AF"
+                  >
+                    live:course 课程信息
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:room:modules%25E6%25A8%25A1%25E5%259D%2597%25E8%25AE%25BE%25E7%25BD%25AE%25E4%25BF%25A1%25E6%2581%25AF"
+                  >
+                    live:room:modules 模块设置信息
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:course:access:error%25E4%25BF%25A1%25E6%2581%25AF%25E9%2594%2599%25E8%25AF%25AF%25E6%259C%25AA%25E5%2585%2581%25E8%25AE%25B8%25E8%25BF%259B%25E5%2585%25A5"
+                  >
+                    live:course:access:error 信息错误未允许进入
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:definition%25E7%259B%2591%25E5%2590%25AC%25E6%25B8%2585%25E6%2599%25B0%25E5%25BA%25A6%25E9%2580%2589%25E6%258B%25A9"
+                  >
+                    live:definition 监听清晰度选择
+                  </a>
+                </li>
+                <li>
+                  <a href="global.html#event:livePlayerCallback">
+                    event:livePlayerCallback
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:camera:error%25E8%25A7%2586%25E9%25A2%2591/%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4%25E6%2592%25AD%25E6%2594%25BE%25E9%2594%2599%25E8%25AF%25AF"
+                  >
+                    live:camera:error 视频/摄像头播放错误
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:fail%25E5%25AA%2592%25E4%25BD%2593%25E6%2596%25AD%25E6%25B5%2581%25E8%25B6%2585%25E6%2597%25B6"
+                  >
+                    live:video:fail 媒体断流超时
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:desktop:start%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591%25E5%25BC%2580%25E5%2590%25AF"
+                  >
+                    live:desktop:start 桌面分享/视频开启
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:timeout%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591%25E6%2592%25AD%25E6%2594%25BE%25E8%25B6%2585%25E6%2597%25B6"
+                  >
+                    live:video:timeout 桌面分享/视频播放超时
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:desktop:play%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591%25E6%2592%25AD%25E6%2594%25BE"
+                  >
+                    live:desktop:play 桌面分享/视频播放
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:desktop:pause%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591%25E6%259A%2582%25E5%2581%259C"
+                  >
+                    live:desktop:pause 桌面分享/视频暂停
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:desktop:stop%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591%25E5%2581%259C%25E6%25AD%25A2"
+                  >
+                    live:desktop:stop 桌面分享/视频停止
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:ratio%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591%25E6%25AF%2594%25E4%25BE%258Bor%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4%25E6%25AF%2594%25E4%25BE%258B"
+                  >
+                    live:video:ratio 桌面分享/视频比例 or 摄像头比例
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:camera:loadeddata%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4loadeddata%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:camera:loadeddata 摄像头loadeddata事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:camera:abort%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4abort%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:camera:abort 摄像头abort事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:abort%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591abort%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:video:abort 桌面分享/视频abort事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:error%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591error%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:video:error 桌面分享/视频error事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:camera:ended%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4ended%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:camera:ended 摄像头ended事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:ended%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591ended%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:video:ended 桌面分享/视频ended事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:camera:suspend%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4suspend%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:camera:suspend 摄像头suspend事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:suspend%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591suspend%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:video:suspend 桌面分享/视频suspend事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:stalled%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591stalled%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:video:stalled 桌面分享/视频stalled事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:camera:waiting%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4%25E7%25AD%2589%25E5%25BE%2585"
+                  >
+                    live:camera:waiting 摄像头等待
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:waiting%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591%25E7%25AD%2589%25E5%25BE%2585"
+                  >
+                    live:video:waiting 桌面分享/视频等待
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:camera:timeupdate%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4%25E6%259B%25B4%25E6%2596%25B0%25E6%2597%25B6%25E9%2597%25B4"
+                  >
+                    live:camera:timeupdate 摄像头更新时间
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:timeupdate%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591%25E6%259B%25B4%25E6%2596%25B0%25E6%2597%25B6%25E9%2597%25B4"
+                  >
+                    live:video:timeupdate 桌面分享/视频更新时间
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:camera:timeout%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591%25E8%25B6%2585%25E6%2597%25B6"
+                  >
+                    live:camera:timeout 桌面分享/视频超时
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:media:timeout%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591%25E8%25B6%2585%25E6%2597%25B6"
+                  >
+                    live:media:timeout 桌面分享/视频超时
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:question:error%25E8%258E%25B7%25E5%258F%2596%25E9%2597%25AE%25E7%25AD%2594%25E5%2588%2597%25E8%25A1%25A8%25E5%25A4%25B1%25E8%25B4%25A5"
+                  >
+                    live:question:error 获取问答列表失败
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:init:success%25E8%25AF%25B7%25E6%25B1%2582init%25E6%258E%25A5%25E5%258F%25A3%25E6%2588%2590%25E5%258A%259F"
+                  >
+                    live:init:success 请求init接口成功
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:loaded%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591loaded%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:video:loaded 桌面分享/视频loaded事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:loadeddata%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591loadeddata%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:video:loadeddata 桌面分享/视频loadeddata事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:metadata%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591metadata%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:video:metadata 桌面分享/视频metadata事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:loadstart%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591loadstart%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:video:loadstart 桌面分享/视频loadstart事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:video:play%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB/%25E8%25A7%2586%25E9%25A2%2591playing%25E4%25BA%258B%25E4%25BB%25B6"
+                  >
+                    live:video:play 桌面分享/视频playing事件
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:live:player:size%25E7%259B%2591%25E5%2590%25ACplayer%25E5%25B0%25BA%25E5%25AF%25B8%25E5%258F%2598%25E5%258C%2596"
+                  >
+                    live:player:size 监听player尺寸变化
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:camera:start%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4%25E5%25BC%2580%25E5%2590%25AF"
+                  >
+                    camera:start 摄像头开启
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:camera:stop%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4%25E5%2581%259C%25E6%25AD%25A2"
+                  >
+                    camera:stop 摄像头停止
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:whiteboard:close%25E8%25AF%25BE%25E4%25BB%25B6%25E5%2585%25B3%25E9%2597%25AD"
+                  >
+                    whiteboard:close 课件关闭
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:whiteboard:open%25E8%25AF%25BE%25E4%25BB%25B6%25E6%2589%2593%25E5%25BC%2580"
+                  >
+                    whiteboard:open 课件打开
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:member:list%25E8%258E%25B7%25E5%258F%2596%25E5%2588%259D%25E5%25A7%258B%25E5%258C%2596%25E5%259C%25A8%25E7%25BA%25BF%25E7%2594%25A8%25E6%2588%25B7%25E5%2588%2597%25E8%25A1%25A8"
+                  >
+                    member:list 获取初始化在线用户列表
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:member:total%25E7%259B%2591%25E5%2590%25AC%25E5%259C%25A8%25E7%25BA%25BF%25E7%2594%25A8%25E6%2588%25B7%25E4%25BA%25BA%25E6%2595%25B0"
+                  >
+                    member:total 监听在线用户人数
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:member:voice:power%25E6%2594%25B9%25E5%258F%2598%25E7%2594%25A8%25E6%2588%25B7%25E8%25AF%25AD%25E9%259F%25B3%25E6%259D%2583%25E9%2599%2590"
+                  >
+                    member:voice:power 改变用户语音权限
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:member:robots%25E5%25B9%25BF%25E6%2592%25AD%25E8%25AE%25BE%25E7%25BD%25AE%25E7%2589%25B9%25E6%25AE%258A%25E7%2594%25A8%25E6%2588%25B7"
+                  >
+                    member:robots 广播设置特殊用户
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:member:join:other%25E5%2585%25B6%25E4%25BB%2596%25E7%2594%25A8%25E6%2588%25B7%25E5%258A%25A0%25E5%2585%25A5"
+                  >
+                    member:join:other 其他用户加入
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:member:leave%25E5%2585%25B6%25E4%25BB%2596%25E7%2594%25A8%25E6%2588%25B7%25E7%25A6%25BB%25E5%25BC%2580"
+                  >
+                    member:leave 其他用户离开
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:member:forceout%25E6%259F%2590%25E7%2594%25A8%25E6%2588%25B7%25E5%25BC%25BA%25E5%2588%25B6%25E9%2580%2580%25E5%2587%25BA%25EF%25BC%2588%25E9%2587%258D%25E5%25A4%258D%25E7%2599%25BB%25E5%25BD%2595%25E7%25AD%2589%25EF%25BC%2589"
+                  >
+                    member:forceout 某用户强制退出（重复登录等）
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:member:kick%25E7%2594%25A8%25E6%2588%25B7%25E8%25B8%25A2%25E5%2587%25BA"
+                  >
+                    member:kick 用户踢出
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:chat:send%25E6%258E%25A5%25E6%2594%25B6%25E8%2581%258A%25E5%25A4%25A9"
+                  >
+                    chat:send 接收聊天
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:chat:private%25E6%258E%25A5%25E6%2594%25B6%25E7%25A7%2581%25E8%2581%258A"
+                  >
+                    chat:private 接收私聊
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:chat:del%25E5%2588%25A0%25E9%2599%25A4%25E8%2581%258A%25E5%25A4%25A9"
+                  >
+                    chat:del 删除聊天
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:chat:reply%25E8%2581%258A%25E5%25A4%25A9%25E5%259B%259E%25E5%25A4%258D"
+                  >
+                    chat:reply 聊天回复
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:chat:disable%25E7%25A6%2581%25E6%25AD%25A2%25E8%2581%258A%25E5%25A4%25A9"
+                  >
+                    chat:disable 禁止聊天
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:chat:enable%25E5%2585%2581%25E8%25AE%25B8%25E8%2581%258A%25E5%25A4%25A9"
+                  >
+                    chat:enable 允许聊天
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:chat:disable:all%25E7%25A6%2581%25E6%25AD%25A2%25E5%2585%25A8%25E4%25BD%2593%25E8%2581%258A%25E5%25A4%25A9"
+                  >
+                    chat:disable:all 禁止全体聊天
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:chat:list%25E5%2588%259D%25E5%25A7%258B%25E5%258C%2596%25E8%2581%258A%25E5%25A4%25A9%25E5%2588%2597%25E8%25A1%25A8"
+                  >
+                    chat:list 初始化聊天列表
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:sign:new%25E5%2588%259D%25E5%25A7%258B%25E5%258C%2596%25E7%25AD%25BE%25E5%2588%25B0%25E5%2588%2597%25E8%25A1%25A8"
+                  >
+                    sign:new 初始化签到列表
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:sign:end%25E7%25AD%25BE%25E5%2588%25B0%25E7%25BB%2593%25E6%259D%259F"
+                  >
+                    sign:end 签到结束
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:flower:get:init%25E8%258E%25B7%25E5%258F%2596%25E9%25B2%259C%25E8%258A%25B1%25E5%2588%259D%25E5%25A7%258B%25E5%258C%2596%25E7%258A%25B6%25E6%2580%2581"
+                  >
+                    flower:get:init 获取鲜花初始化状态
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:flower:send%25E9%2580%2581%25E8%258A%25B1"
+                  >
+                    flower:send 送花
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:flower:total%25E9%25B2%259C%25E8%258A%25B1%25E6%2580%25BB%25E6%2595%25B0"
+                  >
+                    flower:total 鲜花总数
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:flower:time:left%25E8%258E%25B7%25E5%258F%2596%25E7%25AC%25AC%25E4%25B8%2580%25E6%259C%25B5%25E9%25B2%259C%25E8%258A%25B1%25E6%2597%25B6%25E9%2597%25B4"
+                  >
+                    flower:time:left 获取第一朵鲜花时间
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:lottery:start%25E5%25BC%2580%25E5%25A7%258B%25E6%258A%25BD%25E5%25A5%2596"
+                  >
+                    lottery:start 开始抽奖
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:lottery:stop%25E7%25BB%2593%25E6%259D%259F%25E6%258A%25BD%25E5%25A5%2596"
+                  >
+                    lottery:stop 结束抽奖
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:announce:notice%25E5%2585%25AC%25E5%2591%258A"
+                  >
+                    announce:notice 公告
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:announce:roll%25E6%25BB%259A%25E5%258A%25A8%25E9%2580%259A%25E7%259F%25A5"
+                  >
+                    announce:roll 滚动通知
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:effect:send%25E5%258A%25A8%25E6%2595%2588"
+                  >
+                    effect:send 动效
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:question:ask%25E6%258E%25A5%25E6%2594%25B6%25E6%258F%2590%25E9%2597%25AE"
+                  >
+                    question:ask 接收提问
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:question:reply%25E6%258E%25A5%25E6%2594%25B6%25E6%258F%2590%25E9%2597%25AE%25E7%259A%2584%25E5%259B%259E%25E5%25A4%258D"
+                  >
+                    question:reply 接收提问的回复
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:question:delete%25E5%2588%25A0%25E9%2599%25A4%25E6%258F%2590%25E9%2597%25AE"
+                  >
+                    question:delete 删除提问
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:question:update%25E6%259B%25B4%25E6%2596%25B0%25E5%259B%259E%25E7%25AD%2594%25E4%25B8%25AD%25E7%258A%25B6%25E6%2580%2581"
+                  >
+                    question:update 更新回答中状态
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:question:audit%25E9%2580%259A%25E8%25BF%2587%25E6%258F%2590%25E9%2597%25AE"
+                  >
+                    question:audit 通过提问
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:vote:new%25E5%258F%2591%25E8%25B5%25B7%25E6%258A%2595%25E7%25A5%25A8"
+                  >
+                    vote:new 发起投票
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:vote:pub%25E5%2585%25AC%25E5%25B8%2583%25E6%258A%2595%25E7%25A5%25A8%25E7%25BB%2593%25E6%259E%259C"
+                  >
+                    vote:pub 公布投票结果
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:connect:success%25E8%25AF%25AD%25E9%259F%25B3%25E4%25BA%2591%25E5%2590%25AF%25E5%258A%25A8%25E6%2588%2590%25E5%258A%259F"
+                  >
+                    voice:connect:success 语音云启动成功
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:disconnent%25E8%25AF%25AD%25E9%259F%25B3%25E4%25BA%2591%25E6%259C%25AA%25E5%25BC%2580%25E5%2590%25AF%25E6%2588%2596%25E4%25B8%25AD%25E6%2596%25AD"
+                  >
+                    voice:disconnent 语音云未开启或中断
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:power%25E8%25AF%25AD%25E9%259F%25B3%25E4%25BA%2591%25E9%259F%25B3%25E9%2587%258F"
+                  >
+                    voice:power 语音云音量
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:unlaunch%25E8%25AF%25AD%25E9%259F%25B3%25E4%25BA%2591%25E6%259C%25AA%25E5%2590%25AF%25E5%258A%25A8"
+                  >
+                    voice:unlaunch 语音云未启动
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:mode:change%25E8%25AF%25AD%25E9%259F%25B3%25E4%25BA%2591%25E6%25A8%25A1%25E5%25BC%258F%25E5%2588%2587%25E6%258D%25A2%25E7%259B%2591%25E5%2590%25AC"
+                  >
+                    voice:mode:change 语音云模式切换监听
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:model:init%25E8%25AF%25AD%25E9%259F%25B3%25E6%25A8%25A1%25E5%25BC%258F%25E5%2588%259D%25E5%25A7%258B%25E5%258C%2596"
+                  >
+                    voice:model:init 语音模式初始化
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:volume:output%25E8%25BE%2593%25E5%2587%25BA%25E7%259A%2584%25E8%25AE%25BE%25E5%25A4%2587%25E9%259F%25B3%25E9%2587%258F"
+                  >
+                    voice:volume:output 输出的设备音量
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:volume:input%25E8%25BE%2593%25E5%2585%25A5%25E7%259A%2584%25E8%25AE%25BE%25E5%25A4%2587%25E7%259A%2584%25E9%259F%25B3%25E9%2587%258F"
+                  >
+                    voice:volume:input 输入的设备的音量
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:power:forbid%25E7%25A6%2581%25E6%25AD%25A2%25E8%25AF%25AD%25E9%259F%25B3%25E8%25AF%25B4%25E8%25AF%259D"
+                  >
+                    voice:power:forbid 禁止语音说话
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:power:allow%25E5%2585%2581%25E8%25AE%25B8%25E8%25AF%25AD%25E9%259F%25B3%25E8%25AF%25B4%25E8%25AF%259D"
+                  >
+                    voice:power:allow 允许语音说话
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:chairman:list%25E4%25B8%25BB%25E5%25B8%25AD%25E7%2594%25A8%25E6%2588%25B7%25E5%2588%2597%25E8%25A1%25A8"
+                  >
+                    voice:chairman:list 主席用户列表
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:queue:init%25E9%25BA%25A6%25E5%25BA%258F%25E5%2588%259D%25E5%25A7%258B%25E5%258C%2596"
+                  >
+                    voice:queue:init 麦序初始化
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:queue:vlist%25E9%25BA%25A6%25E5%25BA%258F%25E5%2588%2597%25E8%25A1%25A8"
+                  >
+                    voice:queue:vlist 麦序列表
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:queue:control%25E9%25BA%25A6%25E5%25BA%258F%25E5%2588%2597%25E8%25A1%25A8%25E6%258E%25A7%25E5%2588%25B6"
+                  >
+                    voice:queue:control 麦序列表控制
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:queue:change%25E9%25BA%25A6%25E5%25BA%258F%25E5%2588%2597%25E8%25A1%25A8%25E5%258F%2598%25E5%258C%2596"
+                  >
+                    voice:queue:change 麦序列表变化
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:queue:leave%25E7%25A6%25BB%25E5%25BC%2580"
+                  >
+                    voice:queue:leave 离开
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:queue:clear%25E6%25B8%2585%25E7%25A9%25BA"
+                  >
+                    voice:queue:clear 清空
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:queue:join%25E5%258A%25A0%25E5%2585%25A5%25E9%2598%259F%25E5%2588%2597"
+                  >
+                    voice:queue:join 加入队列
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:queue:reset%25E9%25BA%25A6%25E5%25BA%258F%25E9%2587%258D%25E8%25AE%25BE"
+                  >
+                    voice:queue:reset 麦序重设
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:queue:countdown%25E5%2580%2592%25E8%25AE%25A1%25E6%2597%25B6"
+                  >
+                    voice:queue:countdown 倒计时
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:hand:up%25E4%25B8%25BE%25E6%2589%258B%25E4%25BA%258B%25E4%25BB%25B6%25EF%25BC%259A%25E4%25B8%25BE%25E6%2589%258B"
+                  >
+                    voice:hand:up 举手事件：举手
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:hand:leave%25E4%25B8%25BE%25E6%2589%258B%25E4%25BA%258B%25E4%25BB%25B6%25EF%25BC%259A%25E7%25A6%25BB%25E5%25BC%2580"
+                  >
+                    voice:hand:leave 举手事件：离开
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:hand:remove%25E4%25B8%25BE%25E6%2589%258B%25E4%25BA%258B%25E4%25BB%25B6%25EF%25BC%259A%25E7%25A7%25BB%25E9%2599%25A4"
+                  >
+                    voice:hand:remove 举手事件：移除
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:hand:clear%25E4%25B8%25BE%25E6%2589%258B%25E4%25BA%258B%25E4%25BB%25B6%25EF%25BC%259A%25E6%25B8%2585%25E7%25A9%25BA"
+                  >
+                    voice:hand:clear 举手事件：清空
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:hand:reset%25E4%25B8%25BE%25E6%2589%258B%25E5%2588%2597%25E8%25A1%25A8%25E5%2588%259D%25E5%25A7%258B%25E5%258C%2596"
+                  >
+                    voice:hand:reset 举手列表初始化
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:hand:allow%25E4%25B8%25BE%25E6%2589%258B%25E4%25BA%258B%25E4%25BB%25B6%25EF%25BC%259A%25E5%2585%2581%25E8%25AE%25B8"
+                  >
+                    voice:hand:allow 举手事件：允许
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:hand:forbid%25E4%25B8%25BE%25E6%2589%258B%25E4%25BA%258B%25E4%25BB%25B6%25EF%25BC%259A%25E7%25A6%2581%25E6%25AD%25A2"
+                  >
+                    voice:hand:forbid 举手事件：禁止
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:voice:hand:change%25E4%25B8%25BE%25E6%2589%258B%25E5%2588%2597%25E8%25A1%25A8%25E6%259B%25B4%25E6%2594%25B9"
+                  >
+                    voice:hand:change 举手列表更改
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:room:mode:type%25E6%2588%25BF%25E9%2597%25B4%25E7%259A%2584%25E6%25A8%25A1%25E5%25BC%258F"
+                  >
+                    room:mode:type 房间的模式
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:room:init%25E6%2588%25BF%25E9%2597%25B4%25E5%2588%259D%25E5%25A7%258B%25E5%258C%2596%25E5%25AE%258C%25E6%2588%2590"
+                  >
+                    room:init 房间初始化完成
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:broadcast%25E5%25B9%25BF%25E6%2592%25AD"
+                  >
+                    event:broadcast 广播
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:network:status%25E7%25BD%2591%25E7%25BB%259C%25E7%258A%25B6%25E6%2580%2581"
+                  >
+                    network:status 网络状态
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:video:player%25E5%2588%2587%25E6%258D%25A2%25E5%2588%25B0%25E4%25BA%2586%25E6%25A1%258C%25E9%259D%25A2%25E5%2588%2586%25E4%25BA%25AB"
+                  >
+                    video:player 切换到了桌面分享
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="emit_error%2520_HT.html#.event:emit%25E6%2597%25B6%25E6%25A3%2580%25E6%259F%25A5%25E5%2588%25B0socket%25E9%2594%2599%25E8%25AF%25AF%25E6%2597%25B6"
+                  >
+                    emit:error _HT.event:emit时检查到socket错误时
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:ppt:ratio%25E7%259B%2591%25E5%2590%25AC%25E6%259D%25A5%25E8%2587%25AA%25E8%25AF%25BE%25E4%25BB%25B6%25E7%259A%2584ratio%25E5%258F%2598%25E5%258C%2596"
+                  >
+                    ppt:ratio 监听来自课件的ratio变化
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:socket:on:errorsocket=%253E%25E9%2594%2599%25E8%25AF%25AF"
+                  >
+                    socket:on:error socket => 错误
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:third:broadcast%25E7%25AC%25AC%25E4%25B8%2589%25E6%2596%25B9%25E5%25B9%25BF%25E6%2592%25AD"
+                  >
+                    third:broadcast 第三方广播
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:goods:put%25E6%259B%25B4%25E6%2596%25B0%25E4%25B8%258A%25E6%259E%25B6%25E5%2595%2586%25E5%2593%2581"
+                  >
+                    goods:put 更新上架商品
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:shopping:put%25E8%25B4%25AD%25E4%25B9%25B0%25E6%258F%2590%25E7%25A4%25BA"
+                  >
+                    shopping:put 购买提示
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:wx:enter:fullscreen%25E7%259B%2591%25E5%2590%25AC%25E5%25BE%25AE%25E4%25BF%25A1%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4%25E8%25BF%259B%25E5%2585%25A5%25E5%2585%25A8%25E5%25B1%258F"
+                  >
+                    wx:enter:fullscreen 监听微信摄像头进入全屏
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#event:wx:exit:fullscreen%25E7%259B%2591%25E5%2590%25AC%25E5%25BE%25AE%25E4%25BF%25A1%25E6%2591%2584%25E5%2583%258F%25E5%25A4%25B4%25E9%2580%2580%25E5%2587%25BA%25E5%2585%25A8%25E5%25B1%258F"
+                  >
+                    wx:exit:fullscreen 监听微信摄像头退出全屏
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a
+                href="global.html"
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+              >
+                Global
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    href="global.html#TFSDK%25E5%2585%25A8%25E5%25B1%2580%25E5%25AE%259A%25E4%25B9%2589"
+                  >
+                    TFSDK 全局定义
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="global.html#MT%25E5%2585%25A8%25E5%25B1%2580%25E5%25AF%25B9%25E8%25B1%25A1"
+                  >
+                    MT 全局对象
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <div class="col-sm-3 col-md-3">
+            <form class="navbar-form" role="search">
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Search"
+                  name="q"
+                  id="search-input"
+                />
+                <div class="input-group-btn">
+                  <button class="btn btn-default" id="search-submit">
+                    <i class="glyphicon glyphicon-search"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="toc-content">
+      <div class="row">
+        <div class="col-md-8">
+          <div id="main">
+            <h1 class="page-title">Classes</h1>
+            <section>
+              <header>
+                <h2></h2>
+              </header>
+
+              <article>
+                <div class="container-overview">
+                  <dl class="details"></dl>
+                </div>
+
+                <h3 class="subsection-title">Classes</h3>
+
+                <dl>
+                  <dt><a href="TFSDK.html">TFSDK</a></dt>
+                  <dd></dd>
+
+                  <dt><a href="MT.SDK.main.html">main</a></dt>
+                  <dd></dd>
+                </dl>
+
+                <h3 class="subsection-title">Namespaces</h3>
+
+                <dl>
+                  <dt>
+                    <a href="namespaces.html#lifeCycle">
+                      <a href="lifeCycle.html">lifeCycle</a>
+                    </a>
+                  </dt>
+                  <dd></dd>
+
+                  <dt>
+                    <a href="namespaces.html#player">
+                      <a href="player.html">player</a>
+                    </a>
+                  </dt>
+                  <dd></dd>
+                </dl>
+
+                <h3 class="subsection-title">Events</h3>
+
+                <dl>
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:connect%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9E%E6%8E%A5%E6%88%90%E5%8A%9F"
+                    >
+                      connect 服务器连接成功
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;connect&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:connect_failed%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9E%E6%8E%A5%E5%A4%B1%E8%B4%A5"
+                    >
+                      connect_failed 服务器连接失败
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;connect_failed&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:connect_error%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9E%E6%8E%A5%E9%94%99%E8%AF%AF"
+                    >
+                      connect_error 服务器连接错误
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;connect_error&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:disconnect%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9E%E6%8E%A5%E6%96%AD%E5%BC%80"
+                    >
+                      disconnect 服务器连接断开
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;disconnect&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:reconnect%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%87%8D%E8%BF%9E"
+                    >
+                      reconnect 服务器重连
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;reconnect&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:reconnecting%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%87%8D%E6%96%B0%E8%BF%9E%E6%8E%A5%E4%B8%AD"
+                    >
+                      reconnecting 服务器重新连接中
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;reconnecting&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:reconnect_error%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%87%8D%E8%BF%9E%E9%94%99%E8%AF%AF"
+                    >
+                      reconnect_error 服务器重连错误
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;reconnect_error&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:reconnect_failed%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%87%8D%E8%BF%9E%E5%A4%B1%E8%B4%A5"
+                    >
+                      reconnect_failed 服务器重连失败
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;reconnect_failed&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:system:room:error%E7%B3%BB%E7%BB%9F%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86%EF%BC%88token%E9%94%99%E8%AF%AF%E3%80%81%E8%A2%AB%E8%B8%A2%E5%87%BA%E3%80%81%E6%88%BF%E9%97%B4%E5%B7%B2%E6%BB%A1%E7%AD%89%EF%BC%89"
+                    >
+                      system:room:error
+                      系统错误信息处理（token错误、被踢出、房间已满等）
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;system:room:error&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:system:socket:error%E6%B3%A8%E5%86%8Csocket%E7%9B%91%E5%90%AC%E4%BA%8B%E4%BB%B6%E5%A4%B1%E8%B4%A5%E6%88%96%E8%80%85socket%E5%AF%B9%E8%B1%A1%E4%B8%8D%E5%AD%98%E5%9C%A8"
+                    >
+                      system:socket:error
+                      注册socket监听事件失败或者socket对象不存在
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;system:socket:error&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:start%E7%9B%B4%E6%92%AD%E5%BC%80%E5%A7%8B"
+                    >
+                      live:start 直播开始
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:start&#x27;, function(title) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:stop%E7%9B%B4%E6%92%AD%E5%81%9C%E6%AD%A2"
+                    >
+                      live:stop 直播停止
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:stop&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:wait%E6%9C%AA%E5%BC%80%E6%92%AD"
+                    >
+                      live:wait 未开播
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:wait&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:video:onplay%E6%A1%8C%E9%9D%A2%E5%88%86%E4%BA%AB/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E4%B8%AD"
+                    >
+                      live:video:onplay 桌面分享/视频播放中
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:video:onplay&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:camera:play%E6%91%84%E5%83%8F%E5%A4%B4%E6%92%AD%E6%94%BE%E4%B8%AD"
+                    >
+                      live:camera:play 摄像头播放中
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:camera:play&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:camera:pause%E6%91%84%E5%83%8F%E5%A4%B4%E6%9A%82%E5%81%9C"
+                    >
+                      live:camera:pause 摄像头暂停
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:camera:pause&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:video:pause%E6%A1%8C%E9%9D%A2%E5%88%86%E4%BA%AB/%E8%A7%86%E9%A2%91%E6%9A%82%E5%81%9C"
+                    >
+                      live:video:pause 桌面分享/视频暂停
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:video:pause&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:set:page%E8%AF%BE%E4%BB%B6%E7%BF%BB%E9%A1%B5"
+                    >
+                      live:set:page 课件翻页
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:set:page&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:has:whiteboard%E5%88%9D%E5%A7%8B%E5%8C%96%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E7%94%BB%E6%9D%BF"
+                    >
+                      live:has:whiteboard 初始化是否存在画板
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:has:whiteboard&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:room:configs%E6%88%BF%E9%97%B4%E8%AF%BE%E7%A8%8B%E8%AE%BE%E7%BD%AE%E4%BF%A1%E6%81%AF"
+                    >
+                      live:room:configs 房间课程设置信息
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:room:configs&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:robots:users%E7%89%B9%E6%AE%8A%E7%94%A8%E6%88%B7%EF%BC%88%E6%9C%BA%E5%99%A8%E4%BA%BA%EF%BC%89"
+                    >
+                      live:robots:users 特殊用户（机器人）
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:robots:users&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:data:update%E7%9B%B4%E6%92%AD%E7%9B%B8%E5%85%B3%E4%BF%A1%E6%81%AF"
+                    >
+                      live:data:update 直播相关信息
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:data:update&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:tech:order%E5%88%87%E6%8D%A2%E5%AA%92%E4%BD%93%E6%A0%BC%E5%BC%8F"
+                    >
+                      live:tech:order 切换媒体格式
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:tech:order&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:media:play%E6%92%AD%E6%94%BE%E6%A8%A1%E5%BC%8F"
+                    >
+                      live:media:play 播放模式
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details">
+                      <dt
+                        class="important tag-deprecated method-doc-label method-doc-details-label"
+                      >
+                        Deprecated:
+                      </dt>
+
+                      <dd>
+                        <ul class="dummy">
+                          <li>live:mode:change替代</li>
+                        </ul>
+                      </dd>
+                    </dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:media:play&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:network:list%E8%8E%B7%E5%8F%96%E7%BA%BF%E8%B7%AF"
+                    >
+                      live:network:list 获取线路
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:network:list&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:mode:change%E6%A8%A1%E5%BC%8F%E5%88%87%E6%8D%A2"
+                    >
+                      live:mode:change 模式切换
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:mode:change&#x27;, function(curMode, beformode, nativeMode) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:power:change%E6%9D%83%E9%99%90%E5%88%87%E6%8D%A2"
+                    >
+                      live:power:change 权限切换
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:power:change&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:course%E8%AF%BE%E7%A8%8B%E4%BF%A1%E6%81%AF"
+                    >
+                      live:course 课程信息
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:course&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:room:modules%E6%A8%A1%E5%9D%97%E8%AE%BE%E7%BD%AE%E4%BF%A1%E6%81%AF"
+                    >
+                      live:room:modules 模块设置信息
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:room:modules&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:course:access:error%E4%BF%A1%E6%81%AF%E9%94%99%E8%AF%AF%E6%9C%AA%E5%85%81%E8%AE%B8%E8%BF%9B%E5%85%A5"
+                    >
+                      live:course:access:error 信息错误未允许进入
+                    </h4>
+                  </dt>
+                  <dd>
+                    <div class="description">
+                      <p>信息错误[1260-1263].include(data.code)未允许进入</p>
+                    </div>
+
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:course:access:error&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:definition%E7%9B%91%E5%90%AC%E6%B8%85%E6%99%B0%E5%BA%A6%E9%80%89%E6%8B%A9"
+                    >
+                      live:definition 监听清晰度选择
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:definition&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4 class="name" id="event:livePlayerCallback">
+                      livePlayerCallback
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details">
+                      <dt
+                        class="important tag-deprecated method-doc-label method-doc-details-label"
+                      >
+                        Deprecated:
+                      </dt>
+
+                      <dd>
+                        <ul class="dummy">
+                          <li>flash方法，已废弃</li>
+                        </ul>
+                      </dd>
+                    </dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;livePlayerCallback&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:camera:error%E8%A7%86%E9%A2%91/%E6%91%84%E5%83%8F%E5%A4%B4%E6%92%AD%E6%94%BE%E9%94%99%E8%AF%AF"
+                    >
+                      live:camera:error 视频/摄像头播放错误
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:camera:error&#x27;, function({code, src}) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:video:fail%E5%AA%92%E4%BD%93%E6%96%AD%E6%B5%81%E8%B6%85%E6%97%B6"
+                    >
+                      live:video:fail 媒体断流超时
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:video:fail&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:desktop:start%E6%A1%8C%E9%9D%A2%E5%88%86%E4%BA%AB/%E8%A7%86%E9%A2%91%E5%BC%80%E5%90%AF"
+                    >
+                      live:desktop:start 桌面分享/视频开启
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:desktop:start&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:video:timeout%E6%A1%8C%E9%9D%A2%E5%88%86%E4%BA%AB/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E8%B6%85%E6%97%B6"
+                    >
+                      live:video:timeout 桌面分享/视频播放超时
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:video:timeout&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:desktop:play%E6%A1%8C%E9%9D%A2%E5%88%86%E4%BA%AB/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE"
+                    >
+                      live:desktop:play 桌面分享/视频播放
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:desktop:play&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:desktop:pause%E6%A1%8C%E9%9D%A2%E5%88%86%E4%BA%AB/%E8%A7%86%E9%A2%91%E6%9A%82%E5%81%9C"
+                    >
+                      live:desktop:pause 桌面分享/视频暂停
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:desktop:pause&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:desktop:stop%E6%A1%8C%E9%9D%A2%E5%88%86%E4%BA%AB/%E8%A7%86%E9%A2%91%E5%81%9C%E6%AD%A2"
+                    >
+                      live:desktop:stop 桌面分享/视频停止
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:desktop:stop&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:video:ratio%E6%A1%8C%E9%9D%A2%E5%88%86%E4%BA%AB/%E8%A7%86%E9%A2%91%E6%AF%94%E4%BE%8Bor%E6%91%84%E5%83%8F%E5%A4%B4%E6%AF%94%E4%BE%8B"
+                    >
+                      live:video:ratio 桌面分享/视频比例 or 摄像头比例
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:video:ratio&#x27;, function({width, height, ratio}) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:camera:loadeddata%E6%91%84%E5%83%8F%E5%A4%B4loadeddata%E4%BA%8B%E4%BB%B6"
+                    >
+                      live:camera:loadeddata 摄像头loadeddata事件
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:camera:loadeddata&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:camera:abort%E6%91%84%E5%83%8F%E5%A4%B4abort%E4%BA%8B%E4%BB%B6"
+                    >
+                      live:camera:abort 摄像头abort事件
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:camera:abort&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:video:abort%E6%A1%8C%E9%9D%A2%E5%88%86%E4%BA%AB/%E8%A7%86%E9%A2%91abort%E4%BA%8B%E4%BB%B6"
+                    >
+                      live:video:abort 桌面分享/视频abort事件
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:video:abort&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:video:error%E6%A1%8C%E9%9D%A2%E5%88%86%E4%BA%AB/%E8%A7%86%E9%A2%91error%E4%BA%8B%E4%BB%B6"
+                    >
+                      live:video:error 桌面分享/视频error事件
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:video:error&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:camera:ended%E6%91%84%E5%83%8F%E5%A4%B4ended%E4%BA%8B%E4%BB%B6"
+                    >
+                      live:camera:ended 摄像头ended事件
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:camera:ended&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:video:ended%E6%A1%8C%E9%9D%A2%E5%88%86%E4%BA%AB/%E8%A7%86%E9%A2%91ended%E4%BA%8B%E4%BB%B6"
+                    >
+                      live:video:ended 桌面分享/视频ended事件
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:video:ended&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:camera:suspend%E6%91%84%E5%83%8F%E5%A4%B4suspend%E4%BA%8B%E4%BB%B6"
+                    >
+                      live:camera:suspend 摄像头suspend事件
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:camera:suspend&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:video:suspend%E6%A1%8C%E9%9D%A2%E5%88%86%E4%BA%AB/%E8%A7%86%E9%A2%91suspend%E4%BA%8B%E4%BB%B6"
+                    >
+                      live:video:suspend 桌面分享/视频suspend事件
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:video:suspend&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:video:stalled%E6%A1%8C%E9%9D%A2%E5%88%86%E4%BA%AB/%E8%A7%86%E9%A2%91stalled%E4%BA%8B%E4%BB%B6"
+                    >
+                      live:video:stalled 桌面分享/视频stalled事件
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:video:stalled&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:camera:waiting%E6%91%84%E5%83%8F%E5%A4%B4%E7%AD%89%E5%BE%85"
+                    >
+                      live:camera:waiting 摄像头等待
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:camera:waiting&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:video:waiting%E6%A1%8C%E9%9D%A2%E5%88%86%E4%BA%AB/%E8%A7%86%E9%A2%91%E7%AD%89%E5%BE%85"
+                    >
+                      live:video:waiting 桌面分享/视频等待
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:video:waiting&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:camera:timeupdate%E6%91%84%E5%83%8F%E5%A4%B4%E6%9B%B4%E6%96%B0%E6%97%B6%E9%97%B4"
+                    >
+                      live:camera:timeupdate 摄像头更新时间
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:camera:timeupdate&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:video:timeupdate%E6%A1%8C%E9%9D%A2%E5%88%86%E4%BA%AB/%E8%A7%86%E9%A2%91%E6%9B%B4%E6%96%B0%E6%97%B6%E9%97%B4"
+                    >
+                      live:video:timeupdate 桌面分享/视频更新时间
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:video:timeupdate&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:camera:timeout%E6%A1%8C%E9%9D%A2%E5%88%86%E4%BA%AB/%E8%A7%86%E9%A2%91%E8%B6%85%E6%97%B6"
+                    >
+                      live:camera:timeout 桌面分享/视频超时
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:camera:timeout&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:media:timeout%E6%A1%8C%E9%9D%A2%E5%88%86%E4%BA%AB/%E8%A7%86%E9%A2%91%E8%B6%85%E6%97%B6"
+                    >
+                      live:media:timeout 桌面分享/视频超时
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:media:timeout&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:question:error%E8%8E%B7%E5%8F%96%E9%97%AE%E7%AD%94%E5%88%97%E8%A1%A8%E5%A4%B1%E8%B4%A5"
+                    >
+                      live:question:error 获取问答列表失败
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:question:error&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:init:success%E8%AF%B7%E6%B1%82init%E6%8E%A5%E5%8F%A3%E6%88%90%E5%8A%9F"
+                    >
+                      live:init:success 请求init接口成功
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details">
+                      <dt
+                        class="important tag-deprecated method-doc-label method-doc-details-label"
+                      >
+                        Deprecated:
+                      </dt>
+
+                      <dd>
+                        <ul class="dummy">
+                          <li>
+                            将废弃，建议使用生命周期函数finishInterface or
+                            mounted
+                          </li>
+                        </ul>
+                      </dd>
+                    </dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:init:success&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:video:loaded%E6%A1%8C%E9%9D%A2%E5%88%86%E4%BA%AB/%E8%A7%86%E9%A2%91loaded%E4%BA%8B%E4%BB%B6"
+                    >
+                      live:video:loaded 桌面分享/视频loaded事件
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:video:loaded&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:video:loadeddata%E6%A1%8C%E9%9D%A2%E5%88%86%E4%BA%AB/%E8%A7%86%E9%A2%91loadeddata%E4%BA%8B%E4%BB%B6"
+                    >
+                      live:video:loadeddata 桌面分享/视频loadeddata事件
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:video:loadeddata&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:video:metadata%E6%A1%8C%E9%9D%A2%E5%88%86%E4%BA%AB/%E8%A7%86%E9%A2%91metadata%E4%BA%8B%E4%BB%B6"
+                    >
+                      live:video:metadata 桌面分享/视频metadata事件
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:video:metadata&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:video:loadstart%E6%A1%8C%E9%9D%A2%E5%88%86%E4%BA%AB/%E8%A7%86%E9%A2%91loadstart%E4%BA%8B%E4%BB%B6"
+                    >
+                      live:video:loadstart 桌面分享/视频loadstart事件
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:video:loadstart&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:video:play%E6%A1%8C%E9%9D%A2%E5%88%86%E4%BA%AB/%E8%A7%86%E9%A2%91playing%E4%BA%8B%E4%BB%B6"
+                    >
+                      live:video:play 桌面分享/视频playing事件
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:video:play&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:live:player:size%E7%9B%91%E5%90%ACplayer%E5%B0%BA%E5%AF%B8%E5%8F%98%E5%8C%96"
+                    >
+                      live:player:size 监听player尺寸变化
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;live:player:size&#x27;, function(data) {
+   if (data.type == &#x27;camera&#x27;) todo();
+   if (data.type == &#x27;video&#x27;) todo();
+})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:camera:start%E6%91%84%E5%83%8F%E5%A4%B4%E5%BC%80%E5%90%AF"
+                    >
+                      camera:start 摄像头开启
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;camera:start&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:camera:stop%E6%91%84%E5%83%8F%E5%A4%B4%E5%81%9C%E6%AD%A2"
+                    >
+                      camera:stop 摄像头停止
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;camera:stop&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:whiteboard:close%E8%AF%BE%E4%BB%B6%E5%85%B3%E9%97%AD"
+                    >
+                      whiteboard:close 课件关闭
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;whiteboard:close&#x27;, function() {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:whiteboard:open%E8%AF%BE%E4%BB%B6%E6%89%93%E5%BC%80"
+                    >
+                      whiteboard:open 课件打开
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;whiteboard:open&#x27;, function() {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:member:list%E8%8E%B7%E5%8F%96%E5%88%9D%E5%A7%8B%E5%8C%96%E5%9C%A8%E7%BA%BF%E7%94%A8%E6%88%B7%E5%88%97%E8%A1%A8"
+                    >
+                      member:list 获取初始化在线用户列表
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;member:list&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:member:total%E7%9B%91%E5%90%AC%E5%9C%A8%E7%BA%BF%E7%94%A8%E6%88%B7%E4%BA%BA%E6%95%B0"
+                    >
+                      member:total 监听在线用户人数
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;member:total&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:member:voice:power%E6%94%B9%E5%8F%98%E7%94%A8%E6%88%B7%E8%AF%AD%E9%9F%B3%E6%9D%83%E9%99%90"
+                    >
+                      member:voice:power 改变用户语音权限
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;member:voice:power&#x27;, function(xid, power) {
+   HTSDK.voice.setVoicePower(xid, power);
+})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:member:robots%E5%B9%BF%E6%92%AD%E8%AE%BE%E7%BD%AE%E7%89%B9%E6%AE%8A%E7%94%A8%E6%88%B7"
+                    >
+                      member:robots 广播设置特殊用户
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;member:robots&#x27;, function(robot) {todo(robot?.robots)})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:member:join:other%E5%85%B6%E4%BB%96%E7%94%A8%E6%88%B7%E5%8A%A0%E5%85%A5"
+                    >
+                      member:join:other 其他用户加入
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;member:join:other&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:member:leave%E5%85%B6%E4%BB%96%E7%94%A8%E6%88%B7%E7%A6%BB%E5%BC%80"
+                    >
+                      member:leave 其他用户离开
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;member:leave&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:member:forceout%E6%9F%90%E7%94%A8%E6%88%B7%E5%BC%BA%E5%88%B6%E9%80%80%E5%87%BA%EF%BC%88%E9%87%8D%E5%A4%8D%E7%99%BB%E5%BD%95%E7%AD%89%EF%BC%89"
+                    >
+                      member:forceout 某用户强制退出（重复登录等）
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;member:forceout&#x27;, function(data) {
+   if (me) {
+     window.location.href = xxx
+   } else {
+     
+   }
+})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:member:kick%E7%94%A8%E6%88%B7%E8%B8%A2%E5%87%BA"
+                    >
+                      member:kick 用户踢出
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;member:kick&#x27;, function(data) {
+   if (me) {
+     window.location.href = xxx
+   } else {
+     
+   }
+})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:chat:send%E6%8E%A5%E6%94%B6%E8%81%8A%E5%A4%A9"
+                    >
+                      chat:send 接收聊天
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;chat:send&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:chat:private%E6%8E%A5%E6%94%B6%E7%A7%81%E8%81%8A"
+                    >
+                      chat:private 接收私聊
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;chat:private&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:chat:del%E5%88%A0%E9%99%A4%E8%81%8A%E5%A4%A9"
+                    >
+                      chat:del 删除聊天
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;chat:del&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:chat:reply%E8%81%8A%E5%A4%A9%E5%9B%9E%E5%A4%8D"
+                    >
+                      chat:reply 聊天回复
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;chat:reply&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:chat:disable%E7%A6%81%E6%AD%A2%E8%81%8A%E5%A4%A9"
+                    >
+                      chat:disable 禁止聊天
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;chat:disable&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:chat:enable%E5%85%81%E8%AE%B8%E8%81%8A%E5%A4%A9"
+                    >
+                      chat:enable 允许聊天
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;chat:enable&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:chat:disable:all%E7%A6%81%E6%AD%A2%E5%85%A8%E4%BD%93%E8%81%8A%E5%A4%A9"
+                    >
+                      chat:disable:all 禁止全体聊天
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;chat:disable:all&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:chat:list%E5%88%9D%E5%A7%8B%E5%8C%96%E8%81%8A%E5%A4%A9%E5%88%97%E8%A1%A8"
+                    >
+                      chat:list 初始化聊天列表
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details">
+                      <dt
+                        class="important tag-deprecated method-doc-label method-doc-details-label"
+                      >
+                        Deprecated:
+                      </dt>
+
+                      <dd>
+                        <ul class="dummy">
+                          <li>
+                            将废弃，建议使用生命周期函数finishInterface or
+                            mounted
+                          </li>
+                        </ul>
+                      </dd>
+                    </dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;chat:list&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:sign:new%E5%88%9D%E5%A7%8B%E5%8C%96%E7%AD%BE%E5%88%B0%E5%88%97%E8%A1%A8"
+                    >
+                      sign:new 初始化签到列表
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;sign:new&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:sign:end%E7%AD%BE%E5%88%B0%E7%BB%93%E6%9D%9F"
+                    >
+                      sign:end 签到结束
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;sign:end&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:flower:get:init%E8%8E%B7%E5%8F%96%E9%B2%9C%E8%8A%B1%E5%88%9D%E5%A7%8B%E5%8C%96%E7%8A%B6%E6%80%81"
+                    >
+                      flower:get:init 获取鲜花初始化状态
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;flower:get:init&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4 class="name" id="event:flower:send%E9%80%81%E8%8A%B1">
+                      flower:send 送花
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;flower:send&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:flower:total%E9%B2%9C%E8%8A%B1%E6%80%BB%E6%95%B0"
+                    >
+                      flower:total 鲜花总数
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;flower:total&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:flower:time:left%E8%8E%B7%E5%8F%96%E7%AC%AC%E4%B8%80%E6%9C%B5%E9%B2%9C%E8%8A%B1%E6%97%B6%E9%97%B4"
+                    >
+                      flower:time:left 获取第一朵鲜花时间
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;flower:time:left&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:lottery:start%E5%BC%80%E5%A7%8B%E6%8A%BD%E5%A5%96"
+                    >
+                      lottery:start 开始抽奖
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;lottery:start&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:lottery:stop%E7%BB%93%E6%9D%9F%E6%8A%BD%E5%A5%96"
+                    >
+                      lottery:stop 结束抽奖
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;lottery:stop&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:announce:notice%E5%85%AC%E5%91%8A"
+                    >
+                      announce:notice 公告
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;announce:notice&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:announce:roll%E6%BB%9A%E5%8A%A8%E9%80%9A%E7%9F%A5"
+                    >
+                      announce:roll 滚动通知
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;announce:roll&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4 class="name" id="event:effect:send%E5%8A%A8%E6%95%88">
+                      effect:send 动效
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;effect:send&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:question:ask%E6%8E%A5%E6%94%B6%E6%8F%90%E9%97%AE"
+                    >
+                      question:ask 接收提问
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;question:ask&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:question:reply%E6%8E%A5%E6%94%B6%E6%8F%90%E9%97%AE%E7%9A%84%E5%9B%9E%E5%A4%8D"
+                    >
+                      question:reply 接收提问的回复
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;question:reply&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:question:delete%E5%88%A0%E9%99%A4%E6%8F%90%E9%97%AE"
+                    >
+                      question:delete 删除提问
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;question:delete&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:question:update%E6%9B%B4%E6%96%B0%E5%9B%9E%E7%AD%94%E4%B8%AD%E7%8A%B6%E6%80%81"
+                    >
+                      question:update 更新回答中状态
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;question:update&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:question:audit%E9%80%9A%E8%BF%87%E6%8F%90%E9%97%AE"
+                    >
+                      question:audit 通过提问
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;question:audit&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:vote:new%E5%8F%91%E8%B5%B7%E6%8A%95%E7%A5%A8"
+                    >
+                      vote:new 发起投票
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;vote:new&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:vote:pub%E5%85%AC%E5%B8%83%E6%8A%95%E7%A5%A8%E7%BB%93%E6%9E%9C"
+                    >
+                      vote:pub 公布投票结果
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;vote:pub&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:connect:success%E8%AF%AD%E9%9F%B3%E4%BA%91%E5%90%AF%E5%8A%A8%E6%88%90%E5%8A%9F"
+                    >
+                      voice:connect:success 语音云启动成功
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:connect:success&#x27;, function() {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:disconnent%E8%AF%AD%E9%9F%B3%E4%BA%91%E6%9C%AA%E5%BC%80%E5%90%AF%E6%88%96%E4%B8%AD%E6%96%AD"
+                    >
+                      voice:disconnent 语音云未开启或中断
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:disconnent&#x27;, function() {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:power%E8%AF%AD%E9%9F%B3%E4%BA%91%E9%9F%B3%E9%87%8F"
+                    >
+                      voice:power 语音云音量
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:power&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:unlaunch%E8%AF%AD%E9%9F%B3%E4%BA%91%E6%9C%AA%E5%90%AF%E5%8A%A8"
+                    >
+                      voice:unlaunch 语音云未启动
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:unlaunch&#x27;, function(flag, times) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:mode:change%E8%AF%AD%E9%9F%B3%E4%BA%91%E6%A8%A1%E5%BC%8F%E5%88%87%E6%8D%A2%E7%9B%91%E5%90%AC"
+                    >
+                      voice:mode:change 语音云模式切换监听
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:mode:change&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:model:init%E8%AF%AD%E9%9F%B3%E6%A8%A1%E5%BC%8F%E5%88%9D%E5%A7%8B%E5%8C%96"
+                    >
+                      voice:model:init 语音模式初始化
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:model:init&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:volume:output%E8%BE%93%E5%87%BA%E7%9A%84%E8%AE%BE%E5%A4%87%E9%9F%B3%E9%87%8F"
+                    >
+                      voice:volume:output 输出的设备音量
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:volume:output&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:volume:input%E8%BE%93%E5%85%A5%E7%9A%84%E8%AE%BE%E5%A4%87%E7%9A%84%E9%9F%B3%E9%87%8F"
+                    >
+                      voice:volume:input 输入的设备的音量
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:volume:input&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:power:forbid%E7%A6%81%E6%AD%A2%E8%AF%AD%E9%9F%B3%E8%AF%B4%E8%AF%9D"
+                    >
+                      voice:power:forbid 禁止语音说话
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:power:forbid&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:power:allow%E5%85%81%E8%AE%B8%E8%AF%AD%E9%9F%B3%E8%AF%B4%E8%AF%9D"
+                    >
+                      voice:power:allow 允许语音说话
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:power:allow&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:chairman:list%E4%B8%BB%E5%B8%AD%E7%94%A8%E6%88%B7%E5%88%97%E8%A1%A8"
+                    >
+                      voice:chairman:list 主席用户列表
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:chairman:list&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:queue:init%E9%BA%A6%E5%BA%8F%E5%88%9D%E5%A7%8B%E5%8C%96"
+                    >
+                      voice:queue:init 麦序初始化
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:queue:init&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:queue:vlist%E9%BA%A6%E5%BA%8F%E5%88%97%E8%A1%A8"
+                    >
+                      voice:queue:vlist 麦序列表
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:queue:vlist&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:queue:control%E9%BA%A6%E5%BA%8F%E5%88%97%E8%A1%A8%E6%8E%A7%E5%88%B6"
+                    >
+                      voice:queue:control 麦序列表控制
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:queue:control&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:queue:change%E9%BA%A6%E5%BA%8F%E5%88%97%E8%A1%A8%E5%8F%98%E5%8C%96"
+                    >
+                      voice:queue:change 麦序列表变化
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:queue:change&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:queue:leave%E7%A6%BB%E5%BC%80"
+                    >
+                      voice:queue:leave 离开
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:queue:leave&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:queue:clear%E6%B8%85%E7%A9%BA"
+                    >
+                      voice:queue:clear 清空
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:queue:clear&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:queue:join%E5%8A%A0%E5%85%A5%E9%98%9F%E5%88%97"
+                    >
+                      voice:queue:join 加入队列
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:queue:join&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:queue:reset%E9%BA%A6%E5%BA%8F%E9%87%8D%E8%AE%BE"
+                    >
+                      voice:queue:reset 麦序重设
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:queue:reset&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:queue:countdown%E5%80%92%E8%AE%A1%E6%97%B6"
+                    >
+                      voice:queue:countdown 倒计时
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:queue:countdown&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:hand:up%E4%B8%BE%E6%89%8B%E4%BA%8B%E4%BB%B6%EF%BC%9A%E4%B8%BE%E6%89%8B"
+                    >
+                      voice:hand:up 举手事件：举手
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:hand:up&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:hand:leave%E4%B8%BE%E6%89%8B%E4%BA%8B%E4%BB%B6%EF%BC%9A%E7%A6%BB%E5%BC%80"
+                    >
+                      voice:hand:leave 举手事件：离开
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:hand:leave&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:hand:remove%E4%B8%BE%E6%89%8B%E4%BA%8B%E4%BB%B6%EF%BC%9A%E7%A7%BB%E9%99%A4"
+                    >
+                      voice:hand:remove 举手事件：移除
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:hand:remove&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:hand:clear%E4%B8%BE%E6%89%8B%E4%BA%8B%E4%BB%B6%EF%BC%9A%E6%B8%85%E7%A9%BA"
+                    >
+                      voice:hand:clear 举手事件：清空
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:hand:clear&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:hand:reset%E4%B8%BE%E6%89%8B%E5%88%97%E8%A1%A8%E5%88%9D%E5%A7%8B%E5%8C%96"
+                    >
+                      voice:hand:reset 举手列表初始化
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:hand:reset&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:hand:allow%E4%B8%BE%E6%89%8B%E4%BA%8B%E4%BB%B6%EF%BC%9A%E5%85%81%E8%AE%B8"
+                    >
+                      voice:hand:allow 举手事件：允许
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:hand:allow&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:hand:forbid%E4%B8%BE%E6%89%8B%E4%BA%8B%E4%BB%B6%EF%BC%9A%E7%A6%81%E6%AD%A2"
+                    >
+                      voice:hand:forbid 举手事件：禁止
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:hand:forbid&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:voice:hand:change%E4%B8%BE%E6%89%8B%E5%88%97%E8%A1%A8%E6%9B%B4%E6%94%B9"
+                    >
+                      voice:hand:change 举手列表更改
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;voice:hand:change&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:room:mode:type%E6%88%BF%E9%97%B4%E7%9A%84%E6%A8%A1%E5%BC%8F"
+                    >
+                      room:mode:type 房间的模式
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;room:mode:type&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:room:init%E6%88%BF%E9%97%B4%E5%88%9D%E5%A7%8B%E5%8C%96%E5%AE%8C%E6%88%90"
+                    >
+                      room:init 房间初始化完成
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;room:init&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4 class="name" id="event:broadcast%E5%B9%BF%E6%92%AD">
+                      broadcast 广播
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;broadcast&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:network:status%E7%BD%91%E7%BB%9C%E7%8A%B6%E6%80%81"
+                    >
+                      network:status 网络状态
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;network:status&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:video:player%E5%88%87%E6%8D%A2%E5%88%B0%E4%BA%86%E6%A1%8C%E9%9D%A2%E5%88%86%E4%BA%AB"
+                    >
+                      video:player 切换到了桌面分享
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;video:player&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id=".event:emit%E6%97%B6%E6%A3%80%E6%9F%A5%E5%88%B0socket%E9%94%99%E8%AF%AF%E6%97%B6"
+                    >
+                      emit时检查到socket错误时
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;emit:error&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:ppt:ratio%E7%9B%91%E5%90%AC%E6%9D%A5%E8%87%AA%E8%AF%BE%E4%BB%B6%E7%9A%84ratio%E5%8F%98%E5%8C%96"
+                    >
+                      ppt:ratio 监听来自课件的ratio变化
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;ppt:ratio&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:socket:on:errorsocket=%3E%E9%94%99%E8%AF%AF"
+                    >
+                      socket:on:error socket => 错误
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;socket:on:error&#x27;, function() {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:third:broadcast%E7%AC%AC%E4%B8%89%E6%96%B9%E5%B9%BF%E6%92%AD"
+                    >
+                      third:broadcast 第三方广播
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;third:broadcast&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:goods:put%E6%9B%B4%E6%96%B0%E4%B8%8A%E6%9E%B6%E5%95%86%E5%93%81"
+                    >
+                      goods:put 更新上架商品
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;goods:put&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:shopping:put%E8%B4%AD%E4%B9%B0%E6%8F%90%E7%A4%BA"
+                    >
+                      shopping:put 购买提示
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;shopping:put&#x27;, function(data) {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:wx:enter:fullscreen%E7%9B%91%E5%90%AC%E5%BE%AE%E4%BF%A1%E6%91%84%E5%83%8F%E5%A4%B4%E8%BF%9B%E5%85%A5%E5%85%A8%E5%B1%8F"
+                    >
+                      wx:enter:fullscreen 监听微信摄像头进入全屏
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;wx:enter:fullscreen&#x27;, function() {todo()})</pre
+                    >
+                  </dd>
+
+                  <hr />
+                  <dt>
+                    <h4
+                      class="name"
+                      id="event:wx:exit:fullscreen%E7%9B%91%E5%90%AC%E5%BE%AE%E4%BF%A1%E6%91%84%E5%83%8F%E5%A4%B4%E9%80%80%E5%87%BA%E5%85%A8%E5%B1%8F"
+                    >
+                      wx:exit:fullscreen 监听微信摄像头退出全屏
+                    </h4>
+                  </dt>
+                  <dd>
+                    <dl class="details"></dl>
+
+                    <h5>Example</h5>
+
+                    <pre class="sunlight-highlight-javascript">
+TF.on(&#x27;wx:exit:fullscreen&#x27;, function() {todo()})</pre
+                    >
+                  </dd>
+                </dl>
+              </article>
+            </section>
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="col-md-3">
+          <div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+
+    <footer>
+      <span class="jsdoc-message">
+        Documentation generated by
+        <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a>
+
+        on Mon Jan 17th 2022 using the
+        <a href="https://github.com/docstrap/docstrap">DocStrap template</a>
+        .
+      </span>
+    </footer>
+
+    <script src="scripts/docstrap.lib.js"></script>
+    <script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+    <script>
+      $(function () {
+        $("[id*='$']").each(function () {
+          var $this = $(this);
+
+          $this.attr('id', $this.attr('id').replace('$', '__'));
+        });
+
+        $(
+          '.tutorial-section pre, .readme-section pre, pre.prettyprint.source'
+        ).each(function () {
+          var $this = $(this);
+
+          var example = $this.find('code');
+          exampleText = example.html();
+          var lang = /{@lang (.*?)}/.exec(exampleText);
+          if (lang && lang[1]) {
+            exampleText = exampleText.replace(lang[0], '');
+            example.html(exampleText);
+            lang = lang[1];
+          } else {
+            var langClassMatch = example
+              .parent()[0]
+              .className.match(/lang\-(\S+)/);
+            lang = langClassMatch ? langClassMatch[1] : 'javascript';
+          }
+
+          if (lang) {
+            $this
+              .addClass('sunlight-highlight-' + lang)
+              .addClass('linenums')
+              .html(example.html());
+          }
+        });
+
+        Sunlight.highlightAll({
+          lineNumbers: true,
+          showMenu: true,
+          enableDoclinks: true
+        });
+
+        $.catchAnchorLinks({
+          navbarOffset: 10
+        });
+        $('#toc').toc({
+          anchorName: function (i, heading, prefix) {
+            return $(heading).attr('id') || prefix + i;
+          },
+          selectors:
+            '#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4',
+          showAndHide: false,
+          smoothScrolling: true
+        });
+
+        $("#main span[id^='toc']").addClass('toc-shim');
+        $('.dropdown-toggle').dropdown();
+
+        $('table').each(function () {
+          var $this = $(this);
+          $this.addClass('table');
+        });
+      });
+    </script>
+
+    <!--Navigation and Symbol Display-->
+
+    <!--Google Analytics-->
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        SearcherDisplay.init();
+      });
+    </script>
+  </body>
+</html>

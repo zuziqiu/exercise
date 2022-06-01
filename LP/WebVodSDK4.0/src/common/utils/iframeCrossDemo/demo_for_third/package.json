@@ -1,0 +1,16 @@
+{
+  "name": "demo_for_third",
+  "version": "1.0.0",
+  "description": "本方法用于嵌套iframe跨域通信",
+  "main": "iframeCross_client_min_umd_v1.0.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.15.3"
+  }
+}

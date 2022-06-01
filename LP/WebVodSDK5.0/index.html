@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>点播测试</title>
+    <link rel="icon" href="http://console.talk-fun.com/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script src="http://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script> -->
+    <script>
+      window.apiHost = 'open.talk-fun.com'
+    </script>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      }
+      .tf-x-controls {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: red;
+      }
+      button {
+        display: inline-block;
+        padding: 10px;
+        margin: 10px;
+      }
+      #doc {
+        /* display: flex; */
+        flex: none;
+        width: 300px;
+        position: relative;
+        height: 300px;
+        overflow: hidden;
+        background: #e1e1e1;
+        border: 1px solid red;
+      }
+      #video {
+        /* flex: 1; */
+        overflow: hidden;
+        height: 300px !important;
+        position: relative;
+        border: 1px solid gray;
+        background: gray;
+      }
+      video {
+        width: 400px !important;
+        height: 300px !important;
+        display: block;
+        background-color: darkmagenta !important;
+        margin: auto;
+      }
+      #rage {
+        width: 100%;
+        height: 10px;
+        display: block;
+        border: 2px solid red;
+        position: relative;
+        z-index: 10001;
+        /* display: flex; */
+        /* height: 500px; */
+      }
+      .t {
+        width: 100px;
+        height: 50px;
+        background: red;
+        z-index: 10000;
+        position: absolute;
+        right: 5px;
+        top: 95px;
+      }
+      #t3 {
+        position: fixed;
+        z-index: 1000;
+        left: 5px;
+        top: 10px;
+        font-size: 20px;
+        color: black;
+        background-color: aqua;
+      }
+      #debug_con {
+        width: 200px;
+        height: 100px;
+        background: rgba(0,0,0,0.8);
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: 1000;
+        overflow-y: scroll;
+      }
+      #debug_con p {
+        color: #6cff00;
+        font-size: 10px;
+        padding: 2px;
+      }
+      .xwp {
+        display: flex;
+      }
+    </style>
+    <!-- <script src="https://static-1.talk-fun.com/open/maituo_v2/dist/debug/sdk-pc.test.js?v=376bc"></script> -->
+    <script src="./dist/sdk-vod.test.min.js"></script>
+  </head>
+  <body>
+    <h2 id="t3"></h2>
+    <div id="debug_con"></div>
+    <i class="t" onclick="x.play()">覆盖</i>
+    <div class="xwp">
+      <div id="doc"></div>
+      <div id="main"></div>
+      <div id="video"></div>
+    </div>
+    <button onclick="x.play()">Play</button>
+    <button onclick="x.pause()">Pause</button>
+    <input id="rage" type="range" value="0" onchange="x.seek(this.value)"/>
+    
+    <ul id="chat_list"></ul>
+    <button onclick="emitChat()">发送聊天</button>
+    <script>
+      // sdk init ...
+      // window.onload = function () {
+      var str = null
+      window.x = new MT.SDK.main('gZhFDM1EjNzgTO0U2MkFDMwITM1ATZ3kDN1EGNiF2MwwHf81nI18VM1ETMxUzMfhTNwMjN1IiOiUWbh5mciwiIiojIyFGdhZXYiwiIBNVYohjMJtWRpB1XnpHUiojIzVGZvNmIsICMiojIkl2ZiwiIwIiOiUWbpRlblRGZpJmcvZmIsICMiojIzVHdhR3ciwiIwIiOiIXZk5WZnJCLikTM0kDN4QjM2EjI6ISZtlGdnVmciwiI4UDMzYTNiojIklWbv9mciwiIy9Gdp52btJiOiUGbvJnIsIiMhJWN1xFOzUmN1xlI6ISZtFmbrNWauJCLiAjMiojIkl2XyVmb0JXYwJCLiIDMwADMxMVTDNTO0IDR0UkI6ICZpVnIsAjOiQWa4Jye', {
+        video: {
+          controls: false
+        },
+        config: {
+          controls: true,
+          audioOnly: false,
+          techOrder: 'h5',
+          // whiteboardVersion: '2.5.2'
+        }
+      })
+      // for doc init.
+      x.mainPlayer('main', 'vking', function () {
+        // done
+      })
+      x.whiteboardPlayer('doc', 'xvking', function () {
+        // done
+      })
+      x.on('vod:media:event', function (state) {
+        var p = document.createElement('p')
+        p.innerText = 'state =>' + state
+        document.querySelector('#debug_con').prepend(p)
+      })
+      // x.resize(100, 100)
+      // console.warn(x.playerResize(100, 200))
+      // for video init.
+      x.camera('video', 'bx', function () {
+        // done
+      })
+      var n = 0
+      x.on('vod:statis', r => {
+        document.querySelector('#t3').innerText = '统计' + n++;
+      })
+      // for event by error
+      x.on('live:video:error', function (info) {
+        // console.warn(info)
+      })
+      // info
+      x.on('live:info', res => {
+        // console.warn(res)
+        // console.warn(res)
+        document.querySelector('#rage').max = res.duration
+      })
+
+      // 收到聊天
+      x.on('chat:send', res => {
+        if (res) {
+          var item = res
+          var li = document.createElement('li')
+          li.innerText = `${item.nickname} '===>' ${item.msg}`
+          document.querySelector('#chat_list').appendChild(li)
+        } 
+      })
+      x.on('live:info', res => {
+        // console.warn(res)
+        document.querySelector('#rage').max = res.duration
+      })
+      x.on('live:duration', (a, b, c) => {
+        // console.warn(a)
+        document.querySelector('#rage').value = a
+        document.querySelector('#time').innerText = a
+      })
+      // 初始化历史聊天数据
+      x.on('chat:list', function (list) {
+        // console.warn(list)
+        var li = ''
+        list.forEach(item => {
+          li += `<li><img src="${item.avatar}" /> ==> ${item.nickname} '===>' ${item.msg}</li>`
+        });
+        document.querySelector('#chat_list').innerHTML = li
+      })
+      x.on('live:video:pause', function () {
+        // alert(2)
+      })
+
+      // 发送聊天
+      var emitChat = function () {
+        // console.warn(x)
+        x.emit('chat:send', {msg: 'test12332'}, function (res) {
+          if (res.code != 0 ) {
+            alert(res.msg)
+          } else {
+            var item = res.data
+            var li = document.createElement('li')
+            li.innerText = `${item.nickname} '==<img src="${item.avatar}" />=>' ${item.msg}`
+            document.querySelector('#chat_list').appendChild(li)
+          }
+        })
+      }
+    </script>
+  </body>
+</html>

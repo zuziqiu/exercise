@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>直播测试</title>
+    <script>
+      var apiHost = 'open.talk-fun.com';
+    </script>
+    <script src="https://cdn.bootcss.com/vConsole/3.2.2/vconsole.min.js"></script>
+    <script>
+      // var vConsole = new VConsole();
+    </script>
+    <link
+      rel="shortcut icon"
+      href="//open.talk-fun.com/tpl/open/maituo/favicon.ico"
+      type="image/x-icon"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      #video-desk {
+        height: 100%;
+      }
+
+      #doc {
+        /* display: flex; */
+        flex: none;
+        background: #000000;
+        position: relative;
+        /* min-height: 200px; */
+        width: 300px;
+        height: 500px;
+        /* max-height: 300px; */
+        overflow: hidden;
+        border: 2px solid #314343;
+        margin: 10px;
+        border-radius: 5px;
+        z-index: 100;
+      }
+
+      #video {
+        flex: 1;
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        margin: auto;
+        top: 10px;
+        right: 10px;
+        overflow: hidden;
+        max-height: 300px;
+        z-index: 1002;
+      }
+
+      #bx {
+        height: 220px;
+      }
+
+      .xwp {
+        width: 99%;
+        display: flex;
+        min-height: 300px;
+        /* overflow: hidden; */
+        /* flex-direction: column; */
+        flex-wrap: wrap;
+        min-height: 400px;
+        /* display:
+      . none; */
+      }
+
+      .pptview {
+        width: 400px;
+        height: 300px;
+        position: absolute;
+        top: 30%;
+        left: 35%;
+        z-index: 1000;
+        background: gray;
+        border: 2px solid greenyellow;
+        display: none;
+      }
+
+      /* controls ==> 样式 */
+      .tf-x-controls {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        z-index: 100;
+        background: #314343;
+      }
+
+      .tf-player-controls svg {
+        fill: #efefef;
+        width: 16px;
+        height: 16px;
+        margin-top: 3px;
+      }
+
+      .tf-xplayer-inner {
+        padding: 5px;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .tf-xplayer-inner span {
+        justify-items: flex-end;
+        flex: none;
+        display: block;
+        height: 20px;
+        margin: 0px 6px;
+        cursor: pointer;
+      }
+
+      /* controls-end */
+
+      button {
+        padding: 10px 20px;
+        border-radius: 50em;
+        font-size: 1rem;
+        display: block;
+        margin: 10px auto;
+        /* margin: auto; */
+        background: sandybrown;
+      }
+
+      #vlist {
+        position: relative;
+        z-index: 1000;
+      }
+
+      #vlist em {
+        font-size: 15px;
+        background: green;
+        padding: 5px;
+        margin: 2px;
+        color: yellow;
+        padding: 10px;
+        border-radius: 5em;
+      }
+
+      #vking {
+        width: 100%;
+        height: 500px;
+      }
+
+      #video {
+        width: 300px;
+        height: 220px;
+        display: block;
+        background: #000;
+        border: 3px solid pink;
+        border-radius: 5px;
+      }
+
+      video {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      #wb_wp {
+        border: 2px solid #000;
+        width: 400px;
+        height: 500px;
+        overflow: hidden;
+        position: relative;
+        z-index: 1001;
+        flex: none;
+        background-color: #031475;
+      }
+
+      .tf_ico_volume {
+        fill: #efefef;
+      }
+
+      #ls {
+        color: springgreen;
+      }
+
+      iframe {
+        display: none;
+      }
+
+      .clist {
+        padding: 10px;
+        display: block;
+      }
+
+      .clist em {
+        font-size: 15px;
+        background: green;
+        padding: 5px;
+        margin: 2px;
+        color: yellow;
+        padding: 10px;
+        border-radius: 5em;
+      }
+      .poster {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: greenyellow;
+        z-index: 100;
+        left: 0;
+        top: 0;
+      }
+      #test_video {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        z-index: 9999;
+        background-color: black;
+      }
+    </style>
+    <script src="./dist/sdk.js"></script>
+  </head>
+
+  <body>
+    <div id="pos" class="poster"></div>
+
+    <script>
+      var a = document.querySelector('#pos');
+      a.addEventListener('click', function () {
+        // console.warn(window.xht)
+        window.xht.play();
+      });
+    </script>
+
+    <!-- <iframe allow="geolocation; microphone; camera; midi; encrypted-media;" width="100%" height="500" src="https://open.talk-fun.com/room.php?ak=debde986d868545f8609362ecdb45b22&from=inner&r=2316816"></iframe> -->
+    <h1 id="vlist"></h1>
+    <h5 id="x"></h5>
+    <div id="ttt"></div>
+    <!-- <video id="vv" playsinline x5-playsinline controls src="http://ivi.bupt.edu.cn/hls/cctv1.m3u8"></video> -->
+    <h1 id="name">
+      [
+      <span id="xname"></span>
+      ]...鸡杂粥汤圆来一碗...
+      <strong id="ls"></strong>
+    </h1>
+    <span class="clist">
+      <em onclick="x.playerTechOrder('rtmp')">Flash</em>
+      <em onclick="x.playerTechOrder('flv')">FLV</em>
+      <em onclick="x.playerTechOrder('hls')">HLS</em>
+    </span>
+    <h2 id="tout"></h2>
+    <div class="xwp">
+      <!-- desktop -->
+      <div id="doc">
+        <!-- <div id="video-desk"></div> -->
+      </div>
+
+      <!-- camera -->
+      <div id="video">
+        <!-- <div id="video-cam"></div> -->
+      </div>
+
+      <!-- whiteboard -->
+      <div id="wb_wp"></div>
+
+      <!-- media -->
+      <div class="wp-media-player">
+        <div id="media-dom"></div>
+      </div>
+
+      <div class="pptview">
+        <button class="prev">上一张</button>
+        <button class="next">下一张</button>
+      </div>
+    </div>
+
+    <button onclick="x.reload()">味道不好，重新来一碗😡</button>
+    <ol id="chat_dom"></ol>
+    <script>
+      var h1 = document.querySelector('#ls');
+      // sdk init ...
+      var token =
+        'UDOjRmYmJGNiJGZ5EWM1MzM5IWMlZDN5QjMhNWYwEWY8xHf9JCO1AzM2UjI6ISZtFmbyJCLwojIhJCLwojIkl2ZiwCM6ICZp9VZzJXdvNmIsIiI6IichRXY2FmIsAjOiIXZk5WZnJCL5kTMyMDO3AjNxojIlJXawhXZiwSO5EDO2kjNwYTM6ISZtlGdnVmciwSXbpjIyRHdhJCLiIXZzVnI6ISZs9mciwiM0gTN0UTM6ICZphnIsISO1UjN1xVOhJTN1xlI6ISZtFmbrNWauJCLwojIklmYiwiIyADMwATMf5WZw9mI6ICZpVnIsgTNwMjN1ojIklWbv9mciwCMyojIklGciwCMyojIkl2XyVmb0JXYwJye';
+      // var token = "YjYmhDOlJGNxIzYhN2Y1EjN1YjY5QWM3UWOhNWN5I2N8xHf9JyM1AzM1gjI6ISZtFmbyJCLwojIhJCL1kTM0QTNzcTNxojIl1Wa0dWZyJCLiQTOzUDNyITMxIiOiQWa4JCL0kTOxEjOiQWawJCLdtlOiIHd0FmIsAjOiQWanJCLiIiOiIXY0FmdhJCLwojIyVGZuV2ZiwSN5czN0UzM3UTM6ISZylGc4VmIsMTNwMTN4ojIklWbv9mciwiI5gDMxITYiVTdchzMlZTdcJiOiUWbh52ajlmbiwiI0NXZ1dmI6ISZs9mciwiI3UkQ2EkR0kTQBVjRtUUO5UULDFUN40SMwAjMtQkNEFERCJDNiojIklWdiwCN5kTMxojIkl2XyVmb0JXYwJye"
+      var x = null;
+      var start = function () {
+        x = new window.MT.SDK.main(
+          token,
+          {
+            config: {
+              techOrder: 'hls',
+              fullscreen: true,
+              playIcon: false,
+              controls: true
+            },
+            video: {
+              autoplay: true,
+              controls: false,
+              preload: 'auto'
+            }
+          },
+          (data) => {
+            // console.warn('data ==>', data)
+            var x = `${data.zhubo.nickname}_${data.zhubo.bid}`;
+            document.querySelector('#xname').innerHTML = x;
+            // __store__.commit('UPDATE_EXT_CONFIG', {video:{poster: data.zhubo.p_260}})
+          }
+        );
+        window.xht = x;
+
+        // for video init.
+        x.mainPlayer('doc', 'desktop', function () {});
+
+        // for video init.
+        x.camera('video', 'camera', function () {});
+
+        // for wb init.
+        x.whiteboardPlayer('wb_wp', 'wbx', function () {});
+
+        // pptpreview
+        x.pptPreview({
+          wrap: '.pptview',
+          next: '.next',
+          prev: '.prev',
+          callback: function (obj) {}
+        });
+        x.on('member:forceout', function (user) {
+          // window.location.href = '//open.talk-fun.com/error.html?var=3';
+        });
+        // for event by error
+        x.on('live:video:error', function (info) {
+          // console.warn(info)
+        });
+        x.on('live:video:ratio', function (info) {
+          // console.warn('ratio===>', info)
+        });
+        x.on('live:camera:error', function (e) {
+          document.querySelector('#x').innerHTML = `${e.code} <br/> ${e.src}`;
+          // document.querySelector('#x').innerHTML = 'MEDIA_ON_ERROR ==>'+ Number(Math.random() * 1000).toFixed(2)
+        });
+        x.on('live:wait', () => {
+          h1.innerHTML = '直播未开始';
+        });
+        x.on('live:start', () => {
+          h1.innerHTML = '直播中...';
+        });
+        x.on('live:stop', () => {
+          h1.innerHTML = '直播已结束';
+        });
+        x.on('live:network:list', (list) => {
+          console.log('线路列表==>', list);
+          var t = '';
+          list.forEach((item) => {
+            console.warn(item);
+            t += `<em key="${item.key}" onclick="x.setLine(${item.key})">📶信号${item.label}号</em>`;
+            document.querySelector('#vlist').innerHTML = t;
+          });
+        });
+        // 监听事件 `on`
+        x.on('chat:send', function (chat) {
+          // 在dom指定位置插入一条聊天信息
+          var li = document.createElement('li');
+          li.innerHTML = chat.msg;
+          // 把 `li` 元素插入到 `#chat_dom` 内
+          document.querySelector('#chat_dom').appendChild(li);
+        });
+        x.on('live:camera:timeupdate', () => {
+          document.querySelector('#tout').innerHTML = '';
+        });
+        // if (window.WeixinJSBridge) {
+        //   WeixinJSBridge.invoke("getNetworkType",{}, function(e){
+        //     alert(e)
+        //   })
+        // }
+        x.on('whiteboard:open', (r) => {
+          console.warn('open');
+        });
+        x.on('whiteboard:close', (r) => {
+          console.warn('close');
+        });
+        // var list = [1,2,3,4,5,6,7,8,9,10, 1024]
+
+        // var hu = setInterval(() => {
+        //   var k = parseInt(Math.random() * (list.length))
+        //   // console.warn(k)
+        //   document.querySelector('#name').innerHTML = list[k]
+        // }, 100);
+
+        // document.body.addEventListener('click', () => {
+        //   clearInterval(hu)
+        // })
+
+        var c = function () {
+          var tx = document.createElement('video');
+          tx.src = 'http://ivi.bupt.edu.cn/hls/cctv3hd.m3u8';
+          // document.body.appendChild
+          tx.setAttribute('controls', '');
+          tx.setAttribute('x5-playsinline', '');
+          tx.setAttribute('playsinline', '');
+          tx.id = 'vv';
+          document.body.appendChild(tx);
+          tx.play();
+        };
+        x.on('live:camera:timeout', (t, t2) => {
+          document.querySelector('#tout').innerHTML = '视频超时,请刷新重试!';
+          // console.warn(t, t2)
+          if (t - t2 > 15) {
+            // x.reload()
+            console.warn('video on time out!' + (t - t2));
+          }
+        });
+      };
+    </script>
+
+    <!-- #### 深度监听 #### -->
+    <script>
+      // state
+      var st = {
+        key: 123,
+        live: false,
+        me: false
+      };
+
+      // watch
+      var on = {};
+
+      // defineProprety Object => copy with st
+      var obj = new Object();
+      for (const key in st) {
+        var tem = null;
+        if (st.hasOwnProperty(key)) {
+          const element = st[key];
+          Object.defineProperty(obj, key, {
+            // configurable: true,
+            get: function () {
+              console.log('getter==>', st[key]);
+              return st[key];
+            },
+            set: function (newval) {
+              if (obj[key] === newval) {
+                // console.warn(newval)
+                return false;
+              }
+              console.log('setter==>', newval);
+              st[key] = newval;
+            }
+          });
+        }
+      }
+
+      // Object.defineProperty(st, "key", {
+      //   // value: false,
+      //   // writable: false,
+      //   // configurable: true,
+      //   get: function () {
+      //     return tem
+      //   },
+      //   set: function (k) {
+      //     // console.warn('s', k)
+      //     tem = k
+      //     // return k
+      //   }
+      // })
+
+      // Object.defineProperty(st, "live", {
+      //   // value: 'xxx',
+      //   // writable: false,
+      //   // configurable: true,
+      //   enumerable: false,
+      //   get: function () {
+      //     return tem
+      //   },
+      //   set: function (k) {
+      //     // console.warn('s', k)
+      //     tem = k
+      //   }
+      // })
+      // console.warn(Object.keys(st))
+      // console.warn(st)
+      start();
+    </script>
+  </body>
+</html>
