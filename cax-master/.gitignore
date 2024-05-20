@@ -1,6 +1,0 @@
-/node_modules
-/*/*/node_modules
-/packages/node_modules
-.DS_Store
-packages/.DS_Store
-/packages/*/test

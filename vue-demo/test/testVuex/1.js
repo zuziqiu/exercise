@@ -1,1 +1,0 @@
-import myMethod from 'util';

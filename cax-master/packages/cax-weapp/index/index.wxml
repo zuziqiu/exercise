@@ -1,5 +1,0 @@
-<!-- sample.wxml -->
-<view class="container">
-  <cax id="myCanvas"></cax>
-  <cax id="myCanvas2"></cax>
-</view>
