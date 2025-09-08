@@ -1,0 +1,12 @@
+[
+  {
+    "name": "智能手机",
+    "price": 2999,
+    "description": "6.7英寸OLED屏幕"
+  },
+  {
+    "name": "无线耳机",
+    "price": 399,
+    "description": "主动降噪，30小时续航"
+  }
+]
