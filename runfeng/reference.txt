@@ -1,0 +1,359 @@
+Private Sub OpenSelectedExcelFile()
+  '创建fd文件对话框变量（用于选择文件）
+  Dim fd As FileDialog, name$, splitNumber%
+  '创建了一个文件选择对话框对象，并将其赋值给 fd
+  Set fd = Application.FileDialog(msoFileDialogFilePicker)
+  Dim vrtSelectedItem As Variant
+  '检查对象是否已经设置
+  'With 语句用于指定一个对象，然后在该对象上执行多个语句，而无需重复引用该对象(类似指定作用域)
+  With fd
+    '检查文件对话框对象 fd 的 Show 属性是否为True。如果文件对话框显示并且用户选择了文件并点击了“打开”或“确定”按钮，则  .Show = True 条件成立
+    If .Show = True Then
+      'Dir(.SelectedItems(1)) 返回选中文件的路径，然后 Workbooks.Open 打开该文件。
+      Workbooks.Open (Dir(.SelectedItems(1)))
+      '从选中文件的文件名中提取文件名（不包含扩展名）。 Left 函数返回字符串左边的字符， InStrRev 函数返回字符串中指定字符的位置。
+      name = Left(Dir(.SelectedItems(1)), InStrRev(Dir(.SelectedItems(1)), ".") - 1)
+      splitNumber = 8
+
+      Call checkLIst(name, splitNumber)
+      '复制选中工作簿中名为"name"的工作表到当前工作簿中名为"操作"的工作表之后。
+      Workbooks(Dir(.SelectedItems(1))).Sheets(Left(Dir(.SelectedItems(1)), InStrRev(Dir(.SelectedItems(1)), ".") - 1) + "检查结果").Copy After:=ThisWorkbook.Sheets("操作")
+      Workbooks(Dir(.SelectedItems(1))).Close False
+      MsgBox "数据解析完成"
+    End If
+  End With
+End Sub
+
+Public Sub checkLIst(name, splitNumber)
+  'RGB(128, 128, 128)是灰色
+  'RGB(255, 140 ,0)是橙色
+  'RGB(255, 255, 0)是黄色
+  'RGB(255, 0, 0)是红色
+  'RGB(206, 255, 206)是绿色
+
+  '定义变量
+  Dim perRow%, perColumn%, timeLength%, timeIndex%, pasteRow%, resultRow%, lishuidi%, greyCount%, redCount$
+
+  '在当前活动工作表之后添加一个新的工作表。通过这行代码，可以在当前活动工作表之后动态地创建一个新的工作表
+  Sheets.Add After:=ActiveSheet
+
+  ActiveSheet.name = name + "检查结果"
+
+  '复制刷卡记录表的第一行
+  Sheets("打卡时间").Rows(1).Copy
+  '新生成表的第一行粘贴第一行a
+  ActiveSheet.Rows(1).PasteSpecial
+  '复制刷卡记录表的第二行
+  Sheets("打卡时间").Rows(2).Copy
+  '新生成表的第一行粘贴第二行
+  ActiveSheet.Rows(2).PasteSpecial
+  '复制刷卡记录表的第三行
+  Sheets("打卡时间").Rows(3).Copy
+  '新生成表的第三行
+  ActiveSheet.Rows(3).PasteSpecial
+
+  '冻结（日期）
+  ActiveWindow.SplitRow = 3
+  ActiveWindow.FreezePanes = True
+
+  '第4行开始遍历正式计算每个人的工时
+  For perRow = 4 To Sheets("打卡时间").Cells(Rows.Count, 1).End(xlUp).Row
+    greyCount = 0
+    redCount = 0
+    ' 检查行是否隐藏
+    If Sheets("打卡时间").Rows(perRow).RowHeight > 0 Then
+      pasteRow = ActiveSheet.UsedRange.Rows.Count + 1
+      '复制遍历的每行数据
+      Sheets("打卡时间").Rows(perRow).Copy
+      '新表粘贴遍历的每行数据
+      ActiveSheet.Rows(pasteRow).PasteSpecial
+      ' 设置原始数据行背景蓝色
+      ActiveSheet.Rows(pasteRow).Interior.Color = RGB(0, 176, 246)
+      ' 循环遍历第四列开始的打卡时间数据（这行语句会跳过空列，所以取第三列日期作为查找依据）
+      For perColumn = 4 To Cells(3, Columns.Count).End(xlToLeft).Column
+        ' 向上取整时间组
+        timeLength = 0
+        timeLength = Len(Sheets("打卡时间").Cells(perRow, perColumn)) / splitNumber
+        If timeLength - Int(timeLength) > 0 Then
+          timeLength = Int(timeLength) + 1
+        Else
+          timeLength = Int(timeLength)
+        End If
+
+        For timeIndex = 0 To timeLength
+          ActiveSheet.Cells(pasteRow + 1 + timeIndex, perColumn) = Mid(Sheets("打卡时间").Cells(perRow, perColumn), timeIndex * splitNumber + 1, (splitNumber - 2))
+          ActiveSheet.Cells(pasteRow + 1 + timeIndex, perColumn) = Replace(ActiveSheet.Cells(pasteRow + 1 + timeIndex, perColumn), Chr(10), "", , , vbTextCompare)
+          ' 左对齐
+          ActiveSheet.Cells(pasteRow + 1 + timeIndex, perColumn).HorizontalAlignment = Excel.xlLeft
+          ActiveSheet.Cells(pasteRow + 1 + timeIndex, "a") = ActiveSheet.Cells(pasteRow, "a")
+        Next
+
+        resultRow = pasteRow + timeLength + 1
+
+        ' 办公室逻辑
+        If ActiveSheet.Cells(pasteRow, "b").Value = "办公室" Then
+          If timeLength = 2 Then
+            ActiveSheet.Cells(resultRow, perColumn) = ActiveSheet.Cells(pasteRow + 2, perColumn) - ActiveSheet.Cells(pasteRow + 1, perColumn)
+            If Hour(ActiveSheet.Cells(resultRow, perColumn)) * 60 + Minute(ActiveSheet.Cells(resultRow, perColumn)) < 510 Then
+              ' 工时不足 => 红色
+              ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(255, 0, 0)
+              redCount = redCount + 1
+            Else
+              ' 正常工时 => 绿色
+              ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(206, 255, 206)
+            End If
+            ' 加上时间单位
+            ActiveSheet.Cells(resultRow, perColumn).NumberFormatLocal = "[h]时mm分"
+          Else
+            If timeLength = 0 Then
+              ' 没有打卡时间 => 灰色
+              ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(128, 128, 128)
+              greyCount = greyCount + 1
+            Else
+              ' 打卡次数错误 => 黄色
+              ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(255, 255, 0)
+            End If
+          End If
+        End If
+
+        ' 点心逻辑
+        If ActiveSheet.Cells(pasteRow, "b").Value = "点心部" Then
+          If ActiveSheet.Cells(pasteRow, "a").Value = "黎水娣" Then
+            For lishuidi = 0 To UBound(Array("黎水娣"))
+              If timeLength = 4 Then
+                ActiveSheet.Cells(resultRow, perColumn) = ActiveSheet.Cells(pasteRow + 2, perColumn) + ActiveSheet.Cells(pasteRow + 4, perColumn) - ActiveSheet.Cells(pasteRow + 1, perColumn) - ActiveSheet.Cells(pasteRow + 3, perColumn)
+                If Hour(ActiveSheet.Cells(resultRow, perColumn)) * 60 + Minute(ActiveSheet.Cells(resultRow, perColumn)) < 510 Then
+                  ' 工时不足 => 红色
+                  ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(255, 0, 0)
+                  redCount = redCount + 1
+                Else
+                  ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(206, 255, 206)
+                End If
+                ActiveSheet.Cells(resultRow, perColumn).NumberFormatLocal = "[h]时mm分"
+              Else
+                If timeLength = 0 Then
+                  ' 没有打卡时间 => 灰色
+                  ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(128, 128, 128)
+                  greyCount = greyCount + 1
+                Else
+                  ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(255, 255, 0)
+                End If
+              End If
+            Next
+          Else
+            If timeLength = 2 Then
+              ActiveSheet.Cells(resultRow, perColumn) = ActiveSheet.Cells(pasteRow + 2, perColumn) - ActiveSheet.Cells(pasteRow + 1, perColumn)
+              If Hour(ActiveSheet.Cells(resultRow, perColumn)) * 60 + Minute(ActiveSheet.Cells(resultRow, perColumn)) < 510 Then
+                ' 工时不足 => 红色
+                ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(255, 0, 0)
+                redCount = redCount + 1
+              Else
+                ' 正常工时 => 绿色
+                ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(206, 255, 206)
+              End If
+              ' 加上时间单位
+              ActiveSheet.Cells(resultRow, perColumn).NumberFormatLocal = "[h]时mm分"
+            Else
+              If timeLength = 0 Then
+                ' 没有打卡时间 => 灰色
+                ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(128, 128, 128)
+                greyCount = greyCount + 1
+              Else
+                ' 打卡次数错误 => 黄色
+                ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(255, 255, 0)
+              End If
+            End If
+          End If
+        End If
+
+        ' 后勤逻辑
+        If ActiveSheet.Cells(pasteRow, "b").Value = "后勤部" Then
+          If timeLength = 2 Then
+            ActiveSheet.Cells(resultRow, perColumn) = ActiveSheet.Cells(pasteRow + 2, perColumn) - ActiveSheet.Cells(pasteRow + 1, perColumn)
+            If Hour(ActiveSheet.Cells(resultRow, perColumn)) * 60 + Minute(ActiveSheet.Cells(resultRow, perColumn)) < 720 Then
+              ' 工时不足 => 红色
+              ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(255, 0, 0)
+              redCount = redCount + 1
+            Else
+              ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(206, 255, 206)
+            End If
+            ActiveSheet.Cells(resultRow, perColumn).NumberFormatLocal = "[h]时mm分"
+          Else
+            If timeLength = 4 Then
+              ActiveSheet.Cells(resultRow, perColumn) = ActiveSheet.Cells(pasteRow + 2, perColumn) + ActiveSheet.Cells(pasteRow + 4, perColumn) - ActiveSheet.Cells(pasteRow + 1, perColumn) - ActiveSheet.Cells(pasteRow + 3, perColumn)
+              If Hour(ActiveSheet.Cells(resultRow, perColumn)) * 60 + Minute(ActiveSheet.Cells(resultRow, perColumn)) < 510 Then
+                ' 工时不足 => 红色
+                ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(255, 0, 0)
+                redCount = redCount + 1
+              Else
+                ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(206, 255, 206)
+              End If
+              ActiveSheet.Cells(resultRow, perColumn).NumberFormatLocal = "[h]时mm分"
+            Else
+              If timeLength = 0 Then
+                ' 没有打卡时间 => 灰色
+                ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(128, 128, 128)
+                greyCount = greyCount + 1
+              Else
+                ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(255, 255, 0)
+              End If
+            End If
+          End If
+        End If
+
+        ' 楼面部
+        If ActiveSheet.Cells(pasteRow, "b").Value = "楼面部" Then
+          If timeLength = 4 Then
+            ActiveSheet.Cells(resultRow, perColumn) = ActiveSheet.Cells(pasteRow + 2, perColumn) + ActiveSheet.Cells(pasteRow + 4, perColumn) - ActiveSheet.Cells(pasteRow + 1, perColumn) - ActiveSheet.Cells(pasteRow + 3, perColumn)
+            If Hour(ActiveSheet.Cells(resultRow, perColumn)) * 60 + Minute(ActiveSheet.Cells(resultRow, perColumn)) < 510 Then
+              ' 工时不足 => 红色
+              ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(255, 0, 0)
+              redCount = redCount + 1
+            Else
+              ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(206, 255, 206)
+            End If
+            ActiveSheet.Cells(resultRow, perColumn).NumberFormatLocal = "[h]时mm分"
+          Else
+            If timeLength = 0 Then
+              ' 没有打卡时间 => 灰色
+              ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(128, 128, 128)
+              greyCount = greyCount + 1
+            Else
+              If timeLength = 2 Then
+                ActiveSheet.Cells(resultRow, perColumn) = ActiveSheet.Cells(pasteRow + 2, perColumn) - ActiveSheet.Cells(pasteRow + 1, perColumn)
+                If Hour(ActiveSheet.Cells(resultRow, perColumn)) * 60 + Minute(ActiveSheet.Cells(resultRow, perColumn)) < 510 Then
+                  ' 工时不足 => 红色
+                  ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(255, 0, 0)
+                  redCount = redCount + 1
+                Else
+                  ' 正常工时 => 绿色
+                  ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(206, 255, 206)
+                End If
+                ' 加上时间单位
+                ActiveSheet.Cells(resultRow, perColumn).NumberFormatLocal = "[h]时mm分"
+              Else
+                ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(255, 255, 0)
+              End If
+            End If
+          End If
+        End If
+
+        ' 烧味部
+        If ActiveSheet.Cells(pasteRow, "b").Value = "烧味部" Then
+          If timeLength = 4 Then
+            ActiveSheet.Cells(resultRow, perColumn) = ActiveSheet.Cells(pasteRow + 2, perColumn) + ActiveSheet.Cells(pasteRow + 4, perColumn) - ActiveSheet.Cells(pasteRow + 1, perColumn) - ActiveSheet.Cells(pasteRow + 3, perColumn)
+            If Hour(ActiveSheet.Cells(resultRow, perColumn)) * 60 + Minute(ActiveSheet.Cells(resultRow, perColumn)) < 510 Then
+              ' 工时不足 => 红色
+              ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(255, 0, 0)
+              redCount = redCount + 1
+            Else
+              ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(206, 255, 206)
+            End If
+            ActiveSheet.Cells(resultRow, perColumn).NumberFormatLocal = "[h]时mm分"
+          Else
+            If timeLength = 0 Then
+              ' 没有打卡时间 => 灰色
+              ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(128, 128, 128)
+              greyCount = greyCount + 1
+            Else
+              If timeLength = 2 Then
+                ActiveSheet.Cells(resultRow, perColumn) = ActiveSheet.Cells(pasteRow + 2, perColumn) - ActiveSheet.Cells(pasteRow + 1, perColumn)
+                If Hour(ActiveSheet.Cells(resultRow, perColumn)) * 60 + Minute(ActiveSheet.Cells(resultRow, perColumn)) < 510 Then
+                  ' 工时不足 => 红色
+                  ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(255, 0, 0)
+                  redCount = redCount + 1
+                Else
+                  ' 正常工时 => 绿色
+                  ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(206, 255, 206)
+                End If
+                ' 加上时间单位
+                ActiveSheet.Cells(resultRow, perColumn).NumberFormatLocal = "[h]时mm分"
+              Else
+                ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(255, 255, 0)
+              End If
+            End If
+          End If
+        End If
+
+        ' 收银部
+        If ActiveSheet.Cells(pasteRow, "b").Value = "收银部" Then
+          If timeLength = 4 Then
+            ActiveSheet.Cells(resultRow, perColumn) = ActiveSheet.Cells(pasteRow + 2, perColumn) + ActiveSheet.Cells(pasteRow + 4, perColumn) - ActiveSheet.Cells(pasteRow + 1, perColumn) - ActiveSheet.Cells(pasteRow + 3, perColumn)
+            If Hour(ActiveSheet.Cells(resultRow, perColumn)) * 60 + Minute(ActiveSheet.Cells(resultRow, perColumn)) < 510 Then
+              ' 工时不足 => 红色
+              ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(255, 0, 0)
+              redCount = redCount + 1
+            Else
+              ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(206, 255, 206)
+            End If
+            ActiveSheet.Cells(resultRow, perColumn).NumberFormatLocal = "[h]时mm分"
+          Else
+            If timeLength = 0 Then
+              ' 没有打卡时间 => 灰色
+              ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(128, 128, 128)
+              greyCount = greyCount + 1
+            Else
+              If timeLength = 2 Then
+                ActiveSheet.Cells(resultRow, perColumn) = ActiveSheet.Cells(pasteRow + 2, perColumn) - ActiveSheet.Cells(pasteRow + 1, perColumn)
+                If Hour(ActiveSheet.Cells(resultRow, perColumn)) * 60 + Minute(ActiveSheet.Cells(resultRow, perColumn)) < 510 Then
+                  ' 工时不足 => 红色
+                  ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(255, 0, 0)
+                  redCount = redCount + 1
+                Else
+                  ' 正常工时 => 绿色
+                  ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(206, 255, 206)
+                End If
+                ' 加上时间单位
+                ActiveSheet.Cells(resultRow, perColumn).NumberFormatLocal = "[h]时mm分"
+              Else
+                ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(255, 255, 0)
+              End If
+            End If
+          End If
+        End If
+
+        ' 中厨部逻辑
+        If ActiveSheet.Cells(pasteRow, "b").Value = "中厨部" Then
+          If timeLength = 4 Then
+            ActiveSheet.Cells(resultRow, perColumn) = ActiveSheet.Cells(pasteRow + 2, perColumn) + ActiveSheet.Cells(pasteRow + 4, perColumn) - ActiveSheet.Cells(pasteRow + 1, perColumn) - ActiveSheet.Cells(pasteRow + 3, perColumn)
+            If Hour(ActiveSheet.Cells(resultRow, perColumn)) * 60 + Minute(ActiveSheet.Cells(resultRow, perColumn)) < 540 Then
+              ' 工时不足 => 红色
+              ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(255, 0, 0)
+              redCount = redCount + 1
+            Else
+              ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(206, 255, 206)
+            End If
+            ActiveSheet.Cells(resultRow, perColumn).NumberFormatLocal = "[h]时mm分"
+          Else
+            If timeLength = 0 Then
+              ' 没有打卡时间 => 灰色
+              ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(128, 128, 128)
+              greyCount = greyCount + 1
+            Else
+              If timeLength = 2 Then
+                ActiveSheet.Cells(resultRow, perColumn) = ActiveSheet.Cells(pasteRow + 2, perColumn) - ActiveSheet.Cells(pasteRow + 1, perColumn)
+                If Hour(ActiveSheet.Cells(resultRow, perColumn)) * 60 + Minute(ActiveSheet.Cells(resultRow, perColumn)) < 510 Then
+                  ' 工时不足 => 红色
+                  ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(255, 0, 0)
+                  redCount = redCount + 1
+                Else
+                  ' 正常工时 => 绿色
+                  ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(206, 255, 206)
+                End If
+                ' 加上时间单位
+                ActiveSheet.Cells(resultRow, perColumn).NumberFormatLocal = "[h]时mm分"
+              Else
+                ActiveSheet.Cells(resultRow, perColumn).Interior.Color = RGB(255, 255, 0)
+              End If
+            End If
+          End If
+        End If
+      Next
+
+      ActiveSheet.Cells(pasteRow + 1, "b") = greyCount
+      ActiveSheet.Cells(pasteRow + 1, "b").Interior.Color = RGB(128, 128, 128)
+      ActiveSheet.Cells(pasteRow + 2, "b") = redCount
+      ActiveSheet.Cells(pasteRow + 2, "b").Interior.Color = RGB(255, 0, 0)
+    End If
+  Next
+End Sub
