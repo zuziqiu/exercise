@@ -39,7 +39,7 @@ def calculate(time_group, criteria):
         hours = total_duration.seconds // 3600
         minutes = (total_duration.seconds % 3600) // 60
 
-        if total_minutes > criteria:
+        if total_minutes >= criteria:
             background = green_fill
         else:
             background = red_fill
